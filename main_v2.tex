@@ -37,9 +37,9 @@
 \usepackage{hyperref}
 \hypersetup{
     colorlinks=true,
-    linkcolor=codedarkblue,
+    linkcolor=blue,
     filecolor=magenta,      
-    urlcolor=codedarkblue,
+    urlcolor=blue,
     pdftitle={},
     pdfpagemode=FullScreen,
     }
@@ -212,14 +212,13 @@ Il plasma è uno stato della materia simile ad un gas ma completamente ionizzato
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=8.2cm]{immagini/T-rho.jpg}
+    \includegraphics[width=8cm]{immagini/T-rho.jpg}
     \caption{densità e temperature tipiche di alcune diverse manifestazioni dello stato di plasma}
     \label{fig:n-T}
 \end{figure}
 \end{multicols}
 
 Dato che il plasma è relativamente rarefatto, la distanza media tra le cariche è molto maggiore della scala tipica delle interazioni forti ($\lambda_{DB}=\frac{\hbar}{p}\sim10^{-8}$ cm, lunghezza di De~Broglie), $d>>\lambda_{DB}$, per cui non contano gli effetti quantistici, ma prevarranno le forze elettromagnetiche (auto-generate o esterne).
-\parskip
 
 Le collisioni sono estremamente rare e le distanze fra le particelle $r_n$ sono molto maggiori della distanza di minimo approccio $r_0$, , definita da:
 \[
@@ -230,10 +229,9 @@ Le collisioni sono estremamente rare e le distanze fra le particelle $r_n$ sono 
 \text{Per i plasmi: } \frac{\nu_c}{\omega} \rightarrow 0 \quad\quad
 \text{Per i gas: } \frac{\nu_c}{\omega} \rightarrow \infty
 \]
-\parskip
 
 Il sistema è dominato dalle forze elettromagnetiche: le cariche e il loro moto generano campi elettrici e magnetici, inoltre possono essere presenti campi esterni (elettrici, magnetici o elettromagnetici). Si tratta di un sistema N-body, e come nella meccanica statistica è necessario passare a un modello continuo. In fluidodinamica ciò funziona bene; per i plasmi vedremo che la questione è più complessa.
-\parskip
+
 
 Le equazioni che otterremo sono le equazioni del moto  e l'equazione di continuità, come tipicamente in fluidodinamica. il problema è che in fluidodinamica si può chiudere il sistema con la termodinamica, ma in fisica dei plasmi la termodinamica non ci aiuta molto e bisogna "tirare fuori dal cappello" la chiusura che dobbiamo provare a inventare a seconda della situazione fisica.
 
@@ -290,7 +288,7 @@ Prima equazione della fluidodinamica, anche detta equazione di continuità della
 \end{equation}
 
 
-dove $\displaystye\frac{\partial \rho}{\partial t}$ è la variazione locale della densità nel tempo, che non è altro che equivalente al flusso di materia che entra ed esce dall'elemento fluido, il flusso di massa $\vec{\nabla}(\rho \vec{u})$. 
+dove $\displaystyle \frac{\partial \rho}{\partial t}$ è la variazione locale della densità nel tempo, che non è altro che equivalente al flusso di materia che entra ed esce dall'elemento fluido, il flusso di massa $\vec{\nabla}(\rho \vec{u})$. 
 
 Riconosciamo, sviluppando $\vec{\nabla} \cdot (\rho \vec u) = (\vec{u}\cdot\vec\nabla)\rho + \rho \vec\nabla\cdot\vec{u}$, che due termini possono essere accorpati per riscrivere la formula usando una derivata materiale:
 \[ \Big(\frac{d\rho}{dt} + (\vec{u}\cdot\vec\nabla)\rho\Big) + \rho \vec\nabla\cdot\vec{u}\ =\ \frac{D}{Dt}\rho + \rho\vec\nabla\cdot\vec{u}\ =\ 0\ \ \ \ . \]
@@ -556,7 +554,7 @@ Il plasma reagisce alla stessa frequenza indipendentemente dalla lunghezza d'ond
 Per ora abbiamo ipotizzato di poter trascurare il gradiente di pressione, ora per ogni specie $a$ immaginiamo ci sia un comportamento  $P_a=n_aT_a$ come in un gas perfetto ($k_B =1$, in tutto il corso si lavora in unità naturali), che linearizzato diventerebbe $\boxed{\delta P=T_0\delta n}$ (non ho $\delta T$ perché non ho collisioni).
 
 Nel ricavare la frequenza di plasma abbiamo supposto che la \textbf{velocità termica degli elettroni} $v_{th, e}$ fosse trascurabile rispetto alla \textbf{velocità di fase} 
-$\boxed{$c_\phi$ \equiv \displaystyle\frac{\omega}{k}\gg v_{th}}$, vediamo bene il perché:
+$\boxed{c_\phi \equiv \displaystyle\frac{\omega}{k}\gg v_{th}}$, vediamo bene il perché:
 l'equazione di moto - reinserita la pressione come appena ipotizzata - diventa ora: 
 \[-i\omega m_en_0\delta u=iken_0\delta \phi - ikT_{0,e} \delta n_e\]
 Allora confrontando i termini in un rapporto, vediamo che il termine di pressione è trascurabile nel caso in cui $c_\phi\gg v_{th}$, definita $\boxed{v_{th, e}^2\equiv T_{0, e}/m_e}$ la \textbf{velocità termica elettronica}:
@@ -600,7 +598,7 @@ Dopo aver inserito la politropica nell'equazione del moto abbiamo: $-i\omega m_e
 
 Il $\delta P$ serve per poter utilizzare l'equazione completa della dinamica, in questo caso non siamo più in regime di plasma freddo e la risposta termica comincia ad avere un ruolo. Inseriamo nell'equazione del moto linearizzata le forme di $\delta \phi$ e $\delta u$ ricavate dalle altre equazioni
 
-\[\cancel{-}i\omega m_e\cancel{n_0} \left(\frac{\omega}{\cancel{n_0} k}\cancel{\delta n}\right) = i\cancel{k}en_0\left( \cancel{-}\displaystyle\frac{4\pi e}{k^\cancel{2}}\cancel{\delta n}\ \right) \cancel{-} ik \gamma T_{0,e} \cancel{\delta n} \]
+\[\cancel{-}i\omega m_e\cancel{n_0} \left(\frac{\omega}{\cancel{n_0} k}\cancel{\delta n}\right) = i\cancel{k}en_0\left( \cancel{-}\displaystyle\frac{4\pi e}{k^{\cancel{2}}}\cancel{\delta n}\ \right) \cancel{-} ik \gamma T_{0,e} \cancel{\delta n} \]
 
 \[\omega^2  = \frac{4\pi e^2n_0}{m_e} +k^2 \gamma \frac{T_{0,e}}{m_e}\]
 
@@ -937,7 +935,7 @@ Riprendiamo ora l'eq.\ref{VLASOV} ed integriamone i diversi membri sullo spazio 
 
 \[ \int \frac{\partial f_\alpha}{\partial t} d\textbf{v} \ =\ \frac{\partial }{\partial t} \int f_\alpha d\textbf{v} \ =\ \frac{\partial n_\alpha}{\partial t}\]
 
-\[ \int \vec v_\alpha \cdot \frac{\partial f_\alpha}{\partial \vec x} d\textbf{v}\ &=\ \int \frac{\partial}{\partial \vec x} (\vec v_\alpha f_\alpha) d\textbf{v}\ =\ \int f_\alpha \cancelto{=0}{\frac{\partial}{\partial \vec x } \vec v_\alpha}d\textbf{v} +\int \frac{\partial f_\alpha}{\partial \vec x}\cdot \vec v_\alpha d\textbf{v} \ =\ \frac{\partial}{\partial \vec x}(n_\alpha \vec u)\]
+\[ \begin{aligned}\int \vec v_\alpha \cdot \frac{\partial f_\alpha}{\partial \vec x} d\textbf{v}\ &=\ \int \frac{\partial}{\partial \vec x} (\vec v_\alpha f_\alpha) d\textbf{v}\ =\ \int f_\alpha \cancelto{=0}{\frac{\partial}{\partial \vec x } \vec v_\alpha}d\textbf{v} +\int \frac{\partial f_\alpha}{\partial \vec x}\cdot \vec v_\alpha d\text{v} \ =\ \frac{\partial}{\partial \vec x}(n_\alpha \vec u) \end{aligned} \]
 
 \[  \int \left(\vec E + \frac{\vec v\times\vec B}{c}\right) \cdot \frac{\partial f_\alpha}{\partial \vec v_\alpha} d\textbf{v}\ =\ \int \frac{\partial}{\partial \vec v_\alpha} \left[f_\alpha  \left( \vec E + \frac{\vec v\times\vec B}{c}\right)  \right] d\textbf{v} - \cancel{\int f_\alpha \frac{\partial}{\partial \vec v_\alpha} \left( \vec E + \frac{\vec v\times\vec B}{c}\right)}\ =\ 0 \]
 
@@ -979,7 +977,7 @@ Quest'ultima trovata è - di fatto - un'\textbf{equazione del moto}.
 
     Moltiplichiamo il tutto per m e, definito $\vec p = m\vec u$, si arriva infine alla forma:
     \[\boxed{n\frac{D\vec p}{Dt}\ =\ - \vec\nabla\cdot\mathbf{P} + nq\left( \vec E + \frac{\vec u\times \vec B}{c} \right) }\ \ \ \ .\]
-    In generale il tensore \mathbf{P} si può supporre abbia una parte isotropa almeno su grandi scale: $\mathbf{P}=p \mathcal{I}+\Pi$.
+    In generale il tensore $\mathbf{P}$ si può supporre abbia una parte isotropa almeno su grandi scale: $\mathbf{P}=p \mathcal{I}+\Pi$.
     Sotto questa ipotesi per cui $|\nabla p|\gg |\nabla\cdot \Pi|$ è utile definire una pressione isotropa $p=\frac{1}{3} tr{\mathbf{P}} = \frac{1}{3}mn\langle w^2\rangle$ che in un gas ideale per cui la pressione è legata alla temperatura da $p=nT$ ci porta alla temperatura $T=\frac{1}{3}m\langle w^2\rangle$ (più che una temperatura una stima dell'energia cinetica per specie).
 \end{approfondimento}
 
@@ -1050,10 +1048,10 @@ Riprendiamo anche l'eq. del moto per l'impulso trovata per i due fluidi in eq.\r
 
 Avevamo usato $\mathbf{P}_\alpha=n_\alpha m_\alpha \langle \vec w \vec w \rangle_\alpha$, con $\vec v = \vec u + \vec w$, ma ora noi vogliamo una pressione di singolo fluido $\mathbf{P} = \sum_\alpha \mathbf{P}_\alpha = p\mathcal{I} + \Pi$.
 
-\[\begin{align}
+\[\begin{aligned}
     \mathbf{P}_\alpha &= n_\alpha m_\alpha \langle (\vec v - \vec u) (\vec v - \vec u) \rangle_\alpha = n_\alpha m_\alpha [\langle \vec v\vec v\rangle_\alpha - \langle \vec v\vec u\rangle_\alpha - \langle \vec u\vec v\rangle_\alpha + \langle \vec u\vec u\rangle_\alpha] = \\
     &= n_\alpha m_\alpha [\langle \vec v\vec v\rangle_\alpha - \vec u_\alpha\vec u - \vec u\vec u_\alpha + \vec u\vec u]
-\end{align}\]
+\end{aligned}\]
 
 Usiamo $\langle \vec v\rangle = \vec u_\alpha$ e calcoliamo $\mathbf{P}=\sum_\alpha \mathbf{P}_\alpha$:
 
@@ -1064,8 +1062,8 @@ Ricordando che $\rho \vec u = \sum_\alpha n_\alpha m_\alpha\vec u_\alpha$ vediam
 
 \[ \sum_\alpha n_\alpha m_\alpha \langle \vec v \vec v \rangle_\alpha = \mathbf{P} + \rho \vec u \vec u\]
 
-\[\begin{align} \frac{\partial}{\partial t} (\rho\vec u) + \vec \nabla\cdot (\rho\vec u\vec u) + \vec \nabla \cdot \mathbf{P}&= \rho  \frac{\partial \vec u}{\partial t} + \cancelto{\text{eq. di continuità}}{\vec u  \frac{\partial\rho}{\partial t} + \vec u\vec\nabla\cdot (\rho\vec u)} + \rho(\vec u\cdot \vec \nabla)\vec u + \vec \nabla \cdot \mathbf{P} = \\ &= \rho \left[ \frac{\partial\vec u}{\partial t} +(\vec u\cdot \vec \nabla)\vec u \right] + \vec \nabla \cdot \mathbf{P}
-\ =\ \rho\, \frac{D\vec u}{Dt} + \vec \nabla \cdot \mathbf{P}\end{align}\]
+\[\begin{aligned} \frac{\partial}{\partial t} (\rho\vec u) + \vec \nabla\cdot (\rho\vec u\vec u) + \vec \nabla \cdot \mathbf{P}&= \rho  \frac{\partial \vec u}{\partial t} + \cancelto{\text{eq. di continuità}}{\vec u  \frac{\partial\rho}{\partial t} + \vec u\vec\nabla\cdot (\rho\vec u)} + \rho(\vec u\cdot \vec \nabla)\vec u + \vec \nabla \cdot \mathbf{P} = \\ &= \rho \left[ \frac{\partial\vec u}{\partial t} +(\vec u\cdot \vec \nabla)\vec u \right] + \vec \nabla \cdot \mathbf{P}
+\ =\ \rho\, \frac{D\vec u}{Dt} + \vec \nabla \cdot \mathbf{P}\end{aligned}\]
 
 Per il terzo termine, quello di forza:
 
@@ -1093,10 +1091,10 @@ ora questa diversa forma da cui partire ci condurrà all'equazione di Ohm genera
 
 Per il secondo termine torniamo a giocare con la definizione di velocità peculiare:
 
-\[ \begin{align} \langle \vec v \vec v\rangle = \langle (\vec u + \vec w)(\vec u + \vec w) \rangle &= \vec u\vec u +  \langle \vec w \vec w\rangle_\alpha + \langle \vec w \vec u\rangle_\alpha + \langle \vec u \vec w\rangle_\alpha =\\ &=\vec u\vec u +  \langle \vec w \vec w\rangle_\alpha + (\vec u_\alpha - \vec u)\, \vec u  + \vec u\, (\vec u_\alpha - \vec u)=
-\end{align}\]
+\[ \begin{aligned} \langle \vec v \vec v\rangle = \langle (\vec u + \vec w)(\vec u + \vec w) \rangle &= \vec u\vec u +  \langle \vec w \vec w\rangle_\alpha + \langle \vec w \vec u\rangle_\alpha + \langle \vec u \vec w\rangle_\alpha =\\ &=\vec u\vec u +  \langle \vec w \vec w\rangle_\alpha + (\vec u_\alpha - \vec u)\, \vec u  + \vec u\, (\vec u_\alpha - \vec u)=
+\end{aligned}\]
 
-Se ora andiamo a richiamare l'equazione dell'energia del capitolo precedente possiamo trovare una chiusura \sum_\alpha \frac{m_\alpha}{2}
+Se ora andiamo a richiamare l'equazione dell'energia del capitolo precedente possiamo trovare una chiusura $\sum_\alpha \frac{m_\alpha}{2}$ :
 
 \[ \frac{\partial \varepsilon}{\partial t}\ =\ -\vec \nabla\cdot \vec Q + \vec E\cdot\vec J \]
 
@@ -1112,9 +1110,9 @@ Sappiamo che $P_\alpha = \frac{1}{3} m_\alpha n_\alpha \langle \vec w\vec w \ran
 
 Poi vogliamo cercare di calcolare $\langle v^2 \vec v\rangle_\alpha$:
 
-\[ \begin{align}\langle v^2 \vec v\rangle_\alpha &=\ \langle\ [\ (\vec w +\vec u)\cdot(\vec w + \vec u)\ ]\ (\vec w + \vec u)\ \rangle_\alpha \\ 
+\[ \begin{aligned}\langle v^2 \vec v\rangle_\alpha &=\ \langle\ [\ (\vec w +\vec u)\cdot(\vec w + \vec u)\ ]\ (\vec w + \vec u)\ \rangle_\alpha \\ 
 &= \langle w^2 \vec w\rangle_\alpha +\langle \vec w^2 \vec u\rangle_\alpha + \langle u^2 \vec w\rangle_\alpha + u^2\vec u + 2\langle (\vec u\cdot \vec w)\,\vec w\rangle_\alpha + 2\langle (\vec u\cdot \vec w)\,\vec u\rangle_\alpha
-\end{align} \]
+\end{aligned} \]
 
 e - a questo punto - cerchiamo un modo intelligente di ridurre questi termini, in particolare riconoscendo i flussi di calore di singola specie $\vec q_\alpha$, le pressioni di singola specie $p_\alpha$ e ricordando le definizioni di $\rho$, $\rho\vec u$ e $\mathbf{P}$:
 
@@ -1154,11 +1152,11 @@ Torniamo quindi all'equazione del moto e per semplificare i conti assumiamo che 
 
 Per il secondo termine possiamo 'portare fuori' la divergenza e sviluppiamo:
 
-\[\begin{align}
+\[\begin{aligned}
     \sum_\alpha n_\alpha q_\alpha \langle vv\rangle_\alpha &= ne \langle \vec v\vec v\rangle_i - ne \langle \vec v\vec v\rangle_e\\
     &= ne\left[ \langle\, [(\vec v_i - \vec u)+\vec u]\,[(\vec v_i - \vec u)+\vec u]\,\rangle_i - \langle\, [(\vec v_e - \vec u)+\vec u]\, [(\vec v_e - \vec u)+\vec u]\,\rangle_e \right] =\\
     &= n e \left( \underset{\text{press. singola specie } \langle w w \rangle_i}{\underbrace{\langle (\vec v_i -\vec u)\, (\vec v_i - \vec u) \rangle_i}} + \cancelto{0}{\vec u\vec u} + \langle (\vec v_i - \vec u)\, \vec u \rangle_i + \underset{\vec u\langle v_i - \vec u\rangle_i=\vec u(\vec u_i-\vec u)}{\underbrace{\langle \vec u (\vec v_i - \vec u)\rangle_i}}\right) - ne\,(\dots)_e\,
-\end{align}\]
+\end{aligned}\]
 
 \[ \sum_\alpha n_\alpha q_\alpha \langle vv\rangle_\alpha\ =\ \frac{e}{m_i} p_i - \frac{e}{m_e} p_e + (\vec j\,\vec u +\vec u\, \vec j)\ (1 + \frac{m_e}{m_i}) \]
 
@@ -1168,9 +1166,9 @@ Quindi nell'equazione del moto abbiamo:
 
 Prendiamo il termine con $q_\alpha^2$:
 
-\[\begin{align}
+\[\begin{aligned}
 \sum_\alpha \frac{n_\alpha}{m_\alpha} q^2_\alpha (\vec E + \frac{\vec u_\alpha\times \vec B}{c}) &=\ ne^2 \left(\cancel{\frac{1}{m_i}} + \frac{1}{m_i}\right)\vec E\, +\, ne^2\, \left(\sum_\alpha \frac{\vec u_\alpha}{m_\alpha}\right)\times \vec B/c  \\ &= \frac{n e^2}{m_e} \vec E + \frac{n^2_e}{m_e} (\vec u +\frac{\vec j}{m_e})\times \frac{\vec B}{c}
-\end{align}\]
+\end{aligned}\]
 
 dove per il termine in parentesi al secondo membro lo sviluppo sarebbe:
 
@@ -1333,23 +1331,22 @@ Per fare un esempio dell'andamento tipico possiamo considerare  $B_0(x)=\tanh{\f
 
 \[\partial_t \vec B=\nabla\times(\vec u\times\vec B_0)+\eta\nabla^2\vec b\] facciamo tutti i conti passo passo
 \[\vec u\times\vec B_0= 
-
 \begin{vmatrix} 
   \hat i & \hat j & \hat k\\ 
   \partial_y\phi & \partial_x\phi & 0\\
    0& B_0 &  0
-
 \end{vmatrix} 
+=B_0\delta_y\phi\hat z\] 
 
-=B_0\delta_y\phi\hat z\] \[\nabla\times[\vec u\times\vec B_0]= 
-
+\[\nabla\times[\vec u\times\vec B_0]= 
 \begin{vmatrix} 
   \hat i & \hat j & \hat k\\ 
   \partial_x & \partial_y & 0\\
    0& 0 &  B_0\partial_y\phi
 \end{vmatrix} 
+=B_0\partial_{yy}\phi\hat x-\partial x[B_0\partial \phi]\hat y=B_0\partial_{yy}\phi\hat x-(B_0'\partial_y\phi+B_0\partial{xy}\phi)\hat y\] 
 
-=B_0\partial_{yy}\phi\hat x-\partial x[B_0\partial \phi]\hat y=B_0\partial_{yy}\phi\hat x-(B_0'\partial_y\phi+B_0\partial{xy}\phi)\hat y\] dove $B_0'=\partial_ xB_0$ e in generale d'ora in poi i termini col primo si intende derivata lungo x.  
+dove $B_0'=\partial_ xB_0$ e in generale d'ora in poi i termini col primo si intende derivata lungo x.  
 \[\nabla^2\vec b=(\partial_{xx}+\partial{yy})(\partial_y\psi\hat x-\partial_x\psi\hat y)=(\partial_{xxy}+\partial_{yyy})\psi\hat x-(\partial_{xxx}+\partial_{yyx})\psi\hat y\] chiaramente la derivata rispetto al tempo del campo elettrico mi ammazza il campo medio $B_0$ 
 \[\partial_t\vec B=\partial _t\vec b=\partial_{ty}\psi\hat x-\partial_{tx}\psi\hat y\]
 Metto tutto insieme , separo le componenti e impongo una bella soluzione piana  (non è per davvero un'onda piana, al massimo posso dire che è un ansatz)\[\sim f(x)e^{iky-\gamma t}\]:\begin{itemize}
@@ -1524,13 +1521,19 @@ l'altra soluzione invece è quella che ci interessa:
 \[\omega^2_{IA}=k^2\frac{\omega^2_{pe^2}v_{0I}^2 +\omega^2_{pI}v_{0e}^2+k^2v_{0I}^2v^2_{0e}}{\omega^2+k^2v_{oe}^2}\] ora metto in evidenza $v_{0e}^2$ sopra e sotto e poi riconosco la lunghezza di debye \[\lambda _{D\alpha}^2=\frac{\omega_{p\alpha}^2}{v_{th.\alpha}^2},\quad \frac{\lambda^2_{De}}{\lambda^2_{DI}}=\frac{T_e}{T_I}\] Ho anche una relazione vagamente misteriosa che spero di riuscire a motivare studiando
 \[v_{0I}^2=\frac{\gamma_IP_{0I}}{m_In_{0I}}=\frac{\gamma_IT_{I}}{m_I}\] 
 RELAZIONE DI DISPERSIONE DELLE ONDE MAGNETOSONORE
-\[\boxed{\frac{\omega^2_{IA}}{k^2}=v_{0I}^2\frac{k^2+\frac{1}{\lambda_{De}^2}+\frac{1}{\lambda_{DI}^2}}{k^2+\frac{1}{\lambda_{De}^2}}}\] \subsubsectiomn{Regimi} Riconosciamo 3 regimi a seconda dell'ordinamento della lunghezza d'onda. \begin{enumerate}
+\[\boxed{\frac{\omega^2_\text{IA}}{k^2}=v_{0I}^2\frac{k^2+\frac{1}{\lambda_\text{De}^2}+\frac{1}{\lambda_\text{DI}^2}}{k^2+\frac{1}{\lambda_\text{De}^2}}}\]
+
+\paragraph{Regimi} Riconosciamo 3 regimi a seconda dell'ordinamento della lunghezza d'onda. 
+
+\begin{enumerate}
     \item \[k^2\ll\frac{1}{\lambda_De^2}\iff\lambda^2\gg\lambda_{De}^2,\quad k^2\ll\frac{1}{\lambda_{DI}^2}\iff\lambda^2\gg\lambda_{DI}^2\] Questa relazione non ci dice in che maniera sono ordinate le $\lambda_D$ e di conseguenza le $T$. in linea di principio è possibile che siano qualsiasi.  
+    
     \item  Oscillazioni di plasma degli ioni
     \[k^2\gg\frac{1}{\lambda_De^2}\iff\lambda^2\ll\lambda_{De}^2,\quad k^2\ll\frac{1}{\lambda_{DI}^2}\iff\lambda^2\gg\lambda_{DI}^2\] 
     \[\lambda_{De}^2\ll\lambda^2\ll\lambda_{DI}^2\implies T_I\gg T_e\]   
     \[\frac{\omega^2}{k^2}=v_{0I}^2(1+\frac{\lambda_{De}^2}{\lambda_{DI}^2})=\frac{\gamma_I}{m_I}T_I(\frac{T_e+T_I}{T_I})\]
     \[\boxed{\frac{\omega^2}{k^2}=\frac{\gamma_I}{m_I}(T_e+T_I)}\] Questa può essere vista come una sorta di velocità del suono, infatti queste sono le tipiche onde ionacustic. Si vede che l'inerzia è data dagli ioni nel senso che compare $m_I$ mentre la risposta termica è data da entrambi, anche se quando $T_I\sim T_e$ tipicamente avviene il Dumping di landau e l'onda non si propaga (a meno che non si faccia una forzatura). Invece le onde che sopravvivono sono quelle con $T_e\gg T_i$ \textit{"Se poi ho un forzaggio sono fuori dal regime lineare perché cambio la funzione di distribuaione e cambia anche la risposta dielettrica"} 
+    
     \item \[k^2\gg\frac{1}{\lambda_De^2}\iff\lambda^2\ll\lambda_{De}^2,\quad k^2\gg\frac{1}{\lambda_{DI}^2}\iff\lambda^2\ll\lambda_{DI}^2\]  Questo caso è praticamente insensato perchè siamo al di sotto delle lunghezze di Debye e praticamente non possiamo nemmeno dire di avere a che fare con un plasma. In questo caso la soluzione ha come relazione di dispersione una relazione analoga alle onde di plasma, ma per gli ioni. \[\omega^2=\omega_{pI}^2+k^2v_{0I}^2\] 
 \end{enumerate} 
 Alla fine della fiera quando si parla di onde IonAcoustic si parla del caso uno e tendenzialmente con $T_e\gg T_i$. 
