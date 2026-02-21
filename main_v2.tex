@@ -1,0 +1,1805 @@
+\documentclass{article}
+\usepackage{graphicx} 
+\usepackage{amsmath}
+\usepackage{amssymb}% Required for inserting images
+\usepackage{amsfonts}
+\usepackage[most]{tcolorbox}
+\usepackage{amsthm}
+\usepackage{cancel}
+\newcommand{\prodscal}[2]{\vec{#1} \cdot \vec{#2}}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[italian]{babel}
+\usepackage{geometry}
+\geometry{a4paper ,  top = 2.5 cm , bottom = 2.5 cm, left = 2.5 cm , right = 2.5 cm}
+\usepackage{changepage}
+\usepackage{upgreek}
+\usepackage{mathrsfs}
+\usepackage{eufrak}
+\usepackage{siunitx}
+\usepackage{graphicx}
+\usepackage{xcolor}
+\usepackage{float}
+\usepackage{textcomp}
+\usepackage{comment}
+\usepackage{titling}
+\usepackage{titlesec}
+\usepackage{multicol}
+\usepackage{subfigure}
+\usepackage{wrapfig}
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{listings}
+\usepackage{color}
+\usepackage{numprint}
+\npthousandsep{\,}
+\usepackage{enumerate}
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks=true,
+    linkcolor=codedarkblue,
+    filecolor=magenta,      
+    urlcolor=codedarkblue,
+    pdftitle={},
+    pdfpagemode=FullScreen,
+    }
+\urlstyle{same}
+\lstset{language=python,
+        backgroundcolor=\color{white},
+        basicstyle=\footnotesize\ttfamily,
+        keywordstyle=\color{red},
+        stringstyle=\color{codepurple},
+        numberstyle=\tiny\color{codegray},
+        breaklines=true,
+        numbers=none,
+        numberstyle=\scriptsize\sffamily\color{black},
+        stepnumber=5,
+        numbersep=10pt,
+        captionpos=b,
+        commentstyle=\footnotesize\ttfamily\color{blue}}
+\lstset{frame=lines}
+\lstset{label={lst:code_direct}}
+\lstset{basicstyle=\footnotesize}
+\setlength{\parindent}{0pt}
+\addto\captionsitalian{\renewcommand*\figurename{\textsc{Fig.}}}
+\addto\captionsitalian{\renewcommand*\tablename{\textsc{Tab.}}}
+
+
+% Stile base per teoremi/definizioni
+\tcbset{
+  theobox/.style={
+    enhanced,
+    breakable,
+    colback=gray!3!white,      % sfondo leggermente più scuro della pagina
+    colframe=red!30!black,     % bordo rosso scuro
+    coltitle=red!40!black,
+    fonttitle=\bfseries,
+    boxed title style={
+      colback=red!10!white,    % sfondo del titolo un po' più saturo
+      boxrule=0.8pt
+    },
+    attach boxed title to top left={
+      xshift=2mm,
+      yshift=-2mm
+    },
+    top=3mm,
+    bottom=3mm,
+    left=3mm,
+    right=3mm
+    %separator sign={}
+  }
+}
+
+% Teorema
+\newtcbtheorem[no counter]{teorema}{Teorema}%
+  {theobox}{th}
+
+% Definizione (stesso stile, titolo diverso)
+\newtcbtheorem[no counter]{definizione}{Definizione}%
+  {theobox, breakable=false}{defnb}
+
+% Approfondimenti (verde)
+\newtcolorbox{approfondimento}[2][]{%
+  enhanced,
+  breakable,
+  colback=white!5!white,
+  colframe=blue!50!black,
+  coltitle=blue!40!black,
+  fonttitle=\bfseries,
+  title={#2},
+  boxed title style={
+    colback=white!10!white,
+    boxrule=0.8pt
+  },
+  attach boxed title to top left={
+    xshift=2mm,
+    yshift=-2mm
+  },
+  top=3mm,
+  bottom=3mm,
+  left=3mm,
+  right=3mm,
+  #1
+}
+
+
+% Dimostrazioni (grigio chiaro, testo più piccolo)
+\newtcolorbox{dimostrazione}[2][]{%
+  enhanced,
+  breakable,
+  colback=gray!5!white,
+  colframe=gray!50!black,
+  coltitle=black,
+  fonttitle=\bfseries,
+  fontupper=\small,            % testo dentro la dimostrazione in \small
+  title={#2},
+  boxed title style={
+    colback=gray!15!white,
+    boxrule=0.6pt
+  },
+  attach boxed title to top left={
+    xshift=2mm,
+    yshift=-2mm
+  },
+  top=2mm,
+  bottom=2mm,
+  left=3mm,
+  right=3mm,
+  #1
+}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{document}
+
+\begin{titlepage}
+        \begin{figure}[H]
+            \centering
+            \includegraphics[width=10cm]{immagini/copertina.pdf}
+        \end{figure}
+	\centering
+	\vspace{2 cm}
+	
+        {\huge\scshape \textbf{Fisica dei plasmi}}
+        \vspace{3 cm}
+        
+        {\Large\scshape Appunti di: \par Andrea Galiati \par Nicolò Mone}
+        
+        \vspace{2 cm}
+        {\large Tratti dal corso del prof. F. Califano, \par anno 2025 \par}
+	\vspace{1 cm}
+ 
+	{\normalsize }
+    
+	\vfill
+{\large \par}
+\end{titlepage}
+
+% INDICE / SOMMARIO
+\tableofcontents
+
+\newpage
+
+\section{Introduzione}
+%buon divertimento, evviva i plasmi.
+% grazie
+
+All'interno di questo corso affronteremo un'introduzione alla fisica dei plasmi, facendo principalmente riferimento a testi come \emph{'Fisica dei plasmi'} di G.Pucella e S.Segre, \emph{'Principles of plasma physics'} di N.A.Krall e A.W.Trivelpiece, \emph{'Plasma physics and fusion energy'} di J.Freidberg.
+
+\noindent Vedremo che la trattazione è spesso approssimata, talvolta ignorando completamente alcuni fenomeni poco rilevanti al fine di presentare un'introduzione. La descrizione del plasma per molti versi ricalca quella di un fluido ma con grandi differenze a causa delle forze elettromagnetiche in gioco e le minori collisioni.
+
+\noindent Mentre i fluidi, pur avendo grosse difficoltà analitiche, hanno un’unica descrizione fisica a tutte le scale, i plasmi presentano tre regimi distinti in cui la fisica è diversa, vi saranno diverse approssimazioni e set di equazioni:
+\begin{itemize}
+    \item \textbf{regime fluido}: In cui il plasma viene trattato come un continuo, quando le variazioni spaziali e temporali sono molto più lente delle scale cinetiche. Potremo costruire una descrizione a due fluidi mettendo assieme \emph{conservazione della massa}, \emph{equazione del moto}, \emph{conservazione dell'energia}, \emph{equazione di stato} per ciascuna specie (ioni ed elettroni). Questa descrizione può portare poi ad una descrizione ad un fluido comunemente chiamata \textbf{magnetoidrodinamica} (MHD);
+    \item \textbf{regime cinetico}: Quando le scale del fenomeno sono paragonabili a quelle caratteristiche del sistema come il raggio di Larmor $r_L$, la lunghezza di Debye $\lambda_D$ o il libero cammino medio $\lambda_{mfp}$, qui saremo tenuti a descrivere il plasma come un sistema di particelle collisionless;
+    \item \textbf{regime dissipativo}: È il regime in cui le piccole resistenze, viscosità, collisionalità non trascurabile, o le regioni sottili diventano importanti.
+\end{itemize}
+\noindent Tutti i regimi presentano forti non linearità; sotto le non linearità si celano modi lineari, ma questi
+interagiscono tra loro creando un comportamento complesso.
+
+
+
+\subsection{Cosa è un plasma?}  
+\begin{multicols}{2}
+Il plasma è uno stato della materia simile ad un gas ma completamente ionizzato, la sua composizione dipende dal problema fisico che stiamo affrontando, ma in generale è un sistema di cariche slegate con le seguenti caratteristiche:
+\begin{itemize}
+    \item \underline{Globalmente neutro}, $n_e \approx n_i$;
+    \item \underline{Dominato dalle forze elettromagnetiche}: Le particelle sono abbastanza lontane (o $k_BT$ è abbastanza grande) da avere \[U\ll k_BT\]
+    \item \underline{Collisioni rare} (o poco significative): Per questo nei plasmi "non c'è una termodinamica" ma l'energia viene trasferita su scale sempre più piccole senza dissipazione di energia in calore,  per questo può anche succedere che l'energia diluita possa anche ripresentarsi sotto forma di fenomeno a grande scala.
+    \item \underline{Comportamento collettivo}:  Le particelle interagiscono con la distribuzione di carica e le correnti di tutto il sistema contemporaneamente.
+\end{itemize}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=8.2cm]{immagini/T-rho.jpg}
+    \caption{densità e temperature tipiche di alcune diverse manifestazioni dello stato di plasma}
+    \label{fig:n-T}
+\end{figure}
+\end{multicols}
+
+Dato che il plasma è relativamente rarefatto, la distanza media tra le cariche è molto maggiore della scala tipica delle interazioni forti ($\lambda_{DB}=\frac{\hbar}{p}\sim10^{-8}$ cm, lunghezza di De~Broglie), $d>>\lambda_{DB}$, per cui non contano gli effetti quantistici, ma prevarranno le forze elettromagnetiche (auto-generate o esterne).
+\parskip
+
+Le collisioni sono estremamente rare e le distanze fra le particelle $r_n$ sono molto maggiori della distanza di minimo approccio $r_0$, , definita da:
+\[
+\frac{e^2 / r_0}{T} \sim 1
+\]. Ciò vuol dire che considerate la \underline{frequenza della dinamica del sistema} $\omega_D$ e la \underline{frequenza collisionale} $\nu_c$:
+
+\[
+\text{Per i plasmi: } \frac{\nu_c}{\omega} \rightarrow 0 \quad\quad
+\text{Per i gas: } \frac{\nu_c}{\omega} \rightarrow \infty
+\]
+\parskip
+
+Il sistema è dominato dalle forze elettromagnetiche: le cariche e il loro moto generano campi elettrici e magnetici, inoltre possono essere presenti campi esterni (elettrici, magnetici o elettromagnetici). Si tratta di un sistema N-body, e come nella meccanica statistica è necessario passare a un modello continuo. In fluidodinamica ciò funziona bene; per i plasmi vedremo che la questione è più complessa.
+\parskip
+
+Le equazioni che otterremo sono le equazioni del moto  e l'equazione di continuità, come tipicamente in fluidodinamica. il problema è che in fluidodinamica si può chiudere il sistema con la termodinamica, ma in fisica dei plasmi la termodinamica non ci aiuta molto e bisogna "tirare fuori dal cappello" la chiusura che dobbiamo provare a inventare a seconda della situazione fisica.
+
+
+
+%
+%
+\newpage
+\section{Costruiamo una teoria che descriva un plasma}
+
+\begin{approfondimento}{Elemento fluido}
+    \begin{multicols}{2}
+    Possiamo basare la nostra descrizione del plasma su qualcosa di simile a quel che è l'elemento fluido in fluidodinamica.
+
+    L'elemento fluido è un concetto teorico, una regione cubica di lato $\ell$ in un più grande sistema di lunghezza caratteristica $L\gg\ell$, tale che la distanza delle particelle all'interno dell'elemento sia $d\ll\ell$.
+
+    Per questo l'elemento fluido è da considerarsi come un punto $\vec{x}=(x, y, z)$ e questo ci permette di descrivere il sistema con proprietà intensive (pressione, densità, velocità) per singolo elemento.
+    
+    \includegraphics[width=7cm]{immagini/A-23.png}
+    \end{multicols}
+    Le grandezze definite per il cubetto (grandezze termodinamiche) diventano campi continui: ad esempio $\rho(\vec x)$, $p(\vec x)$, ... 
+
+    Il cubetto $\Delta V$, detto \textit{elemento fluido}, ha la caratteristica che il tempo con cui una molecola ne fuoriesce è molto maggiore del tempo caratteristico di evoluzione del sistema (dato l'altissimo numero di collisioni/ rateo di collisioni).
+    
+    La descrizione è sensata per un fluido in cui $\displaystyle\frac{\nu_c}{\omega_D}\rightarrow +\infty$ perché le particelle collidono così spesso da rimanere all'interno dell'elemento mentre esso si muove, permettendoci di trattare l'e.f. come una "super-particella" di massa $mn\Delta V$ e velocità $\vec{u}$. 
+
+    Nei plasmi, generalmente rarefatti e ad alta temperatura, le collisioni sono poche (ad esempio un protone del vento solare tipicamente ha al massimo una interazione in 1~U.A.). Le particelle in un cubetto  (avevo scritto elemento fluido ma individuare cosa sia un elemento fluido in un plasma non è facilissimo...) non sono quindi le stesse a tempi successivi. Tuttavia è possibile individuare regimi in cui il plasma si comporta come un fluido: si ottengono le stesse equazioni, ma senza poggiarsi sugli stessi pilastri teorici della fluidodinamica.  
+
+    Come può quindi essere valido per un plasma in cui $\displaystyle\frac{\nu_c}{\omega_D}\rightarrow 0$? perché i la presenza di campi esterni genererà movimento delle particelle con un certo raggio di girazione, sarà questo e non le collisioni a definire la dimensione $\ell^3$ dell'elemento fluido.
+\end{approfondimento}
+
+\begin{approfondimento}{Derivata lagrangiana}
+    Nel seguito apparirà più volte la derivata lagrangiana, anche detta "materiale" o "collettiva", operatore ricorrente della meccanica del continuo e della fluidodinamica:
+    \[ \frac{D}{Dt} \textit{f}\ =\ \frac{\partial}{\partial t} \textit{f}\ +\ \vec{u}\cdot\vec{\nabla} \textit{f}\ \ \ , \]
+    dove $\vec{u}\cdot\vec{\nabla}$ è il termine convettivo che tiene conto di come il campo \textit{f} vari non nel tempo ma come effetto del flusso del campo stesso.
+
+    \noindent Più in particolare, la derivata lagrangiana della velocità, $\frac{D}{Dt} \vec{u} = \frac{\partial}{\partial t} \vec{u} + \vec{u}\cdot\vec{\nabla} \vec{u}$ viene chiamata accelerazione idrodinamica, ma ne incontreremo molte altre.
+\end{approfondimento}
+
+Andiamo a definire nelle prossime sezioni le equazioni che saranno il pilastro della nostra teoria fluida, legate ad una visione euleriana della teoria dei plasmi che andremo a costruire in questo capitolo, nella quale descriveremo dei campi quali la densità $\rho(\vec{x}, t)$, la velocità $\vec{v}(\vec x, t)$, la pressione $p(\vec{x}, t)$, la densità di carica $\rho_q(\vec{x}, t)$, la corrente $\vec{J}(\vec{x}, t)$ oltre che chiaramente $\vec{E}(\vec{x}, t)$ e $\vec{B}(\vec{x}, t)$.
+
+
+ 
+
+\subsection{Equazione di continuità}
+Prima equazione della fluidodinamica, anche detta equazione di continuità della massa, è valida trascurando gli effetti di ricombinazione e ionizzazione che alterano il numero di ioni/elettroni nella popolazione, si ricava facilmente con un approccio euleriano e usando il teorema della divergenza: 
+\[\int_A\rho\vec v \hspace{1mm} d\vec A=-\frac{\partial}{\partial t}\int_V\rho dV\ \ \ \ \ \ \Rightarrow\ \ \ \ \ \
+\int_V\vec\nabla(\rho \vec v)dV=\int_V-\frac{\partial\rho}{\partial t} dV\]
+
+\begin{equation}
+    \label{fluid-continuità}
+    \Rightarrow \ \ \ \ \ \boxed{
+\frac{d\rho}{dt} + \vec{\nabla} \cdot (\rho \vec u) = 0}\ \ \ \  ,
+\end{equation}
+
+
+dove $\displaystye\frac{\partial \rho}{\partial t}$ è la variazione locale della densità nel tempo, che non è altro che equivalente al flusso di materia che entra ed esce dall'elemento fluido, il flusso di massa $\vec{\nabla}(\rho \vec{u})$. 
+
+Riconosciamo, sviluppando $\vec{\nabla} \cdot (\rho \vec u) = (\vec{u}\cdot\vec\nabla)\rho + \rho \vec\nabla\cdot\vec{u}$, che due termini possono essere accorpati per riscrivere la formula usando una derivata materiale:
+\[ \Big(\frac{d\rho}{dt} + (\vec{u}\cdot\vec\nabla)\rho\Big) + \rho \vec\nabla\cdot\vec{u}\ =\ \frac{D}{Dt}\rho + \rho\vec\nabla\cdot\vec{u}\ =\ 0\ \ \ \ . \]
+
+Interpretazione: un volumetto di fluido può cambiare densità solo comprimendosi o espandendosi. 
+Nel limite di incomprimibilità si impone $\vec\nabla\cdot\vec{u}=0$ e rimane solamente $\frac{D\rho}{Dt}=0$; questo limine è utile quando si studiano fenomeni senza compressione (es. onde trasversali EM, onde di Alfvén), fenomeni longitudinali come le onde magnetosonore, invece, prevedono compressione e richiedono di non imporre la incomprimibilità.
+
+\subsection{Equazioni del moto (tre componenti)}
+Da uno studio della lagrangiana e quindi delle forze che agiscono sull'elemento, si ottiene quella che in fluidodinamica è l'equazione idrodinamica. Consideriamo solamente le forze interne all'elemento fluido perché tendenzialmente in un fluido la pressione è isotropa e quindi all'esterno è tutto compensato. 
+\[\vec F=-\int Pd\vec A=-\int \vec \nabla PdV\] sfruttando il punto di vista lagrangiano seguo l'elemento che accelera. Otteniamo così la nostra equazione del moto simil $\vec F = m\vec a$:
+\[\rho\frac {D}{Dt}\vec u=-\vec \nabla P\] \
+\[ \rho \left[ \frac{\partial \vec u}{\partial t} + (\vec u \cdot \vec \nabla)\vec u \right] = -\nabla P + \text{grav} + \text{col} + \dots  \ \ \ \ .\]
+\noindent Oltre la pressione in genere si usa almeno anche un termine gravitazionale:
+
+\begin{equation}\label{fluid-eq-moto}
+    \boxed{
+    \rho\ \frac{D}{D t} \vec u  = -\vec\nabla p + \rho \vec g +  \vec f} \ \ \ \ .
+\end{equation}
+
+Aggiungiamo un termine $\vec f$ perché ci aspettiamo che per i plasmi ci siano anche forze elettromagnetiche che in questa prima forma puramente fluidodinamica non esplicitiamo (cfr. equazioni di Eulero).
+
+\subsection{Equazione di stato}
+Noi vorremmo risolvere il sistema di equazioni che stiamo costruendo per 5 variabili ($\vec u$, p, $\rho$), quindi, le quattro equazioni appena introdotte non bastano, il sistema necessità di una chiusura, qui interviene l'equazione di stato della pressione in funzione della densità:
+\[    
+p(\rho) \quad \text{ad esempio una politropica tipica dei fluidi:} \quad P = c \rho^\gamma
+\]
+Alla fine ci sono tante variabili (3 componenti della velocità + densità + pressione = 5 variabili) quante equazioni (una di conservazione della massa, tre equazioni del moto, la politropica): il sistema è chiuso. 
+
+\medskip
+
+
+
+
+\subsection{Linearizzazione delle equazioni} 
+
+Scriviamo le variabili come valore medio più una piccola perturbazione:
+\[
+\rho = \rho_0 + \delta\rho, \qquad 
+\vec u = \vec u_0 + \delta \vec u, \qquad
+P = P_0 + \delta P
+\]
+
+La perturbazione è piccola nel senso che
+\[
+\frac{\delta\rho}{\rho} \ll 1
+\]
+e i prodotti di termini del primo ordine vengono trascurati:
+\[
+\delta \rho \, \delta \vec u \ll \rho \vec u
+\]
+Mentre i prodotti tra ordine zero e ordine uno rimangono.
+
+\[
+(\rho_0 + \delta \rho)(\rho_0 + \delta \rho) 
+= \rho_0^2 + 2\rho_0 \delta \rho + \cancelto{0}{(\delta \rho)^2}
+\]
+
+
+
+
+\subsection{Evoluzione dell'elemento fluido} 
+In fluidodinamica si studia l'evoluzione dell'\textit{elemento fluido}. ho un fluido e nei vari punti la velocità varia  soprattutto per la condizioe di cut0 dei bordi. (nei casi si fluido incomprimibile come l'acqua allora è inevitabile che si formino dei vortici)\\L'evoluzione dell'elemento fluido  può essere descritta in due modi:
+\begin{itemize}
+    \item \textbf{Approccio lagrangiano}: si segue il cubetto nel tempo.  metto una paperella nel fiume e vedo dove va a finire, o meglio scelgo un elemento fluido e vedo dove va a finire. in un momento iniziale $t_0$ mi trovo in $x_0=x(t_0)$ e in un momento successivo mi troverò in un altro punto. posso definire la velocità lagrangiana che è la velocità $\vec v(\vec x(t),t)$ del mio elemento fluido. nei momenti successivi l'elemento fluido si sarà spostato di $\vec \xi (t)=\int_{t_0}^t\vec v(\vec x(t'),t')dt'$.
+e si troverà nel punto \[\vec x(t)=\vec x_0+\vec \xi(t)\]
+    \item \textbf{Approccio euleriano}: si osservano quantità fisiche in un punto fisso dello spazio come una stazione meteo. Fisso un sistema di riferimento e guardo cosa viene e cosa va.  definisco la velocità del fluido rispetto al mio sistema di riferimento, $\vec u(\vec x,t)$ con $\vec x $ che è un punto fissato. inizialmente in $x$ ho un elemento fluido che se ne va e al suo posto ci sarà un nuovo elemento fluido.
+\end{itemize}
+
+
+
+Per precisione: chiamiamo $t_E$ e $t_L$ i tempi nei due approcci (anche se sono uguali). Le velocità si indicano $\vec u$ (euleriana) e $\vec v$ (lagrangiana).  
+
+In approccio lagrangiano:
+\[
+\vec x(t_L) = \vec x_0 + \vec \xi(\vec x_0,t_L), 
+\qquad 
+\vec v = \frac{d\vec \xi}{dt}
+\]
+\medskip
+Poiché $\displaystyle\frac{\partial \vec x}{\partial t} = \frac{\partial \vec \xi}{\partial t} \quad \Rightarrow \quad \vec v = \vec u$
+
+\medskip
+A proposito di questi due approcci: torniamo a $\frac{D}{Dt}n+ (\vec u\cdot\vec \nabla)n=0$, la derivata lagrangiana della densità ci fa vedere che seguendo l'elemento fluido l'unica cosa che può far variare la densità è una compressione (o rarefacimento) del mio fluido. \\Fare la derivata euleriana equivale alla derivata lagrangiana a meno di un termine correttivo che tiene conto della direzione in cui va il mio fluido. 
+\medskip
+
+Per chiudere il sistema in termodinamica si assume spesso isotropia ($P\propto T$)  (tensore degli stress diagonale) . Nei plasmi l’isotropia non vale, perché i campi magnetici introducono direzioni privilegiate: parallela al campo (particelle libere) e ortogonale (particelle bloccate). Nonostante la mancanza di equazione di stato, isotropia e collisioni, la MHD (magnetoidrodinamica) funziona in molte condizioni.
+\\IN particolare nei plasmi si ha anisotropia per la pressione $P_{\parallel\vec B}\neq P_{\perp\vec B}$, i satelliti nel plasma spaziale misurano una distribuzione maxwelliana solamente sul piano $\perp \vec B$.
+
+
+\subsection{Ruolo delle collisioni nella diffusione del calore}
+
+Controintuitivamente, molte collisioni riducono la diffusione termica (es. gas perfetto). 
+
+Consideriamo un volumetto V, all'istante t=0 avrà una certa energia interna e flusso di calore dati da:
+\[ U = \rho c_v T \ \ \ \ ,\]
+\[ \vec{q} = -k \ \vec\nabla T\ \ \ \ ,\]
+dove $\vec{q}$ è la densità di corrente termica e $k$ la conducibilità. L'energia interna varia a seconda dello scambio di calore, della compressione o dal calore generato internamente:
+\[
+\frac{\partial}{\partial t}\int U \, dV = -\int (\vec q \cdot \hat n)\, dS \ \ \ \ .
+\]
+Applicando il teorema della divergenza:
+\[\int_{\partial V} (\vec q \cdot \hat n)\, dS = \int \vec\nabla \cdot \vec q\, dV \quad \Rightarrow \quad \frac{\partial U}{\partial t} = -\vec\nabla \cdot \vec q = -k \nabla^2 T \ \ \ \ .\]
+
+Se non c’è flusso di massa $\Rightarrow d\rho/dt = 0$, quindi:
+\[
+\frac{\partial U}{\partial t} = \rho c_v \frac{dT}{dt} 
+\quad \Rightarrow \quad 
+\frac{dT}{dt} = -D \nabla^2 T \ \ \ ,
+\]
+
+avendo definito la \underline{diffusività} $\boxed{D = \displaystyle\frac{k}{\rho c_v}}$, che ha dimensioni $[D]=m^2 s^{-1}$ ed è tale che $\displaystyle \frac{D}{L} \sim \frac{1}{\tau}$, cioè:
+\[
+D \sim \lambda_{mfp}^2 \nu_c = \frac{v_{th}^2}{\nu_c}\ \ \ \ ,
+\]
+
+dove $\boxed{v_{th}\sim\lambda_{mfp}\ \nu_c}$ è la \underline{velocità termica}, $\lambda_{mfp}$ il libero cammino medio e $\nu_c$ frequenza collisionale.  
+\[\nu_c\to\infty\implies D\to 0\]
+
+Molte collisioni $\Rightarrow$ diffusione lenta di energia $\implies $ comportamento adiabatico $\implies $ ho una relazione tra densità e pressione (equazione di stato politropica). Non confondere collisioni (viscosità) e trasporto di calore.  
+
+\subsubsection{Entropia}
+Nei plasmi, se la frequenza collisionale va all'infinito, $\nu_c\rightarrow \infty$ (cioè siamo adiabatici) vale:
+\[ \frac{dS}{dt} = 0 \]
+\[ \frac{\partial S}{\partial t} + (\vec u\cdot \nabla) S = 0 \]
+
+\subsubsection{Entalpia} 
+Riprendiamo la definizione di Entalpia $W$dalla termodinamica, le collisioni nei fluidi ci impongono entropia costante nell'elemento fluido (consideriamo $V$ il volume specifico). \\Il giochino adesso è esprimere l'equazione della dinamica (trasurando il campo gravitazionale) in termini dell'entalpia
+ \[dW=T\cancelto{0}{dS}+VdP=VdP\implies\rho \vec \nabla W=\vec \nabla P\] 
+ \[\partial _t\vec u+(\vec u \cdot\vec \nabla)\vec u=-\vec \nabla W\]
+
+\begin{approfondimento}{vorticità}
+Definiamo la vorticità come il rotore del campo di velocità \[\vec w=\vec \nabla\times\vec u \hspace{1cm}w_i=\epsilon_{ijk}\partial_ju_k\] Le linee di campo della vorticità sono dette linee di vorticità. Le linee di vorticità possono essere trasportate e spiegazzate ma non possono venire spezzate e riconnesse. (non bisogna confondere le linee di vorticità con le streamline che sono le linee tangenti al campo di velocità punto per punto) 
+\end{approfondimento}
+
+Facendo il rotore dell'equazione dinamica espressa in termini dell'entalpia possiamo trovare la vorticità. Allo stesso tempo possiamo utilizzare una formula del calcolo vettoriale per scrivere la derivata materiale come un rotore più un gradiente. Usiamo anche che per campo scalare $\phi $ (come $W$ e come $|u|^2$) vale $\nabla\times\nabla\phi=0$. 
+
+\[\frac{\partial \vec w}{\partial t} =-\nabla \times \left[ \vec u\times \vec w \right]\]
+
+Quest'equazione descrive l'evoluzione della vorticità.
+
+
+%
+%
+%
+\subsection{Plasmi e regime fluido, come trattarli} 
+
+Abbiamo introdotto alcune quantità e ragionamenti dalla fluidodinamica, fin'ora non abbiamo però sviluppato un vero modello ad un fluido, per come abbiamo svolto tutto fin'ora sarebbe più opportuno riconoscere che vi siano due fluidi, uno per ciascuna specie.
+
+Andiamo a vedere tramite linearizzazione, quindi trattando le equazioni viste fin'ora perturbativamente, quali comportamenti del plasma riusciamo già a far emergere con questo primo modello di plasma.
+
+
+\subsubsection{Ancora sulla linearizzazione: il comportamento ondulatorio} 
+in generale stiamo considerando di ogni grandezza, il valore medio e una perturbazione, \[ \text{valore medio:}\ \ \ \ \  x_0=\frac{1}{V}\int x dV,\hspace{2cm} \text{perturbazione:}\ \ \ \delta x\ll x_0\]
+
+Quindi scrivendolo per ciascuna grandezza: $\quad \rho = \rho_0 + \delta \rho; \quad \vec u = \vec u_0 + \delta \vec u; \quad p = p_0 + \delta p\ \ .$
+
+\vspace{0.7cm}
+
+Andiamo a linearizzare l'equazione di continuità della massa, assumendo $\rho_0 = \text{cost.}$ e - come condizione di equilibrio - $\vec u_0 = 0$:
+
+\[\displaystyle \frac{\partial}{\partial t} (\rho_0 + \delta\rho) + \vec\nabla\cdot (\cancelto{=0}{\rho_0\vec u_0} + \cancelto{=0}{\delta\rho\vec{u_0}} + \rho_0\vec{\delta u} + \cancelto{\sim 0}{\delta \rho \vec{\delta u})} = 0 \ \ \ \ ,\]
+
+il termine all'ordine zero è banalmente nullo, d'altro canto il termine di ordine 2 è trascurabile e rimane il termine di ordine 1:
+
+\[\partial_t (\delta \rho)+\vec \nabla\cdot (\rho_0\vec{\delta u})=0\ \ \ \ \ \ \ \ \ \ \Rightarrow \ \ \ \ \ \
+\text{In 1D:}\ \ \  \displaystyle\frac{\partial \delta \rho}{\partial t} + \rho_0 \frac{\partial \delta u}{\partial x} = 0\ \ \ \ .\]
+
+\vspace{0.7cm}
+
+Prendiamo invece dall'equazione del moto, trascurando le collisioni ed il termine gravitazionale, andiamo a linearizzare l'equazione tenendo i termini di ordine più basso, ponendo $\vec u_0 = 0$, $\partial_t u_0 = 0$ e sottraendo la forma di equilibrio $\rho_0 D_t u_0 = -\vec \nabla P_0$:
+
+\[ (\rho_0 + \delta \rho ) \left[ \frac{\partial}{\partial t}(\cancel{u_0}+\delta u) + [(\cancel{u_0} + \delta u)\cdot \vec \nabla] (u_0 + \delta u) \right] \ =\ -\ \vec \nabla \left( P_0 + \delta P \right)\]
+
+\[\Rightarrow \ \ \ \ \ \frac{\partial}{\partial t} (\delta u)\ =\ -\ \frac{1}{\rho_0}\frac{\partial}{\partial x}\delta P\]
+
+Per chiudere il sistema di equazioni utilizziamo l'equazione di stato politropica: $\boxed{P = c\rho^\gamma}$, così che usando $\nabla (\delta P)=c\gamma \rho_0^{\gamma-1}\nabla (\delta \rho)$ (derivante dallo sviluppo binomiale) si possa esprimere il termine destro come $\displaystyle \frac{\partial \delta P}{\partial x} = \gamma \frac{P_0}{\rho_0} \frac{\partial (\delta \rho)}{\partial x}$ .
+
+Definita $c_s^2 = \gamma \displaystyle \frac{P_0}{\rho_0}$ la \textbf{velocità del suono}, possiamo ottenere infine l'equazione del moto linearizzata: $\displaystyle \rho_0 \frac{\partial}{\partial t} (\delta u)= c_s^2 \frac{\partial }{\partial x} (\delta \rho)$. 
+
+Abbiamo costruito quindi un modellino fluido in una dimensione costituito dalle equazioni:
+\[ \begin{cases}
+    \displaystyle\frac{\partial }{\partial t} (\delta \rho)\ =\ \rho_0 \frac{\partial}{\partial x} (\delta u)\ ,\\
+    \displaystyle\frac{\partial }{\partial t} (\delta u)\ =\ - \frac{1}{\rho_0}\frac{\partial}{\partial x} (\delta P)\ ,\\
+    \delta P = c_s^2 \delta \rho
+\end{cases} \]
+
+Inseriamo la terza equazione nella seconda come fatto poco sopra e la deriviamo per $\partial_x$, mentre si deriva l'eq. di continuità nel tempo $\partial_t$ , si vede comparire in entrambe il termine $\displaystyle \frac{\partial^2 u}{\partial x \partial t}$, che isoliamo per ottenere l'uguaglianza:
+\[ \frac{\partial^2}{\partial t^2} (\delta \rho)\ =\ c_s^2\ \frac{\partial^2}{\partial x^2} (\delta \rho)\]
+Il risultato ci consola, perché vuol dire che le perturbazioni di pressione all'interno del plasma così modellizzato si propagano come un'onda di velocità caratteristica $c_s$. Fornita una piccola perturbazione di densità o pressione, la loro variazione genera un gradiente che accelera il fluido secondo l'equazione del moto, il fluido muovendosi modifica ancora la densità/pressione e così via, creando un'oscillazione autopropagante, un'onda di pressione.
+
+
+%
+%
+\subsubsection{Onda piana armonica}
+
+Poniamo che le soluzioni siano del tipo $\delta \rho (x, t) = \hat \rho e^{i(kx-\omega t)}$ e $\delta u (x, t) = \hat u e^{i(kx-\omega t)}$.  
+
+Dalle equazioni linearizzate, facendo una trasformata di Fourier e quindi $\partial_x\rightarrow ik$, $\partial_t\rightarrow -i\omega$:
+\[ \begin{cases}
+    -i\omega \delta \rho + ik \rho_0 \delta u = 0\ , \\
+    -i\omega \rho_0 \delta u = -i k \displaystyle \delta P\ ,\\
+    ik \delta P = -ik c_s^2 \delta \rho
+\end{cases} \]
+
+
+Segue la relazione di dispersione:
+\[
+\boxed{\omega^2 = k^2 c_s^2}
+\]
+
+Conclusione: l’onda sonora in un gas è non dissipativa, con relazione di dispersione costante (ogni armonica si propaga alla stessa velocità). 
+
+È possibile quindi anche una shockwave, al contrario di un sasso in acqua. Nei plasmi, invece, esistono molti regimi con relazioni di dispersione differenti a seconda di frequenze e scale di lunghezza caratteristiche.
+
+
+%
+%
+\subsubsection{Onde di plasma} 
+Abbiamo capito quindi che le onde nei plasmi sono la principale reazione collettiva, tipicamente sono la risposta ad un eventuale spilanciamento di carica.
+
+Ad esempio, per capirne la natura, studiamo il caso semlice in cui sono gli elettroni a muoversi e oscillare mentre gli ioni rimangono fermi (vista la differenza di massa di un fattore $\sim2000$). In principio potremmo usare le equazioni fluide costruite nei paragrafi precedenti separatamente per le due specie, ma ci soffermiamo solo sugli elettroni.
+
+Continuiamo ad ampliare questo nostro modello che per ora somiglia solo lontanamente ad un plasma. Linearizziamo anche le densità numeriche di elettroni e ioni $n_{e/i} = \displaystyle\frac{N_{e,i}}{V} = n_{0,\ e/i} + \delta n_{e/i}$ (tendenzialmente $n_e\sim n_i$) e consideriamo gli ioni come immobili e per gli elettroni $\vec u_e = \vec u_0 + \vec{\delta u}$ con $\langle \vec u_0 \rangle = 0$, questa volta vogliamo studiare il comportamento aggiungendo un campo $\vec E = \vec E_0 + \vec{\delta E}$ con $\vec B_0 = 0$:
+
+\[\vec E=-\vec \nabla \phi
+\quad \quad \Rightarrow \quad \quad
+\begin{cases}
+    \displaystyle\frac{\partial}{\partial t}(\delta n_e)+n_0\frac{\partial}{\partial x}(\delta u)\ =\ 0\ ,\\
+    m_e n_{0, e} \displaystyle\frac{\partial }{\partial t}(\delta u)\ =\ - \frac{\partial }{\partial x}(\delta P)+e n_0 \frac{\partial}{\partial x}(\delta\phi)\ ,\\
+    \displaystyle\frac{\partial ^2}{\partial x^2}(\delta\phi)\ =\ 4\pi e\delta n_e\ .
+\end{cases}
+\quad \quad \Rightarrow \quad \quad
+\begin{cases}
+    -i\omega\delta n_e + i k n_{0, e}\delta u_e = 0\, \\
+    -i\omega m_e n_{0, e} \delta u=ik e n_{0, e} \phi\\
+    -k^2 \delta \phi = 4\pi e \delta n_e
+\end{cases}
+\] 
+
+Come scritto nel sistema l'equazione di Poisson viene espressa in funzione della densità di elettroni e ioni partendo da $\vec \nabla \cdot \vec E = 4\pi(n_{0, i}-n_{0, e}-\delta n_e)$. Da dalle condizioni in cui ci troviamo ora ci rendiamo conto manchi una chiusura, come fare?
+\begin{enumerate}
+    \item politropica: come se fosse un gas, siamo nel modello fluido quindi insomma non è così folle
+    \item Considerare la risposta dielettrica dominante rispetto alla risposta termica. è detta approssimazione di plasma freddo. significa considerare $c_\phi\gg v_{th,e}$. nei regimi elettromagnetici ci sono onde ad alta frequenza e la risposta termica è troppo lenta.  Cioè la dinamica è dominata dalla risposta dovuta al termine del campo elettrico e non da quello della pressione
+\end{enumerate} 
+\subsubsection{Chiusura Plasma freddo} 
+Dobbiamo trascurare il contributo della pressione nell' dell'eqauzione della dinamica $\nabla P\sim0$. Ripartiamo ancora dal nostro sistema in trasformata sviluppando con onde piane, $\sim e^{i(kx-\omega t)}$: 
+\[\begin{cases}
+    -i\omega\delta n_e+ikn_0\delta u=0\ ,\\
+    -i\omega m_en_0\delta u=iken_0\delta \phi\ , \\
+    -k^2\delta \phi =4\pi e\delta n_e\ .
+\end{cases}
+\quad \quad \Rightarrow \quad \quad \boxed{\omega^2=\frac{4\pi e^2 n_{0, e}}{m_e} \equiv  \omega^2_{p,e}}
+\]
+
+La relazione di dispersione trovata è fondamentale, è la \textbf{frequenza di plasma elettronica} o nel limite $k\rightarrow 0$ la \textbf{frequenza di Langmuir} e definisce la frequenza di oscillazione tipica degli elettroni in risposta a variazioni locali del campo. 
+
+Si faccia attenzione al fatto che questa relazione è dispersiva, non è che se non compare $k$ nell'espressione di $\omega$ allora non c'è dispersione, perchè non c'è dispersione quando $\omega/k=cost$. è vero, però che in questo caso la \textbf{velocità di gruppo} è nulla, $\boxed{v_g\equiv \frac{d\omega}{d k}}=0$.
+
+Il plasma reagisce alla stessa frequenza indipendentemente dalla lunghezza d'onda. 
+
+
+\subsubsection{Confronto tra ipotesi e risultati, verifica a posteriori del regime di plasma freddo} 
+Per ora abbiamo ipotizzato di poter trascurare il gradiente di pressione, ora per ogni specie $a$ immaginiamo ci sia un comportamento  $P_a=n_aT_a$ come in un gas perfetto ($k_B =1$, in tutto il corso si lavora in unità naturali), che linearizzato diventerebbe $\boxed{\delta P=T_0\delta n}$ (non ho $\delta T$ perché non ho collisioni).
+
+Nel ricavare la frequenza di plasma abbiamo supposto che la \textbf{velocità termica degli elettroni} $v_{th, e}$ fosse trascurabile rispetto alla \textbf{velocità di fase} 
+$\boxed{$c_\phi$ \equiv \displaystyle\frac{\omega}{k}\gg v_{th}}$, vediamo bene il perché:
+l'equazione di moto - reinserita la pressione come appena ipotizzata - diventa ora: 
+\[-i\omega m_en_0\delta u=iken_0\delta \phi - ikT_{0,e} \delta n_e\]
+Allora confrontando i termini in un rapporto, vediamo che il termine di pressione è trascurabile nel caso in cui $c_\phi\gg v_{th}$, definita $\boxed{v_{th, e}^2\equiv T_{0, e}/m_e}$ la \textbf{velocità termica elettronica}:
+
+\[\frac{\omega m_en_0\delta u}{k\delta P}\sim \frac{\omega^2}{k^2}\frac{m_e}{T_{0,e}}\sim\frac{\omega^2}{k^2}\frac{1}{v^2_{th,e}}\sim \frac{c^2_{\phi}}{v^2_{th,e}}\] 
+
+\vspace{0.3cm}
+Introduciamo anche la \textbf{lunghezza d'onda caratteristica} $\lambda\sim 1/k$ e confrontiamo $\dfrac{\omega^2}{k^2}$ con $v_{th,e}$:
+
+\[\frac{4\pi n_0 e^2}{m_e}\lambda^2 v_{th,e}\] 
+\[\lambda^2>\frac{v_{th,e}}{\omega_p}\equiv \frac{T}{4\pi n_0e^2}\] 
+
+$\omega_p$ è la frequenza di plasma e dovrebbe avere anche il contribuitpo degli ioni che omunque è migliaia di volte minorte quindi per noi per il momento la freuenza di plasma è direttamente $\omega_{p,e}$. 
+
+Se la lunghezza d'onda la posso confrontare con quella caratteristica sono tranquillo che la mia approssimazione di plasma freddo sia valida. 
+
+L'espressione a membro destro dell'ultima disuguaglianza è definita come lunghezza caratteristica, è detta \textbf{lunghezza di Debye}, $\frac{T}{4\pi n_0e^2}\equiv \lambda_D$. Nello spazio può venire misurata. 
+
+Generalmente nel regime di plasma freddo tra $\lambda$ e $\lambda_D$ passano svariati ordini di grandezza, solamente quando cominciano a diventare confrontabili vediamo un cambio di comportamento, lo vediamo con la correzione che segue (chiusura politropica).
+
+%
+%
+\subsubsection{Chiusura politropica} 
+Abbiamo già introdotto in questo capitolo l'idea di usare $P=cn^\gamma$ come chiusura alle nostre equazioni, ora torniamo a farlo per ricavare la correzione termica alla relazione di dispersione ricavata per il plasma freddo:
+\[\frac{\partial P_e}{\partial x}=\gamma cn_e^{\gamma-1}\frac{\partial n_e}{\partial x}=\gamma \frac{P_e}{n_e}\frac{\partial n_e}{\partial x}\] 
+
+Linearizzando ed imponendo ancora una volta $P=n_{0,e}T_e$
+
+\[\frac{\partial \delta P_e}{\partial x}=\gamma \frac{P_{0,e}}{n_{0,e}}\frac{\partial\delta n_e}{\partial x}=\gamma T \frac{\partial \delta n_e}{\partial x}\]  
+
+Così abbiamo la chiusura voluta, da unire all'equazione di continuità linearizzata a quella del moto e Poisson, tutte ancora una volta in trasformata di Fourier:
+
+\[\begin{cases}
+    \text{dalla politropica: }\delta P=\gamma T_{0,e}\delta n_e \\
+    \text{dalla continuità: }\displaystyle\frac{\omega}{k}\delta n = n_0\delta u\ ,\\
+    \text{dal moto: }-i\omega m_en_0\delta u= en_0\delta E - ik\delta P , \\
+    \text{da Poisson: }\delta \phi =-\displaystyle\frac{4\pi e}{k^2}\delta n_e\ .
+\end{cases}\]
+
+Dopo aver inserito la politropica nell'equazione del moto abbiamo: $-i\omega m_en_0\delta u= iken_0\delta \phi\ - ik T_{0,e} \delta n_e$
+
+Il $\delta P$ serve per poter utilizzare l'equazione completa della dinamica, in questo caso non siamo più in regime di plasma freddo e la risposta termica comincia ad avere un ruolo. Inseriamo nell'equazione del moto linearizzata le forme di $\delta \phi$ e $\delta u$ ricavate dalle altre equazioni
+
+\[\cancel{-}i\omega m_e\cancel{n_0} \left(\frac{\omega}{\cancel{n_0} k}\cancel{\delta n}\right) = i\cancel{k}en_0\left( \cancel{-}\displaystyle\frac{4\pi e}{k^\cancel{2}}\cancel{\delta n}\ \right) \cancel{-} ik \gamma T_{0,e} \cancel{\delta n} \]
+
+\[\omega^2  = \frac{4\pi e^2n_0}{m_e} +k^2 \gamma \frac{T_{0,e}}{m_e}\]
+
+Riconosciamo le definizioni date precedentemente:
+
+\begin{equation}
+    \boxed{\omega^2=\omega^2_p+\gamma k^2v_{th,e}}
+\end{equation}
+\[\omega=\omega_p^2\left(1+\gamma\frac{k^2v_{th,e}}{\omega_p^2}\right)=\omega_p^2\left(1+\gamma k^2\lambda_D^2\right)\] 
+
+
+%
+%
+\vspace{0.5cm}
+\subsection{Schermatura di Debye} 
+Supponiamo di avere una entrambe le specie ad equilibrio termico, che cioè seguano una distribuzione di Boltzmann rispetto all'energia $\propto e^{-E/T}$, quindi dato che $E=q\phi(x)$:
+
+\[n_i=n_0e^{-e\phi/T}\ ,\, \quad \quad \quad n_e=n_0e^{+e\phi/T}\ \ .\] 
+
+In un plasma la condizione di potenziale debole, $e\phi\ll T$ (con $K_B=1$ in unità nat.), ci porta ad espandere: 
+
+\[n_i =n_0\left(1-\frac{e\phi}{T}\right)\ , \, \quad \quad \quad n_e=n_0\left(1+\frac{e\phi}{T}\right)\ \ .\]
+
+Inseriamo queste densità delle due specie in Poisson per avere un'equazione dalla quale definiamo la \textbf{lunghezza di Debye} $\lambda_D = \sqrt{\displaystyle\frac{T}{8\pi e^2 n_0}}$ :
+
+\[ \nabla^2 \phi\ =\ -4\pi e (n_i - n_e)\ =\ -4\pi\, e\,n_0 \left[ \cancel{1} - \frac{e\phi}{T}- (\cancel{1} + \frac{e\phi}{T}) \right]
+\]
+\begin{equation}\label{Poisson}
+    \boxed{\nabla^2 \phi\ =\ \color{blue}{\frac{8\pi \, e^2\, n_0}{T}} \color{black} \phi \ \equiv \ \color{blue}\frac{1}{\lambda_D^2} \color{black}\phi}
+\end{equation}
+
+Ci mettiamo in cordinate sferichhe dove il potenziale dipende solo radialmente, $\phi \equiv \phi(r)$ ed il gradiente laplaciano in coordinate polari si riduce quindi al termine $\nabla^2= \displaystyle\frac{1}{r^2} \frac{d}{dr} \left[ r^2 \frac{d\phi}{dr} \right] = \frac{d^2\phi}{dr^2} + \frac{2}{r} \frac{d\phi}{dr}$.
+
+Definiamo la nuova incognita $u=r\phi$ (e quindi $\phi = u/r$):
+
+\[\frac{d\phi}{dr} = -\frac{u}{r^2} + \frac{u'}{r}\ \, \quad \quad \&
+\quad \quad \frac{d^2\phi}{dr^2} = \frac{2u}{r}-\frac{2u'}{r^2} + \frac{u''}{r}\ \ .\]
+
+Usando queste due forme rispetto ad $u$ per le derivate possiamo riscrivere il laplaciano e tutta l'ee.\ref{Poisson} per avere:
+
+\[\nabla^2 \phi\ =\ \cancel{\frac{2u}{r^3}} - \cancel{\frac{2u'}{r^2}} + \frac{u''}{r} + \frac{2}{r} \left[ -\cancel{\frac{u}{r^2}} + \cancel{\frac{u'}{r} }  \right] \ =\ \frac{1}{\lambda^2_D} \frac{u}{r}\ \ , \]
+
+così che reinserendo $\phi$ troviamo in definitiva l'eq. differenziale:
+
+\begin{equation}
+    u''= u/\lambda_D^2 \quad \quad \Rightarrow \quad \phi'' + \frac{2}{r}\phi'\ =\ \frac{1}{\lambda^2_D}\, \phi\ \ ,
+\end{equation}
+
+che ha soluzione della forma $u(r)=Ae^{-r/\lambda_D}+Be^{+r/\lambda_D}$ nella sua forma più generale.
+
+Vediamo subito che la soluzione con esponenziale crescente non è fisica, farebbe divergere il potenziale all'infinito, rimane quindi il primo termine da cui imponendo una condizione iniziale si trova:
+
+\[\boxed{\ \phi(r)\ =\ \phi_0 \displaystyle\frac{e^{-r/\lambda_D}}{r}}\ \]
+
+Questo potenziale trovato può essere studiato in due limiti importanti, se ci troviamo a distanze da una carica molto minori della lunghezza di Debye, $r\ll\lambda_D$, questa forma va come un potenziale nel vuoto: $\sim 1\,/\,r$.
+
+La particolarità dei plasmi è invece nell'altro limite, quando $r\geq \lambda_D$, in questo caso avviene il fondamentale fenomeno del \textbf{Debye shielding} $\sim e^{-r/\lambda_D}$
+
+
+%
+%
+\vspace{0.5cm}
+\subsection{Onda e.m. che investe un plasma}
+
+Per il momento abbiamo cercato di trattare il plasma come un fluido, non siamo riusciti propriamente a vederlo come un singolo fluido ma più come due fluidi separati - uno di elettroni ed uno di ioni - ma già questo ci ha portato a ricavare alcune proprietà di un plasma.
+
+Dato che il plasma è fatto di particelle cariche ci chiediamo ora come reagisca all'essere investito da un'onda elettromagnetica. Abbiamo già visto che il plasma è globalmente neutro ed anche come non vi siano campi globali auto-generati nel plasma in quanto l'effetto di una carica viene schermato dopo una lunghezza di Debye, però vogliamo capire come il plasma reagisca ad un campo che arriva dall'esterno (capitolo 5 Krall, cold-plasma, unmagnetised, linear response).
+
+Partiamo dall'equazione del moto fluida per le due specie ma poniamo $\vec B_0=0$ (plasma non magnetizzato) così che nella forza elettromagnetica rimanga solo il termine di campo elettrico, inoltre non consideriamo $\nabla p_\alpha = 0$ per vedere un primo risultato in plasma freddo ed ignoriamo il termine collettivo:
+
+\[ n_\alpha \frac{\partial\, \delta u_\alpha}{\partial t}\ =\ \frac{n_\alpha}{m_\alpha}\, q_\alpha\, \vec E\]
+
+Ancora una volta si assumono onde piane così che il passaggio in Fourier sia immediato:
+
+\[\Rightarrow\quad \quad -i\omega n_{0,\,\alpha} \delta\bar u_\alpha = \frac{n_{0,\, \alpha}q_\alpha}{m_\alpha}\bar E \]
+
+Prima di trasformare con Fourier anche le condizioni date dall'equazione di Maxwell-Ampère riportiamo la definizione di corrente di plasma e vi inseriamo l'espressione della variazione di velocità per avere una forma della risposta lineare del plasma:
+
+\[ \vec j\, =\, \sum_\alpha q_\alpha n_{0,\,\alpha}\delta \vec u\alpha = \sum  q_\alpha n_{0,\,\alpha}\left( \frac{q_\alpha}{m_\alpha (-i\omega)}\bar E\right)\, =\, -\frac{i}{\omega}\sum_\alpha \frac{ q^2_\alpha n_{0,\,\alpha}}{m_\alpha} \vec E \]
+
+\[\vec\nabla\times\vec B = \frac{1}{c}\frac{\partial \bar E}{\partial t} + \frac{4\pi}{c}\vec j\quad \quad\Rightarrow \quad \quad i\vec k \times \vec B = -\frac{i\omega}{c}\vec E\, +\,\frac{4\pi}{c}\,\frac{i}{\omega}\sum_\alpha \frac{n_{0,\,\alpha} q_{0,\,\alpha}^2}{m_\alpha} \vec E\]
+
+Vogliamo un'equazione con solo $\vec E$ al suo interno, quindi usiamo anche Faraday:
+
+\[ \vec\nabla\times\vec E = \frac{i\omega}{c} \vec B\quad \quad \Rightarrow \quad \quad \vec B =-\frac{i c}{\omega}\vec \nabla\times \vec E \]
+
+Reiseriamo questa forma di $\vec B$ nell'equazione di Maxwell-Ampère insieme alla deifnizione di \textbf{frequenza di plasma} $\omega_P^2=\omega^2_{p,e}+\omega^2_{p,i}\sim \omega^2_{pe}$ ($\omega^2_{P,\,\alpha} \equiv \frac{4\pi n_{0,\, \alpha} q^2_\alpha}{m_\alpha}$):
+
+\[\vec\nabla\times (\vec\nabla \times\vec E)\ =\ -\vec k\times (\vec k\times \vec E)\ =\ \frac{\omega^2}{c^2} \left(1-\frac{\omega^2_P}{\omega^2} \right) \vec E\]
+
+Ora facciamo alcune considerazioni, l'onda si propaga con $\vec k = (k_x,\, 0,\, 0)$ mentre il campo elettrico possiamo scomporlo in $\vec E = ( E_x, E_\perp)$. 
+
+Sappiamo poi da una identità che $\vec k\times(\vec k\times \vec E) = (\vec k\cdot \vec E)\vec k - k^2\vec E$, ma se $\vec k\perp \vec E$, allora $\vec k\cdot \vec E = 0$:
+
+\[ k^2\vec E = \frac{\omega^2}{c^2} \left(1-\frac{\omega^2_P}{\omega^2} \right) \vec E\quad \quad \Rightarrow \quad \quad \boxed{\ k^2 c^2 = \omega^2 - \omega^2_P \ }\]
+
+Questa è la \textbf{relazione di dispersione} per un'onda elettromganetica trasversa che si propaga in un plasma freddo, omogeneo e non magnetizzato.
+
+Notiamo comportamenti interessanti nei limiti:
+\begin{itemize}
+    \item per $\omega \gg \omega_P$ l'onda si propaga nel plasma esattamente come nel vuoto perché si riduce a $\omega^2 = k^2c^2$;
+    \item  nel caso contrario, $\omega \ll \omega_P$, l'onda ha una relazione di dispersione $k^2 = (\omega^2 -\omega^2_P)/c^2 \approx -\omega^2_P/c^2$, questo vuol dire che k è complesso ($k\approx i\, \omega_P/c$). Questo cosa implica? $exp(i(i\frac{\omega_P}{c})x) = exp(-\omega_P x / c)$, l'onda è \textbf{evanescente} 
+\end{itemize}
+
+Dal caso di onda evanescente definiziamo la lunghezza caratteristica di smorzatura dell'esponenziale e quindi dell'onda che penetra nel plasma, la \textbf{electron skin depth} $\boxed{\ d_e \equiv c\, /\, \omega_P\ }$
+
+
+%
+%
+\begin{approfondimento}{velocità di gruppo e di fase}
+    Ci chiediamo quanto valga la \textbf{velocità di fase} $\boxed{\ v_f \equiv\, \omega\,/\,k\ }$ per venire a scoprire che sia sempre $>\, c$:
+
+    \[ \frac{\omega}{k}\ =\ \frac{\sqrt{k^2\omega^2 + \omega^2_P}}{k}\ =\ \sqrt{1+\frac{\omega_P^2}{k^2 c^2}} \, \, c\]
+
+    Se invece ci chiediamo quale sia la \textbf{velocità di gruppo} $\boxed{\ v_g \equiv\, \partial\omega\,/\,\partial k\ }$:
+
+    \[ 2\, \omega\, \frac{\partial\,\omega}{\partial\, k}\ =\ 2\, k\, c^2
+    \quad \quad \Rightarrow \quad \quad 
+    \frac{\partial\,\omega}{\partial\, k}\ =\ \frac{kc^2}{\sqrt{k^2c^2 + \omega_P^2 }}\ =\ - \frac{c}{\sqrt{1 + \omega_P^2/k^2c^2 }}\]
+
+\end{approfondimento}
+
+
+%
+%
+\begin{approfondimento}{Sulle grandezze caratteristiche dei plasmi}
+
+    Nella fisica dei plasmi ci sono diverse lunghezze caratteristiche non solo quella di Debye che definiscono anche in parte i regimi di validità delle diverse teorie che andremo a sviluppare.
+
+    \begin{itemize}
+        \item la \textbf{distanza di minimo approccio} $r_0$ è definita come quell’energia potenziale coulombiana tra due particelle cariche tale che sia dell’ordine dell’energia termica, $e^2/r_0 \sim T$. \'E molto difficile che le particelle cariche si avvicinino così tanto in un plasma, quindi questa lunghezza ci aiuta solo a capire quanto conti l'interazione;
+        \item La \textbf{lunghezza di Debye}, appena definita, è tipicamente $\gg r_0$ ed è la scala dello schermaggio elettrico, oltre questa distanza da una carica il suo potenziale viene schermato esponenzialmente, in linea con la natura globalmente neutra del plasma;
+        \item C'è poi il \textbf{raggio di Larmor}, $r_{L,\, s}=\displaystyle\frac{m_s |v_\perp|}{q_s B}$ delle due specie, $r_{L,\, e}\ll r_{L,\, i}$;
+        \item Altra grandezza è la \textbf{skip depth} delle due specie, la profondità di penetrazione dei campi magnetici, $\delta_s = \displaystyle\sqrt{\frac{m_s}{4\pi\, n\, q_s^2}}\, c$;
+        \item Esiste poi il \textbf{mean free path}, ovvero la lunghezza media percorsa fra due urti successivi. In un gas diremmo che $\lambda_{mfp} \approx n\sigma$ invece per un plasma si stima \[\nu_C\ =\ v_{th}\,n\,\sigma\ \approx\ v_{th}\, n\,e^2\, /\, T^2\ \sim \ n\, /T^{3/2}\ , \] il che vuol dire che scaldando il plasma questo diventa meno collisionale;
+        \item vengono poi tutte le lunghezze caratteristiche della magneto-idrodinamica (MHD), molto maggiori di tutte quelle appena citate, tanto che in questo modello ad un solo fluido non si vedono i comportamenti delle cariche singole e molti fenomeni a cui danno origine.
+    \end{itemize}
+
+    Si vede anche che dalle definizioni
+    \[
+    \boxed{\ \lambda_D\ =\ v_{th}\, /\,\omega_P  \ }
+    \quad \quad \quad \quad \quad
+    \boxed{\lambda_{mfp}\ =\ v_{th}\, /\, \nu_C}
+    \]
+    si trova una relazione significativa fra lunghezza di Debye e cammino libero medio:
+    \[ \lambda_D\, /\, \lambda_{mfp}\ =\ \nu_C\, /\, \omega_P \]
+    
+\end{approfondimento}
+
+\subsection{Parametro di plasma}
+
+Definiamo la \textbf{sfera di Debye} come la sfera di raggio $\lambda_D$ attorno ad una certa carica qualsiasi. Ci chiediamo in questo paragrafo quante particelle siano contenute in questa sfera.
+
+\[ \text{da definizione:}\quad \quad \lambda_D^2 \approx \sqrt{\frac{T}{n\, e^2}} \]
+
+\[ (n\lambda_D^3)^2 = \frac{n^2\, T^3}{n^3\, e^6} = \frac{T^3}{n\, e^6}\quad \quad \Rightarrow \quad \quad \frac{1}{n\lambda_D^3} = \sqrt{n} \, e^3\, /\, T^{3/2}\]
+
+Una prima stima del numero di cariche contenute nella sfera di Debye è $n\, \lambda_D^3$ e - notando che $n\, \lambda_D^3=(T\, /\, V)^{3/2}\ll 1$ - si trova che un plasma rispetta la condizione: $\boxed{n \, \lambda_D^3\gg 1}$.
+
+Si definisce \textbf{parametro di plasma} la grandezza:
+
+\[ \boxed{g\ \equiv\ \frac{\nu_C}{\omega_P}\ =\ \frac{\nu_C}{v_{th}} \frac{v_{th}}{\omega_P} \ =\ \frac{d_e}{\lambda_{mfp}} \ } \]
+
+Considerando $r_0 = e^2\, /\, T$ ed $r_n\, =\, n^{1/3}$, il rapporto sarà:
+$r_n/r_0 = \displaystyle\frac{n^{1/3}T}{e^2} = \frac{T}{e^2\, n^{1/3}} = g^{-2/3}$, quindi $r_n = r_0 g^{-2/3}$.
+
+Invece, prendendo $\lambda_D \sim \sqrt{\displaystyle\frac{T}{e^2 n_0}}$, dal rapporto $\lambda_D\, /\, r_n = \sqrt{T} / e\, n^{1/6} = g^{-1/3}$ ricaviamo la relazione $\lambda_D = r_n g^{-1/3}$.
+
+
+
+
+%
+%
+\section{Teorema di connessione (conservazione del flusso)} 
+
+Introduciamo qui alcuni risultati decisamente importanti per la fisica dei plasmi:
+\begin{itemize}
+    \item \textbf{Teorema di Alfvén}: secondo il \href{https://it.wikipedia.org/wiki/Teorema_di_Alfv%C3%A9n}{teorema di Alfvén} (anche 'legge del congelamento'), in un fluido conduttore con resistività nulla (MHD ideale), le linee di campo 'restano congelate' in un dato volume del fluido, in altri termini il flusso magnetico attraverso ogni superficie S delimitata da un contorno chiuso $C$ in moto in maniera solidale col flusso è costante;
+    \item \textbf{Teorema di connessione:} sempre in MHD ideale, se due elementi di plasma ($\vec x_1$, $\vec x_2$) sono inizialmente collegati da una linea di campo magnetico ($d\vec l$), allora rimangono collegati per sempre. Per dirla formalmente: se in $t=0$ si ha che $d\vec l\times \vec B=0$ allora $\forall \, \, t$ successivi valgono sia $\frac{D}{Dt}(d\vec l\times \vec B)=0$ che $d\vec l\times \vec B=0$.
+\end{itemize}
+
+Le principali conseguenze di questi teoremi sono che 
+\begin{enumerate}
+    \item Si conserva la topologia globale
+    \item Stati di energia più bassa, ma con topologia diversa, sono proibiti
+    \item regioni di plasma non connesse, rimangono per sempre non connesse. 
+\end{enumerate} 
+è fondamentale per la validità di questi teoremi che valga la legge ideale di Ohm. 
+ovvero  è nullo il campo elettrico nel sistema di riferimento dell'elemento fluido \[\vec {E'}=\vec E+\frac{\vec u\times \vec B}{c}=0\] 
+
+\begin{teorema}{conservazione del flusso}{}
+Per capire cosa vuol dire che le linee di campo non si rompono e perché, prendiamo due elementi di fluido infinitamente vicini, $d\vec l$, dopo un tempo dt ciascun punto si muove con la velocità del fluido, $\vec x \rightarrow \vec x + \vec u(\vec x)dt$. 
+
+\[d\vec l+\delta (d\vec l)=d\vec l+ \left[ (\vec u+d\vec u)-\vec u \right] dt \ =\ d\vec l+d\vec udt\implies\delta(d\vec l)=d\vec udt\]  $d\vec u$ è l'incremento del campo di velicità in direzione $d\vec l$\[d\vec u=(d\vec l\cdot \vec \nabla)\vec u\] 
+\[d\vec l+\delta (d\vec l)=d\vec l+ \left[ \vec u(\vec x+d\vec x)-\vec u (\vec x)\right] dt \ =\ d\vec l+(d\vec l\cdot \nabla)\, \vec u\, dt \] 
+
+Capiamo quindi che la variazione nel tempo della distanza fra i due elementi che si muovono è descritto da $\frac{d(\delta\vec l)}{dt}=(\delta \vec l\cdot\vec \nabla)\vec u$. Nota che se $d\vec l$ è lungo una linea di campo allora $d\vec l \times \vec B = 0$, noi ci chiediamo se partendo solo dalle equazioni dell'elettromagnetismo possiamo provare che queste linee di campo non si spezzino.
+Quindi vogliamo calcolare: 
+
+\[\frac{D}{Dt}(\delta\vec l\times\vec B)\ =\ \frac{D\delta\vec l}{Dt}\times \vec B+\delta\vec l\times\frac{D\vec B}{Dt}\]
+
+Consideriamo la legge di faraday e la legge di Ohm ideale:
+\[ \frac{\partial\vec B}{\partial t} = -\nabla \times \vec E\quad \quad \quad \vec E = -\frac{\vec u \times \vec B}{c} \]
+\[\Rightarrow\quad \frac{\partial\vec B}{\partial t}=\vec \nabla\times(\vec u\times\vec B)\]
+
+Seguiamo $\vec B$ attraverso una linea di campo facendo la derivata materiale, questo ci servirà subito l'evoluzione delle linee di campo. Per semplificare l'espressione ci ricordiamo (insomma)  un'identità vettoriale:
+
+\[\frac{D\vec B}{Dt}=\frac{\partial\vec B}{\partial t}+(\vec u\cdot \vec \nabla)\cdot \vec B=(*)\]
+
+\[\vec \nabla\times(\vec u\times\vec B)\ =\ \vec u\,\cancel{( \vec \nabla \cdot \vec B)}-\vec B( \vec \nabla \cdot\vec u) + (\vec B \cdot \vec\nabla)\,\vec u-(\vec u\cdot\vec \nabla)\cdot \vec B\]
+
+\[(*)=\ \vec \nabla\times(\vec u\times\vec B) + (\vec u\cdot \vec \nabla) \vec B\ =\ (\vec B\cdot \vec \nabla)\, \vec u - \vec B\, (\vec \nabla\cdot \vec u)\] 
+
+Sostituendo $\partial\vec B/\partial t$ con l'identità vettoriale, il termine con gradiente della derivata materiale si elide e possiamo cancellare anche  $\vec \nabla\cdot \vec B=0$ per via della seconda equazione di Maxwell.
+
+Allora inserendo questo risultato di $\partial\vec B/\partial t$ assieme a quello prima definito già definito all'inizio di $\frac{d(\delta\vec l)}{dt}=(\delta \vec l\cdot\vec \nabla)\vec u$, si trova infine che l'evoluzione della connesione fra i due elementi fluidi segue: 
+
+\[\frac{d}{dt}(\delta\vec l\times\vec B)=\delta\vec l\times \left[(\vec B\cdot\vec \nabla )\vec u+(\vec B\cdot\vec \nabla )\vec u\right]  +(\delta\vec l\cdot\vec\nabla)\vec u\times\vec B\] 
+
+\vspace{0.5cm}
+
+Se si considera il caso $\delta \vec l\parallel\vec B$, che implica $\delta \vec l\times \vec B = 0$, allora  $\delta\vec l\times(\vec B\cdot\vec \nabla) \vec u=0$ e la formula trovata poco fa va ad annullarsi completamente portando a $\frac{D}{Dt}(\delta \vec l \times \vec B)=0$: per vederlo basta porre $\delta\vec l$ come un riscalamento $\alpha \vec B$:
+
+
+\[\boxed{\frac{d}{dt}(\delta\vec l\times\vec B)=\alpha\vec B\times \left[\cancel{(\vec B\cdot\vec \nabla )\vec u}+(\vec B\cdot\vec \nabla )\vec u\right]  +(\alpha \vec B \cdot\vec\nabla)\vec u\times\vec B \ =\ \dots\ =\ 0}\] 
+ 
+Si vede abbastanza già così come si annulli tutto grazie alla condizione di parallelismo.
+
+Questo risultato ci porta a osservare che la linea di campo non si rompe finché non avviene la \textit{riconnessione}. Per  violare la legge di Ohm devo avere $\eta\vec J$, sono questi i casi in cui può avvenire la riconnessione (la legge dio Ohm viene violata prima alle scale degli ioni e poi dopo viene violata alle scale degli elettroni).
+
+\[S=\frac{T_r}{T_a}=\frac{T_\text{resistivo}}{T_\text{alfvén}}\] 
+
+La resistività fa capire come in tempi molto più brevi del tempo diffusivo cambia la topologia del campo. 
+
+Flusso magnetico: su una superficie chiusa fa zero, in generale è 
+\[\int_S\vec B\cdot d\vec S=\phi\] 
+\end{teorema}
+
+\begin{teorema}{Alfvén}{}
+Finché siamo in MHD ideale vale che:
+\[ \boxed{\ \frac{d\phi}{dt}\ =\ 0\ }\]  
+
+Usando il teorema di Liebnitz per integrare su domini mobili:
+
+\[\frac{d}{dt}\int_{S(t)}\vec B(\vec r,t)\cdot d\vec S=\int_{S(t)}\frac{\partial \vec B}{\partial t}\cdot d\vec S+\oint_{\mathcal{C}(t)}\vec B\cdot (\vec u\times d\vec l)\] 
+
+il primo termine del termine a destra è la variazione locale di flusso dovuta al cambiamento di B nel tempo, il secondo termine invece rappresenta il cambiamento dovuto al fatto che $\mathcal{C}$ si è letteralmente mosso. 
+
+Usiamo anche il teorema di Stokes e che $\vec B\cdot (\vec u\times d\vec l)=-\vec u\times \vec B\cdot d\vec l$
+
+\[\frac{d\Phi}{dt} = \frac{d}{dt}\int_{S(t)}\vec B(\vec r,t)\cdot d\vec S=\int_{S(t)}\bigg(\frac{\partial}{\partial t}\vec B-\nabla\times(\vec u\times \vec B)\bigg)d\vec S\]  
+
+in MHD ideale è valida la legge di Ohm ideale $\frac{\partial\vec B}{\partial t}=\vec \nabla\times(\vec u\times\vec B)$ e quindi 
+
+\[\frac{\partial}{\partial t}\vec B-\nabla\times(\vec u\times \vec B)=0\implies\int_{S(t)}\bigg(\frac{\partial}{\partial t}\vec B-\nabla\times(\vec u\times \vec B)\bigg)d\vec S=0\]  
+
+ed abbiamo così dimostrato il teorema per cui $\boxed{\frac{d\Phi}{dt} = 0}$ .
+\end{teorema}
+
+
+%
+%
+\newpage
+\section{Una trattazione statistica per i plasmi}
+
+Trattare un plasma con un modello \emph{many-body} ci porterebbe ad un problema irrisolvibile, per questo introduciamo ora un framework statistico che ci permetterà di ricavare l'equazione di Vlasov e da questa di ricollegarci alle equazioni fluide attraverso i suoi momenti.
+
+Continueremo a supporre di essere in un regime non-collisionale, le particelle di ogni specie saranno sottoposte a campi elettrici e magnetici collettivi, l'energia cinetica sarà da considerarsi molto maggiore dell'energia d'interazione in modo che la carica generica sia statisticamente indipendente. 
+
+Come prima cosa si introduce la \textbf{funzione di distribuzione}
+\[F(\vec{x_1}, ...,\vec{x_n}, \vec{v_1}, ...,\vec{v_n}, t)\ \ \ \ .\]
+Questa funzione di distribuzione può essere ridotta alla s-esima particella 
+\[ F^{(s)}(\vec{x}_{1}, ...,\vec{x_s}, \vec{v}_{1}, ...,\vec{x_s}, t) \ =\ \int F\ d\vec{x}_{s+1} ...d\vec{x_n} d\vec{v}_{s+1} ...d\vec{v_n}\]
+Nel limite puramente non collisionale, $g\ll 1$, $F^{(1)}(\vec{x_1}, \vec{v_1})$ se invece ci fosse una seconda carica vicina dovremmo scrivere:
+\[F^{(2)}(\vec{x_1}, \vec{x_2}, \vec{v_1}, \vec{v_2})\ =\ F^{(1)}(\vec{x_1}, \vec{v_1})\ F^{(1)}(\vec{x_2}, \vec{v_2}) \ \left[ 1-\textcolor{blue}{P_{12}(\vec{x_1}, \vec{x_2}, \vec{v_1}, \vec{v_2})}\right]\ \ \ \ ,\]
+dove \textbf{$P_{12}$} è detta \textcolor{blue}{funzione di correlazione}. Per la funzione $P_{12}$ si può ricavare una forma del tipo: $P_{12}\sim \frac{\lambda_D}{|x|} e^{-|x|/\lambda_D}$.
+
+In generale, se partiamo da un plasma all'equilibrio ed iniettiamo energia i tempi in cui questa si distribuisce sono così lunghi che la funzione di correlazione risulta trascurabile.\\
+Si può vedere sul Krall come, ipotizzando una distribuzione maxwelliana, il risultato sia che $P_{12}=nT(1-g)$ e quindi scala come la temperatura.\\
+
+\begin{teorema}{Teorema di Liouville}
+    Siccome sarà utile in seguito richiamiamo il teorema di Liouville: data la nostra funzione di distribuzione F che descrive il plasma ad ogni tempo occupera un punto dello spazio delle fasi 2n-dimensionale, tracciando nel tempo una traiettoria di fase; secondo il teorema la derivata temporale totale della densità degli stati sarà nulla.
+
+    \[ \frac{d}{dt} F\ =\ 0\]
+
+    \[ \frac{\partial}{\partial t} F + \vec v \cdot \vec\nabla_x F + \vec a \cdot \vec\nabla_v F\ =\ 0\]
+
+    O per esprimerla ancor più esplicitamente:
+
+    \begin{equation}\label{Liouville}
+        \frac{d}{dt} F\ =\ \frac{\partial}{\partial t} F + \sum_i^N\vec v_i \cdot  \frac{\partial}{\partial \vec x_i}F + \sum_i^N\vec a_i \cdot  \frac{\partial}{\partial \vec v_i}F\ =\ 0
+    \end{equation}
+    
+\end{teorema}
+
+\subsection{L'equazione di Vlasov}
+Dal teorema di Liouville si giunge all'equazioni più nota della fisica dei plasmi, l'equazione di Vlasov, integrando su tutte le particelle da 2 ad N vediamo che il primo termine di eq.\ref{Liouville} è legato alla $F^{(1)}$:
+\[ \int \frac{\partial F^{(n)}}{\partial t} dx_1 ...dx_n dv_1 ...dv_n\ =\ \frac{\partial}{\partial t }\left( \int F^{(n)} dx_2 ...dx_n dv_2 ...dv_n\right)\ =\ \frac{\partial F^{(1)}}{\partial t}\]
+
+Mentre per il secondo e terzo termine di eq.\ref{Liouville}
+\[\begin{split} \int\sum^N_{i} \vec v_1 \cdot \frac{\partial F^{(n)}}{\partial \vec x_1} dx_2 ...dx_n dv_2 ...dv_n\ &=\ \int v_1 \cdot \frac{\partial F^{(n)}}{\partial \vec x_1 } dx_2 ...dx_n dv_2 ...dv_n + \cancel{\int \sum^N_{i=2} \vec v_i \cdot \frac{\partial F^{(n)}}{\partial \vec x_i} dx_2 ...dx_n dv_2 ...dv_n} \ =
+\\ &= \vec v_1 \cdot \frac{\partial}{\partial \vec x_1} \int F^{(n)} dx_2 ...dx_n dv_2 ...dv_n \ =\ \frac{\partial F^{(1)}}{\partial \vec x_1}\ \ \ \ ,
+\end{split}\]
+
+\[\begin{split} \sum^N_{i} \int \vec a_i \cdot \frac{\partial F^{(n)}}{\partial \vec x_i} dx_2 ...dx_n dv_2 ...dv_n\ &=\ \int \vec a_1 \cdot \frac{\partial F^{(n)}}{\partial \vec v_1 } dx_2 ...dv_n + \vec a_1\cdot \frac{\partial}{\partial \vec v_1} \int F^{(n)} dx_2 ... dv_n\ +\ ... \\
+&\ \ \ \ \ \ \ \ ...\ +\ \sum^N_{i=2}\int \vec a_i \cdot \frac{\partial F^{(n)}}{\partial \vec v_i} dx_2 ...dv_n \ =\ \vec a_1 \cdot \frac{\partial F^{(n)}}{\partial \vec v_1} \ \ \ \ .
+\end{split}\]
+
+Per esplicitarla $\vec a_i = \vec E+\frac{\vec v_i\cdot \vec B}{c}$, ma in questa forma abbiamo tenuto conto unicamente dell'accelerazione dovuta ai campi, per tener conto di interazioni fra particelle aggiungiamo un termine $\vec a_{ij}$ a quest'accelerazione e integriamo anch'esso:
+\[ \sum^N_{i=1} \sum_{j>i} \int \vec a_{ij} \cdot \frac{\partial F^{(n)}}{\partial\vec v_i} dx_2 ...dx_n dv_2 ... dv_n\ =\ \sum_{j>i}^N \int \vec a_{ij} \cdot \frac{\partial F^{(n)}}{\partial\vec v_i} dx_2 ...dx_n dv_2 ...dv_n \ \ \ \ . \]
+
+Per la generica particella $j=\alpha$ ci concentriamo sull'ultimo integrale all'interno della sommatoria, possiamo portare fuori $\vec a_{1\alpha}\cdot \frac{\partial}{\partial \vec v_\alpha}$ in modo che l'integrale ci restituisca un $F^{(2)}$  che però possiamo esprimere in termini della funzione di correlazione $P_{12}$ definita all'inizio del paragrafo, per cui:
+\[ \int \vec a_{1\alpha}\cdot \frac{\partial F^{(1)}}{\partial \vec v_1}(\vec x_1,\vec v_1) F(\vec x_\alpha, \vec v_\alpha) dx_\alpha dv_\alpha\ +\ \int \vec a_{1\alpha}\cdot \frac{\partial}{\partial \vec v_1} \left( F^{(1)}(\vec x_1, \vec v_1) P_{12}(\vec x_1,\vec x_\alpha, \vec v_1, \vec v_\alpha) \right) F^{(1)}(\vec x_\alpha, \vec v_\alpha)dx_\alpha dv_\alpha \ \ \ \ ,\]
+il primo termine di quest'espressione andrà a contribuire al termine del tipo $\vec a_1\cdot \partial_{\vec v_1} F^{(1)}$ mentre inseriamo il secondo termine collisionale dipendente da $P_{12}$ in un termine non conosciuto C:
+
+\begin{equation}
+    \boxed{\frac{\partial F^{(1)}}{\partial t} + \vec v_1\cdot \frac{\partial F^{(1)}}{\partial \vec x_1} + \vec a_1\cdot \frac{\partial F^{(1)}}{\partial \vec v_1} = \mathcal{C} }
+\end{equation}
+
+Questa è conosciuta come \textbf{equazione di Boltzmann}, può essere scritta per ciascuna specie ma per determinarne il risultato sarà necessario esplicitare $\vec E$, $\vec B$ ed il termine di scattering $\mathcal{C}\sim (\partial f_S/\partial t)_{coll.}$.
+Infine, nel limite in cui è possibile ignorare lo scattering di particelle arriviamo finalmente all'equazione cardine della descrizione statistica dei plasmi, l'\textbf{equazione di Vlasov}:
+
+\begin{equation}\label{VLASOV}
+    \boxed{\ \frac{\partial f^{(1)}_\alpha}{\partial t} + \vec v_1 \cdot \frac{\partial f^{(1)}}{\partial \vec x_1} + \frac{q_\alpha}{m_\alpha}\left( \vec E + \frac{\vec v \times \vec B}{c}\right)\cdot\frac{\partial f^{(1)}_\alpha}{\partial \vec v_1}\ =\ 0\ }
+\end{equation}
+
+
+\subsection{Da Vlasov alle equazioni fluide}
+Cerchiamo di ricollegare questa trattazione statistica alle equazioni fluide di inizio corso, osservando per prima cosa come le funzione di distribuzione sia legata alla densità di particelle di una specie  nello spazio delle posizioni $n_\alpha$ e più in generale a quantità macroscopiche:
+\[n_\alpha \ =\ \int f_\alpha d\textbf{v} \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \  \ \ \ \ \ \ \  \int f_\alpha \vec v_\alpha d\textbf{v}\ =\ n_\alpha \vec u_\alpha \]
+Questi sono momenti di ordine zero ed uno della funzione di distribuzione $f_\alpha$.
+
+Riprendiamo ora l'eq.\ref{VLASOV} ed integriamone i diversi membri sullo spazio delle velocità:
+
+\[ \int \frac{\partial f_\alpha}{\partial t} d\textbf{v} \ =\ \frac{\partial }{\partial t} \int f_\alpha d\textbf{v} \ =\ \frac{\partial n_\alpha}{\partial t}\]
+
+\[ \int \vec v_\alpha \cdot \frac{\partial f_\alpha}{\partial \vec x} d\textbf{v}\ &=\ \int \frac{\partial}{\partial \vec x} (\vec v_\alpha f_\alpha) d\textbf{v}\ =\ \int f_\alpha \cancelto{=0}{\frac{\partial}{\partial \vec x } \vec v_\alpha}d\textbf{v} +\int \frac{\partial f_\alpha}{\partial \vec x}\cdot \vec v_\alpha d\textbf{v} \ =\ \frac{\partial}{\partial \vec x}(n_\alpha \vec u)\]
+
+\[  \int \left(\vec E + \frac{\vec v\times\vec B}{c}\right) \cdot \frac{\partial f_\alpha}{\partial \vec v_\alpha} d\textbf{v}\ =\ \int \frac{\partial}{\partial \vec v_\alpha} \left[f_\alpha  \left( \vec E + \frac{\vec v\times\vec B}{c}\right)  \right] d\textbf{v} - \cancel{\int f_\alpha \frac{\partial}{\partial \vec v_\alpha} \left( \vec E + \frac{\vec v\times\vec B}{c}\right)}\ =\ 0 \]
+
+Rimettendo assieme questi 3 membri si ottiene dunque infine l'\textbf{equazione di continuità} per la specie $\alpha$, dove rientrano i momenti di ordine zero ed uno di $f_\alpha$:
+
+\begin{equation}
+    \boxed{\ \frac{\partial n_\alpha}{\partial t}\ +\  \vec{\nabla_x} \cdot \left( n_a \vec u\right)\ =\ 0\ }
+\end{equation}
+
+Definito per brevità $\vec D = \vec E +\frac{\vec v \times \vec B}{c}$, integriamo di nuovo Vlasov ma stavolta moltiplicando per $\vec v_\alpha$:
+
+\[\begin{split}\frac{\partial}{\partial \vec v_\alpha} \left[ \vec v_\alpha \vec D f_\alpha\right] \ &=\  f_\alpha \vec D \frac{\partial \vec v_\alpha }{\partial\vec v_\alpha} + \vec v_\alpha \frac{\partial(f_\alpha \vec D)}{\partial\vec v_\alpha}\ =\ \\ &= f_\alpha \vec D \frac{\partial \vec v_\alpha }{\partial\vec v_\alpha} + \vec v_\alpha D\cdot \frac{\partial f_\alpha }{\partial\vec v_\alpha} \end{split}\]
+
+\[ \int \vec v_\alpha \vec D \frac{\partial f_\alpha}{\partial \vec v_\alpha}\ d\vec v_\alpha\ =\ -\int \vec D f_\alpha d\vec v_\alpha\ =\ -n_\alpha\vec E - n_\alpha \frac{\vec u_\alpha \times \vec B}{c}\]
+
+\[\int \vec v_\alpha \vec v_\alpha \cdot \frac{\partial f_\alpha}{\partial \vec x_\alpha}d\vec v_\alpha\ =\ \frac{\partial}{\partial \vec x_\alpha} \int \vec v_\alpha \vec v_\alpha f_\alpha d\vec v_\alpha \ =\ \frac{\partial}{\partial \vec x_\alpha} \left( <\vec v_\alpha \vec v_\alpha> n_\alpha \right)
+\]
+
+Così infine da Vlasov si arriva alla forma:
+
+\[ \frac{\partial (n_\alpha \vec u_\alpha)}{\partial t} + n_\alpha \nabla <\vec v \vec v>_\alpha - n_\alpha\frac{q_\alpha}{m_\alpha} \left(\vec E + \frac{\vec u_\alpha \times \vec B}{c}\right)\ =\ 0 \]
+
+Per il calcolo di $<\vec v \vec v>_\alpha$ è utile scomporre la velocità in $\vec v = \vec u + \vec w$ (cfr. prox sezione di approfondimento) con $\vec u = <\vec v>$ velocità media mentre $\vec w$ è la velocità della singola particella oltre la media $\vec u$ e che verifica $<\vec w>=0$.
+\[\langle\vec v \vec v\rangle_\alpha\ =\ \langle(\vec u + \vec w)(\vec u + \vec w)\rangle_\alpha\ =\ \bar u _\alpha \bar u_\alpha + \cancel{u_\alpha \langle \vec w_\alpha\rangle} + \cancel{\langle w_\alpha \rangle \vec v_\alpha} + \langle \vec w_\alpha \vec w_\alpha \rangle\]
+così che:
+\begin{equation}\label{moto}
+    \boxed{\frac{\partial (n_\alpha \vec u_\alpha)}{\partial t} +  \nabla\cdot \left[n_\alpha \left( \bar u _\alpha \bar u_\alpha + \langle \vec w_\alpha \vec w_\alpha \rangle \right) \right] - n_\alpha\frac{q_\alpha}{m_\alpha} \left(\vec E + \frac{\vec u_\alpha \times \vec B}{c}\right)\ =\ 0}
+\end{equation}
+
+Quest'ultima trovata è - di fatto - un'\textbf{equazione del moto}.
+
+\begin{approfondimento}{Definizioni a margine}
+    La velocità introdotta sopra $\boxed{\vec w = \vec v - \vec u}\ \ (= \vec v - \langle \vec v \rangle)$ è detta \textbf{velocità peculiare}.
+    Possiamo definire anche un \textbf{tensore di pressione:}
+    \[\mathbf{P}\ =\ m\int (\vec v - \vec u)(\vec v - \vec u) f(\vec x, \vec v, t) d\vec v\ =\ m n_\alpha \langle \vec w \vec w\rangle\ \ \ \ ,\]
+    da cui si ottiene:
+    \[ \frac{\partial (n \vec u)}{\partial t} +  \nabla\cdot \left(n_\alpha \bar u _\alpha \bar u_\alpha \right) + \frac{1}{m} \vec \nabla\cdot \mathbf{P} - \frac{nq}{m} \left(\vec E + \frac{\vec u_\alpha \times \vec B}{c}\right)\ =\ 0 \]
+    Osserviamo che per il primo termine vale $\frac{\partial (n\vec u)}{\partial t} = \frac{\partial n}{\partial t} \vec u + n\frac{\partial \vec u}{\partial t}$ ed in modo simile $\vec \nabla\cdot (n\vec u \vec u) = (n\vec u\cdot \vec \nabla)\vec u + \vec u (\vec \nabla\cdot (n\vec u))$, mentre riconosciamo la derivata totale $n\frac{D\vec u}{Dt}=n\frac{\partial\vec u}{\partial t} + n(\vec u\cdot \vec \nabla)\vec u$. Riconosciamo un'equazione di continuità $\frac{\partial n_\alpha}{\partial t}\ +\  \vec{\nabla_x} \cdot \left( n_a \vec u\right)$ moltiplicata per $\vec u$ che porta i termini ad elidersi.
+
+    Moltiplichiamo il tutto per m e, definito $\vec p = m\vec u$, si arriva infine alla forma:
+    \[\boxed{n\frac{D\vec p}{Dt}\ =\ - \vec\nabla\cdot\mathbf{P} + nq\left( \vec E + \frac{\vec u\times \vec B}{c} \right) }\ \ \ \ .\]
+    In generale il tensore \mathbf{P} si può supporre abbia una parte isotropa almeno su grandi scale: $\mathbf{P}=p \mathcal{I}+\Pi$.
+    Sotto questa ipotesi per cui $|\nabla p|\gg |\nabla\cdot \Pi|$ è utile definire una pressione isotropa $p=\frac{1}{3} tr{\mathbf{P}} = \frac{1}{3}mn\langle w^2\rangle$ che in un gas ideale per cui la pressione è legata alla temperatura da $p=nT$ ci porta alla temperatura $T=\frac{1}{3}m\langle w^2\rangle$ (più che una temperatura una stima dell'energia cinetica per specie).
+\end{approfondimento}
+
+
+
+\subsection{Equazione dell'energia}
+Ripetiamo un processo simile a quello del paragrafo precedente per trovare l'equazione del moto; ripartendo dall'equazione di Vlasov, eq.\ref{VLASOV}, questa volta moltiplichiamo prima per $\frac{1}{2}mv^2$ per poi integrare sullo spazio delle velocità, ancora una volta andiamo a fare il calcolo sui tre termini separatamente per poi ricavarne un risultato:
+
+\[ \int \frac{1}{2} m v^2 \frac{\partial f}{\partial t} d\vec v\ =\ \frac{\partial}{\partial t} \color{blue}{\int \frac{1}{2} m v^2 f d\vec v} \ \color{black}{\ =\ \frac{\partial}{\partial t}}\color{blue}{\varepsilon} \]
+
+\[ \int \frac{1}{2} m v^2 \vec v \frac{\partial f}{\partial \vec x} d\vec v\ =\ \color{blue}{\frac{1}{2}m} \color{black}{\frac{\partial}{\partial\vec x}} \color{blue}{\int v^2 \vec v f d\vec v} \color{black}{\ =\ \vec \nabla\cdot} \color{blue}{\vec Q}\]
+
+\[ \int \frac{q}{2} v^2 \left( \vec E + \frac{\vec v \times \vec B}{c}\right) \frac{\partial f}{\partial v} d\vec v\ =\ \frac{q}{2} \int v^2 \vec D \frac{\partial f}{\partial v} d\vec v\ =\ - \color{blue}{nq\vec u} \color{black}{\cdot \vec E \ =\ -} \color{blue}{\vec J} \color{black}{\cdot \vec E} \]
+
+Come si vede evidenziato in blu abbiamo definito tre grandezze: nel primo termine si è definita una sorta di energia media (più un'\textbf{energia cinetica collettiva locale}) $\boxed{\varepsilon = \displaystyle\int \frac{1}{2} m v^2 f d\vec v=\frac{1}{2}mn\langle v^2\rangle}$; nel secondo termine si è definito il \textbf{flusso di energia convettiva} $\boxed{\vec Q= \frac{1}{2}m\int v^2 \vec v f d\vec v = \frac{1}{2}mn\langle v^2 \vec v\rangle}$; nel terzo termine invece riincontriamo una definizione di \textbf{corrente di particelle}. Mettendo assieme questi risultati otteniamo un'equazione per il bilancio di energia:
+
+\begin{equation}
+    \boxed{\ \frac{\partial \varepsilon}{\partial t}\ =\ -\vec \nabla\cdot \vec Q + \vec E\cdot\vec J\ }
+\end{equation}
+
+Viste le precedenti definizioni di velocità peculiare $\vec v = \vec u + \vec w$ potremmo anche scomporre le definizioni date in $\varepsilon = \frac{1}{2} m n \langle u^2\rangle + \frac{1}{2} m n \langle w^2\rangle = \frac{1}{2} m u^2 + \frac{3}{2} n T$, per il flusso di energia convettiva $Q=\frac{1}{2} m u^2 (n\vec u) + \frac{3}{2} n T\vec u +\frac{1}{2} m n (2\vec u\cdot \langle \vec w \vec w \rangle) +\frac{1}{2}mn\langle w^2\vec w\rangle$ dove il primo termine di questi è un flusso di energia, il secondo un flusso di calore $\vec q = \frac{3}{2} n T\vec u$, il terzo è invece dovuto alle forze di pressione ($P\cdot u = \frac{1}{2} mn(2\vec u\cdot \langle \vec w \vec w\rangle )$) ed il quarto ad un lavoro di pressione macroscopico.
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newpage
+\section{Modello ad un fluido (Magnetoidrodinamica)}
+
+Assumendo che si trovi una chiusura, come l'incomprimibilità o una politropica, il nostro sistema di equazioni fluide a cui ci siamo ricondotti nel capitolo precedente vanno ancora accoppiate alle equazioni dell'elettrodinamica.
+
+Finora abbiamo trovato le equazioni di bilancio del numero di particelle (equazione di continuità), equazione della quantità di moto (o impulso) ed equazione dell’energia per le varie specie che compongono il plasma, ma nel caso più semplice di due fluidi (ioni + elettroni) possiamo fare alcune definizioni per ricondurci ad una descrizione ad un fluido, la \textbf{magnetoidrodinamica}; descrizione che spazia su molti ordini di grandezza ma perdendo alcuni aspetti cinetici: 
+
+\[ 
+\begin{split}
+    \textbf{densità di massa} &:\ \ \ \ \ \ \ \ \ \ \ \ \rho\ =\ \sum_\alpha m_\alpha n_\alpha = m_i n_i + m_e n_e \sim \frac{n}{2}(m_i + m_e) \\
+    \textbf{velocità media} &: \ \ \ \ \ \ \ \ \ \ \ \ \bar u\ =\ \frac{\sum_\alpha m_\alpha n_\alpha u_\alpha}{\sum_\alpha m_\alpha n_\alpha}\sim \frac{n_0}{n_0} \frac{m_i \vec u_i + m_e \vec u_e }{m_i + m_e} \sim \vec u_i + \frac{m_e}{m_i} \vec u_e\\
+    \textbf{corrente} &:\ \ \ \ \ \ \ \ \ \ \ \ \vec J\ =\ \sum_\alpha q_\alpha n_\alpha \vec u_\alpha
+\end{split}
+\]
+
+Si nota che per la densità di massa il contributo è dato principalmente dagli ioni, come per la velocità al primo ordine potremmo approssimare $\bar u \sim \vec u_i$.
+
+\subsection{Equazione di continuità ad un fluido}
+
+Ricordiamo che l'equazione di continuità per una singola specie è $\frac{\partial n_\alpha}{\partial t} = -\vec \nabla\cdot (n_\alpha \vec u_\alpha)$. Partiamo da quest'ultima, moltiplicandola per $m_\alpha$ e facciamo unna somma sulle specie per ottenere una nuova equazione di continuità a singolo fluido:
+
+\[ \frac{\partial}{\partial t} \left(\sum_\alpha m_\alpha n_\alpha\right) + \vec \nabla \cdot \left(\sum_\alpha m_\alpha n_\alpha \vec u_\alpha \right) = 0 \]
+
+\begin{equation}\label{continuità a un fluido}
+    \boxed{\ \frac{\partial\rho}{\partial t} + \vec \nabla \cdot (\rho \vec u) = 0\ }
+\end{equation}
+
+In modo del tutto simile potremmo definire l'equazione di continuità di carica:
+\begin{equation}\label{continuità di carica a un fluido}
+    \boxed{\ \frac{\partial\rho_c}{\partial t} + \vec \nabla \cdot \vec J = 0\ }
+\end{equation}
+
+
+%
+%
+\vspace{0.5cm}
+\subsection{Equazione del moto ad un fluido}
+
+Riprendiamo anche l'eq. del moto per l'impulso trovata per i due fluidi in eq.\ref{moto} e la moltiplichiamo per $m_\alpha$:
+
+\[\frac{\partial(m_\alpha n_\alpha \vec u_\alpha)}{\partial t} + \vec\nabla \cdot (n_\alpha m_\alpha \langle \vec v \vec v\rangle_\alpha) - q_\alpha n_\alpha (\vec E + \frac{1}{c}\vec u_\alpha\times \vec B)\ =\ 0\]
+
+Avevamo usato $\mathbf{P}_\alpha=n_\alpha m_\alpha \langle \vec w \vec w \rangle_\alpha$, con $\vec v = \vec u + \vec w$, ma ora noi vogliamo una pressione di singolo fluido $\mathbf{P} = \sum_\alpha \mathbf{P}_\alpha = p\mathcal{I} + \Pi$.
+
+\[\begin{align}
+    \mathbf{P}_\alpha &= n_\alpha m_\alpha \langle (\vec v - \vec u) (\vec v - \vec u) \rangle_\alpha = n_\alpha m_\alpha [\langle \vec v\vec v\rangle_\alpha - \langle \vec v\vec u\rangle_\alpha - \langle \vec u\vec v\rangle_\alpha + \langle \vec u\vec u\rangle_\alpha] = \\
+    &= n_\alpha m_\alpha [\langle \vec v\vec v\rangle_\alpha - \vec u_\alpha\vec u - \vec u\vec u_\alpha + \vec u\vec u]
+\end{align}\]
+
+Usiamo $\langle \vec v\rangle = \vec u_\alpha$ e calcoliamo $\mathbf{P}=\sum_\alpha \mathbf{P}_\alpha$:
+
+\[ \mathbf{P} = \sum_\alpha \mathbf{P}_\alpha = \sum_\alpha n_\alpha m_\alpha \langle \vec v\vec v\rangle_\alpha - \underset{\rho\vec u\vec u}{\underbrace{\left(\sum_\alpha n_\alpha m_\alpha \vec u_\alpha\right)\vec u}} - \underset{\rho\vec u\vec u}{\underbrace{\cancel{\vec u\left(\sum_\alpha n_\alpha m_\alpha \vec u_\alpha\right)}}} + \underset{\rho\vec u\vec u}{\underbrace{\cancel{\sum_\alpha n_\alpha m_\alpha  \vec u\vec u}}} \]
+
+Vogliamo riprendere ora l'eq. del moto ad un fluido moltiplicata per la massa e sommarla sulle due specie.\\
+Ricordando che $\rho \vec u = \sum_\alpha n_\alpha m_\alpha\vec u_\alpha$ vediamo che nell'equazione di inizio paragrafo il primo termine diventa $\partial_t (\rho \vec u)$ mentre il secondo termine può essere ricondotto al tensore di pressione che abbiamo appena espanso, quindi i primi due termini assieme sono:
+
+\[ \sum_\alpha n_\alpha m_\alpha \langle \vec v \vec v \rangle_\alpha = \mathbf{P} + \rho \vec u \vec u\]
+
+\[\begin{align} \frac{\partial}{\partial t} (\rho\vec u) + \vec \nabla\cdot (\rho\vec u\vec u) + \vec \nabla \cdot \mathbf{P}&= \rho  \frac{\partial \vec u}{\partial t} + \cancelto{\text{eq. di continuità}}{\vec u  \frac{\partial\rho}{\partial t} + \vec u\vec\nabla\cdot (\rho\vec u)} + \rho(\vec u\cdot \vec \nabla)\vec u + \vec \nabla \cdot \mathbf{P} = \\ &= \rho \left[ \frac{\partial\vec u}{\partial t} +(\vec u\cdot \vec \nabla)\vec u \right] + \vec \nabla \cdot \mathbf{P}
+\ =\ \rho\, \frac{D\vec u}{Dt} + \vec \nabla \cdot \mathbf{P}\end{align}\]
+
+Per il terzo termine, quello di forza:
+
+\[\sum_\alpha q_\alpha n_\alpha \left(\vec E + \frac{1}{c}\vec u\times \vec B\right)\ =\ \underset{\rho_c}{\underbrace{\left(\sum_\alpha q_\alpha n_\alpha \right) }} \vec E + \underset{\vec j}{\underbrace{\left( \sum_\alpha q_\alpha n_\alpha \vec u_\alpha \right)}}\times \vec B/c\ =\  \rho_c \vec E + \frac{1}{c}\,\vec j\times \vec B\]
+
+dove $\rho_c$ è uno sbilancio di carica quindi è vicino a zero, ma non nullo. In definitiva:
+
+\begin{equation}\label{moto MHD}
+    \boxed{\rho\, \frac{D \vec u}{D t} + \vec\nabla\cdot\mathbf{P}+\rho_c \vec E + \frac{1}{c}\,\vec j\times \vec B\ =\ 0}
+\end{equation}
+
+
+%
+%
+\vspace{0.5cm}
+\subsection{Legge di Ohm generalizzata}
+
+Ora si nota che siamo partiti da 2 equazioni quindi possiamo ricavarne altrettante, c'è ancora dell'informazione da estrarre dall'eq. del moto.
+Prendiamo di nuovo la medesima equazione e stavolta la moltiplichiamo per $q_\alpha$, per poi sommare su $\alpha$:
+
+\[\underset{\partial \vec j/\partial t}{\underbrace{\sum_\alpha \frac{\partial(q_\alpha n_\alpha \vec u_\alpha)}{\partial t} }} + \sum_\alpha q_\alpha \nabla \cdot (n_\alpha \langle \vec v \vec v\rangle_\alpha) - \sum_\alpha q^2_\alpha \frac{n_\alpha}{m_\alpha} (\vec E + \frac{1}{c}\vec u_\alpha\times \vec B)\ =\ 0
+\]
+
+ora questa diversa forma da cui partire ci condurrà all'equazione di Ohm generalizzata. 
+
+Per il secondo termine torniamo a giocare con la definizione di velocità peculiare:
+
+\[ \begin{align} \langle \vec v \vec v\rangle = \langle (\vec u + \vec w)(\vec u + \vec w) \rangle &= \vec u\vec u +  \langle \vec w \vec w\rangle_\alpha + \langle \vec w \vec u\rangle_\alpha + \langle \vec u \vec w\rangle_\alpha =\\ &=\vec u\vec u +  \langle \vec w \vec w\rangle_\alpha + (\vec u_\alpha - \vec u)\, \vec u  + \vec u\, (\vec u_\alpha - \vec u)=
+\end{align}\]
+
+Se ora andiamo a richiamare l'equazione dell'energia del capitolo precedente possiamo trovare una chiusura \sum_\alpha \frac{m_\alpha}{2}
+
+\[ \frac{\partial \varepsilon}{\partial t}\ =\ -\vec \nabla\cdot \vec Q + \vec E\cdot\vec J \]
+
+\[ \frac{\partial}{\partial t}\int \frac{1}{2} m v^2 f d\vec v + \frac{1}{2}m \frac{\partial}{\partial\vec x} \int v^2 \vec v f d\vec v + \int \frac{q}{2} v^2 \left( \vec E + \frac{\vec v \times \vec B}{c}\right) \frac{\partial f}{\partial v} d\vec v = 0\]
+
+poi fa robe:
+
+\[\sum_\alpha \frac{m_\alpha}{2} \frac{\partial}{\partial t} (n_\alpha \langle v^2 \rangle_\alpha) +\frac{1}{2} \sum_\alpha m_\alpha \nabla \cdot (n_\alpha \langle v^2 \vec v\rangle_\alpha) - \sum_\alpha q_\alpha n_\alpha \vec w_\alpha \cdot \vec E = 0\]
+
+\[ \frac{\partial}{\partial t} [\frac{1}{2} \sum_\alpha n_\alpha m_\alpha \langle v^2 \rangle_\alpha ] = \frac{\partial}{\partial t } [\frac{1}{2} \rho u^2 + \frac{3}{2} \sum_\alpha n_\alpha T_\alpha] \]
+
+Sappiamo che $P_\alpha = \frac{1}{3} m_\alpha n_\alpha \langle \vec w\vec w \rangle = n_\alpha T_\alpha$ e per magia ci ritroviamo in mano $\frac{\partial}{\partial t}(\frac{1}{2}\rho u^2 + \frac{3}{2}p)$.
+
+Poi vogliamo cercare di calcolare $\langle v^2 \vec v\rangle_\alpha$:
+
+\[ \begin{align}\langle v^2 \vec v\rangle_\alpha &=\ \langle\ [\ (\vec w +\vec u)\cdot(\vec w + \vec u)\ ]\ (\vec w + \vec u)\ \rangle_\alpha \\ 
+&= \langle w^2 \vec w\rangle_\alpha +\langle \vec w^2 \vec u\rangle_\alpha + \langle u^2 \vec w\rangle_\alpha + u^2\vec u + 2\langle (\vec u\cdot \vec w)\,\vec w\rangle_\alpha + 2\langle (\vec u\cdot \vec w)\,\vec u\rangle_\alpha
+\end{align} \]
+
+e - a questo punto - cerchiamo un modo intelligente di ridurre questi termini, in particolare riconoscendo i flussi di calore di singola specie $\vec q_\alpha$, le pressioni di singola specie $p_\alpha$ e ricordando le definizioni di $\rho$, $\rho\vec u$ e $\mathbf{P}$:
+
+
+\[ (\vec w\cdot \vec u) \, \vec w\ =\ \mathbf{\vec w \vec w}\cdot \vec u\ \ \Rightarrow\ \ \sum_\alpha n_\alpha m_\alpha \, \langle \vec w \vec w \rangle_\alpha \cdot \vec u\ =\ \mathbf{P}\cdot \vec u\]
+
+\[ \frac{1}{2} \sum_\alpha n_\alpha m_\alpha\, \langle w^2 \vec w\, \rangle_\alpha \ \equiv \sum_\alpha \vec q_\alpha\ =\ Q\]
+
+\[ \frac{1}{2} \sum_\alpha n_\alpha m_\alpha \langle w^2 \vec u \rangle_\alpha\ =\ \frac{1}{2} \sum_\alpha n_\alpha m_\alpha \langle w^2 \rangle _\alpha \vec u\ =\ \frac{3}{2} \sum_\alpha p_\alpha \vec u\ =\ \frac{3}{2} \sum_\alpha n_\alpha T_\alpha \vec u\]
+
+\[ \frac{1}{2} \sum_\alpha n_\alpha m_\alpha u^2\ =\ \frac{1}{2} \rho u^2 \vec u\]
+
+\[ \langle u^2 \vec w_\alpha \rangle = u^2 \langle \vec w \rangle_\alpha\ =\ u^2\ \langle\, \vec u_\alpha - u\, \rangle \]
+
+Quindi dopo tutti questi calcoli a latere abbiamo che per il secondo termine dell'equazione dell'energia, in definitiva:
+
+\[ \frac{1}{2} \sum_\alpha m_\alpha \nabla\, \cdot\, ( n_\alpha\, \langle v^2 \vec v \, \rangle_\alpha )\ =\ \nabla \cdot \left(\frac{1}{2}\rho u^2 \vec u + \frac{3}{2}\, p\, \vec u\, + \mathbf{P}\cdot \vec u\, +\vec q\,\right) \]
+
+
+Otteniamo così lìeq dell'\textbf{energia per singolo fluido} (in caso \emph{collision-less}):
+
+\[ \frac{\partial}{\partial t} \left(\frac{1}{2}\rho u^2 +\frac{3}{2} p\right) + \vec\nabla \cdot \left( \frac{1}{2}\rho u^2 \vec u + \frac{3}{2}\rho\vec u  + \mathbf{P}\cdot\vec u + \mathbf{q}\right) \ =\ \vec j\cdot \vec E\]
+
+Torniamo quindi all'equazione del moto e per semplificare i conti assumiamo che gli ioni siano protoni così da avere carica $+e$:
+
+\[\begin{cases}
+    \vec j = \sum_\alpha q_\alpha n_\alpha \vec u_\alpha = n_e (\vec u_i-\vec u_e)\, ;\\
+    \vec u = \vec u_i + \frac{m_e}{m_i} \vec u_e
+\end{cases}
+\quad \quad \Rightarrow \quad \quad 
+\begin{cases}
+    \vec u_i = \vec u +\frac{m_e}{m_i} \frac{\vec j}{n_e}\\
+    \vec u_e = \vec u - \frac{j}{n_e}
+\end{cases}\]
+
+\[ \frac{\partial \vec j}{\partial t} + \sum_\alpha q_\alpha \nabla\cdot (n_\alpha \langle v v\rangle_\alpha ) - \sum_\alpha \frac{n_\alpha}{m_\alpha} q_\alpha^2 (\vec E + \frac{1}{c} \vec u_\alpha \times \vec B)\ =\ 0 \]
+
+Per il secondo termine possiamo 'portare fuori' la divergenza e sviluppiamo:
+
+\[\begin{align}
+    \sum_\alpha n_\alpha q_\alpha \langle vv\rangle_\alpha &= ne \langle \vec v\vec v\rangle_i - ne \langle \vec v\vec v\rangle_e\\
+    &= ne\left[ \langle\, [(\vec v_i - \vec u)+\vec u]\,[(\vec v_i - \vec u)+\vec u]\,\rangle_i - \langle\, [(\vec v_e - \vec u)+\vec u]\, [(\vec v_e - \vec u)+\vec u]\,\rangle_e \right] =\\
+    &= n e \left( \underset{\text{press. singola specie } \langle w w \rangle_i}{\underbrace{\langle (\vec v_i -\vec u)\, (\vec v_i - \vec u) \rangle_i}} + \cancelto{0}{\vec u\vec u} + \langle (\vec v_i - \vec u)\, \vec u \rangle_i + \underset{\vec u\langle v_i - \vec u\rangle_i=\vec u(\vec u_i-\vec u)}{\underbrace{\langle \vec u (\vec v_i - \vec u)\rangle_i}}\right) - ne\,(\dots)_e\,
+\end{align}\]
+
+\[ \sum_\alpha n_\alpha q_\alpha \langle vv\rangle_\alpha\ =\ \frac{e}{m_i} p_i - \frac{e}{m_e} p_e + (\vec j\,\vec u +\vec u\, \vec j)\ (1 + \frac{m_e}{m_i}) \]
+
+Quindi nell'equazione del moto abbiamo:
+
+\[ \frac{\partial \vec j}{\partial t} + \nabla \cdot \left[ e\, (\frac{p_i}{m_i}- \frac{p_e}{m_e}) +  \vec j \vec u + \vec u\vec j\ \right] - \frac{n e^2}{m_e}\left( \vec E + \frac{\vec u\times \vec B}{c} - \frac{\vec j\times \vec B}{n\, e\, c} \right) = \eta\dots \]
+
+Prendiamo il termine con $q_\alpha^2$:
+
+\[\begin{align}
+\sum_\alpha \frac{n_\alpha}{m_\alpha} q^2_\alpha (\vec E + \frac{\vec u_\alpha\times \vec B}{c}) &=\ ne^2 \left(\cancel{\frac{1}{m_i}} + \frac{1}{m_i}\right)\vec E\, +\, ne^2\, \left(\sum_\alpha \frac{\vec u_\alpha}{m_\alpha}\right)\times \vec B/c  \\ &= \frac{n e^2}{m_e} \vec E + \frac{n^2_e}{m_e} (\vec u +\frac{\vec j}{m_e})\times \frac{\vec B}{c}
+\end{align}\]
+
+dove per il termine in parentesi al secondo membro lo sviluppo sarebbe:
+
+\[ \sum_\alpha \frac{\vec u_\alpha}{m_\alpha}\ =\ \frac{\vec u}{m_i} + \frac{m_e\vec j}{m_i^2 n_e} + \frac{\vec u}{m_e} - \frac{\vec j}{m_e n_e}\ =\ \frac{1}{m_e} \left[ \vec u(1 + \frac{m_e}{m_i}) - \frac{\vec j}{ne}(1+\frac{m^2_e}{m^2_i})\right] \]
+
+Otteniamo così (sono stanco capo...):
+
+\[\sum_\alpha \frac{n_\alpha q^2_\alpha}{m_\alpha} \left(\vec E + \frac{\vec u_\alpha \times \vec B}{c}\right) \approx \frac{n^2_e}{m_e} \left(\vec E + \frac{1}{c} \vec u\times \vec B - \frac{1}{n\, e\, c} \vec j\times \vec B\right)
+\]
+
+
+
+
+%
+%
+\vspace{1cm}
+\subsection{Onde di Alfvén}
+
+Le onde in MHD si dividono in tre gruppi, due magnetosoniche e poi le onde di Alfvén.\\
+Le \textbf{onde di Alfvén} sono onde \underline{non dispersive}, inoltre non sono \underline{compressive}, quindi l'energia che trasportano può essere portata più lontano rispetto ad onde compressive.
+
+Ancora una volta linearizziamo $\rho,\, p,\, \vec u,$, usiamo un pedice 0 per le quantità ad equilibrio ed un pedice 1 per le fluttuazioni. Per il campo magnetico in particolare scriviamo $\vec B = B_0 \hat e_z + \vec b$.\\
+Il nostro sistema di equazioni linearizzate è:
+
+\[\begin{cases}
+    \displaystyle \frac{\partial \rho_1}{\partial t} + \rho_0\,\vec \nabla\cdot \vec u\ =\ 0\\
+    \displaystyle \rho_0 \frac{\partial \vec u}{\partial t}\ =\ -\vec \nabla p + \frac{1}{4\pi}B_0 \hat e_z\times (\vec \nabla\times\vec b)\\
+    \displaystyle \frac{\partial \vec b}{\partial t}\ =\ \vec \nabla \times (\vec u \times B_0\hat e_z)\\
+    \vec \nabla p\ =\ c_s^2\ \vec \nabla \rho_1
+\end{cases}\]
+
+Proseguiamo i calcoli in trasformata di Fourier:
+
+\[
+\begin{cases}
+    \displaystyle \frac{\partial \rho_1}{\partial t} + \rho_0\,\vec \nabla\cdot \vec u\ =\ 0\\
+    \displaystyle \rho_0 \frac{\partial \vec u}{\partial t}\ =\ -c_s^2\ \vec \nabla \rho_1 + \frac{1}{4\pi}B_0 \hat e_z\times (\vec \nabla\times\vec b)\\
+    \displaystyle \frac{\partial \vec b}{\partial t}\ =\ \vec \nabla \times (\vec u\times  B_0 \hat e_z)
+\end{cases}
+\quad \quad \Rightarrow \quad \quad 
+\begin{cases}
+     \cancel{-i}\,\omega\rho_1\ =\ \cancel{-\,i}\,\rho_0\, \vec k\cdot \vec u \\
+     \displaystyle \cancel{-i}\, \omega\,\rho_0 \vec u\ =\ \cancel{- i}\,c_s^2\ \vec k\,\rho_1 \cancel{-} \frac{\cancel{i}}{4\pi}B_0 \hat e_z\times (\vec k\times\vec b)\\
+     -\cancel{i}\, \omega\,  \vec b\ =\ \cancel{i}\,\vec k \times (\vec u\times  B_0 \hat e_z)
+\end{cases}
+\]
+
+\begin{multicols}{2}
+Facciamo caso di passare da un sistema di riferimento $(\hat x, \hat y, \hat z)$ che stavamo usando ad un sistema $(\hat k, \hat y, \hat{\bar z})$ come da figura \ref{fig:sist di rif}.
+
+Calcoliamo ora il triplo prodotto della seconda equazione nel sistema: 
+\[ \vec k\,\times\,\vec b\ =\ \begin{vmatrix} 
+  \hat k & \hat y & \hat{\bar z} \\ 
+  k & 0 & 0\\
+  b_k & b_y & b_{\bar z}
+\end{vmatrix} \ =\ -k b_{\bar z} \hat y\, +\, k b_y \hat{\bar z} \]
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\linewidth]{immagini/riferimento.jpeg}
+    \caption{cambio di sistema di riferimento $(\hat x, \hat y, \hat z) \ \ \rightarrow \ \ (\hat k, \hat y, \hat{\bar z})$}
+    \label{fig:sist di rif}
+\end{figure}
+\end{multicols}
+
+\[ \vec B_0\times (\vec k\times \vec b) \ =\ \begin{vmatrix} 
+  \hat x & \hat y & \hat z \\ 
+  0 & 0 & B_0\\
+  -k_{\parallel} b_y & - k b_{\bar z} & k_{\perp} b_y
+\end{vmatrix} \ =\ \hat x\,(k\,B_0\, b_{\bar z})\, -\, \hat y (k_{\parallel}\, b_y\, B_0) + \hat z(0)\]
+
+Ne deriva che la seconda equazione diventa $\omega \rho_0\vec u = c^2_S \vec k \rho_\parallel + \frac{1}{4\pi}(kB_0 b_{\bar z} \hat x - k_\parallel b_y B_0 \hat y)$. Finito questo rimaneggiamento passiamo a fare lo stesso per la terza equazione:
+
+\[ \vec u\,\times\,\vec B_0\ =\ \begin{vmatrix} 
+  \hat x & \hat y & \hat{z} \\ 
+  0 & 0 & B_0\\
+  u_x & u_y & u_{z}
+\end{vmatrix} \ =\ -b_0 u_y \hat x\, +\,  b_0 u_x \hat{y} \]
+
+\[ \vec k\times (\vec u\times \vec B_0) \ =\ \begin{vmatrix} 
+  \hat k & \hat y & \hat{\bar z} \\ 
+  k & 0 & 0\\
+  -sin\theta B_0 u_y & cos\theta B_0 u_x & cos\theta B_0 u_y
+\end{vmatrix} \ =\ -k_\parallel B_0 u_y \hat y + k B_0 u_x \hat z\]
+
+In questo modo abbiamo ridotto il sistema ad uno di :
+\[\begin{cases}
+    \omega b_y\ =\ -k_\parallel B_0 u_y\\
+    \omega \rho_0 u_y\ =\ \frac{B_0}{4\pi}\, k_\parallel b_y
+\end{cases}\]
+
+da questo sistema otteniamo $\omega u_y = \omega^2 b_y / (k_\parallel B_0)$ e $\rho_0 \omega^2 b_y/(k_\parallel B_0) = B_0 k_\parallel b_y / (4\pi)$ che ci permettono di scrivere una \textbf{relazione di dispersione} per le onde di Alfvén $\forall\ \ \theta$, notando che per $\theta = \pi/2$ non vi sono onde:
+
+\begin{equation}
+    \boxed{\ \omega^2\ =\ k^2_\parallel c^2_a\ = k^2\, cos^2\theta\, c^2_a\ }
+\end{equation}
+
+L'energia si propaga lungo $\hat z$ mentre l'onda si propaga lungo $\hat k$
+
+\[ c_\phi\ =\ \frac{\omega}{k}\ =\ c_a\ cos\theta
+\quad \quad \quad \quad \tau_y\ =\ c_a\, \hat z\ =\ \frac{d\omega}{dk}\]
+
+
+%
+%
+\vspace{1cm}
+\subsection{Onde Magnetosoniche}
+Riprendiamo il sistema precedente:
+
+\[ \begin{cases}
+    \omega \rho_1\ =\ \rho_0\ \vec k\cdot \vec u\ =\ \rho_0\ (k_\perp u_x + k_\parallel u_z)\\
+    \omega\, \rho_0\, \vec u\ =\ \bar c_s^2 \bar k \rho_1 + \frac{\bar B_0}{4\pi}\hat e_z\times (\vec k\times \vec b)\\
+    \omega\,\vec b\ =\ -\vec k\times (\vec u \times \vec B_0)
+\end{cases} \]
+
+\[\omega \rho_0 \vec u\ =\ c^2_s \frac{\rho_0}{\omega} (k_\perp u_x + k_\parallel u_z)\vec k + \frac{k\, B_0 b_{\bar z}}{4\pi} \hat x + \dots \hat y \]
+
+Usiamo il fatto che $\displaystyle\frac{k^2 B_0^2}{4\pi \rho_0}\, u_x=k^2\, c^2_a u_x$ per ottenere:
+
+\[ \omega^2 u_x\ =\ c^2_s (k_\perp u_x + k_\parallel u_z) k_\perp + k^2c^2_a u_x\ =\ (k_\perp c^2_s + k^2 c_a^2)\, u_x + (c_s^2 k_\parallel k_\perp) u_z\]
+
+Prendendo $\omega \rho_0 u_z = c^2_s \rho_1 k_\parallel$ scriviamo poi $\omega^2 \rho_0 u_z = c_s^2 k_\parallel \rho_0 (k_\perp u_x + k_\parallel u_z)$ così da giungere al sistema:
+
+\[ \begin{cases}
+    (\omega^2 - c^2_s k^2_\perp - l^2 c^2_a) u_x - k_\parallel k_\perp c^2_s u_z = 0\\
+    k_\parallel k_\perp c^2_s u_x - (\omega^2 - c_s k^2_\parallel)\, u_z = 0
+\end{cases} \]
+
+\[ (\omega^2 - k^2_\perp c^2_s - k^2 c^2_a)(\omega^2 - k^2_\parallel c^2_s) + (k^2_\parallel k^2_\perp c^4_s) = 0 \]
+
+\[ \omega^4 - \omega^2 k^2\, (c^2_a + c^2_s) + k^2_\parallel k^2 c^2_a c^2_s = 0 \]
+
+\begin{equation}\label{magnetosoniche}
+    \boxed{\ \left( \frac{\omega}{k} \right)^2 = \frac{1}{2} \left[ c^2_a + c^2_s \pm \sqrt{(c_a^2 + c_s^2)^2 - 4 c^2_a c^2_s cos^2\theta} \right]\ }
+\end{equation}
+
+
+
+%
+%
+\newpage
+\section{Riconnessione} 
+La riconnessione è una transizione verso uno stato di energia minore che sarebbe proibita per la MHD,  Viene violata localmente la legge di OHM ideale in una regione  (detta zona ad x  o zona resistiva) di dimensione caratteristica $\delta$   infinitesima rispetto al sistema totale. Viene cambiata globalmente la topologia  creando una cosittetta isola di campo, inoltre viene liberata una grandissima quantità di energia Questa quantità di energia viene presa dalla struttura stessa del campo che si riarrangia nella sua interezza in una configurazione meno energetica.\\
+Matematicamente abbiamo un'eq differenziale al quart'ordine "struttura tipo strato limite in fluidodinamica "  Il termine del quart'ordine (la derivata più alta) $\eta\frac{d^4}{dx^4}\bar b$ non conta mai tranne che nelle regioni di grandi gradienti perché è guidato da un coefficiente piccolissimo, d'altra parte è proprio questo termine invece a guidare la soluzione nelle regioni interne (zona ad x) dove si hanno forti gradienti (e possibilmente il termine all'orgine zero è nullo),  in cui $\frac{d}{dx}\sim\frac{1}{\delta}$ e  , $\delta$ è la lunghezza caratteristica dello strato resistivo,  che va raccordata alla soluzione delle regioni esterne in cui invece $\frac{d}{dx}\sim\frac{1}{L}$, $L$ è la dimensione caratteristica MHD "lunghezza scala del campo di equilibrio". Il tempo caratteristico della riconnessione (tasso di crescita $\frac{1}{\gamma}$ è in mezzo tra il tempo resistivo e il tempo di alfvén: 
+
+\[1 \ll \frac{1}{\gamma\tau_a}\ll\frac{\tau_R}{\tau_a}\equiv S\equiv R_a \text{ che è un numero enorme}\] 
+
+Noi osserviamo chiaramente che la riconnessione avviene anche in 3D ma per il momento la studiamo in 2D, anzi mi sa che non è nemmeno ben definito come diamine funzioni la riconnessione in 3D. \\Le condizioni del problema sono che ci mettiamo in 2D ($\partial_z=0$) in approssimazione incomprimibile $\nabla\cdot\vec u=0$ 
+
+\[u_z=0,\hspace{1cm}b_z=0,\hspace{1cm} \vec u_0=0\]
+
+\[\vec B=B_0(x)\hat y+\vec b\] 
+
+Praticamente l'intensità del campo magnetico seguendo l'asse x ha valori asintotici $B_0$ per $x\to\infty$ e $-B_0$ per $x\to-\infty$. poi c'è una zona di alto gradiente di dimensioni caratteristiche L lunghezza scala del campo di equilibrio, \[L\sim\frac{B_0}{B_0'} \hspace{1cm}L\gg\delta\]
+Per fare un esempio dell'andamento tipico possiamo considerare  $B_0(x)=\tanh{\frac{x}{L}}$ 
+\\I campi di variazione sono 
+\[\vec b=b_x(x,y)\hat x+b_y(x,y)\hat y,\hspace{1cm}\vec u=u_x(x,y)\hat x+u_y(x,y)\hat y\] Dalla fluidodinamica sappiamo che possiamo scrivere il campo 2D come gradiente di un campo ausiliario
+\[\vec b=\nabla\psi\times\hat z=\partial_y\psi\hat x-\partial_x\psi\hat y,\hspace{1cm}\vec u=\nabla\phi\times\hat z=\partial_y\phi\hat x-\partial_x\phi\hat y\] Dopodiché ho bisogno dell'equazione di Faraday ("dell'induzione") 
+\subsection{equazione di faraday}  Vorrei tanto sapere come mai l'equazione di faraday è proprio scritta così, io non me la ricordo mica come siarriva a questo punto e mi auguro di scoprirlo presto... cmq davanti ad eta potrebbe esserci un $4\pi$ o comunque una costante
+
+\[\partial_t \vec B=\nabla\times(\vec u\times\vec B_0)+\eta\nabla^2\vec b\] facciamo tutti i conti passo passo
+\[\vec u\times\vec B_0= 
+
+\begin{vmatrix} 
+  \hat i & \hat j & \hat k\\ 
+  \partial_y\phi & \partial_x\phi & 0\\
+   0& B_0 &  0
+
+\end{vmatrix} 
+
+=B_0\delta_y\phi\hat z\] \[\nabla\times[\vec u\times\vec B_0]= 
+
+\begin{vmatrix} 
+  \hat i & \hat j & \hat k\\ 
+  \partial_x & \partial_y & 0\\
+   0& 0 &  B_0\partial_y\phi
+\end{vmatrix} 
+
+=B_0\partial_{yy}\phi\hat x-\partial x[B_0\partial \phi]\hat y=B_0\partial_{yy}\phi\hat x-(B_0'\partial_y\phi+B_0\partial{xy}\phi)\hat y\] dove $B_0'=\partial_ xB_0$ e in generale d'ora in poi i termini col primo si intende derivata lungo x.  
+\[\nabla^2\vec b=(\partial_{xx}+\partial{yy})(\partial_y\psi\hat x-\partial_x\psi\hat y)=(\partial_{xxy}+\partial_{yyy})\psi\hat x-(\partial_{xxx}+\partial_{yyx})\psi\hat y\] chiaramente la derivata rispetto al tempo del campo elettrico mi ammazza il campo medio $B_0$ 
+\[\partial_t\vec B=\partial _t\vec b=\partial_{ty}\psi\hat x-\partial_{tx}\psi\hat y\]
+Metto tutto insieme , separo le componenti e impongo una bella soluzione piana  (non è per davvero un'onda piana, al massimo posso dire che è un ansatz)\[\sim f(x)e^{iky-\gamma t}\]:\begin{itemize}
+    \item componente $\hat x$:\[ \partial_{ty}\psi=B_0\partial_{yy}\phi+\eta(\partial_{xxy}+\partial_{yyy})\psi\] tutti i termini contengono un $\partial _y$ e quindi posso integrare in $\partial y$.\\
+\[\gamma\psi=ikB_0\phi+\eta(\psi''-k^2\psi)\] 
+    \item componente y:  \\ho ricucito la derivata del prodotto. 
+\[ -\partial_{tx}\psi=-(B_0\partial_y\phi)'-\eta(\partial_{xxx}-\partial_{yyx})\psi\]
+
+\end{itemize} 
+
+ Infine mi interesso di normalizzare l'equazione praticamente in temini di $L,\tilde c_a, \tilde B$ che sono i valori caratteristici di $\phi$ e di $\psi$. compare il termine  parente stretto di $\eta$, $\frac{t_a}{t_r}=S^{-1}$.  
+ alla fine dela fiera quello che viene fuori è per quanto riguarda la componente x  
+ \[\gamma\psi=ikB_0\phi+S^{-1}(\psi''-k^2\psi)\] Attenzione !!! e la componente y quanto fa??
+\subsection{equazione del moto } dall'incomprimibilità si ha sicuramente che non vi sono variazioni nella densità che è uniformemente $\rho_0$.;\\ il termine $\vec u\nabla\cdot\vec u$ è del second'ordine e lo lasciamo perdere sin da subito.  
+\[ \rho_0\partial_t(\nabla\times\vec u)=\frac{1}{4\pi}\nabla\times[(\nabla\times \vec B)\times\vec B]\]
+intanto sicuramernte posso linearizzare e mi trovo solamente i termini di primo grado. 
+\[ \rho_0\partial_t(\nabla\times\vec u)=\frac{1}{4\pi}\nabla\times[(\nabla\times \vec b)\times\vec B_0]+\frac{1}{4\pi}\nabla\times[(\nabla\times \vec B_0)\times\vec b]\] 
+ora di nuovo bisogna fare  i prodotti vettoriali e i rotori per benino benissimo
+\[\nabla\times \vec b=\begin{vmatrix}
+    \hat i&\hat j&\hat k\\
+    \partial x &\partial_y& 0\\
+    \partial_y\psi&-\partial _x\psi&0
+\end{vmatrix}=-(\partial_{xx}\psi+\partial_{yy}\psi)\hat z\] 
+\[\nabla\times\vec u=-(\partial_{xx}\phi+\partial_{yy}\phi)\hat z\]
+\[\nabla\times \vec B_0=\begin{vmatrix}
+    \hat i&\hat j&\hat k\\
+    \partial x &\partial_y& 0\\
+    0&B_0&0
+\end{vmatrix}=\partial _x B_0\hat z=B_0'\hat z\] \[(\nabla\times\vec b)\times\vec B_0=
+\begin{vmatrix}
+    \hat i&\hat j&\hat k\\
+    0 & 0& -(\partial_{xx}+\partial_{yy})\psi\\
+    0 & B_0& 0
+\end{vmatrix}=B_0(\partial_{xx}+\partial_{yy})\psi\hat x \]
+\[(\nabla\times\vec B_0)\times\vec b=
+\begin{vmatrix}
+    \hat i&\hat j&\hat k\\
+    0&0&B'_0\\
+    \partial_y\psi&\partial_x\psi&0
+\end{vmatrix}
+=B_0'\partial_x\psi\hat x+B_0'\partial_y\psi\hat y\] 
+
+\[\nabla\times[(\nabla\times \vec b)\times\vec B_0]=
+\begin{vmatrix}
+    \hat i& \hat j&\hat k \\
+    \partial _x&\partial_y&0\\
+   B_0(\partial_{xx}+\partial_{yy})\psi&0&0
+\end{vmatrix}
+=-B_0(\partial_{yxx}+\partial_{yyy})\psi\hat z\] 
+\[\nabla\times[(\nabla\times \vec B_0)\times\vec b]
+=
+\begin{vmatrix}
+    \hat i& \hat j&\hat k \\
+    \partial _x&\partial_y&0\\
+    B_0'\partial_x\psi&B_0'\partial_y\psi&0
+\end{vmatrix}
+=[\partial_x(B_0'\partial_y\psi)-B_0'\partial_{yx}\psi]\hat z=\]\[=[B_0''\partial_y\psi+B_0'\partial_{yx}\psi-B_0'\partial_{yx}\psi]\hat z=B_0''\partial_y\psi\hat z\]
+
+\[4\pi\rho_0\partial_t(\partial_{xx}+\partial_{yy})\phi=B_0(\partial_{yxx}+\partial_{yyy})\psi-B_0''\psi\] imponendo una soluzione di tipo onda piana (oddio non è mica vero che è un'onda piana... chiedere) le derivate rispetto al tempo fanno scendere un $\gamma$, le derivate seconde rispetto ad x danno un doppio primo, le derivate seconde rispetto a y danno $-k^2$.  ora bisogna normalizzare e $\gamma$ lo normalizzo col tempo di alfven, $\phi $ è una velocità  per una lunghezza e quindi va diviso per $\tilde c_aL$, se moltiplico per $L^2$ normalizzo sia la derivata seconda rispetto a x sia rispetto a $k^2$. 
+\[\frac{\tau_aL^2}{L\tilde c_a}=\frac{L^2}{\tilde c_a L/\tau_a}\sim\frac{L^2}{\tilde c_a^2}\] allora se moltiplico il membro a sx per $\tau_a\frac{L}{\tilde c_a}$ mi rimane la densità $\rho_0$. dall'altra parte la $\psi$ è $\sim \tilde BL\implies \psi''$ e anche $k^2\psi\sim \frac{\tilde B}{L}$ contando anche il $k$ davanti a tutto e il campo magnetico hoche il membro a dx è $\sim B^2/L^2$. il fattore con cui ho moltiplicato il membro a sx mi fa diventare il membro a destra $\sim \frac{\tilde B}{\tilde c_a^2}$.\\Se riesco a capire che $\rho_0\sim\frac{\tilde B^2}{c_a^2}$ sono a cavallo. \\in alternativa mi piace anche magari che $\rho_0\sim\frac{\tilde B}{c_a^2}$  perché comunque mi va bene che sia in termini del campo magnetico.  
+\\Credo che ho bisogno dell'equazione di continuità per riuscire a dimensionare campo magnetico e densità. 
+\subsection{equazioni MHD incomprimibile} 
+\begin{enumerate}
+    \item \[\gamma(\phi''-k^2\phi)=ikB_0(\psi''-k^2\psi)-ikB_0\psi\]
+    \item \[\gamma\psi-ikB_0\phi=S^{-1}(\psi''-k^2\psi)\] è da qui che emerge l'equazione differenziale del uart'ordine. il termine alla derivata quarta è effettivamente quello legato al numero di Raynolds magnetico, $S^{-1}$ è un numero piccolissimo e sono necessari grandi gradienti per farlo uscire fuori. Queste equazioni presentano una singolarità ed è in quel punto che comincia a contare il termine del quart'ordine. Quando la velocità di fase dell'onda di alfven matcha la velocità del suono locale ovvero quando $\frac{\omega}{k}\sim c_a(x_0)$ in $x_0$ c'è la singolrità. Avere questa singolarità non necessariamente porta ad una riconnessione, è infatti questo il caso anche per le oscillazioni di kelvinhelmoltz  in cui le onde fanno risonanza con la disomogeneità e dissipano l'energia, però se il campo magnetico passa da zero e fa un'inversione "si inverte", posso avere la riconnsessone. in questo caso l'energia  viene liberata dal campo medio che cambiando configurazione passa ad uno stato di minore energia. \\DOMANDA:\\Ma nel caso di KelvinHelmoltz avviene un cambiamento di Topologia?  
+\end{enumerate}
+\subsection{ipotesi e time ordering}  
+\begin{itemize}
+    \item H1: assumo che esistano due regioni con diversi regimi \begin{itemize}
+        \item REGIONE IDEALE \\ in cui il termine resistivo non conta e in questa zona i gradienti sono 
+    \[\partial_x\sim\frac{1}{L}\sim k\sim\delta_y\]
+e considerando che stiamo considerando le grandezze normalizzate possiamo dire che le derivate nelle due direzioni sono dello stesso ordine \[\delta_x\sim\delta_y\sim1\]
+        \item REGIONE RESISTIVA : \[\partial _x\sim\frac{1}{\delta},\hspace{1cm}\delta\ll L\]
+
+    \end{itemize}
+    \item H2: Ordering dei tempi \[1\ll\frac{1}{\gamma\tau_a}\ll S\] da ora in poi scriviamo solamente $\gamma$ condiserandolo un fattore adimensionale.  
+
+
+\end{itemize} 
+Queste due ipotesi mi permettono di semplificare il sistema di equazioni,
+
+\subsubsection{zona ideale   }  
+
+Qui l'equazione $(2)$ ha il termine in $S$ che non conta nulla e possiamo dire invece che  
+\[\gamma\psi\sim ikB_0\phi\] da cui concludiamo che per quanto riguarda gli ordini/andamenti \[\gamma\psi\sim\phi\]
+Questo permette di passare all'equazione $(1)$ in cui possiamo considerare che $\gamma\phi\sim\gamma^2\psi$, a questo punto trascuriamo il primo termine. 
+\[(\psi''-k^2\psi)=\psi\] Definiamo un valore  che quantifica quanto la derivata è fottuta. è una misura di quanto varia la discontinuità  a seconda della lunghezza d'onda.
+\[\Delta '=\frac{d}{dx}\ln\psi\bigg|_{0^-}^{0^+}=\frac{\psi'(0^+)-\psi'(0^-)}{\psi(0)}\]  Quando $\Delta'$ è negativo il sistema è stabile, quando $\Delta'$ è positivo, è possibile che il sistema vada verso un'instabilità.
+\subsubsection{zona resistiva} 
+abbiamo un'ordering spaziale del tipo \[\frac{\partial}{\partial_x}\sim\frac{1}{\delta}\gg\frac{\partial}{\partial_y}\sim k\]
+Questo ordering implica che in questo caso le dreivate rispetto a x sono molto maggiori delle derivate rispetto a y. Poi dobbiamo anche imporre che quando $\frac{x}{\delta}\ll1$ la soluzione nella zona interna resistiva si agganci a quella della zona ideale esterna.
+\[\phi''\gg k^2\phi\hspace{1cm}\psi''\gg k^2\psi\] Riprendiamo le equazioni normalizzate 
+\[\begin{cases}
+    \gamma(\phi''-k^2\phi)=ikB_0(\psi''-k^2\psi)-ikB_0''\psi\\
+    \gamma\psi-ikB_0\phi=S^{-1}(\psi''-k^2\psi)
+\end{cases}\] siccome nella prima equazione membro a membro si ha solamente confronti tra termini si ordine 1 ($kB_0''\psi$ è di ordine 1) e temini di ordine $\frac{1}{\delta^2}$, si può eliminare direttamente ogni termine che non abbia la derivata seconda. nella seconda equazione invece è possibile fare  questa considerazione solamente nella parte a dx.
+\[\begin{cases}
+    \gamma\phi''=ikB_0\psi''\\\gamma\psi-ikB_0\phi=S^{-1}\psi''
+\end{cases}\] ora dobbiamo procedere a cercare l'ordinamento di questi termini in termini di $\gamma, S, \Delta'  $ e $\delta$. \\Inanzitutto definiamo con una funzione di Guess il campo magnetico nella regione resistiva, che ricordiamo essere sottilissima , spessa $\delta$. \[B_0(x)=\tilde Bx\sim\tilde B\delta\]
+\[\psi-\frac{ik\tilde B}{\gamma}x\phi=\frac{S^{-1}}{ik\tilde Bx}\phi''\] nella regione interna vale la funzione $\psi_{int}$ di cui abbiamo definito il rapporto incrementale della derivata logaritmica essere $\Delta'$. Con un passaggio algebrico si scrive la differenza al numeratore come integrale definito  della derivata 
+\[\Delta'=\frac{1}{\psi_{int}(0)}\int_{-\delta}^{\delta}\frac{d^2}{dx^2}\psi_{int}dx\] l'integrale è dell'ordine di $\psi''\delta$
+\[\implies\psi''\sim \frac{\Delta'}{\delta \psi(0)}\] Ora devo fare il bilanciamento dei termini, e controlliamo prima i termini con la $\phi$.         \\Ricordiamoci che $k$ e $\tilde B$ sono di ordine 1.  $x $ è ordine $\delta$
+\[\phi''\sim\frac{\phi}{\delta^2}\sim\frac{(k\tilde B \delta)^2}{\gamma}S\phi\implies\gamma\sim\delta^4 S\] 
+
+
+
+
+
+\subsection{caso particolare con soluzione analitica}
+Nella regione ideale quindi come equazione differenziale abbiamo \[B_0(\psi''-k^2\psi)=B_0''\psi\] esiste una possibilità che permette di trovare una soluzione analitica: 
+imponendo che \[B_0(x)=\tanh(x) \] si trova 
+\[\psi_\pm=e^{\mp kx}[1\pm\frac{\tanh(x)}{k}]\] la notazione è un pochino buffa e ci dice che la funzione è definita a tratti, con un pezzo che vale per le x negative e un pezzo che vale per le x positive. Questa funzione è continua in tutto il dominio (in particolare esiste finito il valore $\psi(0)=1$ $\forall k$ ma ha un punto angoloso in zero pertanto la derivata diverge in 0, con un asintoto che va in su e un asintoto che va in giù. \[ \psi'_\pm=\mp k\psi_\pm\pm\frac{e^{\mp kx}}{k}\cosh^2(x)\]
+Definiamo un valore  che quantifica quanto la derivata è fottuta. è una misura di quanto varia la discontinuità  a seconda della lunghezza d'onda.
+\[\Delta '=\frac{d}{dx}\ln\psi\bigg|_{0^-}^{0^+}=\frac{\psi'(0^+)-\psi'(0^-)}{\psi(0)}\] \[\Delta'=-k+\frac{1}{k}-(+k-\frac{1}{k})=2(\frac{1}{k}-k)\] Quando $\Delta'$ è negativo il sistema è stabile, quando $\Delta'$ è positivo, è possibile che il sistema vada verso un'instabilità. non ho capito cosa ha detto il professore a rigurado dell'$\Delta'$ poco negativo che evolve molto lentamente. \\in ogni caso $\Delta'<0\iff k>\frac{1}{k}\iff k $ grandi, ovvero piccole $\lambda$. 
+\section{Onde ion acustic}
+
+
+Onde elettrostatiche di tipo austico, ovviamente si possono ricavare da vlasov ma noi non lo facciamo (e pqe questo non avremo il LandauDamping).\\ Noi le ricaviamo con il modello a due fluidi, che va dall'MHD alle onde di plasma. se partissimo direttamente dall'MHD non troveremmo le onde di plasma, ma noi invece le troveremo. 
+\[\vec E_0=0 \implies \vec E=\vec E_1\] abbiamo un plasma non magnetizzato
+\[\vec B_0=0\implies \vec B=\vec b\]
+\[\vec u_0=0\implies \vec u=\vec u_1\] il termine $\vec u_1\times\vec b$   è del second'ordine ed è pertanto per noi nullo, significa che la nostra onda è polarizzata longitudinalmente e non abbiamo onde elettromagnetiche che avrebbero bisogno del mampo magnetico,
+\[\vec E\parallel\vec u\parallel\vec k\]
+
+La velocità di fase dell'onda ionacustic è molto minore delle velocità termiche in gioco. \[v_f\ll v_{th,I}\ll v_{th,e} \] i tempi scale sono tali da avere una risposta inerziale (Adiabatica) da parte degli ioni e una risposta termica (isoterma) da parte degli elettroni. questo implica che devo usare due politropiche diverse per le due specie.   
+
+\subsection{Equazioni di base} 
+\[n_\alpha=n_{0\alpha}+n_{1\alpha}\hspace{1cm}P_\alpha=P_{0\alpha}+P_{1\alpha}\hspace{1cm}\alpha=I,e\]
+
+equazione di continuità 
+\[\partial_tn_\alpha +\nabla\cdot(n_\alpha\vec u_\alpha)=0\]linearizzo  
+\[\partial_tn_{1\alpha }+\nabla\cdot(n_{0\alpha}\vec u_{1\alpha})=0\] 
+equazione del moto 
+\[m_\alpha n_{0\alpha}\partial_t\vec u_{1\alpha}=-\nabla P_{1\alpha}+n_{0\alpha}q_{\alpha}(\vec E+\cancelto{0}{\frac{\vec u_{1\alpha}\times\vec b}{c}})\]
+chiusura politropica \\ 
+La scriviamo già linearizzata 
+\[P_{1\alpha}=\gamma_\alpha\frac{P_{0\alpha}}{n_{0\alpha}}n_{1\alpha}\]
+\subsection{soluzione onda piana e relazione di dispersione} 
+Cerco una soluzione ad onda piana \[\sim e^{i(\vec k\cdot\vec r-\omega t)}\] trovo un sistema di equazioni che se risolte mi danno la relazione di dispersione.  
+\\Riusulta utile definire una sorta di "velocità del suono per la specifica specie" \[v^2_{0\alpha}=\frac{\gamma_\alpha P_{0\alpha}}{m_\alpha n_{0\alpha}}\] Tolgo i segni di vettore perché il nostro problema adesso è unidimensionale.
+\[\begin{cases}
+    -in_{1\alpha}-in_{0\alpha}ku_\alpha=0
+    \\
+    -i\omega m_\alpha n_{0\alpha}u_\alpha=-iP_{1\alpha}k+n_{0\alpha}q_{\alpha}E
+    \\
+P_{1\alpha}=\gamma_\alpha\frac{P_{0\alpha}}{n_{0\alpha}}n_{1\alpha}    
+\end{cases}\implies u_\alpha=\frac{iq_\alpha}{m_\alpha}\frac{\omega}{\omega^2-k^2v_{0\alpha}^2}E\] 
+adesso che abbiamo le velocità possiamo ricavare le correnti  moltiplicando ogni equazione per $n_\alpha q_\alpha$ e summando le $\alpha$
+\[\sigma E=J=\sum_\alpha J_\alpha=\sum_\alpha n_\alpha q_\alpha u_\alpha\]
+
+ne segue che \[\sigma=\sum_a \frac{in_\alpha q_\alpha^2}{m_\alpha}\frac{\omega}{\omega^2-k^2v_{0\alpha}^2}\] esplicito la dipendenza dalla frequenza di plasma $\omega_{p\alpha}^2=\dfrac{4\pi n_{0\alpha}q^2_\alpha}{m_\alpha}$
+\[\sigma=\frac{i}{4\pi\omega }\sum_\alpha \frac{\omega_{p,\alpha}^2\omega^2}{\omega^2-k^2 v_{0\alpha}^2}\]
+
+
+
+d'altra parte 
+\[\epsilon=1+\frac{4\pi i}{\omega}\sigma\] 
+\[\epsilon=1-\frac{\omega_{pI}^2}{\omega^2-k^2v_{0I}^2}-\frac{\omega_{pe}^2}{\omega^2-k^2v_{0e}^2}\] 
+si vede subito che nel limite di plasma freddo si può trascurare il termine degli ioni e vengono fuori le onde di plasma freddo con correzione temrica, come è molto bene che sia. \\
+Per trovare la relazione generale  imponiamo che ci troviamo in un modo normale che è quindi quando $\epsilon=0$ 
+trovo la relazione di dispersione risolvendo l'equazione di secondo grado. devo ricordarmi che $\omega_{pI}^2\sim\frac{1}{m_I}\ll\omega_{pe}^2\sim\frac{1}{m_e}$
+
+\[\omega^2=\frac{1}{2}\bigg(\big(k^2(v_{0I}^2+v_{0e}^2)+\omega_{pe}^2   \big ) 
+\bigg\{ 1\pm \bigg[ 1-\frac{2k^2 v_{0e}^2\omega_{pI}^2+v_{0I}^2\omega_{pe}^2+k^2v_{0I}^2v_{0e}^2}{ \big(k^2(v_{0I}^2+v_{0e}^2)+\omega_{pe}^2   \big)^2}\bigg]
+\bigg\}
+\bigg)\]  
+Per procedere più agevolmente poniamo $\omega^2=\frac{A}{2}[1\pm(1-B)^\frac{1}{2}]$. Vediamo che $B$ è piccolo $B\sim\frac{m_e}{m_I}$ e quindi possiamo taylorizzare. (per intenderci il numeratore va come $\frac{1}{m_Im_e}$ e il denominatore va come $\frac{1}{m_e^2}$.)  
+\[\omega^2\sim\frac{A}{2}[1\pm(1-\frac{B}{2})]\]\\Otteniamo due soluzioni, una è ovviamente la soluzione delle onde di plasma con correzione termica, questo perché stiamo considerando il modello a due fluidi in cui le onde di plasma sono previste.  
+\[\omega_{th}^2=A=k^2v_{0e}^2+\omega_{pe}^2\] 
+
+l'altra soluzione invece è quella che ci interessa:   
+\[\omega^2_{IA}=\frac{AB}{2}\]
+\[\omega^2_{IA}=k^2\frac{\omega^2_{pe^2}v_{0I}^2 +\omega^2_{pI}v_{0e}^2+k^2v_{0I}^2v^2_{0e}}{\omega^2+k^2v_{oe}^2}\] ora metto in evidenza $v_{0e}^2$ sopra e sotto e poi riconosco la lunghezza di debye \[\lambda _{D\alpha}^2=\frac{\omega_{p\alpha}^2}{v_{th.\alpha}^2},\quad \frac{\lambda^2_{De}}{\lambda^2_{DI}}=\frac{T_e}{T_I}\] Ho anche una relazione vagamente misteriosa che spero di riuscire a motivare studiando
+\[v_{0I}^2=\frac{\gamma_IP_{0I}}{m_In_{0I}}=\frac{\gamma_IT_{I}}{m_I}\] 
+RELAZIONE DI DISPERSIONE DELLE ONDE MAGNETOSONORE
+\[\boxed{\frac{\omega^2_{IA}}{k^2}=v_{0I}^2\frac{k^2+\frac{1}{\lambda_{De}^2}+\frac{1}{\lambda_{DI}^2}}{k^2+\frac{1}{\lambda_{De}^2}}}\] \subsubsectiomn{Regimi} Riconosciamo 3 regimi a seconda dell'ordinamento della lunghezza d'onda. \begin{enumerate}
+    \item \[k^2\ll\frac{1}{\lambda_De^2}\iff\lambda^2\gg\lambda_{De}^2,\quad k^2\ll\frac{1}{\lambda_{DI}^2}\iff\lambda^2\gg\lambda_{DI}^2\] Questa relazione non ci dice in che maniera sono ordinate le $\lambda_D$ e di conseguenza le $T$. in linea di principio è possibile che siano qualsiasi.  
+    \item  Oscillazioni di plasma degli ioni
+    \[k^2\gg\frac{1}{\lambda_De^2}\iff\lambda^2\ll\lambda_{De}^2,\quad k^2\ll\frac{1}{\lambda_{DI}^2}\iff\lambda^2\gg\lambda_{DI}^2\] 
+    \[\lambda_{De}^2\ll\lambda^2\ll\lambda_{DI}^2\implies T_I\gg T_e\]   
+    \[\frac{\omega^2}{k^2}=v_{0I}^2(1+\frac{\lambda_{De}^2}{\lambda_{DI}^2})=\frac{\gamma_I}{m_I}T_I(\frac{T_e+T_I}{T_I})\]
+    \[\boxed{\frac{\omega^2}{k^2}=\frac{\gamma_I}{m_I}(T_e+T_I)}\] Questa può essere vista come una sorta di velocità del suono, infatti queste sono le tipiche onde ionacustic. Si vede che l'inerzia è data dagli ioni nel senso che compare $m_I$ mentre la risposta termica è data da entrambi, anche se quando $T_I\sim T_e$ tipicamente avviene il Dumping di landau e l'onda non si propaga (a meno che non si faccia una forzatura). Invece le onde che sopravvivono sono quelle con $T_e\gg T_i$ \textit{"Se poi ho un forzaggio sono fuori dal regime lineare perché cambio la funzione di distribuaione e cambia anche la risposta dielettrica"} 
+    \item \[k^2\gg\frac{1}{\lambda_De^2}\iff\lambda^2\ll\lambda_{De}^2,\quad k^2\gg\frac{1}{\lambda_{DI}^2}\iff\lambda^2\ll\lambda_{DI}^2\]  Questo caso è praticamente insensato perchè siamo al di sotto delle lunghezze di Debye e praticamente non possiamo nemmeno dire di avere a che fare con un plasma. In questo caso la soluzione ha come relazione di dispersione una relazione analoga alle onde di plasma, ma per gli ioni. \[\omega^2=\omega_{pI}^2+k^2v_{0I}^2\] 
+\end{enumerate} 
+Alla fine della fiera quando si parla di onde IonAcoustic si parla del caso uno e tendenzialmente con $T_e\gg T_i$. 
+Tendenzialmente Nel caso delle onde IonAcoustic si ha $v_f\gg v_{th,I}$ (e quindi gli ioni hanno una risposta adiabatica) mentre $v_f\ll v_{th,e}$ (e quindi gli elettroni hanno una risposta isoterma). Nel caso invece in cui $T_I\sim T_e $ siamo nelle condizioni in cui tendenzialmente l'onda non sopravvive perché avviene il Dumping di Landau. Se l'onda viene sforzata con un intervento esterno la distribuzione si appiattisce finché non smette di avvenire il Dumping
+\section{Dumping di Landau}
+Questo è un caso di interazione Onda-particella, abbiamo una distribuzione di energia/velocità delle particelle $f$ non necessariamente maxwelliana, basta che abbia una monotonicità locale, tipicamente ci interessa il caso in cui è monotona decrescente (se è monotona crescente avviene il fenomeno opposto $LD^{-1}$). \\La velocità di fase $v_f$ dell'onda (qualsiasi tra tutte quelle dell'inventario dei plasmi) per qualche caso si trova a sovrapporsi ad $f$ ovvero si trova in risonanza con la distribuzione e ci sono delle particelle che viaggiano localmente a velocità $v\sim v_f$. In altre parole alcune particelle viaggeranno assieme all'onda nello stesso verso e con la stessa velocità  e quindi vedono un campo elettrostatico e accelerano; in media questo effetto si vede nel caso in cui ci sono un pochino più di particelle con  $v<v_f$ rispetto alle particelle con $v>v_f$ presenti in minor numero: sono di più gli elettroni che accelerano rispetto a quelli che frenano. \\In un plasma magnetizzato, nella direzione del campo, le onde possono propagarsi sempre  e non avviene il Dumping. \\Ci occupiamo quindi del caso in cui il plasma non è magnetizzato.\\Per trovare matematicamente questo effetto è necessario considerare l'equazione cinetica del plasma, ovvero l'equazione di Vlasov. Ciò è molto cool perché non è necessaria una chiusura, Inoltre nell'equazione di Vlasov l'entropia è un'invariante $\dfrac{d}{dt}(f\ln f)=\dfrac{dS}{dt}=0$.\\ \textit{"La isolinee della funzione di distribuzione  possono venire spiegazzate stretchate spostate ma non possono venire strappate connesse e riconnesse"}.\\Le isolinee sono più dense nello spazio delle fasi nelle regioni in cui si ha un maggiore gradiente della distribuzione. se abbiamo un effetto tipo vortice in $v_f$ allora da quelle parti comincia l'avvoltolamento dell'isolinea e lì si ha il cambio di segno della velocità nel sistema di riferimento dell'onda (se stiamo parlando di trapping) \\Il Dumping di Landau viene chiamato tradizionalmente \textit{Dumping, (ovvero smorzamento)} Però non è il tipico smorzamento perché l'onda non diventa calore \textit{"non avviene la termalizzazione"}, quindi enunciamo acluni dogmi sul Dumping di landau:\begin{itemize}
+\item smorzamento $\neq$ dissipazione
+    \item NON è l'equivalente di un attrito
+    \item NON è l'equivalente di una resistività
+    \item NON è l'equivalente di una viscosità
+    \item NON viene prodotto calore
+    \item NON aumente l'entropia
+    \item Il dumping di Landau è un trasferimento di energia dall'onda alle particelle
+    \item Questa energia può venire recuperata (anche se non al 100\%)
+\end{itemize} 
+ja nii on.
+\subsection{Equazioni di partenza e condizioni}
+\begin{itemize} 
+\item Condizioni generali: \\Il plasma non è magnetizzato
+\[\vec B_0=0\quad\vec  B_1=0\quad \vec B=0\] 
+Il campo elettrico medio è nullo, ovvero del campo elettrico abbiamo solo la fluttuazione, vale che il campo elettrico è il gradiente di un potenziale. 
+\[\vec E=\vec E_1=-\vec\nabla\phi\]
+La distribuzione è di una specie $a=e,I$ è $f_a=f_{a0}(\vec v)+f_{a1}(\vec x,\vec v,t)$, con $f_{a0}$ che non dipende da altro che $\vec v$, non ho ben capito perché...\\ La distribuzione è pari $f(v)=f(-v)$ 
+    \item equazione di Vlasov 
+ \[\frac{\partial}{\partial_t}f_a+\vec v\cdot \vec\nabla_{\vec x} f_a+\frac{q_a}{m_a}\vec E\cdot \vec \nabla_{\vec v}f_a=0\] 
+ Quando linearizzo i primi termini è tutto abbastanza naturale: $f_{0a}$ non dipende né da $\vec x$ né da $t$ e quindi rimane solamente il termine $f_{a1}$. Per quanto riguarda il termine $\vec E\cdot \vec \nabla_{\vec v}f_a$, le cose sono più delicate;\\ è vero che all'istante iniziale \[\frac{\partial f_{a0}}{\partial v}\gg\frac{\partial f_{a1}}{\partial v}\] ma i gradienti $\partial_v$ evolvono nel tempo e può arrivare un momento in cui la nostra linearizzazione non vale più e in gradienti evolvono in maniera da avere 
+\[\frac{\partial f_{a0}}{\partial v}\simeq\frac{\partial f_{a1}}{\partial v}\] Questo può avvenire dopo un certo tempo \textit{di intrappolamento} $\tau_t$. \\In ogni caso, quando vale la linearizzazione, abbiamo:
+\[\frac{\partial}{\partial_t}f_{a1}+\vec v\cdot \vec\nabla_{\vec x} f_{a1}+\frac{q_a}{m_a}\vec E_1\cdot \vec \nabla_{\vec v}f_{a0}=0\] 
+    \item equazione di poisson 
+    \[\vec \nabla\cdot\vec E=4\pi e(n_I-n_e)\] 
+    Questa equazione è già linearizzate perchè $\vec E=\vec E_1$ e $n_{0e}=n_{0I}$.
+    \[-\nabla^2\phi=4\pi e(n_I-n_e)\]
+\end{itemize} 
+\subsubsection{intrappolamento e non linearità}  
+Prendiamo un'onda che si propaga con velocità di fase $v_f\sim\omega_p/k$, significa che ho un campo elettrico lungo una certa direzione 
+\[E=\hat E\sin(kx-\omega_pt)\] 
+Se un elettrone viaggia con $v\sim v_f$ lungo la stessa direzione del campo, vede un \textit{campo elettrostatico} e subisce un'accelerazione. Se ci mettiamo nel SDR dell'onda possiamo dire che l'elettrone si trova in una buca di potenziale  e oscilla con un moto armonico  rimanendo "intrappolato". 
+\[m\ddot x=-e\hat E\sin kx \simeq -e\hat Ekx\] 
+\[\tau_t=\sqrt{\frac{m}{e\hat Ek}}\] 
+\[\tau_L=\frac{1}{k^3\lambda_D^3}e^{-(\frac{3}{2}+\frac{1}{2k^2\lambda_D^2})}\]
+Questa cosa succede per  quegli elettroni che erano un pochino più veloci di $v_f$ che decelerano fino a sincronizzarsi e succede a quegli elettroni un pochino più lenti di $v_f$ che accelerano fino a sincronizzarsi con l'onda. gli elettroni sincronizzati oscillano attorno alla buca di potenziale, l'oscillazione (se osservata nel SDR dell'onda) implica addirittura un cambio del verso della velocità, capiamo subito che la fluttuazione del campo EM non genera solo una fluttuazioncina nella distribuzione, genera un grande cambiamento, tant'è che alcune particelle cambiano verso e passano da $v$ a $-v$. Il numero di elettroni intrappolati aumenta nel tempo. la distribuzione in velocità viene modificata e si vede un appiattimento della distribuzione nell'intorno di $v_f$. Il tempo che ci mette a comparire questo appiattimento è $\tau_t$. Quando questo accade non vale più la nostra analisi lineare. la linearizzazione delle equazioni vale quindi entro un limite fisico dato dal tempo di intrappolamento. 
+\\il tempo caratteristico della dinamica è $\tau_D$ ($\sim\omega_p^{-1}$)\\ il tempo caratteristico dello smorzamento di landau è $\tau_L$\\ è rilevante l'effetto dell'intrappolamento solamente nel caso in cui $\tau_D<\tau_t<\tau_L$, perchè l'onda fa tempo ad acchiappare abbastanza elettroni da cambiare la distribuzione appiattendola e quindi  sopravvivere. il plasma permette all'onda di propagarsi perchè perdiamo la locale monotonicità della distribuzione \\Ovviamente Se $\tau_L<\tau_t$ l'onda viene uccisa prima che l'intrappolamento possa avere qualche effetto.\\ Inoltre il tempo di trapping dipende dall'ampiezza dell'onda, quindi è assolutamente necessario che l'intrappolamento avvenga prima che lo smorzamento abbia agito.\\Possiamo vedere lo smorzamento anche considerando l'equazione di Vlasov 1D (perchè siamo in asse con l'oscillazione) linearizzata (infatti è solo una considerazione qualitativa)
+\[\frac{\partial f_1}{\partial t}+v\frac{\partial f_1}{\partial x}=\frac{e\hat E}{m}\sin(kx-\omega t)\frac{\partial f_0}{\partial v}\] 
+la soluzione è presto detta... e a dire la verità non ce ne frega molto, magari è roba da seminario
+\[f_1=f_1(v,t=0)\cos(kx-kvt)-\frac{e\hat E}m\frac{\partial f_0}{\partial v}\bigg[ \frac{\cos(kx-\omega _e t)}{kv-\omega_e} - \frac{\cos(kx-kv t)}{kv-\omega_e}\bigg]\] 
+
+in ogni caso noi vogliamo sviluppare attorno a $v\sim v_f$ 
+\[\partial_vf_1\approx\frac{ek\hat E}{m}t^2\partial_vf_0\frac{\cos(kx-\omega_et)}{2}\propto t^2\]  
+vediamo che succede un gran problema, perchè la nostra ipotesi NON è $f_0\gg f_1$ bensì
+\[\bigg|\frac{\partial f_0}{\partial v}\bigg|\gg\bigg|\frac{\partial f_1}{\partial v}\bigg|\] e vediamo che la derivata del temrine $f_1 $ cresce quadraticamente collo scorrere del tempo in un tempo $\tau_t\sim\sqrt{\dfrac{m}{e\hat Ek}} $ diventa di ordine di 1, e infatti ben sappiamo che l'intrappolamento modifica la funzione di distribuzione, non vale la linearità , è tutto un disastro... \\
+\textit{"il trapping è un fenomeno cinetico non dissipativo con cui andiamo a saturare la cascata di energia verso le scale più piccole"} \\
+\textit{"In genere è la dissipazione che bilancia l'energia iniettata alle scale più piccole, il trapping in qualche maniera si sostituisce alla dissipazione, il sistema usa in questo modo la sua energia"}\\
+\textit{"Un altro esempio di fenomeno non dissipativo: ho il termine dispersivo va come $k^3$ a un certo punto della cascata arrivo a $k$ abbastanza grossi che il sistema è in grado di generare un onda grande ed in grado di autosostenersi che butta via l'energia senza andare a scale più piccole. Questo è detto meccanismo di Korteweg–De Vries"\\ \textbf{Si genera un solitone...}}
+
+\subsection{Trasformata di fourier}
+La via utilizzata più spesso nei libri è quella di fare una trasformata di laplace, che se ho capito bene dà come soluzione un transiente + un modo normale che sopravvive più a lungo (al quale noi siamo interessati), in ogni caso noi facciamo anzi la trasformata di fourier andando a cercare direttamente il modo normale "poco smorzato "  che corrisponde ad un polo lontano. spero che sarà più chiaro nella prossima lezione.\\ cerchiamo i temrini che vanno come $\sim e^{i(\vec k\cdot\vec x-\omega t)}$ e questi termini avranno una parte immaginaria e una parte reale, la parte reale rappresenta l'oscillazione mentre la parte immagiaria rappresenta lo smorzamento.
+\[f_1=\sum_kf_k  e^{i(\vec k\cdot\vec x-\omega t)};\quad \phi=\sum_k\phi_k  e^{i(\vec k\cdot\vec x-\omega t)}\] 
+scrivo anche le concentrazioni in temrini della distribuzione ( mi interessano solammente i termini di fluttuazione per via della quasineutralità del plasma) e questa cosa è vera modo per modo (k per k) anche attraverso la trasformata.
+\[n_k=\int f_{1k}d\vec v\]
+
+\[ \text{eq Vlasov: }
+    -i\omega f_{ak}+i\vec k\cdot\vec v f_{ak}-\dfrac{-iq_a}{m_a}(\vec k\cdot\vec \nabla_{v})f_{a0}\phi_k=0\] 
+    Da questa trovo $f_{k}$:\[f_{k}=-\sum_a\frac{q_a}{m_a}\frac{(\vec k\cdot\vec\nabla_{v})f_{a0}}{(\omega-\vec k\cdot\vec v)}\phi_k\] 
+   Non ho capito come mai risulta che $\vec k\parallel \vec E$.
+    \[\text{eq Poisson: }
+    -(ik)^2\phi_k=4\pi e\int (f_{1k}-f_{ek})d\vec v
+\]  La soluzione del sistema di equazioni è \[k^2\phi_k=-4\pi e\sum_a\frac{q_a}{m_a}\int \frac{(k\cdot\vec\nabla_v)f_{0a}}{(\omega-\vec k\cdot\vec v)}d\vec v\phi_k\] 
+\[\boxed{k^2=-4\pi e\sum_a\frac{q_a}{m_a}\int \frac{(k\cdot\vec\nabla_v)f_{0a}}{(\omega-\vec k\cdot\vec v)}d\vec v}\] 
+\subsubsection{Onda di plasma a ioni fissi}
+consideriamo un'onda di plasma con frequenza tale che gli ioni non fanno tempo di reagire, quindi il contributo degli ioni si ha solamente in $n_0$ per mantenere ovviamente la quasineutralità. Se non facessimo questa  assunzione troveremmo una soluzione con anche le onde IA, (magari ci proverò in futuro).\\ Se l'onda di plasma si propaga in direzione $x$, posso integrare la distribuzione in $dv_y $ e $ dv_z$  in quanto il termine ($\vec k\cdot\vec \nabla_v$) non ha nulla a che vedere con quelle direzioni. L'integrale praticamente diventa un integrale 1D perchè l'onda si propaga in un'unica direzione. 
+\[\vec k\cdot\vec \nabla_v\to k\partial_u,\quad u\equiv v_x\]
+Conviene definire la funzione di distribuzione normalizzata a 1 in termini di $n_0$, perchè riconosco che ho, a meno di $n_0$, la frequenza di plasma degli elettroni $\omega_e$ a moltiplicare l'integrale 
+\[g(u)=\frac{f(u)}{n_0}\quad \int f(u)du=n_0\to\int g(u)du=1\] 
+\[\phi_k=-\frac{\omega_e^2}{k^2}\int\frac{(\vec k\cdot\vec\nabla_v)f_{0e}}{(\omega-\vec k\cdot\vec v)}d\vec v\phi_k\] 
+\[\boxed{1+\frac{\omega_e^2}{k^2}\int\frac{\cancel{k}\partial_ug(u)}{\cancel{k}(\frac{\omega}{k}-u)}\partial_u=0}\] 
+\subsubsection{Regime di propagazione senza dumping} 
+
+Prendiamo un'onda con $v_f\gg v_{th}$, in questo caso la velocità di fase non si sovrappone alla distribuzione e possiamo dire che non ci sono elettroni che si muovono localmente con velocità $u\sim v_{th}$, ovviamente in questo caso la derivata della distribuzione è a maggior ragione nulla. Fisicamente risulta intuituvo che siamo decisamente nel caso in cui non si ha dumping.\\Matematicamente questo significa che in corrispondenza della singolarità \[\dfrac{\omega}{k}-u=0\] che porterebbe ad una divergenza, si ha una soppressione maggiore al numeratore e al netto di tutto il numeratore è uno zero più zero del denominatore e alla fine della fiera l'integrale non ha divergenze. \\a questo punto rimane solo da risolvere il nostro integralozzo:
+\[\int\frac{\partial_ug(u)}{(\frac{\omega}{k}-u)}\partial_u\]  
+integro per parti e quando devo valutare il rpodotto  tra le primitive ai bordi del dominio posso mettere tutto a zero, ovviamente non ho particelle con velocità infinita!. 
+\[\int\frac{\partial_ug(u)}{(\frac{\omega}{k}-u)}\partial_u=\cancelto{0}{\frac{g(u)}{(\frac{\omega}{k}-u)^2}\bigg|_{-\infty}^{+\infty}}-\int \frac{g(u)}{(\frac{\omega}{k}-u)^2}du \]
+Ora spero di avere caèpito da dove viene questa espansione...
+\\ ci dobbiamo occupare del secondo termine, la distribuzione conta qualcosa nella zona $u\ll\omega/k$, questo equivale a dire che possiamo espandere il denominatore attorno a $u=0$.
+\[\frac{1}{(\frac{\omega}{k}-u)^2}\simeq \frac{1}{(\frac{\omega}{k})^2}+\frac{2u}{(\frac{\omega}{k})^3}+\frac{3u^2}{(\frac{\omega}{k})^4}+...\]
+Ora uso il fatto che la distribuzione è pari per cancellare il termine dispari nell'integrale 
+\[1-\frac{\omega_e^2}{k^2}\int\frac{\partial_ug(u)}{(\frac{\omega}{k}-u)}\partial_u=1-\frac{\omega_e^2}{k^2}\int_{-\infty}^{+\infty} g(u) \bigg[\frac{k^2}{\omega^2}+\cancel{\frac{2uk^3}{\omega^3}}+\frac{3u^2k^4}{\omega^4}\bigg]   du \]  
+Uso il fatto che la sitribuzione è normalizzata ad 1 e anche che vale che (dovrei dimostrarlo)
+\[\int g(u)du=1,\quad \int g(u)u^2du=v_{th}^2\] 
+Troviamo la relazione di dispersione. 
+\[\boxed{1-\frac{\omega_e^2}{\omega^2}-\frac{3k^2v^2_{th}\omega_e^2}{\omega^4}=0}\]
+Questa equazione ha due soluzioni ma solamente una è fisica (quella col+) \\ ricordiamoci sempre che  $\dfrac{v_{th}^2}{\omega_e^2/k^2}\ll1\iff v_f\gg v_{th}$ 
+\[\omega^2=\frac{\omega_e^2\pm\sqrt{\omega_e^4\bigg[1+\dfrac{12k^2v_{th}^2}{\omega_e^2}\bigg]}}{2}\simeq\frac{\omega^2_e\pm\omega_e^2\bigg[1+\dfrac{6k^2v_{th}^2}{\omega_e^2}\bigg]}{2}\] 
+Questo risultato è molto importante perché analogo con dumping.
+\[\boxed{\omega_+^2=\omega_e^2+3k^2v_{th}^2}\]
+
+è proprio il caso di confrontare questo risultato con la relazione di dispersione ottenuta con le equazioni fluide chiuse con una politropica 
+\[\omega^2=\omega_e+\gamma k^2 v_{th}^2\]
+il professore ci dice che ci sono alcune cose che è bene notare \begin{enumerate}
+    \item L'idea di utilizzare una chiusura politropica non è poi così folle. 
+    \item molti eminentissimi coglioni dicono che questo $\gamma=3$ era previsto perché è il coefficiente tipico per un gas monoatomico... califano invece dice che è soltanto una coincidenza senza un particolare significato profondo.
+    \item  non ho mica ben capito cosa c'entra, da dove viene fuori ... btw, "alla maggior parte degli stimoli, I plasmi reqgiscono in prima approssimazione alla frequenza di plasma indipendentemente da $k$". 
+\end{enumerate} 
+\subsubsection{regime con dumping}  
+Ripartiamo dalla nostra relazione del dielettrico, se $\epsilon(k,\omega)=0$ allora abbiamo un modo normale, in generale abbiamo
+\[\boxed{\epsilon(k,\omega)=1-\frac{\omega_e^2}{k^2}\int\frac{\partial_ug(u)}{(u-\dfrac{\omega}{k})}du}\] Ricordiamoci sempre che stiamo facendo la TF cercando il modo che sopravvive più a lungo che corrisponde ad un \textit{polo lontano} con $\omega_i\ll\omega_r$, praticamente stiamo dicendo che il dumping c'è ma poco. Per contestualizzare bene quello che stavamo facendo prima il polo c'era lo stesso ma era in una zona dove il dumping non avviene per come è popolata la distribuzione. \\Sviluppiamo il nostro dielettrico attorno a $\omega_r$, proprio considerando $\omega_i\ll\omega_r$. 
+\[\epsilon(k,\omega)\simeq\epsilon_r(k,\omega_r)+i\epsilon_i(k,\omega_r)+i\omega_i\frac{\partial \epsilon_r}{\partial\omega}\bigg|_{\omega=\omega_r}-\omega_i\frac{\partial \epsilon_i}{\partial\omega}\bigg|_{\omega=\omega_r}\] 
+impongo che siano nulle sia la parte reale che la parte immaginaria (per trovare il modo normale). Dalla parte immaginaria ottengo \[\epsilon_i=-\omega_i\frac{\partial\epsilon_r}{\partial \omega}\bigg|_{\omega_r}\implies \epsilon_i\sim\omega_i\] 
+Dalla parte reale emerge che il termine di derivata va come $\sim \omega_i^2$ e di conseguenza lo posso trascurare, cos' come $\epsilon_r$. In generale la parte reale è zero, a meno di correzioni del second'ordine, che non ci interessano. 
+\[\omega_i=\dfrac{-\epsilon_i}{\dfrac{\partial \epsilon_r}{\partial \omega}}\] 
+comunque a questo punto abbiamo un integrale complesso da risolvere  con il metodone2. Abbiamo un polo molto vicino all'asse dei reali e noi ci giriamo attorno, poi facciamo il giro circolare con $|\omega|\to\infty$ che fa zero.
+\\Bisogna utilizzare la     formula di PLEMELJ
+\[\lim_{\epsilon\to0}\frac{1}{x\pm i\epsilon}=\mathcal P\frac{1}{x}\mp i\pi\delta(x)\] 
+\[\frac{1}{u-a}=\mathcal{P}\bigg(\frac{1}{u-a}\bigg)+i\pi\delta(u-a)\] 
+\[\mathcal{P}\bigg(\frac{1}{u-a}\bigg)\equiv \lim_{\epsilon\to 0}\bigg[\int_{-\infty}^{a-\epsilon}\frac{f(u)}{u-a}du+\int^{\infty}_{a+\epsilon}\frac{f(u)}{u-a}du\bigg]\] Questo integrale ha la proprietà che le due divrgenze  sono uguali ma opposte e quindi si annullano a vicenda. in questo caso non è la distribuzione vuota ad ammazzare l'integrale ma è questa sottigliezza matematica, però l'effetto finale  è lo stesso, è come se non avessi elettroni nel polo.\\Questo mi permette di andare avanti nel calcolo come nel caso precedente assumendo che $v_f^2\gg v_{th}^2$ (ovvero $v_f>v_{th}$) e trovare un risultato completamente analogo 
+\[\epsilon_r=1-\frac{\omega_e^2}{\omega^2}-\frac{3k^2v_{th}^2\omega_e^2}{\omega^4}\] Questo è un caso un pochino borderline \textit{"fa venire mal di pancia"} perché non siamo nelle condizioni più favorevoli per avere il dumping e la risonanza avviene con "pochi" elettroni. Purtroppo il calcolo dell'integrale in maniera analitica al di fuori di questa assunzione è molto complicato, e non solo... in un regime di forte smorzamento di landau ($\omega/k\sim v_{th}$) non vale la linearizzazione assunta inizialmente e quindi va tutto il conto a ramengo.
+ \\Nonostante ciò va detto che l'integrazione numerica di Vlasov porta a risultati sorprendentemente coerenti (nell'ordine del percento)
+\\Ora se faccio la derivata (calcolata in $\omega=\omega_r$) trovo due termini, uno dei quali è trascurabile in quanto $v_f^2\gg v_{th}^2$. 
+\[\frac{\partial \epsilon_r}{\partial\omega}\bigg|_{\omega=\omega_r}=-2\frac{\omega_e^2}{\omega_r^3}-\cancelto{0}{\frac{12k^2v_{th}^2\omega_e^2}{\omega_r^5}}\]  
+e a questo punto posso ricucire insieme tutti quanti i pezzi e trovare la parte immaginaria della frequenza, che poi sarebbe il coefficiente di smorzamento. \\Bisogna gestire correttamente la $\delta$ che mi fa calcolare la funzione di distribuzione in $u=\omega_r/k$. 
+\[\boxed{\omega_i=\dfrac{-\epsilon_i}{\partial _\omega\epsilon_r}=\frac{\pi\omega_e^3}{2k^2}\partial_ug(u)\bigg|_{u=\omega_r/k}}\]  
+\subsection{Soluzione con distribuzione generica}
+\[\boxed{\omega_i=\dfrac{-\epsilon_i}{\partial _\omega\epsilon_r}=\frac{\pi\omega_e^3}{2k^2}\partial_ug(u)\bigg|_{u=\omega_r/k}}\]   
+Questa è la parte immaginaria della frequenza ottenuta con la FT, se teniamo presente che stavamo cercando una soluzione con $e^{-i(\omega_r+i\omega_i) t}$ si vede che la parte immaginaria costtistuisce uno smorzamento (o un'amplificazione) esponenziale $\sim e^{\omega_it}$.\\In particolare ci piace molto il fatto che $\omega_i\propto \partial_ug(u)$ sicché quando $g(u)$ è decrescente si ha lo smorzamento, quando $g(u)$ cresce si ha LD$^{-1}$ mentre non succede niente di niente se la distribuzione è piatta. Questo intuitivamente ci piace anche se pensiamo al fenomeno dell'intrappolamento anche se cade l'ipotesi della linearizzazione.  
+\subsection{Soluzione con maxwelliana} 
+\textit{"Non ho bisogno di una maxwelliana per avere Dumping, ma ho bisogno di una maxwelliana per fare il conto"}  scansoequivoci la maxweliana è siffatta:
+\[f=\frac{n_0}{\sqrt{(2\pi)^3}v_{th}^3}e^{-\dfrac{v_x^2+v_y^2+v_z^2}{2v_{th}^2}}\]
+La nostra funzione di distribuzione in particolare è normalizzata e 1D
+\[g(u)=\frac{1}{\sqrt{2\pi}v_{th}}e^{-\dfrac{u^2}{2v_{th}^2}}\]
+Da cui si trova agevolmente la parte immaginaria della frequenza che corrisponde al dumping. 
+\[\boxed{\omega_i=-\omega_e\sqrt{\frac{\pi}{8}}\frac{1}{(k\lambda_D)^3}e^{-\dfrac{3+k^2\lambda_D^2}{2}}}\]
+Si vede che come atteso lo smorzamento scompare completamente per $k^2\lambda_D\to0$. 
+
+\section{Equilibrio MHD}  
+Allora quando si parla di equilibrio ci permettiamo di dire che stiamo considerando il caso in cui $\vec u=0$ e $\partial_tu=0$. \\Quel che non è vero, invece è che $\partial_t \vec B=0$!. Anzi, l'equazione di Faraday in questo caso diventa un'equazione di diffusione  del campo magnetico, è una sirta di dissipazione di cui abbiamo bisogno, anche noi metodi numerici della riconnesione hamiltoniana serve una dissipazione altrimenti il codice esplode accumulando energia magnetica alla più piccola scala che viene risolta dal codice ... questa cosa del codice mi torna abbastanza ma non ho capito invece in che senso ne abbiamo bisogno noi ora(?)...\\in ogni caso deve passare il messaggio che non c'è evoluzione dell'equilibrio ma su tempi molto più lunghi dei tempi dinamici avviene comunque unaq diffusione.  
+\subsection{equazione della dinamica all'equilibrio}
+
+    \[\nabla P=\frac{1 }{4\pi}[(\vec\nabla\times\vec B)\times\vec B ]\] 
+    All'equilibrio le superfici isobare seguono le linee di campo magnetico e della corrente. 
+\subsection{Equazione di Faraday} 
+come già visto, assume la forma di un'equazione di diffusione.
+\[\frac{\partial \vec B}{\partial t}=\eta\frac{c^2}{4\pi}\nabla^2\vec B\] 
+
+\newpage
+
+\section{Seminario sui plasmi spaziali} il professore Henry osservatore di nizza e centro plasmi di orleans. Vediamo come mai i plasmi spaziali sono così importanti dal punto di vista osservativo.
+Vediamo un'introduzione a come fare misure nelllo spazio. Perché fare misure di plasmi nello spazio? \begin{enumerate}
+    \item in astrofisica si osservano onde EM neutrini e inde Grav, la fisica spaziale è la branca dell'astrofisica in cui le osservazioni si fanno in situ. Una delle cose interessanti su mercurio per esempio è che le particelle cariche vengono sparate direttamente sulla superficie non avendo l'atmosfera. la fisica spaziale evolve con la tecnologia con la capacità di portare in giro gli strumenti. 
+    \item Quando vogliamo fare fisica fondamentale dobbiamo confrontare la teoria con la realtà, abbiamo il grosso problema delle collisioni e delle collisioni al bordo che rovinano la fisica. Nello spazio i bordi non ci sono più e poi oltretutto se le dimensioni dello strumento sono piu grandi del libero cammino medio si crea turbolenza, ma nello spazio il libero cammino medio è un'unità astronomica. l'unica grandezza caratteristica che scala più o meno come uno strumento è $l_D$.  
+
+
+\end{enumerate}  
+Misure del campo magnetico: se abbiamo uno spettro ampio e continuo servono tipicamente strumenti diversi. \begin{itemize}
+    \item \textbf{DC Flux gate magnetometer}: misure istantanea di ampiezza e direzione del campo magnetico, il tempo di questa misura è tale che al massimo si può fare 10hz nelle missioni spaziali questoc'è sempre il principio si basa sull'isteresi dei ferromagnetici. tecnologia molto complessa di cui non staremo a parlare oggi.
+    \item \textbf{AC Search coils magnetometer} [Hz-MHz] Questo strumento spesso si ha oslo uando si vogliono fare misure per fisica fondamentale. Si misura la variazione del campo magnetico con una bobina (3 bobine "attenzione al cross talk") con nucleo ferromagnetico che concentra il flusso del campo magnetico, legge di faraday fa una tensione che è il segnale.  
+
+
+\end{itemize} 
+MIsure del campo elettrico:
+tendenzialmete si fanno le misure con antenne ( con due sfere o  due fili)   
+la coppia di robe cmq viene usata come voltmetro, conoscendo la differenza di potenziale viene facilmente il campo elettrico.  Nel caso dei fili mettiamo a zero il rotore di B e la corrente è dovurta allavariazione del campo elettrico. in entrambi i casi si va fino al Mhz. ma le antenne filo sono molto più sensibili, e il problema delle palle è lo shot noise, ma le palle fanno le misure DC. poi c'è il fatto che se devo fare foto allora non si può girare su un asse e i fili non si possono più usare. Le misure di campo elettrico hanno interesse anche per vedere l'accoppiamento tra il plasma e il campo elettromagnetico; oltre la freuenza di ciclotrone k oscilla parallelo al campo magnetico e non abbiamo più segnale siamo in regime elettrostatico, l'altro segnale che invece si ha a frequenze ancora più alte è il segnale alla frequenza di plasma che correla solamentre con la densità, questo è il modo più sicuro che abbiamo per misurare la densità. 
+\[\omega_{pl}^2\propto \frac{ne^2}{\epsilon_om_e}\] Se messo un antenna filo in un plasma, quando siamo ad una distanza più grande della lunfghezza di debye non si vedono gli elettroni più distanti, ma c'è un cilindro di raggio $r<l_D$ in cui gli elettroni che passano vicino all'antenna gli elettroni fanno scegnale vengono visti per un tempo scala dell'ordine di $t\sim l_D/v_{th}$  che è poi l'inverso della ferquenza di plasma questo è l'altro modo di misurare la densità. \\Se non ci sono onde nel mezzo le possiamo generare noi. Mando una certa corrente oscillante e magari eccito un autovalore del mezzo modi prorpi del plasma, provo tutte le frequenze e ogni tanto eccito un modo. tutte le volte che il dielettrico vale zero abbiamo un'onda,  una risonanza. 
+La relazione di dispersione delle larmir è \[\omega(k)=\omega_{pl}\sqrt{1+\gamma(k\lambda_D)^2}+i\gamma\] 
+(con $\gamma=3$ pewrchè è un'adibatica con un grado di libertà perché  sono le onde longitudinali.) il termine immaginario è dovuto allo smorzamento non collisionale di Landau. La misura più precisa che sappiamo fare è tempo o frequenza.  \\FD faraday cup serve a misurare le funzioni di distribuzione, si mette la griglia ad un certo potenziale davanti al detector, che praticamente filtra le paticelle con potenziale maggiore. faremo un flusso di particelle di tipo \[\Phi=\int_{ E_k}^\infty fdE\] Poi ha nominato lo strumento Top Hat che permettono di ottenere una misura già integrata su $2\pi$.
+
+
+\section{Seminario sulla propulsione spaziale}
+La propulsione elettrica (in realtà, al plasma) è diventata chiave nello scenario della propuulsione spaziale, ormai ogni satellite ha a bordo un propulsore al plasma.
+
+Alcuni libri sul tema:
+\begin{itemize}
+    \item Dan M. Goebel, Ira Katz, Ioannis G. Mikellides, \emph{'Fundamentals of electric propulsion'}, Wiley, 2023;
+    \item Robert G. Jahn, \emph{'Physics of electric propulsion'}, Dover Publications, 2006. 
+\end{itemize}
+
+
+\subsection{La "Rocket Equation"}
+L'equazione in una dimensione, nel vuoto, per un satellite o razzo più importante deriva dalla conservazione della quantità di moto:
+\begin{equation}
+    M\frac{dV}{dt}=T=-\frac{dM}{dt}=...
+\end{equation}
+Se noi integriamo quest'equazione, nel caso più semplice di velocità effettiva di scarico costante, l'equazione di riduce alla forma nota come \textbf{Tsiolkovsky Equation}:
+\[ \int^{V_f}_{V_i} dV = - \int^{M_f}_{M_i} \frac{v_edM}{M} = ... \]
+
+Considerando la massa come composta da $M_i=M_d+M_p$, dove $M_d$ è la massa finale del razzo/satellite mentre $M_p$ è la massa del propellente e quindi $M_i$ è la massa del razzo/satellite prima del lancio:
+\[ \Delta V = I_{sp} g_0 \ln\frac{M_d+M_p}{M_d} \]
+
+...
+
+La potenza minima per produrre un \emph{thrust} $T=\dot{m} v_e$ può essere calcolata come $P_{min} = \frac{1}{2} \dot m v_e ^ 2 = \frac{Tv_e}{2}$, possiamo definire l'efficienza invece come $\eta = \frac{P_{min}}{P}$
+
+...
+
+
+
+\subsection{I diversi tipi di propulsione}
+La propulsione tradizionale è quella chimica, il lanciatore si basa sulla reazione fra due specie, solitamente azoto o ossigeno liquidi con idrogeno liquido, che causano un'espansione gas-dinamica che fornisce così una velocità proporzionale alla radize della temperatura, $v_e\sim \sqrt{T/m_p}$.
+
+Quando si è già in orbita però risulta più conveniente utilizzare un propulsore elettrico, che prenda la sua energia elettrica da pannelli solari o centrali nucleari che forniscono l'energia al propellente per accelerare le particelle, $v_e\sim \sqrt{\varepsilon/m_p}$.
+C'è un contro con la propulsione elettrica, nonostante possiamo dare l'accelerazione che vogliamo alle particelle in questo caso, il tempo in cui questa spinta viene fornita è solitamente ben più lungo rispetto alla propulsione chimica.
+
+\subsection{Fondamenti di accelerazione al plasma}
+
+\begin{equation}
+    mn\left[ \frac{\partial \vec u}{\partial t} + (\vec u\cdot \vec \nabla)\vec u\right] = qn (\vec E + \vec v\times \vec B)-\vec\nabla p + \textbf{P}_{coll}
+\end{equation}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\end{document}
