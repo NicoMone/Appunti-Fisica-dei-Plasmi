@@ -1,0 +1,596 @@
+\chapter{Onde nei plasmi, smorzamento di Landau e riconnessione}
+
+Abbiamo già visto nel secondo capitolo come trattare delle onde acustiche in un plasma, che abbiamo calcolato avere relazione di dispersione $\boxed{\omega=k\, c_s}$.
+
+In seguito abbiamo preso il sistema di equazioni 'fluide', ancora considerando ioni ed elettroni come fluidi differenti e - nell'ipotesi che gli ioni fossero fissi e che fosse presente un campo a muovere gli elettroni - abbiamo calcolato la reazione collettiva degli elettroni, applicando una chiusura di plasma freddo ($v_g=d\omega/dk=0$, e frequenza di plasma elettronica $\boxed{\omega^2\,=\,\omega^2_{p,\,e}\, =\, 4\pi e^2 n_{0,\, e}/m_e}\,$ ) ed una politropica (trovando così la correzione $\omega^2\,=\,\omega_{p,\,e}^2\, (1\, +\, \gamma\, k^2 \lambda_D^2)$).
+
+Ora andremo prima a vedere delle ultime onde ricavate in regime a due fluidi, per poi studiare invece questi fenomeni di propagazione nel modello MHD.
+
+
+\section{Onde ion-acustic}
+
+
+Onde elettrostatiche di tipo autistico, ovviamente si possono ricavare da vlasov ma noi non lo facciamo, le ricaviamo con il modello a due fluidi, che va dall'MHD alle onde di plasma. se partissimo direttamente dall'MHD non troveremmo le onde di plasma (e il landau damping), ma noi invece le troveremo (questa parte è un po' poco chiara, si fa facilmente confusione fra tutti questi tipi di onde in diversi regimi, ma vediamo come rimettere il tutto in ordine).
+
+Abbiamo un plasma non magnetizzato:
+
+\[\vec E_0=0 \implies \vec E=\vec E_1\ ;\qquad
+\vec B_0=0\implies \vec B=\vec b\ ; \qquad
+\vec u_0=0\implies \vec u=\vec u_1\] 
+
+il termine $\vec u_1\times\vec b$ è del second'ordine ed è pertanto per noi nullo, significa che la nostra onda è polarizzata longitudinalmente e non abbiamo onde elettromagnetiche che avrebbero bisogno del campo magnetico,
+
+\[\vec E\parallel\vec u\parallel\vec k\]
+
+La velocità di fase dell'onda ion-acustic è molto minore delle velocità termiche elettroniche in gioco: 
+
+\[v_{th,I}\ll v_f \ll v_{th,e} \] 
+
+i tempi scale sono tali da avere una risposta inerziale (adiabatica) da parte degli ioni e una risposta termica (isoterma) da parte degli elettroni. questo implica che devo usare due politropiche diverse per le due specie.   
+
+\paragraph{Equazioni di base: } 
+\[n_\alpha=n_{0\alpha}+n_{1\alpha}\hspace{1cm}P_\alpha=P_{0\alpha}+P_{1\alpha}\hspace{1cm}\alpha=I,e\]
+
+\[\begin{aligned}
+	\text{equazione di continuità linearizzata}\qquad \qquad  
+	& \partial_tn_{1\alpha }+\nabla\cdot(n_{0\alpha}\vec u_{1\alpha})=0\\ 
+	\text{equazione del moto linearizzata} \qquad \qquad
+	& m_\alpha\, n_{0\alpha}\,\partial_t\vec u_{1\alpha}\ =\ -\nabla P_{1\alpha}\,+\,n_{0\alpha}q_{\alpha}\,(\vec E+\cancelto{0}{\frac{\vec u_{1\alpha}\times\vec b}{c}})\\
+	\text{chiusura politropica linearizzata} \qquad \qquad
+	& P_{1\alpha}\ =\ \gamma_\alpha\frac{P_{0\alpha}}{n_{0\alpha}}n_{1\alpha}\ \underset{\begin{cases} P=nT\\ v_{th}^2=T/m \end{cases}}{=}\ \gamma_\alpha\,  v^2_{th}\, m_\alpha\,n_{1\alpha}
+\end{aligned}\]
+
+
+\paragraph{soluzione onda piana e relazione di dispersione: } 
+Cerco una soluzione ad onda piana $\sim e^{i(\vec k\cdot\vec r-\omega t)}$, trovo un sistema di equazioni che se risolte mi danno la relazione di dispersione.  
+
+Risulta utile definire una sorta di "\underline{velocità del suono per la specifica specie}"
+
+\[\boxed{ v^2_{0\alpha}=\frac{\gamma_\alpha P_{0\alpha}}{m_\alpha n_{0\alpha}} }\] 
+
+Tolgo i segni di vettore perché il nostro problema adesso è unidimensionale.
+
+\[\begin{cases}
+	-i\omega\,n_{1\alpha}\,+\,ik\,n_{0\alpha}u_\alpha\ =\ 0
+	\\
+	i\,\omega m\,_\alpha n_{0\,\alpha}\,u_\alpha\ =\ -iP_{1\alpha}k\,+\, n_{0\alpha}q_{\alpha}\, E
+	\\
+	P_{1\alpha}\ =\ \gamma_\alpha\, \frac{P_{0\alpha}}{n_{0\alpha}}\, n_{1\alpha}    
+\end{cases} \quad \implies \quad u_\alpha\ =\ \frac{iq_\alpha}{m_\alpha}\,\frac{\omega}{\omega^2-k^2v_{0\alpha}^2}\, E\] 
+
+Adesso che abbiamo le velocità possiamo ricavare la corrente totale moltiplicando ogni equazione per $n_\alpha q_\alpha$ e sommando sulle $\alpha$:
+
+\[\begin{aligned}\sigma E\,=\,J\, &=\,\sum_\alpha J_\alpha\,=\,\sum_\alpha n_\alpha q_\alpha u_\alpha\\ 
+	&=\, \frac{i\omega}{4\pi} \sum_\alpha \underset{\omega^2_{P,\,\alpha}}{\underbrace{\frac{4\pi n_{0,\alpha}q^2_\alpha}{m_\alpha}}}\, E\, \left(\frac{1}{\omega^2 - k^2 v^2_{0,\alpha}}\right) \\
+	&=\, \underset{\sigma}{\underbrace{\frac{i\omega}{4\pi} \sum_\alpha \omega^2_{P,\, \alpha} \left( \frac{ 1 }{ \omega^2-k^2v^2_{0,\alpha} } \right)}}\, E
+\end{aligned}\]
+
+
+Abbiamo quindi un'espressione per la \underline{suscettività elettrica} $\sigma$, mentre per la \underline{permittività} usiamo l'espressione in eq.(\ref{permittività})
+
+\begin{equation}
+	\label{permittività}
+	\epsilon=1+\frac{4\pi i}{\omega}\sigma
+\end{equation}
+
+\[\epsilon\ =\ 1\, - \, \frac{\omega_{pI}^2}{\omega^2-k^2v_{0I}^2}\, -\, \frac{\omega_{pe}^2}{\omega^2-k^2v_{0e}^2}\] 
+
+Se trascuriamo il termine degli ioni, ritroviamo le onde di plasma freddo con correzione termica, come ci aspetteremmo. 
+
+
+\paragraph{caso $\epsilon=0$: }
+Per trovare la relazione generale imponiamo di trovarci in un modo normale isotropo, $\epsilon=0$. 
+Dobbiamo ricordare che $\omega_{pI}^2\sim\frac{1}{m_I}\ll\omega_{pe}^2\sim\frac{1}{m_e}$ ed andare a risolvere l'espressione di quarto grado per $\omega^2$:
+
+\[\cancelto{=0}{(\omega^2-k^2v_{0e}^2)\,(\omega^2-k^2v_{0I}^2)\,\epsilon} \ =\ (\omega^2-k^2v_{0e}^2)\,(\omega^2-k^2v_{0I}^2)\, -\,\omega_{pI}^2\,(\omega^2-k^2v_{0e}^2)\, -\, \omega_{pe}^2\, (\omega^2-k^2v_{0I}^2)\]
+
+\[\omega^4\, -\,\left[k^2(v^2_{0,\,e}+v^2_{0,\,I})+ \omega^2_{p,\,e} + \omega^2_{p,\,I}\right]\omega^2\, +\, k^4 v^2_{0,\,e} v^2_{0,\,I} + k^2(\omega^2_{p,\,I}v^2_{0,\,e}+\omega^2_{p,\,e}v^2_{0,\,I})\ =\ 0\]
+
+Per procedere più agevolmente prendiamo $\omega^4-A\omega^2+C=0$ poniamo $\omega^2=\frac{A}{2}[1\pm(1-B)^\frac{1}{2}]$, con un nuovo $B=4C/A^2$. Vediamo che $B$ è piccolo, $B\,\sim\,m_e/\,m_I\,\ll\, 1$, quindi possiamo fare un'approssimazione di Taylor (per intenderci il numeratore va come $\displaystyle\frac{1}{m_Im_e}$ e il denominatore va come $\displaystyle\frac{1}{m_e^2}$.).
+
+%\[\omega^2\ =\ \frac{1}{2}\ \big[k^2(v_{0I}^2+v_{0e}^2)+\omega_{pe}^2 \big]\ \bigg\{ 1\pm \bigg[ 1-\frac{2k^2 v_{0e}^2\omega_{pI}^2+v_{0I}^2\omega_{pe}^2+k^2v_{0I}^2v_{0e}^2}{ \big(k^2(v_{0I}^2+v_{0e}^2)+\omega_{pe}^2   \big)^2}\bigg]^{1/2} \bigg\} \] 
+
+\[\omega^2\ \sim\ \frac{A}{2}\,\left[1\,\pm\,\big(1-\frac{B}{2}\big)\right]
+\quad \implies \qquad 
+\begin{cases}
+	\omega_{th}^2\ \simeq\ A\ \simeq\ k^2v_{0e}^2+\omega_{pe}^2\\
+	\omega^2_{IA}\ \simeq\ \frac{AB}{4}\ =\ \frac{C}{A}\ =\ \frac{k^4 v^2_{0,\,e} v^2_{0,\,I} + k^2(\omega^2_{p,\,I}v^2_{0,\,e}+\omega^2_{p,\,e}v^2_{0,\,I})}{k^2(v^2_{0,\,e}+v^2_{0,\,I})+ \omega^2_{p,\,e} + \omega^2_{p,\,I}}
+\end{cases}
+\]
+
+Otteniamo due soluzioni, una è la soluzione già trovata delle onde di plasma con correzione termica, questo perché stiamo considerando il modello a due fluidi in cui le onde di plasma sono previste. 
+
+L'altra soluzione, $\omega^2_{IA}$, invece è quella che ci interessa.
+
+Si mette ora in evidenza $v_{0e}^2$ a numeratore e denominatore e si riconosce la lunghezza di Debye, $\lambda_{D,\, \alpha}\,=\,v_{th,\,\alpha}/\omega_{P,\,\alpha}$ :  
+
+\[\lambda _{D\alpha}^2\,=\,\frac{v_{th.\alpha}^2}{\omega_{p\alpha}^2}\,\sim\, \frac{v_{0,\alpha}^2}{\omega_{p\alpha}^2},
+\qquad\qquad
+v_{0I}^2=\frac{\gamma_IP_{0I}}{m_In_{0I}}=\frac{\gamma_IT_{I}}{m_I}
+\qquad\qquad
+\frac{\lambda^2_{De}}{\lambda^2_{DI}}=\frac{T_e}{T_I}\] 
+
+RELAZIONE DI DISPERSIONE DELLE ONDE ION-ACOUSTIC: $\boxed{\frac{\omega^2_\text{IA}}{k^2}\ =\ v_{0I}^2\ \frac{k^2\,+\,\frac{1}{\lambda_\text{De}^2}\,+\,\frac{1}{\lambda_\text{DI}^2}}{k^2\,+\,\frac{1}{\lambda_\text{De}^2}}}$.
+
+\paragraph{Regimi: } Riconosciamo 3 regimi a seconda dell'ordinamento della lunghezza d'onda, andiamo quindi a vedere come $k$ si confronta alle inverse delle lunghezze di Debye inverse. 
+
+\begin{enumerate}
+	\item il \underline{caso classico} è quello per cui $k^2\,\ll\, \lambda_{\text{D, e}}^{-2},\,\, \lambda_{\text{D, I}}^{-2}$ :
+	\[k^2\ll\frac{1}{\lambda_{\text{D, e}}^2}\iff\lambda^2\gg\lambda_{\text{D, e}}^2,\qquad\qquad k^2\ll\frac{1}{\lambda_{\text{D, I}}^2}\iff\lambda^2\gg\lambda_{\text{D, I}}^2\] 
+	Questa relazione non ci dice in che maniera sono ordinate le $\lambda_D$ e di conseguenza le $T$. in linea di principio è possibile che siano qualsiasi.  
+	
+	\item  Oscillazioni di plasma degli ioni
+	\[k^2\gg\frac{1}{\lambda_De^2}\iff\lambda^2\ll\lambda_{De}^2,\quad k^2\ll\frac{1}{\lambda_{DI}^2}\iff\lambda^2\gg\lambda_{DI}^2\] 
+	\[\lambda_{De}^2\ll\lambda^2\ll\lambda_{DI}^2\implies T_I\gg T_e\]   
+	\[\frac{\omega^2}{k^2}=v_{0I}^2(1+\frac{\lambda_{De}^2}{\lambda_{DI}^2})=\frac{\gamma_I}{m_I}T_I(\frac{T_e+T_I}{T_I})\]
+	\[\boxed{\frac{\omega^2}{k^2}=\frac{\gamma_I}{m_I}(T_e+T_I)}\] Questa può essere vista come una sorta di velocità del suono, infatti queste sono le tipiche onde ionacustic. Si vede che l'inerzia è data dagli ioni nel senso che compare $m_I$ mentre la risposta termica è data da entrambi, anche se quando $T_I\sim T_e$ tipicamente avviene il Dumping di landau e l'onda non si propaga (a meno che non si faccia una forzatura). Invece le onde che sopravvivono sono quelle con $T_e\gg T_i$ \textit{"Se poi ho un forzaggio sono fuori dal regime lineare perché cambio la funzione di distribuaione e cambia anche la risposta dielettrica"} 
+	
+	\item \[k^2\gg\frac{1}{\lambda_De^2}\iff\lambda^2\ll\lambda_{De}^2,\quad k^2\gg\frac{1}{\lambda_{DI}^2}\iff\lambda^2\ll\lambda_{DI}^2\]  Questo caso è praticamente insensato perchè siamo al di sotto delle lunghezze di Debye e praticamente non possiamo nemmeno dire di avere a che fare con un plasma. In questo caso la soluzione ha come relazione di dispersione una relazione analoga alle onde di plasma, ma per gli ioni. \[\omega^2=\omega_{pI}^2+k^2v_{0I}^2\] 
+\end{enumerate} 
+
+Alla fine della fiera quando si parla di onde Ion-Acoustic si parla del caso uno e tendenzialmente con $T_e\gg T_i$. 
+
+Nel caso delle onde Ion-Acoustic si ha $v_f\gg v_{th,I}$ (e quindi gli ioni hanno una risposta adiabatica) mentre $v_f\ll v_{th,e}$ (e quindi gli elettroni hanno una risposta isoterma). 
+
+Nel caso invece in cui $T_I\sim T_e $ siamo nelle condizioni in cui tendenzialmente l'onda non sopravvive perché avviene il Dumping di Landau. Se l'onda viene sforzata con un intervento esterno la distribuzione si appiattisce finché non smette di avvenire il Dumping.
+
+
+\subsection{Onde di Alfvén}
+
+Le onde in MHD si dividono in tre gruppi, due magnetosoniche e poi le onde di Alfvén.
+
+Le \textbf{onde di Alfvén} sono onde \underline{non dispersive}, inoltre non sono \underline{compressive} ($\vec \nabla \cdot \vec u\, =\, 0$), quindi l'energia che trasportano può essere portata più lontano rispetto ad onde compressive.
+
+Ancora una volta linearizziamo $\rho,\ p,\ \vec u\ $, usiamo un pedice 0 per le quantità ad equilibrio ($\rho_0,\ p_0,\ \vec u_0\ $) ed un pedice 1 per le fluttuazioni ($\rho_1,\ p_1,\ \vec u_1\ $). 
+
+Per il campo magnetico in particolare scriviamo $\vec B = B_0 \hat e_z + \vec b\ $, vale $\vec\nabla\cdot \vec B=0=\frac{\partial b}{\partial z}$ quindi il .
+
+Il nostro sistema di equazioni linearizzate è:
+
+\[\begin{cases}
+	\displaystyle \frac{\partial \rho_1}{\partial t} + \rho_0\,\vec \nabla\cdot \vec u\ =\ 0\\
+	\displaystyle \rho_0 \frac{\partial \vec u}{\partial t}\ =\ -\vec \nabla p_1 + \frac{1}{4\pi}B_0 \hat e_z\times (\vec \nabla\times\vec b)\\
+	\displaystyle \frac{\partial \vec b}{\partial t}\ =\ \vec \nabla \times (\vec u \times B_0\hat e_z)\\
+	\vec \nabla p_1\ =\ c_s^2\ \vec \nabla \rho_1
+\end{cases}\]
+
+Proseguiamo i calcoli in trasformata di Fourier:
+
+\[
+\begin{cases}
+	\displaystyle \frac{\partial \rho_1}{\partial t} + \rho_0\,\vec \nabla\cdot \vec u\ =\ 0\\
+	\displaystyle \rho_0 \frac{\partial \vec u}{\partial t}\ =\ -c_s^2\ \vec \nabla \rho_1 + \frac{1}{4\pi}B_0 \hat e_z\times (\vec \nabla\times\vec b)\\
+	\displaystyle \frac{\partial \vec b}{\partial t}\ =\ \vec \nabla \times (\vec u\times  B_0 \hat e_z)
+\end{cases}
+\quad \quad \Rightarrow \quad \quad 
+\begin{cases}
+	\cancel{-i}\,\omega\rho_1\ =\ \cancel{-\,i}\,\rho_0\, \vec k\cdot \vec u \\
+	\displaystyle \cancel{-i}\, \omega\,\rho_0 \vec u\ =\ \cancel{- i}\,c_s^2\ \vec k\,\rho_1 \cancel{-} \frac{\cancel{i}}{4\pi}B_0 \hat e_z\times (\vec k\times\vec b)\\
+	-\cancel{i}\, \omega\,  \vec b\ =\ \cancel{i}\,\vec k \times (\vec u\times  B_0 \hat e_z)
+\end{cases}
+\]
+
+\begin{multicols}{2}
+	Facciamo caso di passare da un sistema di riferimento $(\hat x, \hat y, \hat z)$ che stavamo usando ad un sistema $(\hat k, \hat y, \hat{\bar z})$ come da fig.(\ref{fig:sist di rif}).
+	
+	Calcoliamo ora il triplo prodotto della seconda equazione nel sistema: 
+	\[ \vec k\,\times\,\vec b\ =\ \begin{vmatrix} 
+		\hat k & \hat y & \hat{\bar z} \\ 
+		k & 0 & 0\\
+		b_k & b_y & b_{\bar z}
+	\end{vmatrix} \ =\ -k b_{\bar z} \hat y\, +\, k b_y \hat{\bar z} \]
+	
+	\begin{figure}[H]
+		\centering
+		\includegraphics[width=0.6\linewidth]{immagini/riferimento.jpeg}
+		\caption{cambio di sistema di riferimento $(\hat x, \hat y, \hat z) \ \ \rightarrow \ \ (\hat k, \hat y, \hat{\bar z})$}
+		\label{fig:sist di rif}
+	\end{figure}
+\end{multicols}
+
+\[  B_0\hat e_z\times (\vec k\times \vec b) \ =\ \begin{vmatrix} 
+	\hat x & \hat y & \hat z \\ 
+	0 & 0 & B_0\\
+	-k_{\parallel} b_y & - k b_{\bar z} & k_{\perp} b_y
+\end{vmatrix} \ =\ \hat x\,(k\,B_0\, b_{\bar z})\, -\, \hat y (k_{\parallel}\, b_y\, B_0) + \hat z(0)\]
+
+Ne deriva che la seconda equazione diventa $\omega \rho_0\vec u = c^2_S \vec k \rho_1 + \frac{1}{4\pi}(kB_0 b_{\bar z} \hat x - k_\parallel b_y B_0 \hat y)$. 
+
+Finito questo rimaneggiamento passiamo a fare lo stesso per la terza equazione:
+
+\[ \vec u\,\times\,\vec B_0\ =\ \begin{vmatrix} 
+	\hat x & \hat y & \hat{z} \\ 
+	0 & 0 & B_0\\
+	u_x & u_y & u_{z}
+\end{vmatrix} \ =\ -b_0 u_y \hat x\, +\,  b_0 u_x \hat{y} \]
+
+\[ \vec k\times (\vec u\times \vec B_0) \ =\ \begin{vmatrix} 
+	\hat k & \hat y & \hat{\bar z} \\ 
+	k & 0 & 0\\
+	-sin\theta B_0 u_y & cos\theta B_0 u_x & cos\theta B_0 u_y
+\end{vmatrix} \ =\ -k_\parallel B_0 u_y \hat y + k B_0 u_x \hat z\]
+
+In questo modo abbiamo ridotto il sistema ad uno di :
+\[\begin{cases}
+	\omega b_y\ =\ -k_\parallel B_0 u_y\\
+	\omega \rho_0 u_y\ =\ \frac{B_0}{4\pi}\, k_\parallel b_y
+\end{cases}\]
+
+da questo sistema otteniamo $\omega u_y = \omega^2 b_y / (k_\parallel B_0)$ e $\rho_0 \omega^2 b_y/(k_\parallel B_0) = B_0 k_\parallel b_y / (4\pi)$ che ci permettono di scrivere una \textbf{relazione di dispersione} per le onde di Alfvén $\forall\ \ \theta$, notando che per $\theta = \pi/2$ non vi sono onde:
+
+\begin{equation}
+	\boxed{\ \omega^2\ =\ k^2_\parallel c^2_a\ =\ k^2\, cos^2\theta\, c^2_a\ }
+\end{equation}
+
+L'energia si propaga lungo $\hat z$ mentre l'onda si propaga lungo $\hat k$
+
+\[ c_\phi\ =\ \frac{\omega}{k}\ =\ c_a\ cos\theta
+\quad \quad \quad \quad \tau_y\ =\ c_a\, \hat z\ =\ \frac{d\omega}{dk}\]
+
+
+%
+%
+\vspace{1cm}
+\subsection{Onde Magnetosoniche}
+Riprendiamo il sistema precedente:
+
+\[ \begin{cases}
+	\omega \rho_1\ =\ \rho_0\ \vec k\cdot \vec u\ =\ \rho_0\ (k_\perp u_x + k_\parallel u_z)\\
+	\omega\, \rho_0\, \vec u\ =\ \bar c_s^2 \bar k \rho_1 + \frac{\bar B_0}{4\pi}\hat e_z\times (\vec k\times \vec b)\\
+	\omega\,\vec b\ =\ -\vec k\times (\vec u \times \vec B_0)
+\end{cases} \]
+
+\[\omega \rho_0 \vec u\ =\ c^2_s \frac{\rho_0}{\omega} (k_\perp u_x + k_\parallel u_z)\vec k + \frac{k\, B_0 b_{\bar z}}{4\pi} \hat x + \dots \hat y \]
+
+Usiamo il fatto che $\displaystyle\frac{k^2 B_0^2}{4\pi \rho_0}\, u_x=k^2\, c^2_a u_x$ per ottenere:
+
+\[ \omega^2 u_x\ = \ \begin{cases}=\ \ c^2_s (k_\perp u_x + k_\parallel u_z) k_\perp + k^2c^2_a u_x\ \\ =\ \ (k_\perp c^2_s + k^2 c_a^2)\, u_x + (c_s^2 k_\parallel k_\perp) u_z\end{cases} \]
+
+Prendendo $\omega \rho_0 u_z = c^2_s \rho_1 k_\parallel$ scriviamo poi $\omega^2 \rho_0 u_z = c_s^2 k_\parallel \rho_0 (k_\perp u_x + k_\parallel u_z)$ così da giungere al sistema:
+
+\[ \begin{cases}
+	(\omega^2 - c^2_s k^2_\perp - l^2 c^2_a) u_x - k_\parallel k_\perp c^2_s u_z = 0\\
+	k_\parallel k_\perp c^2_s u_x - (\omega^2 - c_s k^2_\parallel)\, u_z = 0
+\end{cases} \]
+
+\[ (\omega^2 - k^2_\perp c^2_s - k^2 c^2_a)(\omega^2 - k^2_\parallel c^2_s)\ +\ k^2_\parallel k^2_\perp c^4_s = 0 \]
+
+\[ \omega^4 - \omega^2 k^2\, (c^2_a + c^2_s) + k^2_\parallel k^2 c^2_a c^2_s = 0 \]
+
+\begin{equation}\label{magnetosoniche}
+	\boxed{\ \left( \frac{\omega}{k} \right)^2\ =\ \frac{1}{2}\, \left[ c^2_a\, +\, c^2_s\, \pm\, \sqrt{(c_a^2 + c_s^2)^2 - 4 c^2_a c^2_s cos^2\theta} \right]\ }
+\end{equation}
+
+
+\section{Riconnessione} 
+La riconnessione è una transizione verso uno stato di energia minore che sarebbe proibita per la MHD,  Viene violata localmente la legge di OHM ideale in una regione  (detta zona ad x  o zona resistiva) di dimensione caratteristica $\delta$   infinitesima rispetto al sistema totale. 
+
+Viene cambiata globalmente la topologia  creando una cosidetta isola di campo, inoltre viene liberata una grandissima quantità di energia Questa quantità di energia viene presa dalla struttura stessa del campo che si riarrangia nella sua interezza in una configurazione meno energetica.
+
+Matematicamente abbiamo un'eq differenziale al quart'ordine "struttura tipo \underline{strato limite} in fluidodinamica" (fidati). Il termine del quart'ordine (la derivata più alta) $\eta\frac{d^4}{dx^4}\bar b$ non conta mai tranne che nelle regioni di grandi gradienti perché è guidato da un coefficiente piccolissimo, d'altra parte è proprio questo termine invece a guidare la soluzione nelle regioni interne (zona ad x) dove si hanno forti gradienti (e possibilmente il termine all'orgine zero è nullo) - in cui $\frac{d}{dx}\sim\frac{1}{\delta}$ e -  $\delta$ è la lunghezza caratteristica dello strato resistivo,  che va raccordata alla soluzione delle regioni esterne in cui invece $\frac{d}{dx}\sim\frac{1}{L}$, $L$ è la dimensione caratteristica MHD "lunghezza scala del campo di equilibrio". 
+
+Stiamo lavorando in una regione in cui la relazione fra tempo caratteristico \underline{resistivo} e \underline{di Alfvén} consiste in $\tau_A\,\ll\, 1/\gamma\,\ll\,\tau_R$, con $\gamma$ che è la stessa in $f(x)\, exp(i k y\pm \gamma t)$ in modo da poter definire:
+
+\[1\ \ll\ \frac{1}{\gamma\tau_a}\ \ll\ \frac{\tau_A}{\tau_R}\ \equiv\  S\ \equiv\ R_a\quad \text{che è un numero enorme}\] 
+
+Noi osserviamo chiaramente che la riconnessione avviene anche in 3D ma per il momento la studiamo in 2D.
+
+Le condizioni del problema sono che ci mettiamo in 2D ($\partial_z=0$) in approssimazione incomprimibile $\vec\nabla\cdot\vec u=0$ e: 
+
+\[\vec B=B_0(x)\hat y+\vec b\hspace{1cm}u_z\,=\,0=\,b_z\ ,\hspace{1cm} \vec u_0=0\]
+
+
+Praticamente l'intensità del campo magnetico seguendo l'asse x ha valori asintotici $B_0$ per $x\to\infty$ e $-B_0$ per $x\to-\infty$. poi c'è una zona di alto gradiente di dimensioni caratteristiche L lunghezza scala del campo di equilibrio, 
+
+\[L\sim\frac{B_0}{B_0'} \hspace{1cm}L\gg\delta\]
+
+Per fare un esempio dell'andamento tipico possiamo considerare  $B_0(x)=\tanh{\frac{x}{L}}$ 
+
+I campi di variazione sono 
+
+\[\vec b=b_x(x,y)\hat x+b_y(x,y)\hat y,\hspace{1cm}\vec u=u_x(x,y)\hat x+u_y(x,y)\hat y\] 
+
+Dalla fluidodinamica sappiamo che possiamo scrivere il campo 2D come gradiente di un campo ausiliario
+
+\[\vec b=\nabla\psi\times\hat z=\partial_y\psi\hat x-\partial_x\psi\hat y,\hspace{1cm}\vec u=\nabla\phi\times\hat z=\partial_y\phi\hat x-\partial_x\phi\hat y\] 
+
+Dopodiché ho bisogno dell'equazione di Faraday ("dell'induzione") 
+
+
+\subsection{equazione di faraday}  Vorrei tanto sapere come mai l'equazione di faraday è proprio scritta così, io non me la ricordo mica come siarriva a questo punto e mi auguro di scoprirlo presto... cmq davanti ad eta potrebbe esserci un $4\pi$ o comunque una costante
+
+\[\partial_t \vec B=\nabla\times(\vec u\times\vec B_0)+\eta\nabla^2\vec b\] facciamo tutti i conti passo passo
+\[\vec u\times\vec B_0= 
+\begin{vmatrix} 
+	\hat i & \hat j & \hat k\\ 
+	\partial_y\phi & \partial_x\phi & 0\\
+	0& B_0 &  0
+\end{vmatrix} 
+=B_0\delta_y\phi\hat z\] 
+
+\[\nabla\times[\vec u\times\vec B_0]= 
+\begin{vmatrix} 
+	\hat i & \hat j & \hat k\\ 
+	\partial_x & \partial_y & 0\\
+	0& 0 &  B_0\partial_y\phi
+\end{vmatrix} 
+=B_0\partial_{yy}\phi\hat x-\partial x[B_0\partial \phi]\hat y=B_0\partial_{yy}\phi\hat x-(B_0'\partial_y\phi+B_0\partial{xy}\phi)\hat y\] 
+
+dove $B_0'=\partial_ xB_0$ e in generale d'ora in poi i termini col primo si intende derivata lungo x. 
+
+\[\nabla^2\vec b=(\partial_{xx}+\partial{yy})(\partial_y\psi\hat x-\partial_x\psi\hat y)=(\partial_{xxy}+\partial_{yyy})\psi\hat x-(\partial_{xxx}+\partial_{yyx})\psi\hat y\] 
+
+chiaramente la derivata rispetto al tempo del campo elettrico mi ammazza il campo medio $B_0$ 
+
+\[\partial_t\vec B=\partial _t\vec b=\partial_{ty}\psi\hat x-\partial_{tx}\psi\hat y\]
+
+Metto tutto insieme , separo le componenti e impongo una bella soluzione piana  (non è per davvero un'onda piana, al massimo posso dire che è un ansatz)
+
+\[\sim f(x)e^{iky-\gamma t}\]:
+
+\begin{itemize}
+	\item componente $\hat x$:\[ \partial_{ty}\psi=B_0\partial_{yy}\phi+\eta(\partial_{xxy}+\partial_{yyy})\psi\] tutti i termini contengono un $\partial _y$ e quindi posso integrare in $\partial y$.\\
+	\[\gamma\psi=ikB_0\phi+\eta(\psi''-k^2\psi)\] 
+	\item componente y:  \\ho ricucito la derivata del prodotto. 
+	\[ -\partial_{tx}\psi=-(B_0\partial_y\phi)'-\eta(\partial_{xxx}-\partial_{yyx})\psi\]
+	
+\end{itemize} 
+
+Infine mi interesso di normalizzare l'equazione praticamente in temini di $L,\tilde c_a, \tilde B$ che sono i valori caratteristici di $\phi$ e di $\psi$. compare il termine  parente stretto di $\eta$, $\frac{t_a}{t_r}=S^{-1}$.  
+alla fine dela fiera quello che viene fuori è per quanto riguarda la componente x  
+\[\gamma\psi=ikB_0\phi+S^{-1}(\psi''-k^2\psi)\] Attenzione !!! e la componente y quanto fa??
+\subsection{equazione del moto } dall'incomprimibilità si ha sicuramente che non vi sono variazioni nella densità che è uniformemente $\rho_0$.;\\ il termine $\vec u\nabla\cdot\vec u$ è del second'ordine e lo lasciamo perdere sin da subito.  
+\[ \rho_0\partial_t(\nabla\times\vec u)=\frac{1}{4\pi}\nabla\times[(\nabla\times \vec B)\times\vec B]\]
+intanto sicuramernte posso linearizzare e mi trovo solamente i termini di primo grado. 
+\[ \rho_0\partial_t(\nabla\times\vec u)=\frac{1}{4\pi}\nabla\times[(\nabla\times \vec b)\times\vec B_0]+\frac{1}{4\pi}\nabla\times[(\nabla\times \vec B_0)\times\vec b]\] 
+ora di nuovo bisogna fare  i prodotti vettoriali e i rotori per benino benissimo
+\[\nabla\times \vec b=\begin{vmatrix}
+	\hat i&\hat j&\hat k\\
+	\partial x &\partial_y& 0\\
+	\partial_y\psi&-\partial _x\psi&0
+\end{vmatrix}=-(\partial_{xx}\psi+\partial_{yy}\psi)\hat z\] 
+\[\nabla\times\vec u=-(\partial_{xx}\phi+\partial_{yy}\phi)\hat z\]
+\[\nabla\times \vec B_0=\begin{vmatrix}
+	\hat i&\hat j&\hat k\\
+	\partial x &\partial_y& 0\\
+	0&B_0&0
+\end{vmatrix}=\partial _x B_0\hat z=B_0'\hat z\] \[(\nabla\times\vec b)\times\vec B_0=
+\begin{vmatrix}
+	\hat i&\hat j&\hat k\\
+	0 & 0& -(\partial_{xx}+\partial_{yy})\psi\\
+	0 & B_0& 0
+\end{vmatrix}=B_0(\partial_{xx}+\partial_{yy})\psi\hat x \]
+\[(\nabla\times\vec B_0)\times\vec b=
+\begin{vmatrix}
+	\hat i&\hat j&\hat k\\
+	0&0&B'_0\\
+	\partial_y\psi&\partial_x\psi&0
+\end{vmatrix}
+=B_0'\partial_x\psi\hat x+B_0'\partial_y\psi\hat y\] 
+
+\[\nabla\times[(\nabla\times \vec b)\times\vec B_0]=
+\begin{vmatrix}
+	\hat i& \hat j&\hat k \\
+	\partial _x&\partial_y&0\\
+	B_0(\partial_{xx}+\partial_{yy})\psi&0&0
+\end{vmatrix}
+=-B_0(\partial_{yxx}+\partial_{yyy})\psi\hat z\] 
+\[\nabla\times[(\nabla\times \vec B_0)\times\vec b]
+=
+\begin{vmatrix}
+	\hat i& \hat j&\hat k \\
+	\partial _x&\partial_y&0\\
+	B_0'\partial_x\psi&B_0'\partial_y\psi&0
+\end{vmatrix}
+=[\partial_x(B_0'\partial_y\psi)-B_0'\partial_{yx}\psi]\hat z=\]\[=[B_0''\partial_y\psi+B_0'\partial_{yx}\psi-B_0'\partial_{yx}\psi]\hat z=B_0''\partial_y\psi\hat z\]
+
+\[4\pi\rho_0\partial_t(\partial_{xx}+\partial_{yy})\phi=B_0(\partial_{yxx}+\partial_{yyy})\psi-B_0''\psi\] imponendo una soluzione di tipo onda piana (oddio non è mica vero che è un'onda piana... chiedere) le derivate rispetto al tempo fanno scendere un $\gamma$, le derivate seconde rispetto ad x danno un doppio primo, le derivate seconde rispetto a y danno $-k^2$.  ora bisogna normalizzare e $\gamma$ lo normalizzo col tempo di alfven, $\phi $ è una velocità  per una lunghezza e quindi va diviso per $\tilde c_aL$, se moltiplico per $L^2$ normalizzo sia la derivata seconda rispetto a x sia rispetto a $k^2$. 
+\[\frac{\tau_aL^2}{L\tilde c_a}=\frac{L^2}{\tilde c_a L/\tau_a}\sim\frac{L^2}{\tilde c_a^2}\] allora se moltiplico il membro a sx per $\tau_a\frac{L}{\tilde c_a}$ mi rimane la densità $\rho_0$. dall'altra parte la $\psi$ è $\sim \tilde BL\implies \psi''$ e anche $k^2\psi\sim \frac{\tilde B}{L}$ contando anche il $k$ davanti a tutto e il campo magnetico hoche il membro a dx è $\sim B^2/L^2$. il fattore con cui ho moltiplicato il membro a sx mi fa diventare il membro a destra $\sim \frac{\tilde B}{\tilde c_a^2}$.\\Se riesco a capire che $\rho_0\sim\frac{\tilde B^2}{c_a^2}$ sono a cavallo. \\in alternativa mi piace anche magari che $\rho_0\sim\frac{\tilde B}{c_a^2}$  perché comunque mi va bene che sia in termini del campo magnetico.  
+\\Credo che ho bisogno dell'equazione di continuità per riuscire a dimensionare campo magnetico e densità. 
+
+%
+%
+\subsection{equazioni MHD incomprimibile} 
+\begin{enumerate}
+	\item \[\gamma(\phi''-k^2\phi)=ikB_0(\psi''-k^2\psi)-ikB_0\psi\]
+	\item \[\gamma\psi-ikB_0\phi=S^{-1}(\psi''-k^2\psi)\] è da qui che emerge l'equazione differenziale del uart'ordine. il termine alla derivata quarta è effettivamente quello legato al numero di Raynolds magnetico, $S^{-1}$ è un numero piccolissimo e sono necessari grandi gradienti per farlo uscire fuori. Queste equazioni presentano una singolarità ed è in quel punto che comincia a contare il termine del quart'ordine. Quando la velocità di fase dell'onda di alfven matcha la velocità del suono locale ovvero quando $\frac{\omega}{k}\sim c_a(x_0)$ in $x_0$ c'è la singolrità. Avere questa singolarità non necessariamente porta ad una riconnessione, è infatti questo il caso anche per le oscillazioni di kelvinhelmoltz  in cui le onde fanno risonanza con la disomogeneità e dissipano l'energia, però se il campo magnetico passa da zero e fa un'inversione "si inverte", posso avere la riconnsessone. in questo caso l'energia  viene liberata dal campo medio che cambiando configurazione passa ad uno stato di minore energia. \\
+	
+	DOMANDA:
+	
+	Ma nel caso di KelvinHelmoltz avviene un cambiamento di Topologia?  
+\end{enumerate}
+
+%
+%
+\subsection{ipotesi e time ordering}  
+\begin{itemize}
+	\item H1: assumo che esistano due regioni con diversi regimi \begin{itemize}
+		\item REGIONE IDEALE \\ in cui il termine resistivo non conta e in questa zona i gradienti sono 
+		\[\partial_x\sim\frac{1}{L}\sim k\sim\delta_y\]
+		e considerando che stiamo considerando le grandezze normalizzate possiamo dire che le derivate nelle due direzioni sono dello stesso ordine \[\delta_x\sim\delta_y\sim1\]
+		\item REGIONE RESISTIVA : \[\partial _x\sim\frac{1}{\delta},\hspace{1cm}\delta\ll L\]
+		
+	\end{itemize}
+	\item H2: Ordering dei tempi \[1\ll\frac{1}{\gamma\tau_a}\ll S\] da ora in poi scriviamo solamente $\gamma$ condiserandolo un fattore adimensionale.  
+	
+	
+\end{itemize} 
+Queste due ipotesi mi permettono di semplificare il sistema di equazioni,
+
+%
+%
+\subsubsection{zona ideale}  
+
+Qui l'equazione $(2)$ ha il termine in $S$ che non conta nulla e possiamo dire invece che  
+\[\gamma\psi\sim ikB_0\phi\] da cui concludiamo che per quanto riguarda gli ordini/andamenti \[\gamma\psi\sim\phi\]
+Questo permette di passare all'equazione $(1)$ in cui possiamo considerare che $\gamma\phi\sim\gamma^2\psi$, a questo punto trascuriamo il primo termine. 
+\[(\psi''-k^2\psi)=\psi\] Definiamo un valore  che quantifica quanto la derivata è fottuta. è una misura di quanto varia la discontinuità  a seconda della lunghezza d'onda.
+\[\Delta '=\frac{d}{dx}\ln\psi\bigg|_{0^-}^{0^+}=\frac{\psi'(0^+)-\psi'(0^-)}{\psi(0)}\]  Quando $\Delta'$ è negativo il sistema è stabile, quando $\Delta'$ è positivo, è possibile che il sistema vada verso un'instabilità.
+
+%
+%
+\subsubsection{zona resistiva} 
+abbiamo un'ordering spaziale del tipo \[\frac{\partial}{\partial_x}\sim\frac{1}{\delta}\gg\frac{\partial}{\partial_y}\sim k\]
+Questo ordering implica che in questo caso le dreivate rispetto a x sono molto maggiori delle derivate rispetto a y. Poi dobbiamo anche imporre che quando $\frac{x}{\delta}\ll1$ la soluzione nella zona interna resistiva si agganci a quella della zona ideale esterna.
+\[\phi''\gg k^2\phi\hspace{1cm}\psi''\gg k^2\psi\] Riprendiamo le equazioni normalizzate 
+\[\begin{cases}
+	\gamma(\phi''-k^2\phi)=ikB_0(\psi''-k^2\psi)-ikB_0''\psi\\
+	\gamma\psi-ikB_0\phi=S^{-1}(\psi''-k^2\psi)
+\end{cases}\] siccome nella prima equazione membro a membro si ha solamente confronti tra termini si ordine 1 ($kB_0''\psi$ è di ordine 1) e temini di ordine $\frac{1}{\delta^2}$, si può eliminare direttamente ogni termine che non abbia la derivata seconda. nella seconda equazione invece è possibile fare  questa considerazione solamente nella parte a dx.
+\[\begin{cases}
+	\gamma\phi''=ikB_0\psi''\\\gamma\psi-ikB_0\phi=S^{-1}\psi''
+\end{cases}\] ora dobbiamo procedere a cercare l'ordinamento di questi termini in termini di $\gamma, S, \Delta'  $ e $\delta$. \\Inanzitutto definiamo con una funzione di Guess il campo magnetico nella regione resistiva, che ricordiamo essere sottilissima , spessa $\delta$. \[B_0(x)=\tilde Bx\sim\tilde B\delta\]
+\[\psi-\frac{ik\tilde B}{\gamma}x\phi=\frac{S^{-1}}{ik\tilde Bx}\phi''\] nella regione interna vale la funzione $\psi_{int}$ di cui abbiamo definito il rapporto incrementale della derivata logaritmica essere $\Delta'$. Con un passaggio algebrico si scrive la differenza al numeratore come integrale definito  della derivata 
+\[\Delta'=\frac{1}{\psi_{int}(0)}\int_{-\delta}^{\delta}\frac{d^2}{dx^2}\psi_{int}dx\] l'integrale è dell'ordine di $\psi''\delta$
+\[\implies\psi''\sim \frac{\Delta'}{\delta \psi(0)}\] Ora devo fare il bilanciamento dei termini, e controlliamo prima i termini con la $\phi$.         \\Ricordiamoci che $k$ e $\tilde B$ sono di ordine 1.  $x $ è ordine $\delta$
+\[\phi''\sim\frac{\phi}{\delta^2}\sim\frac{(k\tilde B \delta)^2}{\gamma}S\phi\implies\gamma\sim\delta^4 S\] 
+
+
+
+
+
+\subsection{caso particolare con soluzione analitica}
+Nella regione ideale quindi come equazione differenziale abbiamo \[B_0(\psi''-k^2\psi)=B_0''\psi\] esiste una possibilità che permette di trovare una soluzione analitica: 
+imponendo che \[B_0(x)=\tanh(x) \] si trova 
+\[\psi_\pm=e^{\mp kx}[1\pm\frac{\tanh(x)}{k}]\] la notazione è un pochino buffa e ci dice che la funzione è definita a tratti, con un pezzo che vale per le x negative e un pezzo che vale per le x positive. Questa funzione è continua in tutto il dominio (in particolare esiste finito il valore $\psi(0)=1$ $\forall k$ ma ha un punto angoloso in zero pertanto la derivata diverge in 0, con un asintoto che va in su e un asintoto che va in giù. \[ \psi'_\pm=\mp k\psi_\pm\pm\frac{e^{\mp kx}}{k}\cosh^2(x)\]
+Definiamo un valore  che quantifica quanto la derivata è fottuta. è una misura di quanto varia la discontinuità  a seconda della lunghezza d'onda.
+\[\Delta '=\frac{d}{dx}\ln\psi\bigg|_{0^-}^{0^+}=\frac{\psi'(0^+)-\psi'(0^-)}{\psi(0)}\] \[\Delta'=-k+\frac{1}{k}-(+k-\frac{1}{k})=2(\frac{1}{k}-k)\] Quando $\Delta'$ è negativo il sistema è stabile, quando $\Delta'$ è positivo, è possibile che il sistema vada verso un'instabilità. non ho capito cosa ha detto il professore a rigurado dell'$\Delta'$ poco negativo che evolve molto lentamente. \\in ogni caso $\Delta'<0\iff k>\frac{1}{k}\iff k $ grandi, ovvero piccole $\lambda$. 
+
+\section{Dumping di Landau}
+Questo è un caso di interazione Onda-particella, abbiamo una distribuzione di energia/velocità delle particelle $f$ non necessariamente maxwelliana, basta che abbia una monotonicità locale, tipicamente ci interessa il caso in cui è monotona decrescente (se è monotona crescente avviene il fenomeno opposto $LD^{-1}$). \\La velocità di fase $v_f$ dell'onda (qualsiasi tra tutte quelle dell'inventario dei plasmi) per qualche caso si trova a sovrapporsi ad $f$ ovvero si trova in risonanza con la distribuzione e ci sono delle particelle che viaggiano localmente a velocità $v\sim v_f$. In altre parole alcune particelle viaggeranno assieme all'onda nello stesso verso e con la stessa velocità  e quindi vedono un campo elettrostatico e accelerano; in media questo effetto si vede nel caso in cui ci sono un pochino più di particelle con  $v<v_f$ rispetto alle particelle con $v>v_f$ presenti in minor numero: sono di più gli elettroni che accelerano rispetto a quelli che frenano. \\In un plasma magnetizzato, nella direzione del campo, le onde possono propagarsi sempre  e non avviene il Dumping. \\Ci occupiamo quindi del caso in cui il plasma non è magnetizzato.\\Per trovare matematicamente questo effetto è necessario considerare l'equazione cinetica del plasma, ovvero l'equazione di Vlasov. Ciò è molto cool perché non è necessaria una chiusura, Inoltre nell'equazione di Vlasov l'entropia è un'invariante $\dfrac{d}{dt}(f\ln f)=\dfrac{dS}{dt}=0$.\\ \textit{"La isolinee della funzione di distribuzione  possono venire spiegazzate stretchate spostate ma non possono venire strappate connesse e riconnesse"}.\\Le isolinee sono più dense nello spazio delle fasi nelle regioni in cui si ha un maggiore gradiente della distribuzione. se abbiamo un effetto tipo vortice in $v_f$ allora da quelle parti comincia l'avvoltolamento dell'isolinea e lì si ha il cambio di segno della velocità nel sistema di riferimento dell'onda (se stiamo parlando di trapping) \\Il Dumping di Landau viene chiamato tradizionalmente \textit{Dumping, (ovvero smorzamento)} Però non è il tipico smorzamento perché l'onda non diventa calore \textit{"non avviene la termalizzazione"}, quindi enunciamo acluni dogmi sul Dumping di landau:\begin{itemize}
+	\item smorzamento $\neq$ dissipazione
+	\item NON è l'equivalente di un attrito
+	\item NON è l'equivalente di una resistività
+	\item NON è l'equivalente di una viscosità
+	\item NON viene prodotto calore
+	\item NON aumente l'entropia
+	\item Il dumping di Landau è un trasferimento di energia dall'onda alle particelle
+	\item Questa energia può venire recuperata (anche se non al 100\%)
+\end{itemize} 
+
+
+%
+%
+%
+\subsection{Equazioni di partenza e condizioni}
+\begin{itemize} 
+	\item Condizioni generali: \\Il plasma non è magnetizzato
+	\[\vec B_0=0\quad\vec  B_1=0\quad \vec B=0\] 
+	Il campo elettrico medio è nullo, ovvero del campo elettrico abbiamo solo la fluttuazione, vale che il campo elettrico è il gradiente di un potenziale. 
+	\[\vec E=\vec E_1=-\vec\nabla\phi\]
+	La distribuzione è di una specie $a=e,I$ è $f_a=f_{a0}(\vec v)+f_{a1}(\vec x,\vec v,t)$, con $f_{a0}$ che non dipende da altro che $\vec v$, non ho ben capito perché...\\ La distribuzione è pari $f(v)=f(-v)$ 
+	\item equazione di Vlasov 
+	\[\frac{\partial}{\partial_t}f_a+\vec v\cdot \vec\nabla_{\vec x} f_a+\frac{q_a}{m_a}\vec E\cdot \vec \nabla_{\vec v}f_a=0\] 
+	Quando linearizzo i primi termini è tutto abbastanza naturale: $f_{0a}$ non dipende né da $\vec x$ né da $t$ e quindi rimane solamente il termine $f_{a1}$. Per quanto riguarda il termine $\vec E\cdot \vec \nabla_{\vec v}f_a$, le cose sono più delicate;\\ è vero che all'istante iniziale \[\frac{\partial f_{a0}}{\partial v}\gg\frac{\partial f_{a1}}{\partial v}\] ma i gradienti $\partial_v$ evolvono nel tempo e può arrivare un momento in cui la nostra linearizzazione non vale più e in gradienti evolvono in maniera da avere 
+	\[\frac{\partial f_{a0}}{\partial v}\simeq\frac{\partial f_{a1}}{\partial v}\] Questo può avvenire dopo un certo tempo \textit{di intrappolamento} $\tau_t$. \\In ogni caso, quando vale la linearizzazione, abbiamo:
+	\[\frac{\partial}{\partial_t}f_{a1}+\vec v\cdot \vec\nabla_{\vec x} f_{a1}+\frac{q_a}{m_a}\vec E_1\cdot \vec \nabla_{\vec v}f_{a0}=0\] 
+	\item equazione di poisson 
+	\[\vec \nabla\cdot\vec E=4\pi e(n_I-n_e)\] 
+	Questa equazione è già linearizzate perchè $\vec E=\vec E_1$ e $n_{0e}=n_{0I}$.
+	\[-\nabla^2\phi=4\pi e(n_I-n_e)\]
+\end{itemize} 
+
+%
+%
+%
+\subsubsection{intrappolamento e non linearità}  
+Prendiamo un'onda che si propaga con velocità di fase $v_f\sim\omega_p/k$, significa che ho un campo elettrico lungo una certa direzione 
+\[E=\hat E\sin(kx-\omega_pt)\] 
+Se un elettrone viaggia con $v\sim v_f$ lungo la stessa direzione del campo, vede un \textit{campo elettrostatico} e subisce un'accelerazione. Se ci mettiamo nel SDR dell'onda possiamo dire che l'elettrone si trova in una buca di potenziale  e oscilla con un moto armonico  rimanendo "intrappolato". 
+\[m\ddot x=-e\hat E\sin kx \simeq -e\hat Ekx\] 
+\[\tau_t=\sqrt{\frac{m}{e\hat Ek}}\] 
+\[\tau_L=\frac{1}{k^3\lambda_D^3}e^{-(\frac{3}{2}+\frac{1}{2k^2\lambda_D^2})}\]
+Questa cosa succede per  quegli elettroni che erano un pochino più veloci di $v_f$ che decelerano fino a sincronizzarsi e succede a quegli elettroni un pochino più lenti di $v_f$ che accelerano fino a sincronizzarsi con l'onda. gli elettroni sincronizzati oscillano attorno alla buca di potenziale, l'oscillazione (se osservata nel SDR dell'onda) implica addirittura un cambio del verso della velocità, capiamo subito che la fluttuazione del campo EM non genera solo una fluttuazioncina nella distribuzione, genera un grande cambiamento, tant'è che alcune particelle cambiano verso e passano da $v$ a $-v$. Il numero di elettroni intrappolati aumenta nel tempo. la distribuzione in velocità viene modificata e si vede un appiattimento della distribuzione nell'intorno di $v_f$. Il tempo che ci mette a comparire questo appiattimento è $\tau_t$. Quando questo accade non vale più la nostra analisi lineare. la linearizzazione delle equazioni vale quindi entro un limite fisico dato dal tempo di intrappolamento. 
+\\il tempo caratteristico della dinamica è $\tau_D$ ($\sim\omega_p^{-1}$)\\ il tempo caratteristico dello smorzamento di landau è $\tau_L$\\ è rilevante l'effetto dell'intrappolamento solamente nel caso in cui $\tau_D<\tau_t<\tau_L$, perchè l'onda fa tempo ad acchiappare abbastanza elettroni da cambiare la distribuzione appiattendola e quindi  sopravvivere. il plasma permette all'onda di propagarsi perchè perdiamo la locale monotonicità della distribuzione \\Ovviamente Se $\tau_L<\tau_t$ l'onda viene uccisa prima che l'intrappolamento possa avere qualche effetto.\\ Inoltre il tempo di trapping dipende dall'ampiezza dell'onda, quindi è assolutamente necessario che l'intrappolamento avvenga prima che lo smorzamento abbia agito.\\Possiamo vedere lo smorzamento anche considerando l'equazione di Vlasov 1D (perchè siamo in asse con l'oscillazione) linearizzata (infatti è solo una considerazione qualitativa)
+\[\frac{\partial f_1}{\partial t}+v\frac{\partial f_1}{\partial x}=\frac{e\hat E}{m}\sin(kx-\omega t)\frac{\partial f_0}{\partial v}\] 
+la soluzione è presto detta... e a dire la verità non ce ne frega molto, magari è roba da seminario
+\[f_1=f_1(v,t=0)\cos(kx-kvt)-\frac{e\hat E}m\frac{\partial f_0}{\partial v}\bigg[ \frac{\cos(kx-\omega _e t)}{kv-\omega_e} - \frac{\cos(kx-kv t)}{kv-\omega_e}\bigg]\] 
+
+in ogni caso noi vogliamo sviluppare attorno a $v\sim v_f$ 
+\[\partial_vf_1\approx\frac{ek\hat E}{m}t^2\partial_vf_0\frac{\cos(kx-\omega_et)}{2}\propto t^2\]  
+vediamo che succede un gran problema, perchè la nostra ipotesi NON è $f_0\gg f_1$ bensì
+\[\bigg|\frac{\partial f_0}{\partial v}\bigg|\gg\bigg|\frac{\partial f_1}{\partial v}\bigg|\] e vediamo che la derivata del temrine $f_1 $ cresce quadraticamente collo scorrere del tempo in un tempo $\tau_t\sim\sqrt{\dfrac{m}{e\hat Ek}} $ diventa di ordine di 1, e infatti ben sappiamo che l'intrappolamento modifica la funzione di distribuzione, non vale la linearità , è tutto un disastro... \\
+\textit{"il trapping è un fenomeno cinetico non dissipativo con cui andiamo a saturare la cascata di energia verso le scale più piccole"} \\
+\textit{"In genere è la dissipazione che bilancia l'energia iniettata alle scale più piccole, il trapping in qualche maniera si sostituisce alla dissipazione, il sistema usa in questo modo la sua energia"}\\
+\textit{"Un altro esempio di fenomeno non dissipativo: ho il termine dispersivo va come $k^3$ a un certo punto della cascata arrivo a $k$ abbastanza grossi che il sistema è in grado di generare un onda grande ed in grado di autosostenersi che butta via l'energia senza andare a scale più piccole. Questo è detto meccanismo di Korteweg–De Vries"\\ \textbf{Si genera un solitone...}}
+
+%
+%
+%
+\subsection{Trasformata di fourier}
+La via utilizzata più spesso nei libri è quella di fare una trasformata di laplace, che se ho capito bene dà come soluzione un transiente + un modo normale che sopravvive più a lungo (al quale noi siamo interessati), in ogni caso noi facciamo anzi la trasformata di fourier andando a cercare direttamente il modo normale "poco smorzato "  che corrisponde ad un polo lontano. spero che sarà più chiaro nella prossima lezione.\\ cerchiamo i temrini che vanno come $\sim e^{i(\vec k\cdot\vec x-\omega t)}$ e questi termini avranno una parte immaginaria e una parte reale, la parte reale rappresenta l'oscillazione mentre la parte immagiaria rappresenta lo smorzamento.
+\[f_1=\sum_kf_k  e^{i(\vec k\cdot\vec x-\omega t)};\quad \phi=\sum_k\phi_k  e^{i(\vec k\cdot\vec x-\omega t)}\] 
+scrivo anche le concentrazioni in temrini della distribuzione ( mi interessano solammente i termini di fluttuazione per via della quasineutralità del plasma) e questa cosa è vera modo per modo (k per k) anche attraverso la trasformata.
+\[n_k=\int f_{1k}d\vec v\]
+
+\[ \text{eq Vlasov: }
+-i\omega f_{ak}+i\vec k\cdot\vec v f_{ak}-\dfrac{-iq_a}{m_a}(\vec k\cdot\vec \nabla_{v})f_{a0}\phi_k=0\] 
+Da questa trovo $f_{k}$:\[f_{k}=-\sum_a\frac{q_a}{m_a}\frac{(\vec k\cdot\vec\nabla_{v})f_{a0}}{(\omega-\vec k\cdot\vec v)}\phi_k\] 
+Non ho capito come mai risulta che $\vec k\parallel \vec E$.
+\[\text{eq Poisson: }
+-(ik)^2\phi_k=4\pi e\int (f_{1k}-f_{ek})d\vec v
+\]  La soluzione del sistema di equazioni è \[k^2\phi_k=-4\pi e\sum_a\frac{q_a}{m_a}\int \frac{(k\cdot\vec\nabla_v)f_{0a}}{(\omega-\vec k\cdot\vec v)}d\vec v\phi_k\] 
+\[\boxed{k^2=-4\pi e\sum_a\frac{q_a}{m_a}\int \frac{(k\cdot\vec\nabla_v)f_{0a}}{(\omega-\vec k\cdot\vec v)}d\vec v}\] 
+\subsubsection{Onda di plasma a ioni fissi}
+consideriamo un'onda di plasma con frequenza tale che gli ioni non fanno tempo di reagire, quindi il contributo degli ioni si ha solamente in $n_0$ per mantenere ovviamente la quasineutralità. Se non facessimo questa  assunzione troveremmo una soluzione con anche le onde IA, (magari ci proverò in futuro).\\ Se l'onda di plasma si propaga in direzione $x$, posso integrare la distribuzione in $dv_y $ e $ dv_z$  in quanto il termine ($\vec k\cdot\vec \nabla_v$) non ha nulla a che vedere con quelle direzioni. L'integrale praticamente diventa un integrale 1D perchè l'onda si propaga in un'unica direzione. 
+\[\vec k\cdot\vec \nabla_v\to k\partial_u,\quad u\equiv v_x\]
+Conviene definire la funzione di distribuzione normalizzata a 1 in termini di $n_0$, perchè riconosco che ho, a meno di $n_0$, la frequenza di plasma degli elettroni $\omega_e$ a moltiplicare l'integrale 
+\[g(u)=\frac{f(u)}{n_0}\quad \int f(u)du=n_0\to\int g(u)du=1\] 
+\[\phi_k=-\frac{\omega_e^2}{k^2}\int\frac{(\vec k\cdot\vec\nabla_v)f_{0e}}{(\omega-\vec k\cdot\vec v)}d\vec v\phi_k\] 
+\[\boxed{1+\frac{\omega_e^2}{k^2}\int\frac{\cancel{k}\partial_ug(u)}{\cancel{k}(\frac{\omega}{k}-u)}\partial_u=0}\] 
+\subsubsection{Regime di propagazione senza dumping} 
+
+Prendiamo un'onda con $v_f\gg v_{th}$, in questo caso la velocità di fase non si sovrappone alla distribuzione e possiamo dire che non ci sono elettroni che si muovono localmente con velocità $u\sim v_{th}$, ovviamente in questo caso la derivata della distribuzione è a maggior ragione nulla. Fisicamente risulta intuituvo che siamo decisamente nel caso in cui non si ha dumping.\\Matematicamente questo significa che in corrispondenza della singolarità \[\dfrac{\omega}{k}-u=0\] che porterebbe ad una divergenza, si ha una soppressione maggiore al numeratore e al netto di tutto il numeratore è uno zero più zero del denominatore e alla fine della fiera l'integrale non ha divergenze. \\a questo punto rimane solo da risolvere il nostro integralozzo:
+\[\int\frac{\partial_ug(u)}{(\frac{\omega}{k}-u)}\partial_u\]  
+integro per parti e quando devo valutare il rpodotto  tra le primitive ai bordi del dominio posso mettere tutto a zero, ovviamente non ho particelle con velocità infinita!. 
+\[\int\frac{\partial_ug(u)}{(\frac{\omega}{k}-u)}\partial_u=\cancelto{0}{\frac{g(u)}{(\frac{\omega}{k}-u)^2}\bigg|_{-\infty}^{+\infty}}-\int \frac{g(u)}{(\frac{\omega}{k}-u)^2}du \]
+Ora spero di avere caèpito da dove viene questa espansione...
+\\ ci dobbiamo occupare del secondo termine, la distribuzione conta qualcosa nella zona $u\ll\omega/k$, questo equivale a dire che possiamo espandere il denominatore attorno a $u=0$.
+\[\frac{1}{(\frac{\omega}{k}-u)^2}\simeq \frac{1}{(\frac{\omega}{k})^2}+\frac{2u}{(\frac{\omega}{k})^3}+\frac{3u^2}{(\frac{\omega}{k})^4}+...\]
+Ora uso il fatto che la distribuzione è pari per cancellare il termine dispari nell'integrale 
+\[1-\frac{\omega_e^2}{k^2}\int\frac{\partial_ug(u)}{(\frac{\omega}{k}-u)}\partial_u=1-\frac{\omega_e^2}{k^2}\int_{-\infty}^{+\infty} g(u) \bigg[\frac{k^2}{\omega^2}+\cancel{\frac{2uk^3}{\omega^3}}+\frac{3u^2k^4}{\omega^4}\bigg]   du \]  
+Uso il fatto che la sitribuzione è normalizzata ad 1 e anche che vale che (dovrei dimostrarlo)
+\[\int g(u)du=1,\quad \int g(u)u^2du=v_{th}^2\] 
+Troviamo la relazione di dispersione. 
+\[\boxed{1-\frac{\omega_e^2}{\omega^2}-\frac{3k^2v^2_{th}\omega_e^2}{\omega^4}=0}\]
+Questa equazione ha due soluzioni ma solamente una è fisica (quella col+) \\ ricordiamoci sempre che  $\dfrac{v_{th}^2}{\omega_e^2/k^2}\ll1\iff v_f\gg v_{th}$ 
+\[\omega^2=\frac{\omega_e^2\pm\sqrt{\omega_e^4\bigg[1+\dfrac{12k^2v_{th}^2}{\omega_e^2}\bigg]}}{2}\simeq\frac{\omega^2_e\pm\omega_e^2\bigg[1+\dfrac{6k^2v_{th}^2}{\omega_e^2}\bigg]}{2}\] 
+Questo risultato è molto importante perché analogo con dumping.
+\[\boxed{\omega_+^2=\omega_e^2+3k^2v_{th}^2}\]
+
+è proprio il caso di confrontare questo risultato con la relazione di dispersione ottenuta con le equazioni fluide chiuse con una politropica 
+\[\omega^2=\omega_e+\gamma k^2 v_{th}^2\]
+il professore ci dice che ci sono alcune cose che è bene notare \begin{enumerate}
+	\item L'idea di utilizzare una chiusura politropica non è poi così folle. 
+	\item molti eminentissimi coglioni dicono che questo $\gamma=3$ era previsto perché è il coefficiente tipico per un gas monoatomico... califano invece dice che è soltanto una coincidenza senza un particolare significato profondo.
+	\item  non ho mica ben capito cosa c'entra, da dove viene fuori ... btw, "alla maggior parte degli stimoli, I plasmi reqgiscono in prima approssimazione alla frequenza di plasma indipendentemente da $k$". 
+\end{enumerate} 
+\subsubsection{regime con dumping}  
+Ripartiamo dalla nostra relazione del dielettrico, se $\epsilon(k,\omega)=0$ allora abbiamo un modo normale, in generale abbiamo
+\[\boxed{\epsilon(k,\omega)=1-\frac{\omega_e^2}{k^2}\int\frac{\partial_ug(u)}{(u-\dfrac{\omega}{k})}du}\] Ricordiamoci sempre che stiamo facendo la TF cercando il modo che sopravvive più a lungo che corrisponde ad un \textit{polo lontano} con $\omega_i\ll\omega_r$, praticamente stiamo dicendo che il dumping c'è ma poco. Per contestualizzare bene quello che stavamo facendo prima il polo c'era lo stesso ma era in una zona dove il dumping non avviene per come è popolata la distribuzione. \\Sviluppiamo il nostro dielettrico attorno a $\omega_r$, proprio considerando $\omega_i\ll\omega_r$. 
+\[\epsilon(k,\omega)\simeq\epsilon_r(k,\omega_r)+i\epsilon_i(k,\omega_r)+i\omega_i\frac{\partial \epsilon_r}{\partial\omega}\bigg|_{\omega=\omega_r}-\omega_i\frac{\partial \epsilon_i}{\partial\omega}\bigg|_{\omega=\omega_r}\] 
+impongo che siano nulle sia la parte reale che la parte immaginaria (per trovare il modo normale). Dalla parte immaginaria ottengo \[\epsilon_i=-\omega_i\frac{\partial\epsilon_r}{\partial \omega}\bigg|_{\omega_r}\implies \epsilon_i\sim\omega_i\] 
+Dalla parte reale emerge che il termine di derivata va come $\sim \omega_i^2$ e di conseguenza lo posso trascurare, cos' come $\epsilon_r$. In generale la parte reale è zero, a meno di correzioni del second'ordine, che non ci interessano. 
+\[\omega_i=\dfrac{-\epsilon_i}{\dfrac{\partial \epsilon_r}{\partial \omega}}\] 
+comunque a questo punto abbiamo un integrale complesso da risolvere  con il metodone2. Abbiamo un polo molto vicino all'asse dei reali e noi ci giriamo attorno, poi facciamo il giro circolare con $|\omega|\to\infty$ che fa zero.
+\\Bisogna utilizzare la     formula di PLEMELJ
+\[\lim_{\epsilon\to0}\frac{1}{x\pm i\epsilon}=\mathcal P\frac{1}{x}\mp i\pi\delta(x)\] 
+\[\frac{1}{u-a}=\mathcal{P}\bigg(\frac{1}{u-a}\bigg)+i\pi\delta(u-a)\] 
+\[\mathcal{P}\bigg(\frac{1}{u-a}\bigg)\equiv \lim_{\epsilon\to 0}\bigg[\int_{-\infty}^{a-\epsilon}\frac{f(u)}{u-a}du+\int^{\infty}_{a+\epsilon}\frac{f(u)}{u-a}du\bigg]\] Questo integrale ha la proprietà che le due divrgenze  sono uguali ma opposte e quindi si annullano a vicenda. in questo caso non è la distribuzione vuota ad ammazzare l'integrale ma è questa sottigliezza matematica, però l'effetto finale  è lo stesso, è come se non avessi elettroni nel polo.\\Questo mi permette di andare avanti nel calcolo come nel caso precedente assumendo che $v_f^2\gg v_{th}^2$ (ovvero $v_f>v_{th}$) e trovare un risultato completamente analogo 
+\[\epsilon_r=1-\frac{\omega_e^2}{\omega^2}-\frac{3k^2v_{th}^2\omega_e^2}{\omega^4}\] Questo è un caso un pochino borderline \textit{"fa venire mal di pancia"} perché non siamo nelle condizioni più favorevoli per avere il dumping e la risonanza avviene con "pochi" elettroni. Purtroppo il calcolo dell'integrale in maniera analitica al di fuori di questa assunzione è molto complicato, e non solo... in un regime di forte smorzamento di landau ($\omega/k\sim v_{th}$) non vale la linearizzazione assunta inizialmente e quindi va tutto il conto a ramengo.
+\\Nonostante ciò va detto che l'integrazione numerica di Vlasov porta a risultati sorprendentemente coerenti (nell'ordine del percento)
+\\Ora se faccio la derivata (calcolata in $\omega=\omega_r$) trovo due termini, uno dei quali è trascurabile in quanto $v_f^2\gg v_{th}^2$. 
+\[\frac{\partial \epsilon_r}{\partial\omega}\bigg|_{\omega=\omega_r}=-2\frac{\omega_e^2}{\omega_r^3}-\cancelto{0}{\frac{12k^2v_{th}^2\omega_e^2}{\omega_r^5}}\]  
+e a questo punto posso ricucire insieme tutti quanti i pezzi e trovare la parte immaginaria della frequenza, che poi sarebbe il coefficiente di smorzamento. \\Bisogna gestire correttamente la $\delta$ che mi fa calcolare la funzione di distribuzione in $u=\omega_r/k$. 
+\[\boxed{\omega_i=\dfrac{-\epsilon_i}{\partial _\omega\epsilon_r}=\frac{\pi\omega_e^3}{2k^2}\partial_ug(u)\bigg|_{u=\omega_r/k}}\]  
+\subsection{Soluzione con distribuzione generica}
+\[\boxed{\omega_i=\dfrac{-\epsilon_i}{\partial _\omega\epsilon_r}=\frac{\pi\omega_e^3}{2k^2}\partial_ug(u)\bigg|_{u=\omega_r/k}}\]   
+Questa è la parte immaginaria della frequenza ottenuta con la FT, se teniamo presente che stavamo cercando una soluzione con $e^{-i(\omega_r+i\omega_i) t}$ si vede che la parte immaginaria costtistuisce uno smorzamento (o un'amplificazione) esponenziale $\sim e^{\omega_it}$.\\In particolare ci piace molto il fatto che $\omega_i\propto \partial_ug(u)$ sicché quando $g(u)$ è decrescente si ha lo smorzamento, quando $g(u)$ cresce si ha LD$^{-1}$ mentre non succede niente di niente se la distribuzione è piatta. Questo intuitivamente ci piace anche se pensiamo al fenomeno dell'intrappolamento anche se cade l'ipotesi della linearizzazione.  
+\subsection{Soluzione con maxwelliana} 
+\textit{"Non ho bisogno di una maxwelliana per avere Dumping, ma ho bisogno di una maxwelliana per fare il conto"}  scansoequivoci la maxweliana è siffatta:
+\[f=\frac{n_0}{\sqrt{(2\pi)^3}v_{th}^3}e^{-\dfrac{v_x^2+v_y^2+v_z^2}{2v_{th}^2}}\]
+La nostra funzione di distribuzione in particolare è normalizzata e 1D
+\[g(u)=\frac{1}{\sqrt{2\pi}v_{th}}e^{-\dfrac{u^2}{2v_{th}^2}}\]
+Da cui si trova agevolmente la parte immaginaria della frequenza che corrisponde al dumping. 
+\[\boxed{\omega_i=-\omega_e\sqrt{\frac{\pi}{8}}\frac{1}{(k\lambda_D)^3}e^{-\dfrac{3+k^2\lambda_D^2}{2}}}\]
+Si vede che come atteso lo smorzamento scompare completamente per $k^2\lambda_D\to0$. 

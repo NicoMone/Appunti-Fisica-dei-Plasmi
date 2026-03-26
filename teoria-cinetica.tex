@@ -1,0 +1,153 @@
+\chapter{Teoria cinetica ed una teoria a due fluidi}
+
+Trattare un plasma con un modello \emph{many-body} ci porterebbe ad un problema irrisolvibile, per questo introduciamo ora un framework statistico che ci permetterà di ricavare l'equazione di Vlasov e da questa di ricollegarci alle equazioni fluide attraverso i suoi momenti.
+
+Continueremo a supporre di essere in un regime non-collisionale, le particelle di ogni specie saranno sottoposte a campi elettrici e magnetici collettivi, l'energia cinetica sarà da considerarsi molto maggiore dell'energia d'interazione in modo che la generica carica sia 'statisticamente indipendente' dalle altre. 
+
+Si tenga in considerazione che, per quanto riguarda questo capitolo, la trattazione ancora tiene conto del plasma come composto da diverse specie non assimilabili, quindi le equazioni in questo capitolo saranno da intendere come valide per la singola specie. Il modello che ne consegue è un modello a due fluidi, seguirà nel prossimo capitolo un modello a singolo fluido.  
+
+Come prima cosa si introduce la \textbf{funzione di distribuzione},
+\[F(\vec{x_1}, ...,\vec{x_n}, \vec{v_1}, ...,\vec{v_n}, t)\ \   ,\]
+tale che $F(\vec{x}, \vec{v}, t)\, dx\, dv$ è il numero di particelle contenuto in un volumetto $dx$ con velocità nell'intervallo $dv$.
+
+Questa funzione di distribuzione può essere ridotta ('marginalizzata') alla s-esima particella: 
+\[ F^{(s)}(\vec{x}_{1}, ...,\vec{x_s}, \vec{v}_{1}, ...,\vec{x_s}, t) \ =\ \int F\ d\vec{x}_{s+1} ...d\vec{x_n} d\vec{v}_{s+1} ...d\vec{v_n}\]
+Nel limite puramente non collisionale, $g\ll 1$, ci si limita al calcolo di $F^{(1)}(\vec{x_1}, \vec{v_1}, t)$ se invece ci fosse una seconda carica vicina dovremmo scrivere:
+
+\[ F^{(2)}(\vec{x_1}, \vec{x_2}, \vec{v_1}, \vec{v_2})\ =\ F^{(1)}(\vec{x_1}, \vec{v_1})\ F^{(1)}(\vec{x_2}, \vec{v_2}) \ \left[ 1-\color{blue}{P_{12}(\vec{x_1}, \vec{x_2}, \vec{v_1}, \vec{v_2})}\right]\ \ \ \ ,\]
+dove \textbf{$P_{12}$} è detta \textcolor{blue}{funzione di correlazione}. Per la funzione $P_{12}$ si può ricavare una forma del tipo: $P_{12}\sim \frac{\lambda_D}{|x|} e^{-|x|/\lambda_D}$.
+
+In generale, se partiamo da un plasma all'equilibrio ed iniettiamo energia i tempi in cui questa si distribuisce sono così lunghi che la funzione di correlazione risulta trascurabile.\\
+Si può vedere sul Krall come, ipotizzando una distribuzione maxwelliana, il risultato sia che $P_{12}=nT(1-g)$ e quindi scala come la temperatura.\\
+
+\begin{teorema}{Teorema di Liouville}
+	Siccome sarà utile in seguito richiamiamo il teorema di Liouville: data la nostra funzione di distribuzione F che descrive il plasma ad ogni tempo occupera un punto dello spazio delle fasi 2n-dimensionale, tracciando nel tempo una traiettoria di fase; secondo il teorema la derivata temporale totale della densità degli stati sarà nulla.
+	
+	\[ \frac{d}{dt} F\ =\ 0\]
+	
+	\[ \frac{\partial}{\partial t} F + \vec v \cdot \vec\nabla_x F + \vec a \cdot \vec\nabla_v F\ =\ 0\]
+	
+	O per esprimerla ancor più esplicitamente:
+	
+	\begin{equation}\label{Liouville}
+		\frac{d}{dt} F\ =\ \frac{\partial}{\partial t} F + \sum_i^N\vec v_i \cdot  \frac{\partial}{\partial \vec x_i}F + \sum_i^N\vec a_i \cdot  \frac{\partial}{\partial \vec v_i}F\ =\ 0
+	\end{equation}
+	
+\end{teorema}
+
+\subsection{L'equazione di Vlasov}
+Dal teorema di Liouville in eq.(\ref{Liouville}) si giunge all'equazioni più nota della fisica dei plasmi, l'equazione di Vlasov, integrando su tutte le particelle da 2 ad N vediamo che il primo termine di eq.(\ref{Liouville}) è legato alla $F^{(1)}$:
+\[ \int \frac{\partial F^{(n)}}{\partial t} dx_1 ...dx_n dv_1 ...dv_n\ =\ \frac{\partial}{\partial t }\left( \int F^{(n)} dx_2 ...dx_n dv_2 ...dv_n\right)\ =\ \frac{\partial F^{(1)}}{\partial t}\]
+
+Mentre per il secondo e terzo termine di eq.(\ref{Liouville}):
+\[\begin{split} \int\sum^N_{i} \vec v_1 \cdot \frac{\partial F^{(n)}}{\partial \vec x_1} dx_2 ...dx_n dv_2 ...dv_n\ &=\ \int v_1 \cdot \frac{\partial F^{(n)}}{\partial \vec x_1 } dx_2 ...dx_n dv_2 ...dv_n + \cancel{\int \sum^N_{i=2} \vec v_i \cdot \frac{\partial F^{(n)}}{\partial \vec x_i} dx_2 ...dx_n dv_2 ...dv_n} \ =
+	\\ &= \vec v_1 \cdot \frac{\partial}{\partial \vec x_1} \int F^{(n)} dx_2 ...dx_n dv_2 ...dv_n \ =\ \frac{\partial F^{(1)}}{\partial \vec x_1}\ \ \ \ ,
+\end{split}\]
+
+\[\begin{split} \sum^N_{i} \int \vec a_i \cdot \frac{\partial F^{(n)}}{\partial \vec x_i} dx_2 ...dx_n dv_2 ...dv_n\ &=\ \int \vec a_1 \cdot \frac{\partial F^{(n)}}{\partial \vec v_1 } dx_2 ...dv_n + \vec a_1\cdot \frac{\partial}{\partial \vec v_1} \int F^{(n)} dx_2 ... dv_n\ +\ ... \\
+	&\ \ \ \ \ \ \ \ ...\ +\ \sum^N_{i=2}\int \vec a_i \cdot \frac{\partial F^{(n)}}{\partial \vec v_i} dx_2 ...dv_n \ \ =\ \ \vec a_1 \cdot \frac{\partial F^{(n)}}{\partial \vec v_1} \ \ \ \ .
+\end{split}\]
+
+
+
+Per esplicitarla $\vec a_i\, =\, \vec E\,+\, \vec v_i\cdot \vec B\, /\, c$, ma in questa forma abbiamo tenuto conto unicamente dell'accelerazione dovuta ai campi, per tener conto di interazioni fra particelle aggiungiamo un termine di interazione binaria $\vec a_{ij}$ (così che $\vec a_i\, =\, \vec E\,+\, \vec v_i\cdot \vec B\, /\, c\, +\, \vec{a}_{ij}$) a quest'accelerazione e integriamo anch'esso:
+\[ \sum^N_{i=1} \sum_{j>i} \int \vec a_{ij} \cdot \frac{\partial F^{(n)}}{\partial\vec v_i} dx_2 ...dx_n dv_2 ... dv_n\ =\ \sum_{j>i}^N \int \vec a_{ij} \cdot \frac{\partial F^{(n)}}{\partial\vec v_i} dx_2 ...dx_n dv_2 ...dv_n \ \ \ \ . \]
+
+Per la generica particella $j=\alpha$ ci concentriamo sull'ultimo integrale all'interno della sommatoria, possiamo portare fuori $\vec a_{1\alpha}\cdot \frac{\partial}{\partial \vec v_\alpha}$ in modo che l'integrale ci restituisca un $F^{(2)}$  che però possiamo esprimere in termini della funzione di correlazione $P_{12}$ definita all'inizio del paragrafo, per cui:
+\[ \int \vec a_{1\alpha}\cdot \frac{\partial F^{(1)}}{\partial \vec v_1}(\vec x_1,\vec v_1) F(\vec x_\alpha, \vec v_\alpha) dx_\alpha dv_\alpha\ +\ \int \vec a_{1\alpha}\cdot \frac{\partial}{\partial \vec v_1} \left( F^{(1)}(\vec x_1, \vec v_1) P_{12}(\vec x_1,\vec x_\alpha, \vec v_1, \vec v_\alpha) \right) F^{(1)}(\vec x_\alpha, \vec v_\alpha)dx_\alpha dv_\alpha \ \ \ \ ,\]
+il primo termine di quest'espressione andrà a contribuire al termine del tipo $\vec a_1\cdot \partial_{\vec v_1} F^{(1)}$ mentre inseriamo il secondo termine collisionale dipendente da $P_{12}$ in un termine non conosciuto C:
+
+\begin{equation}
+	\boxed{\frac{\partial F^{(1)}}{\partial t} + \vec v_1\cdot \frac{\partial F^{(1)}}{\partial \vec x_1} + \vec a_1\cdot \frac{\partial F^{(1)}}{\partial \vec v_1} = \mathcal{C} }
+\end{equation}
+
+Questa è conosciuta come \textbf{equazione di Boltzmann}, può essere scritta per ciascuna specie ma per determinarne il risultato sarà necessario esplicitare $\vec E$, $\vec B$ ed il termine di scattering $\mathcal{C}\sim (\partial f_S/\partial t)_{coll.}$.
+Infine, nel limite in cui è possibile ignorare lo scattering di particelle arriviamo finalmente all'equazione cardine della descrizione statistica dei plasmi, l'\textbf{equazione di Vlasov}:
+
+\begin{equation}\label{VLASOV}
+	\boxed{\ \frac{\partial f^{(1)}_\alpha}{\partial t} + \vec v_1 \cdot \frac{\partial f^{(1)}}{\partial \vec x_1} + \frac{q_\alpha}{m_\alpha}\left( \vec E + \frac{\vec v \times \vec B}{c}\right)\cdot\frac{\partial f^{(1)}_\alpha}{\partial \vec v_1}\ =\ 0\ }
+\end{equation}
+
+
+\subsection{Da Vlasov alle equazioni fluide}
+Cerchiamo di ricollegare questa trattazione statistica alle equazioni fluide di inizio corso, osservando per prima cosa come le funzione di distribuzione sia legata alla densità di particelle di una specie  nello spazio delle posizioni $n_\alpha$ e più in generale a quantità macroscopiche:
+\[n_\alpha \ =\ \int f_\alpha d\textbf{v} \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \  \ \ \ \ \ \ \  \int f_\alpha \vec v_\alpha d\textbf{v}\ =\ n_\alpha \vec u_\alpha \]
+Questi sono momenti di ordine zero ed uno della funzione di distribuzione $f_\alpha$ [quindi il momento di ordine n è definito come $\int v^n\, [\text{eq. di Vlasov}]\, dv$ ].
+
+\paragraph{Momento di grado 0: } Riprendiamo ora l'eq.(\ref{VLASOV}) ed integriamone i diversi membri sullo spazio delle velocità:
+
+\[ \int \frac{\partial f_\alpha}{\partial t} d\textbf{v} \ =\ \frac{\partial }{\partial t} \int f_\alpha d\textbf{v} \ =\ \frac{\partial n_\alpha}{\partial t}\ \ ,\]
+
+\[ \int \vec v_\alpha \cdot \frac{\partial f_\alpha}{\partial \vec x} d\textbf{v}\ =\ \int \frac{\partial}{\partial \vec x} (\vec v_\alpha f_\alpha) d\textbf{v}\ =\ \int f_\alpha \cancelto{=0}{\frac{\partial}{\partial \vec x } \vec v_\alpha}d\textbf{v} +\int \frac{\partial f_\alpha}{\partial \vec x}\cdot \vec v_\alpha d\text{v} \ =\ \frac{\partial}{\partial \vec x}(n_\alpha \vec u)\ \ , \]
+
+\[  \int \left(\vec E + \frac{\vec v\times\vec B}{c}\right) \cdot \frac{\partial f_\alpha}{\partial \vec v_\alpha} d\textbf{v}\ =\ \int \frac{\partial}{\partial \vec v_\alpha} \left[f_\alpha  \left( \vec E + \frac{\vec v\times\vec B}{c}\right)  \right] d\textbf{v} - \cancel{\int f_\alpha \frac{\partial}{\partial \vec v_\alpha} \left( \vec E + \frac{\vec v\times\vec B}{c}\right)}\ =\ 0\ \ . \]
+
+Rimettendo assieme questi 3 membri si ottiene dunque infine l'\textbf{equazione di continuità} per la specie $\alpha$, dove rientrano i momenti di ordine zero ed uno di $f_\alpha$ (questo è un problema, è da qui che si capisce subito che serve una chiusura):
+
+\begin{equation}
+	\boxed{\ \frac{\partial n_\alpha}{\partial t}\ +\  \vec{\nabla_x} \cdot \left( n_a \vec u\right)\ =\ 0\ }
+\end{equation}
+
+\paragraph{Momento di grado 1: } Definito per brevità $\vec D = \vec E +\frac{\vec v \times \vec B}{c}$, integriamo di nuovo Vlasov ma stavolta moltiplicando per $\vec v_\alpha$:
+
+\[\begin{split}\frac{\partial}{\partial \vec v_\alpha} \left[ \vec v_\alpha \vec D f_\alpha\right] \ &=\  f_\alpha \vec D \frac{\partial \vec v_\alpha }{\partial\vec v_\alpha} + \vec v_\alpha \frac{\partial(f_\alpha \vec D)}{\partial\vec v_\alpha}\ =\ \\ &= f_\alpha \vec D \frac{\partial \vec v_\alpha }{\partial\vec v_\alpha} + \vec v_\alpha D\cdot \frac{\partial f_\alpha }{\partial\vec v_\alpha} \end{split}\]
+
+\[ \int \vec v_\alpha\, \vec{D}\, \frac{\partial f_\alpha}{\partial \vec v_\alpha}\ d\vec v_\alpha\ =\ -\int \vec D\, f_\alpha\, d\vec{v_\alpha} \ =\ \, -\, n_{\alpha}\vec{E} \,-\, n_\alpha \frac{\vec u_\alpha \times \vec B}{c}\]
+
+\[\int \vec v_\alpha \vec v_\alpha \cdot \frac{\partial f_\alpha}{\partial \vec x_\alpha}d\vec v_\alpha\ =\ \frac{\partial}{\partial \vec x_\alpha} \int \vec v_\alpha \vec v_\alpha f_\alpha d\vec v_\alpha \ =\ \frac{\partial}{\partial \vec x_\alpha} \left( <\vec v_\alpha \vec v_\alpha> n_\alpha \right)
+\]
+
+Così infine da Vlasov si arriva alla forma:
+
+\[ \frac{\partial (n_\alpha \vec u_\alpha)}{\partial t} + n_\alpha \nabla <\vec v \vec v>_\alpha - n_\alpha\frac{q_\alpha}{m_\alpha} \left(\vec E + \frac{\vec u_\alpha \times \vec B}{c}\right)\ =\ 0 \]
+
+Per il calcolo di $<\vec v \vec v>_\alpha$ è utile scomporre la velocità in $\vec v = \vec u + \vec w$ (cfr. prox sezione di approfondimento) con $\vec u = <\vec v>$ velocità media mentre $\vec w$ è la velocità della singola particella oltre la media $\vec u$ e che verifica $<\vec w>=0$.
+\[\langle\vec v \vec v\rangle_\alpha\ =\ \langle(\vec u + \vec w)(\vec u + \vec w)\rangle_\alpha\ =\ \bar u _\alpha \bar u_\alpha + \cancel{u_\alpha \langle \vec w_\alpha\rangle} + \cancel{\langle w_\alpha \rangle \vec v_\alpha} + \langle \vec w_\alpha \vec w_\alpha \rangle\]
+così che:
+
+\begin{equation}\label{moto}
+	\boxed{\frac{\partial (n_\alpha \vec u_\alpha)}{\partial t} +  \nabla\cdot \left[n_\alpha \left( \bar u _\alpha \bar u_\alpha + \langle \vec w_\alpha \vec w_\alpha \rangle \right) \right] - n_\alpha\frac{q_\alpha}{m_\alpha} \left(\vec E + \frac{\vec u_\alpha \times \vec B}{c}\right)\ =\ 0}
+\end{equation}
+
+Quest'ultima trovata è - di fatto - un'\textbf{equazione del moto}.
+
+\begin{approfondimento}{Definizioni a margine}
+	La velocità introdotta sopra $\boxed{\vec w = \vec v - \vec u}\ \ (= \vec v - \langle \vec v \rangle)$ è detta \textbf{velocità peculiare}.
+	Possiamo definire anche un \textbf{tensore di pressione:}
+	\[\mathbf{P}\ =\ m\int (\vec v - \vec u)(\vec v - \vec u) f(\vec x, \vec v, t) d\vec v\ =\ m n_\alpha \langle \vec w \vec w\rangle\ \ \ \ ,\]
+	da cui si ottiene:
+	\[ \frac{\partial (n \vec u)}{\partial t} +  \nabla\cdot \left(n_\alpha \bar u _\alpha \bar u_\alpha \right) + \frac{1}{m} \vec \nabla\cdot \mathbf{P} - \frac{nq}{m} \left(\vec E + \frac{\vec u_\alpha \times \vec B}{c}\right)\ =\ 0 \]
+	Osserviamo che per il primo termine vale $\frac{\partial (n\vec u)}{\partial t} = \frac{\partial n}{\partial t} \vec u + n\frac{\partial \vec u}{\partial t}$ ed in modo simile il secondo termine $\vec \nabla\cdot (n\vec u \vec u) = (n\vec u\cdot \vec \nabla)\vec u + \vec u (\vec \nabla\cdot (n\vec u))$, mentre riconosciamo la derivata totale $n\frac{D\vec u}{Dt}=n\frac{\partial\vec u}{\partial t} + n(\vec u\cdot \vec \nabla)\vec u$. 
+	
+	Riconosciamo un'equazione di continuità $\frac{\partial n_\alpha}{\partial t}\ +\  \vec{\nabla_x} \cdot \left( n_a \vec u\right)=0$ moltiplicata per $\vec u$ che porta i termini ad elidersi.
+	
+	Moltiplichiamo il tutto per m e, definito $\vec p = m\vec u$, si arriva infine alla forma:
+	
+	\[\boxed{n\frac{D\vec p}{Dt}\ =\ - \vec\nabla\cdot\mathbf{P} + nq\left( \vec E + \frac{\vec u\times \vec B}{c} \right) }\ \ \  .\]
+	
+	In generale il tensore $\mathbf{P}$ si può supporre abbia una parte isotropa ed una anisotropa, almeno su grandi scale: $\mathbf{P}=p \mathcal{I}+\Pi$.
+	
+	Sotto questa ipotesi di grandi scale $|\nabla p|\gg |\nabla\cdot \Pi|$ è utile definire una pressione isotropa 
+	\[ p\ = \ \frac{1}{3} tr(\mathbf{P})\ =\ \frac{1}{3}m_\alpha\, n_\alpha\, |w|^2_\alpha\ \ , \] 
+	che in un gas ideale - per cui la pressione è legata alla temperatura da $p_\alpha=n_\alpha\, T_\alpha$ - ci porta alla temperatura in funzione di termini cinetici $T=\frac{1}{3}m_\alpha |w|^2_\alpha$ (più che una temperatura una stima dell'energia cinetica per specie).
+\end{approfondimento}
+
+
+
+\subsection{Equazione dell'energia}
+Ripetiamo un processo simile a quello del paragrafo precedente per trovare l'equazione del moto; ripartendo dall'equazione di Vlasov, eq.(\ref{VLASOV}), questa volta moltiplichiamo prima per $\frac{1}{2}mv^2$ per poi integrare sullo spazio delle velocità, ancora una volta andiamo a fare il calcolo sui tre termini separatamente per poi ricavarne un risultato:
+
+\[ \int \frac{1}{2} m v^2 \frac{\partial f}{\partial t} d\vec v\ =\ \frac{\partial}{\partial t} \color{blue}{\int \frac{1}{2} m v^2 f d\vec v} \ \color{black}{\ =\ \frac{\partial}{\partial t}}\color{blue}{\varepsilon} \]
+
+\[ \int \frac{1}{2} m v^2 \vec v \frac{\partial f}{\partial \vec x} d\vec v\ =\ \color{blue}{\frac{1}{2}m} \color{black}{\frac{\partial}{\partial\vec x}} \color{blue}{\int v^2 \vec v f d\vec v} \color{black}{\ =\ \vec \nabla\cdot} \color{blue}{\vec Q}\]
+
+\[ \int \frac{q}{2} v^2 \left( \vec E + \frac{\vec v \times \vec B}{c}\right) \frac{\partial f}{\partial v} d\vec v\ =\ \frac{q}{2} \int v^2 \vec D \frac{\partial f}{\partial v} d\vec v\ =\ - \color{blue}{nq\vec u} \color{black}{\cdot \vec E \ =\ -} \color{blue}{\vec J} \color{black}{\cdot \vec E} \]
+
+Come si vede evidenziato in blu abbiamo definito tre grandezze: nel primo termine si è definita una sorta di energia media (più un'\textbf{energia cinetica collettiva locale}) $\boxed{\varepsilon = \displaystyle\int \frac{1}{2} m v^2 f d\vec v=\frac{1}{2}mn\langle v^2\rangle}$; nel secondo termine si è definito il \textbf{flusso di energia convettiva} $\boxed{\vec Q= \frac{1}{2}m\int v^2 \vec v f d\vec v = \frac{1}{2}mn\langle v^2 \vec v\rangle}$; nel terzo termine invece riincontriamo una definizione di \textbf{corrente di particelle}. Mettendo assieme questi risultati otteniamo un'equazione per il bilancio di energia:
+
+
+\begin{equation}
+	\boxed{\ \frac{\partial \varepsilon}{\partial t}\ =\ -\vec \nabla\cdot \vec Q + \vec E\cdot\vec J\ }
+\end{equation}
+
+Viste le precedenti definizioni di velocità peculiare $\vec v = \vec u + \vec w$ potremmo anche scomporre le definizioni date in $\varepsilon = \frac{1}{2} m n \langle u^2\rangle + \frac{1}{2} m n \langle w^2\rangle = \frac{1}{2} m u^2 + \frac{3}{2} n T$, per il flusso di energia convettiva $Q=\frac{1}{2} m u^2 (n\vec u) + \frac{3}{2} n T\vec u +\frac{1}{2} m n (2\vec u\cdot \langle \vec w \vec w \rangle) +\frac{1}{2}mn\langle w^2\vec w\rangle$ dove il primo termine di questi è un flusso di energia, il secondo un flusso di calore $\vec q = \frac{3}{2} n T\vec u$, il terzo è invece dovuto alle forze di pressione ($P\cdot u = \frac{1}{2} mn(2\vec u\cdot \langle \vec w \vec w\rangle )$) ed il quarto ad un lavoro di pressione macroscopico.
