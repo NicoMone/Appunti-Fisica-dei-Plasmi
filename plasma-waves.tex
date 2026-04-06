@@ -134,7 +134,10 @@ Nel caso delle onde Ion-Acoustic si ha $v_f\gg v_{th,I}$ (e quindi gli ioni hann
 
 Nel caso invece in cui $T_I\sim T_e $ siamo nelle condizioni in cui tendenzialmente l'onda non sopravvive perché avviene il Dumping di Landau. Se l'onda viene sforzata con un intervento esterno la distribuzione si appiattisce finché non smette di avvenire il Dumping.
 
-
+%
+%
+%
+\section{Onde magnetoidrodinamiche}
 \subsection{Onde di Alfvén}
 
 Le onde in MHD si dividono in tre gruppi, due magnetosoniche e poi le onde di Alfvén.
@@ -143,9 +146,7 @@ Le \textbf{onde di Alfvén} sono onde \underline{non dispersive}, inoltre non so
 
 Ancora una volta linearizziamo $\rho,\ p,\ \vec u\ $, usiamo un pedice 0 per le quantità ad equilibrio ($\rho_0,\ p_0,\ \vec u_0\ $) ed un pedice 1 per le fluttuazioni ($\rho_1,\ p_1,\ \vec u_1\ $). 
 
-Per il campo magnetico in particolare scriviamo $\vec B = B_0 \hat e_z + \vec b\ $, vale $\vec\nabla\cdot \vec B=0=\frac{\partial b}{\partial z}$ quindi il .
-
-Il nostro sistema di equazioni linearizzate è:
+Per il campo magnetico in particolare scriviamo $\vec B = B_0 \hat e_z + \vec b\ $, vale $\vec\nabla\cdot \vec B=0=\frac{\partial b}{\partial z}$ quindi il nostro sistema di equazioni linearizzate è:
 
 \[\begin{cases}
 	\displaystyle \frac{\partial \rho_1}{\partial t} + \rho_0\,\vec \nabla\cdot \vec u\ =\ 0\\
@@ -194,7 +195,7 @@ Proseguiamo i calcoli in trasformata di Fourier:
 	-k_{\parallel} b_y & - k b_{\bar z} & k_{\perp} b_y
 \end{vmatrix} \ =\ \hat x\,(k\,B_0\, b_{\bar z})\, -\, \hat y (k_{\parallel}\, b_y\, B_0) + \hat z(0)\]
 
-Ne deriva che la seconda equazione diventa $\omega \rho_0\vec u = c^2_S \vec k \rho_1 + \frac{1}{4\pi}(kB_0 b_{\bar z} \hat x - k_\parallel b_y B_0 \hat y)$. 
+Ne deriva che la seconda equazione del sitema sia:  $\omega \rho_0\vec u = c^2_S \vec k \rho_1 + \frac{1}{4\pi}(kB_0 b_{\bar z} \hat x - k_\parallel b_y B_0 \hat y)$ . 
 
 Finito questo rimaneggiamento passiamo a fare lo stesso per la terza equazione:
 
@@ -216,7 +217,7 @@ In questo modo abbiamo ridotto il sistema ad uno di :
 	\omega \rho_0 u_y\ =\ \frac{B_0}{4\pi}\, k_\parallel b_y
 \end{cases}\]
 
-da questo sistema otteniamo $\omega u_y = \omega^2 b_y / (k_\parallel B_0)$ e $\rho_0 \omega^2 b_y/(k_\parallel B_0) = B_0 k_\parallel b_y / (4\pi)$ che ci permettono di scrivere una \textbf{relazione di dispersione} per le onde di Alfvén $\forall\ \ \theta$, notando che per $\theta = \pi/2$ non vi sono onde:
+Questo sistema si limite alla direzione y con incognite $u_y$ e $b_y$, mentre il eiste un secondo sitema con $u_z,\, u_x$ e $b_x,\, b_y$. Otteniamo $\omega u_y = \omega^2 b_y / (k_\parallel B_0)$ e $\rho_0 \omega^2 b_y/(k_\parallel B_0) = B_0 k_\parallel b_y / (4\pi)$ che ci permettono di scrivere una \textbf{relazione di dispersione} per le onde di Alfvén $\forall\ \ \theta$, notando che per $\theta = \pi/2$ non vi sono onde:
 
 \begin{equation}
 	\boxed{\ \omega^2\ =\ k^2_\parallel c^2_a\ =\ k^2\, cos^2\theta\, c^2_a\ }
@@ -232,7 +233,7 @@ L'energia si propaga lungo $\hat z$ mentre l'onda si propaga lungo $\hat k$
 %
 \vspace{1cm}
 \subsection{Onde Magnetosoniche}
-Riprendiamo il sistema precedente:
+Riprendiamo il sistema precedente, questa volta consideriamo la direzione perpendicolare a quella precedente, ignoriamo la direzione y e vediamo cosa succede nel piano $x-k$, stavolta troveremo le \textbf{onde magnetosoniche} che sono \underline{onde comprimibili}:
 
 \[ \begin{cases}
 	\omega \rho_1\ =\ \rho_0\ \vec k\cdot \vec u\ =\ \rho_0\ (k_\perp u_x + k_\parallel u_z)\\
@@ -242,28 +243,139 @@ Riprendiamo il sistema precedente:
 
 \[\omega \rho_0 \vec u\ =\ c^2_s \frac{\rho_0}{\omega} (k_\perp u_x + k_\parallel u_z)\vec k + \frac{k\, B_0 b_{\bar z}}{4\pi} \hat x + \dots \hat y \]
 
-Usiamo il fatto che $\displaystyle\frac{k^2 B_0^2}{4\pi \rho_0}\, u_x=k^2\, c^2_a u_x$ per ottenere:
+Dalla terza equazione del sistema prendiamo $\omega b_z = k B_0 u_x$, usiamo poi il fatto che $\displaystyle\frac{k^2 B_0^2}{4\pi \rho_0}\, u_x=k^2\, c^2_a u_x$ per ottenere:
 
-\[ \omega^2 u_x\ = \ \begin{cases}=\ \ c^2_s (k_\perp u_x + k_\parallel u_z) k_\perp + k^2c^2_a u_x\ \\ =\ \ (k_\perp c^2_s + k^2 c_a^2)\, u_x + (c_s^2 k_\parallel k_\perp) u_z\end{cases} \]
+\[ \begin{aligned}
+	\omega^2 u_x\ &=\ c^2_s\, (k_\perp u_x\, +\, k_\parallel u_z)\, k_\perp\, +\, k^2\,c^2_a\, u_x \\ 
+	&=\ \ (k_\perp\, c^2_s\, +\, k^2\, c_a^2)\, u_x\ +\ (c_s^2\, k_\parallel\, k_\perp)\, u_z
+\end{aligned} \]
 
 Prendendo $\omega \rho_0 u_z = c^2_s \rho_1 k_\parallel$ scriviamo poi $\omega^2 \rho_0 u_z = c_s^2 k_\parallel \rho_0 (k_\perp u_x + k_\parallel u_z)$ così da giungere al sistema:
 
 \[ \begin{cases}
-	(\omega^2 - c^2_s k^2_\perp - l^2 c^2_a) u_x - k_\parallel k_\perp c^2_s u_z = 0\\
-	k_\parallel k_\perp c^2_s u_x - (\omega^2 - c_s k^2_\parallel)\, u_z = 0
+	(\omega^2\, -\, c^2_s\, k^2_\perp\, -\, k^2\, c^2_a)\, u_x\ -\ k_\parallel\, k_\perp\, c^2_s\, u_z\ =\ 0\\
+	k_\parallel\, k_\perp\, c^2_s\, u_x\ -\ (\omega^2\, -\, c_s\, k^2_\parallel)\, u_z\ =\ 0
 \end{cases} \]
 
-\[ (\omega^2 - k^2_\perp c^2_s - k^2 c^2_a)(\omega^2 - k^2_\parallel c^2_s)\ +\ k^2_\parallel k^2_\perp c^4_s = 0 \]
+\[ (\omega^2\, -\, k^2_\perp\, c^2_s\ -\ k^2\, c^2_a)\,(\omega^2\, -\, k^2_\parallel\, c^2_s)\ +\ k^2_\parallel\, k^2_\perp\, c^4_s\ =\ 0 \]
 
-\[ \omega^4 - \omega^2 k^2\, (c^2_a + c^2_s) + k^2_\parallel k^2 c^2_a c^2_s = 0 \]
+\[ \omega^4 \,-\, \omega^2\, k^2\, (c^2_a\, +\, c^2_s)\, +\, k^2_\parallel\, k^2\, c^2_a\, c^2_s\ =\ 0 \]
 
 \begin{equation}\label{magnetosoniche}
-	\boxed{\ \left( \frac{\omega}{k} \right)^2\ =\ \frac{1}{2}\, \left[ c^2_a\, +\, c^2_s\, \pm\, \sqrt{(c_a^2 + c_s^2)^2 - 4 c^2_a c^2_s cos^2\theta} \right]\ }
+	\boxed{\ \left( \frac{\omega}{k} \right)^2\ =\ \frac{1}{2}\, \left[\, c^2_a\ +\ c^2_s\ \pm\ \sqrt{(c_a^2\, +\, c_s^2)^2\, -\, 4\, c^2_a\, c^2_s\, cos^2\theta\,}\, \right]\ }
 \end{equation}
+
+La scelta del $\pm$ dipende dalla soluzione dell'equazione al quart'ordine, la scelta del segno + definisce in particolare la relazione di dispersione delle onde magnetosoniche \textbf{fast}, mentre la scelta del segno - produce le onde \textbf{slow}.
+
+
+%
+\subsubsection{osserviamo i vari limiti}
+
+Le onde magnetoidrodinamiche fast possono creare shock mentre le onde slow sono soggette a Landau dumping.
+
+Osserviamo i vari limiti, partendo dal limite di grandi campi magnetici $\boxed{\beta \ll 1}$ (che si ricollega alla condizione $c_s\ll c_A$), come il caso che si verifica nei tokamak: 
+
+\[\begin{aligned}
+	\left( \frac{\omega}{k} \right)^2\ 
+	&=\ \frac{1}{2}\, \left[\, c^2_A\ +\ c^2_s\ \pm\ \sqrt{(c_A^2\, +\, c_s^2)^2\, -\, 4\, c^2_A\, c^2_s\, cos^2\theta\,}\, \right]\ =\\
+	&\approx\ \frac{1}{2}\, c_A^2\, \left[1\, \pm\, \left(1\,-\, 4\,\frac{c_s^2}{c_A^2}\, cos^2\theta\right)^\frac{1}{2}\,\right]\ \approx\\
+	&\approx\  \frac{1}{2}\, c_A^2\,\left[ 1\,\pm\, \left(1\,-\, 2\frac{c_s^2}{c_A^2}\, cos^2\theta\right)\,\right] 
+\end{aligned}\]
+
+La scelta del segno + porta ad una magnetosonica simile al modo di Alfvén ma comprimibile, $\omega_f\equiv (\omega^+/k)^2=C_A$. Diversamente la scelta del segno - ci porta a definire $\omega_s\equiv (\omega^+/k)^2=c_s \cos\theta$ in cui compare solamente la velocità del suono.
+
+Osserviamo il limite contrario di campi deboli $\boxed{\beta \gg 1}$ :
+
+\[\begin{aligned}
+	\left( \frac{\omega}{k} \right)^2\ 
+	&=\ \frac{1}{2}\, \left[\, c^2_A\ +\ c^2_s\ \pm\ \sqrt{(c_A^2\, +\, c_s^2)^2\, -\, 4\, c^2_A\, c^2_s\, cos^2\theta\,}\, \right]\ =\\
+	&\approx\ \frac{1}{2}\, c_s^2\, \left(\left(\frac{c_a^2}{c_s^2} + 1\right)\, \pm\, \left[1\,+ 2\,\frac{c_A^2}{c_s^2}\,(1- 2\cos^2\theta)\right]^\frac{1}{2}\,\right)
+\end{aligned} \]
+
+In questo caso risulta $\omega_f=c_s^2$ proprio come per le onde acustiche, mentre $\omega_s=c_A^2 \cos^2\theta$ .
+
+Quindi per le onde comprimibili se domina B l'onda veloce è un modo di Alfvén e l'onda slow è una specie di onda sonora.
+Se invece non domina B l'onda fast è proprio un'onda sonora e l'onda slow è formalmente un modo di Alfvén.
+
+
+%
+%
+%
+\newpage
+\begin{teorema}{conservazione del flusso}{}
+	Per capire cosa vuol dire che le linee di campo non si rompono e perché, prendiamo due elementi di fluido infinitamente vicini, $d\vec l$, dopo un tempo dt ciascun punto si muove con la velocità del fluido, $\vec x \rightarrow \vec x + \vec u(\vec x)dt$. 
+	
+	\[d\vec l+\delta (d\vec l)=d\vec l+ \left[ (\vec u+d\vec u)-\vec u \right] dt \ =\ d\vec l+d\vec udt\implies\delta(d\vec l)=d\vec udt\]  $d\vec u$ è l'incremento del campo di velicità in direzione $d\vec l$\[d\vec u=(d\vec l\cdot \vec \nabla)\vec u\] 
+	\[d\vec l+\delta (d\vec l)=d\vec l+ \left[ \vec u(\vec x+d\vec x)-\vec u (\vec x)\right] dt \ =\ d\vec l+(d\vec l\cdot \nabla)\, \vec u\, dt \] 
+	
+	Capiamo quindi che la variazione nel tempo della distanza fra i due elementi che si muovono è descritto da $\frac{d(\delta\vec l)}{dt}=(\delta \vec l\cdot\vec \nabla)\vec u$. Nota che se $d\vec l$ è lungo una linea di campo allora $d\vec l \times \vec B = 0$, noi ci chiediamo se partendo solo dalle equazioni dell'elettromagnetismo possiamo provare che queste linee di campo non si spezzino.
+	Quindi vogliamo calcolare: 
+	
+	\[\frac{D}{Dt}(\delta\vec l\times\vec B)\ =\ \frac{D\delta\vec l}{Dt}\times \vec B+\delta\vec l\times\frac{D\vec B}{Dt}\]
+	
+	Consideriamo la legge di faraday e la legge di Ohm ideale:
+	\[ \frac{\partial\vec B}{\partial t} = -\nabla \times \vec E\quad \quad \quad \vec E = -\frac{\vec u \times \vec B}{c} \]
+	\[\Rightarrow\quad \frac{\partial\vec B}{\partial t}=\vec \nabla\times(\vec u\times\vec B)\]
+	
+	Seguiamo $\vec B$ attraverso una linea di campo facendo la derivata materiale, questo ci servirà subito l'evoluzione delle linee di campo. Per semplificare l'espressione ci ricordiamo (insomma)  un'identità vettoriale:
+	
+	\[\frac{D\vec B}{Dt}=\frac{\partial\vec B}{\partial t}+(\vec u\cdot \vec \nabla)\cdot \vec B=(*)\]
+	
+	\[\vec \nabla\times(\vec u\times\vec B)\ =\ \vec u\,\cancel{( \vec \nabla \cdot \vec B)}-\vec B( \vec \nabla \cdot\vec u) + (\vec B \cdot \vec\nabla)\,\vec u-(\vec u\cdot\vec \nabla)\cdot \vec B\]
+	
+	\[(*)=\ \vec \nabla\times(\vec u\times\vec B) + (\vec u\cdot \vec \nabla) \vec B\ =\ (\vec B\cdot \vec \nabla)\, \vec u - \vec B\, (\vec \nabla\cdot \vec u)\] 
+	
+	Sostituendo $\partial\vec B/\partial t$ con l'identità vettoriale, il termine con gradiente della derivata materiale si elide e possiamo cancellare anche  $\vec \nabla\cdot \vec B=0$ per via della seconda equazione di Maxwell.
+	
+	Allora inserendo questo risultato di $\partial\vec B/\partial t$ assieme a quello prima definito già definito all'inizio di $\frac{d(\delta\vec l)}{dt}=(\delta \vec l\cdot\vec \nabla)\vec u$, si trova infine che l'evoluzione della connesione fra i due elementi fluidi segue: 
+	
+	\[\frac{d}{dt}(\delta\vec l\times\vec B)=\delta\vec l\times \left[(\vec B\cdot\vec \nabla )\vec u+(\vec B\cdot\vec \nabla )\vec u\right]  +(\delta\vec l\cdot\vec\nabla)\vec u\times\vec B\] 
+	
+	\vspace{0.5cm}
+	
+	Se si considera il caso $\delta \vec l\parallel\vec B$, che implica $\delta \vec l\times \vec B = 0$, allora  $\delta\vec l\times(\vec B\cdot\vec \nabla) \vec u=0$ e la formula trovata poco fa va ad annullarsi completamente portando a $\frac{D}{Dt}(\delta \vec l \times \vec B)=0$: per vederlo basta porre $\delta\vec l$ come un riscalamento $\alpha \vec B$:
+	
+	
+	\[\boxed{\frac{d}{dt}(\delta\vec l\times\vec B)=\alpha\vec B\times \left[\cancel{(\vec B\cdot\vec \nabla )\vec u}+(\vec B\cdot\vec \nabla )\vec u\right]  +(\alpha \vec B \cdot\vec\nabla)\vec u\times\vec B \ =\ \dots\ =\ 0}\] 
+	
+	Si vede abbastanza già così come si annulli tutto grazie alla condizione di parallelismo.
+	
+	Questo risultato ci porta a osservare che la linea di campo non si rompe finché non avviene la \textit{riconnessione}. Per  violare la legge di Ohm devo avere $\eta\vec J$, sono questi i casi in cui può avvenire la riconnessione (la legge dio Ohm viene violata prima alle scale degli ioni e poi dopo viene violata alle scale degli elettroni).
+	
+	\[S=\frac{T_r}{T_a}=\frac{T_\text{resistivo}}{T_\text{alfvén}}\] 
+	
+	La resistività fa capire come in tempi molto più brevi del tempo diffusivo cambia la topologia del campo. 
+	
+	Flusso magnetico: su una superficie chiusa fa zero, in generale è 
+	\[\int_S\vec B\cdot d\vec S=\phi\] 
+\end{teorema}
+
+\begin{teorema}{Alfvén}{}
+	Finché siamo in MHD ideale vale che:
+	\[ \boxed{\ \frac{d\phi}{dt}\ =\ 0\ }\]  
+	
+	Usando il teorema di Liebnitz per integrare su domini mobili:
+	
+	\[\frac{d}{dt}\int_{S(t)}\vec B(\vec r,t)\cdot d\vec S=\int_{S(t)}\frac{\partial \vec B}{\partial t}\cdot d\vec S+\oint_{\mathcal{C}(t)}\vec B\cdot (\vec u\times d\vec l)\] 
+	
+	il primo termine del termine a destra è la variazione locale di flusso dovuta al cambiamento di B nel tempo, il secondo termine invece rappresenta il cambiamento dovuto al fatto che $\mathcal{C}$ si è letteralmente mosso. 
+	
+	Usiamo anche il teorema di Stokes e che $\vec B\cdot (\vec u\times d\vec l)=-\vec u\times \vec B\cdot d\vec l$
+	
+	\[\frac{d\Phi}{dt} = \frac{d}{dt}\int_{S(t)}\vec B(\vec r,t)\cdot d\vec S=\int_{S(t)}\bigg(\frac{\partial}{\partial t}\vec B-\nabla\times(\vec u\times \vec B)\bigg)d\vec S\]  
+	
+	in MHD ideale è valida la legge di Ohm ideale $\frac{\partial\vec B}{\partial t}=\vec \nabla\times(\vec u\times\vec B)$ e quindi 
+	
+	\[\frac{\partial}{\partial t}\vec B-\nabla\times(\vec u\times \vec B)=0\implies\int_{S(t)}\bigg(\frac{\partial}{\partial t}\vec B-\nabla\times(\vec u\times \vec B)\bigg)d\vec S=0\]  
+	
+	ed abbiamo così dimostrato il teorema per cui $\boxed{\frac{d\Phi}{dt} = 0}$ .
+\end{teorema}
 
 
 \section{Riconnessione} 
 La riconnessione è una transizione verso uno stato di energia minore che sarebbe proibita per la MHD,  Viene violata localmente la legge di OHM ideale in una regione  (detta zona ad x  o zona resistiva) di dimensione caratteristica $\delta$   infinitesima rispetto al sistema totale. 
+
+La teoria cinetica non avrebbe previsto dei fenomeni di riconnessione mentre l'MHD resistiva lo permette ed avviene una rottura delle linee di campo su scle molto più piccole di quelle MHD, generando però ripercussioni globali sulla dinamica.
 
 Viene cambiata globalmente la topologia  creando una cosidetta isola di campo, inoltre viene liberata una grandissima quantità di energia Questa quantità di energia viene presa dalla struttura stessa del campo che si riarrangia nella sua interezza in una configurazione meno energetica.
 
@@ -297,16 +409,21 @@ Dalla fluidodinamica sappiamo che possiamo scrivere il campo 2D come gradiente d
 Dopodiché ho bisogno dell'equazione di Faraday ("dell'induzione") 
 
 
+%
+%
+%
 \subsection{equazione di faraday}  Vorrei tanto sapere come mai l'equazione di faraday è proprio scritta così, io non me la ricordo mica come siarriva a questo punto e mi auguro di scoprirlo presto... cmq davanti ad eta potrebbe esserci un $4\pi$ o comunque una costante
 
-\[\partial_t \vec B=\nabla\times(\vec u\times\vec B_0)+\eta\nabla^2\vec b\] facciamo tutti i conti passo passo
+\[\partial_t\, \vec B\ =\ \nabla\times(\vec u\times\vec B_0)\ +\ \eta\,\nabla^2\vec b\]
+ 
+facciamo tutti i conti passo passo
 \[\vec u\times\vec B_0= 
 \begin{vmatrix} 
 	\hat i & \hat j & \hat k\\ 
 	\partial_y\phi & \partial_x\phi & 0\\
 	0& B_0 &  0
 \end{vmatrix} 
-=B_0\delta_y\phi\hat z\] 
+=B_0\partial_y\phi\hat z\] 
 
 \[\nabla\times[\vec u\times\vec B_0]= 
 \begin{vmatrix} 

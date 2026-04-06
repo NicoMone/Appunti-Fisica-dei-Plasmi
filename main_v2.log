@@ -1,4 +1,4 @@
-This is LuaHBTeX, Version 1.18.0 (TeX Live 2025/dev/Debian)  (format=lualatex 2026.1.21)  25 MAR 2026 16:10
+This is LuaHBTeX, Version 1.18.0 (TeX Live 2025/dev/Debian)  (format=lualatex 2026.1.21)  6 APR 2026 22:07
  restricted system commands enabled.
 **main_v2.tex
 (./main_v2.tex
@@ -775,12 +775,7 @@ LaTeX Font Info:    Overwriting symbol font `ugrf@m' in version `bold'
 Package: mathrsfs 1996/01/01 Math RSFS package v1.0 (jk)
 \symrsfs=\mathgroup7
 )
-(/usr/share/texlive/texmf-dist/tex/latex/amsfonts/eufrak.sty
-
-Package eufrak Warning: The eufrak package is redundant if the amsfonts package
- is used on input line 36.
-
-) (/usr/share/texlive/texmf-dist/tex/latex/siunitx/siunitx.sty
+(/usr/share/texlive/texmf-dist/tex/latex/siunitx/siunitx.sty
 Package: siunitx 2025-02-27 v3.4.6 A comprehensive (SI) units package
 \l__siunitx_number_uncert_offset_int=\count329
 \l__siunitx_number_exponent_fixed_int=\count330
@@ -1243,7 +1238,7 @@ Package hyperref Info: Link coloring ON on input line 154.
 \@outlinefile=\write5
 
 \openout5 = main_v2.out
-<immagini/copertina.pdf, id=220, 1156.32pt x 766.36313pt>
+<immagini/copertina.pdf, id=228, 1156.32pt x 766.36313pt>
 File: immagini/copertina.pdf Graphic file (type pdf)
 <use immagini/copertina.pdf>
 Package luatex.def Info: immagini/copertina.pdf  used on input line 159.
@@ -1291,7 +1286,7 @@ Capitolo 1.
 Package hyperref Warning: Difference (2) between bookmark levels is greater 
 (hyperref)                than one, level fixed on input line 21.
 
-<immagini/T-rho.jpg, id=292, 259.0208pt x 276.9284pt>
+<immagini/T-rho.jpg, id=302, 259.0208pt x 276.9284pt>
 File: immagini/T-rho.jpg Graphic file (type jpg)
 <use immagini/T-rho.jpg>
 Package luatex.def Info: immagini/T-rho.jpg  used on input line 33.
@@ -1306,7 +1301,7 @@ Missing character: There is no ’ (U+2019) in font ec-lmr10!
 
 [6<./immagini/T-rho.jpg>]
 Capitolo 2.
-<immagini/A-23.png, id=311, 565.11125pt x 420.57124pt>
+<immagini/A-23.png, id=321, 565.11125pt x 420.57124pt>
 File: immagini/A-23.png Graphic file (type png)
 <use immagini/A-23.png>
 Package luatex.def Info: immagini/A-23.png  used on input line 11.
@@ -1358,7 +1353,7 @@ well-Ampère in-sie-me al-la de-fi-ni-zio-ne di $[]$
 
 
 [16]
-<immagini/scales.jpg, id=381, 99.4917pt x 47.2164pt>
+<immagini/scales.jpg, id=391, 99.4917pt x 47.2164pt>
 File: immagini/scales.jpg Graphic file (type jpg)
 <use immagini/scales.jpg>
 Package luatex.def Info: immagini/scales.jpg  used on input line 516.
@@ -1450,10 +1445,10 @@ Capitolo 5.
 [38]
 
 [39]
-<immagini/riferimento.jpeg, id=554, 1093.08376pt x 959.585pt>
+<immagini/riferimento.jpeg, id=564, 1093.08376pt x 959.585pt>
 File: immagini/riferimento.jpeg Graphic file (type jpg)
 <use immagini/riferimento.jpeg>
-Package luatex.def Info: immagini/riferimento.jpeg  used on input line 185.
+Package luatex.def Info: immagini/riferimento.jpeg  used on input line 186.
 (luatex.def)             Requested size: 133.57458pt x 117.25368pt.
 
 
@@ -1462,42 +1457,49 @@ Package luatex.def Info: immagini/riferimento.jpeg  used on input line 185.
 [41]
 
 [42]
-Underfull \hbox (badness 10000) in paragraph at lines 332--333
-
- []
+Underfull \vbox (badness 10000) has occurred while \output is active []
 
 
 
 [43]
-Underfull \hbox (badness 10000) in paragraph at lines 396--397
+
+[44]
+Underfull \hbox (badness 10000) in paragraph at lines 449--450
 
  []
 
 
 
-[44]
-
 [45]
 
 [46]
+Underfull \hbox (badness 10000) in paragraph at lines 513--514
+
+ []
+
+
 
 [47]
 
 [48]
 
-[49
-Missing character: There is no – (U+2013) in font ec-lmri10!
-]
+[49]
 
 [50]
 
 [51]
 
-[52]) (./MHDequilibrium.tex
+[52
+Missing character: There is no – (U+2013) in font ec-lmri10!
+]
 
 [53]
 
-[54
+[54]) (./MHDequilibrium.tex
+
+[55]
+
+[56
 
 ]
 Capitolo 6.
@@ -1505,13 +1507,21 @@ Capitolo 6.
 Package hyperref Warning: Difference (2) between bookmark levels is greater 
 (hyperref)                than one, level fixed on input line 3.
 
+) (./drifts.tex
+
+[57]
+
+[58
+
+]
+Capitolo 7.
 )
 
-[55]
+[59]
 
-[56]
+[60]
 
-[57] (./main_v2.aux)
+[61] (./main_v2.aux)
  ***********
 LaTeX2e <2024-11-01> patch level 2
 L3 programming layer <2025-01-18>
@@ -1521,21 +1531,21 @@ L3 programming layer <2025-01-18>
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
 Package rerunfilecheck Info: File `main_v2.out' has not changed.
-(rerunfilecheck)             Checksum: 3B3CBF58ED4CBE66AAAB40809778518A;9392.
+(rerunfilecheck)             Checksum: 4C2DE9471CC9FDA6590C049E529C0A4A;9834.
 )
 
 Here is how much of LuaTeX's memory you used:
- 36210 strings out of 475512
- 156422,1648299 words of node,token memory allocated
- 3852 words of node memory still in use:
-   31 hlist, 2 vlist, 14 rule, 2 glue, 4 kern, 4 sub_mlist, 1 glyph, 907 attribu
-te, 68 glue_spec, 491 attribute_list, 2 write, 24 pdf_literal, 24 pdf_colorstack
+ 36211 strings out of 475512
+ 156418,1648299 words of node,token memory allocated
+ 4038 words of node memory still in use:
+   31 hlist, 2 vlist, 14 rule, 2 glue, 4 kern, 4 sub_mlist, 1 glyph, 969 attribu
+te, 68 glue_spec, 522 attribute_list, 2 write, 24 pdf_literal, 24 pdf_colorstack
  nodes
-   avail lists: 1:1,2:1483,3:827,4:328,5:855,6:131,7:10794,8:111,9:2313,10:33,11
-:1516
- 58138 multiletter control sequences out of 65536+600000
+   avail lists: 1:2,2:1468,3:827,4:318,5:856,6:127,7:10858,8:111,9:2313,10:32,11
+:1528
+ 58132 multiletter control sequences out of 65536+600000
  65 fonts using 4221879 bytes
- 98i,25n,100p,2334b,1400s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 98i,25n,100p,2318b,1400s stack positions out of 10000i,1000n,20000p,200000b,200000s
 {/usr/share/texmf/fonts/enc/dvips/lm/lm-ec.enc}{/usr/share/texmf/fonts/enc/dvips
 /lm/lm-ts1.enc}</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmb
 x10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb
@@ -1557,10 +1567,10 @@ re/texmf/fonts/type1/public/lm/lmr5.pfb></usr/share/texmf/fonts/type1/public/lm/
 lmr7.pfb></usr/share/texmf/fonts/type1/public/lm/lmri10.pfb></usr/share/texmf/fo
 nts/type1/public/lm/lmro10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public
 /amsfonts/symbols/msbm7.pfb>
-Output written on main_v2.pdf (57 pages, 1138307 bytes).
+Output written on main_v2.pdf (61 pages, 1157532 bytes).
 
-PDF statistics: 740 PDF objects out of 1000 (max. 8388607)
- 620 compressed objects within 7 object streams
- 186 named destinations out of 1000 (max. 131072)
- 608 words of extra memory for PDF output out of 10000 (max. 100000000)
+PDF statistics: 769 PDF objects out of 1000 (max. 8388607)
+ 645 compressed objects within 7 object streams
+ 193 named destinations out of 1000 (max. 131072)
+ 624 words of extra memory for PDF output out of 10000 (max. 100000000)
 
