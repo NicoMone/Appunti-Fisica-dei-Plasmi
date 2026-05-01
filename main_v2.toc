@@ -52,27 +52,33 @@
 \contentsline {subsection}{\numberline {5.2.1}Onde di Alfvén}{40}{subsection.5.2.1}%
 \contentsline {subsection}{\numberline {5.2.2}Onde Magnetosoniche}{41}{subsection.5.2.2}%
 \contentsline {subsubsection}{osserviamo i vari limiti}{42}{subsubsection*.30}%
-\contentsline {section}{\numberline {5.3}Riconnessione}{44}{section.5.3}%
-\contentsline {subsection}{\numberline {5.3.1}equazione di faraday}{45}{subsection.5.3.1}%
-\contentsline {subsection}{\numberline {5.3.2}equazione del moto }{46}{subsection.5.3.2}%
-\contentsline {subsection}{\numberline {5.3.3}equazioni MHD incomprimibile}{47}{subsection.5.3.3}%
-\contentsline {subsection}{\numberline {5.3.4}ipotesi e time ordering}{47}{subsection.5.3.4}%
-\contentsline {subsubsection}{zona ideale}{48}{subsubsection*.31}%
-\contentsline {subsubsection}{zona resistiva}{48}{subsubsection*.32}%
-\contentsline {subsection}{\numberline {5.3.5}caso particolare con soluzione analitica}{49}{subsection.5.3.5}%
-\contentsline {section}{\numberline {5.4}Dumping di Landau}{49}{section.5.4}%
-\contentsline {subsection}{\numberline {5.4.1}Equazioni di partenza e condizioni}{50}{subsection.5.4.1}%
-\contentsline {subsubsection}{intrappolamento e non linearità}{51}{subsubsection*.33}%
-\contentsline {subsection}{\numberline {5.4.2}Trasformata di fourier}{52}{subsection.5.4.2}%
-\contentsline {subsubsection}{Onda di plasma a ioni fissi}{52}{subsubsection*.34}%
-\contentsline {subsubsection}{Regime di propagazione senza dumping}{53}{subsubsection*.35}%
-\contentsline {subsubsection}{regime con dumping}{54}{subsubsection*.36}%
-\contentsline {subsection}{\numberline {5.4.3}Soluzione con distribuzione generica}{55}{subsection.5.4.3}%
-\contentsline {subsection}{\numberline {5.4.4}Soluzione con maxwelliana}{55}{subsection.5.4.4}%
-\contentsline {chapter}{\numberline {6}Equilibrio MHD}{57}{chapter.6}%
-\contentsline {subsection}{\numberline {6.0.1}equazione della dinamica all'equilibrio}{57}{subsection.6.0.1}%
-\contentsline {subsection}{\numberline {6.0.2}Equazione di Faraday}{57}{subsection.6.0.2}%
-\contentsline {chapter}{\numberline {7}Drift - descrizione a singola particella}{59}{chapter.7}%
+\contentsline {section}{\numberline {5.3}Dumping di Landau}{42}{section.5.3}%
+\contentsline {paragraph}{Condizioni per il Dumping di Landau}{42}{paragraph*.31}%
+\contentsline {paragraph}{Plasma Magnetizzato vs. Non Magnetizzato}{43}{paragraph*.32}%
+\contentsline {paragraph}{Strumento Matematico: L'Equazione di Vlasov}{43}{paragraph*.33}%
+\contentsline {paragraph}{Caratteristiche Fondamentali del Dumping di Landau}{44}{paragraph*.34}%
+\contentsline {paragraph}{Obiettivo del Capitolo}{44}{paragraph*.35}%
+\contentsline {subsection}{\numberline {5.3.1}intrappolamento e non linearità}{44}{subsection.5.3.1}%
+\contentsline {subsection}{\numberline {5.3.2}Trasformata di Fourier: ricerca dei modi normali}{45}{subsection.5.3.2}%
+\contentsline {subsubsection}{Equazioni di partenza}{45}{subsubsection*.36}%
+\contentsline {subsubsection}{Onda di plasma a ioni fissi}{45}{subsubsection*.37}%
+\contentsline {subsubsection}{Regime di propagazione senza dumping}{46}{subsubsection*.38}%
+\contentsline {subsubsection}{regime con dumping}{47}{subsubsection*.39}%
+\contentsline {subsection}{\numberline {5.3.3}Soluzione con distribuzione generica}{48}{subsection.5.3.3}%
+\contentsline {subsection}{\numberline {5.3.4}Soluzione con maxwelliana}{48}{subsection.5.3.4}%
+\contentsline {chapter}{\numberline {6}Instabilità e riconnessione}{49}{chapter.6}%
+\contentsline {section}{\numberline {6.1}Riconnessione}{50}{section.6.1}%
+\contentsline {subsection}{\numberline {6.1.1}equazione di faraday}{51}{subsection.6.1.1}%
+\contentsline {subsection}{\numberline {6.1.2}equazione del moto }{52}{subsection.6.1.2}%
+\contentsline {subsection}{\numberline {6.1.3}equazioni MHD incomprimibile}{53}{subsection.6.1.3}%
+\contentsline {subsection}{\numberline {6.1.4}ipotesi e time ordering}{54}{subsection.6.1.4}%
+\contentsline {subsubsection}{zona ideale}{54}{subsubsection*.40}%
+\contentsline {subsubsection}{zona resistiva}{54}{subsubsection*.41}%
+\contentsline {subsection}{\numberline {6.1.5}caso particolare con soluzione analitica}{55}{subsection.6.1.5}%
+\contentsline {chapter}{\numberline {7}Equilibrio MHD}{57}{chapter.7}%
+\contentsline {subsection}{\numberline {7.0.1}equazione della dinamica all'equilibrio}{57}{subsection.7.0.1}%
+\contentsline {subsection}{\numberline {7.0.2}Equazione di Faraday}{57}{subsection.7.0.2}%
+\contentsline {chapter}{\numberline {8}Drift - descrizione a singola particella}{59}{chapter.8}%
 \contentsline {section}{\numberline {.1}Seminario sulla propulsione spaziale}{61}{section.Alph0.1}%
 \contentsline {subsection}{\numberline {.1.1}La "Rocket Equation"}{61}{subsection.Alph0.1.1}%
 \contentsline {subsection}{\numberline {.1.2}I diversi tipi di propulsione}{61}{subsection.Alph0.1.2}%
