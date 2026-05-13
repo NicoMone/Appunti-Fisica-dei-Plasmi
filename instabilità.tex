@@ -1,19 +1,38 @@
 \chapter{Instabilità e riconnessione}
 
 \begin{teorema}{di connessione (conservazione del flusso)}{}
-	Per capire cosa vuol dire che le linee di campo non si rompono e perché, prendiamo due elementi di fluido infinitamente vicini, $d\vec l$, dopo un tempo dt ciascun punto si muove con la velocità del fluido, $\vec x \rightarrow \vec x + \vec u(\vec x)dt$. 
 	
-	\[d\vec l+\delta (d\vec l)=d\vec l+ \left[ (\vec u+d\vec u)-\vec u \right] dt \ =\ d\vec l+d\vec udt\implies\delta(d\vec l)=d\vec udt\]  $d\vec u$ è l'incremento del campo di velicità in direzione $d\vec l$\[d\vec u=(d\vec l\cdot \vec \nabla)\vec u\] 
+	\begin{multicols}{2}
+	Per capire cosa vuol dire che le linee di campo non si rompono e perché, prendiamo due elementi di fluido infinitamente vicini, $d\vec l$, dopo un tempo dt ciascun punto si muove con la velocità del fluido, $\vec x \rightarrow \vec x + \vec u(\vec x)dt$. 
+	\begin{figure}[H]
+		\centering
+		\includegraphics[width=5cm]{immagini/flusso3.jpg}
+	\end{figure}
+	
+	\end{multicols}
+	
+	\[d\vec l+d(\delta\vec l)=d\vec l+ \left[ (\vec u+d\vec u)-\vec u \right] dt \ =\ d\vec l+d\vec udt
+	\implies
+	d(\delta\vec l)=d\vec udt\]  
+	
+	$d\vec u$ è l'incremento del campo di velicità in direzione $d\vec l$
+	
+	\[d\vec u=(d\vec l\cdot \vec \nabla)\vec u\] 
+	
 	\[d\vec l+\delta (d\vec l)=d\vec l+ \left[ \vec u(\vec x+d\vec x)-\vec u (\vec x)\right] dt \ =\ d\vec l+(d\vec l\cdot \nabla)\, \vec u\, dt \] 
 	
 	Capiamo quindi che la variazione nel tempo della distanza fra i due elementi che si muovono è descritto da $\frac{d(\delta\vec l)}{dt}=(\delta \vec l\cdot\vec \nabla)\vec u$. Nota che se $d\vec l$ è lungo una linea di campo allora $d\vec l \times \vec B = 0$, noi ci chiediamo se partendo solo dalle equazioni dell'elettromagnetismo possiamo provare che queste linee di campo non si spezzino.
 	Quindi vogliamo calcolare: 
 	
-	\[\frac{D}{Dt}(\delta\vec l\times\vec B)\ =\ \frac{D\delta\vec l}{Dt}\times \vec B+\delta\vec l\times\frac{D\vec B}{Dt}\]
+	\[\frac{d}{dt}(\delta\vec l\times\vec B)\ =\ \frac{d\delta\vec l}{dt}\times \vec B\,+\,\delta\vec l\times\frac{d\vec B}{dt}\]
 	
 	Consideriamo la legge di faraday e la legge di Ohm ideale:
-	\[ \frac{\partial\vec B}{\partial t} = -\nabla \times \vec E\quad \quad \quad \vec E = -\frac{\vec u \times \vec B}{c} \]
-	\[\Rightarrow\quad \frac{\partial\vec B}{\partial t}=\vec \nabla\times(\vec u\times\vec B)\]
+	
+	\[ \frac{\partial\vec B}{\partial t}\ =\ -\nabla \times \vec E
+	\quad \qquad \quad 
+	\vec E\ =\ -\,\frac{\vec u \times \vec B}{c} \]
+	
+	\[\Rightarrow\qquad \frac{\partial\vec B}{\partial t}\ =\ \vec \nabla\times(\vec u\times\vec B)\]
 	
 	Seguiamo $\vec B$ attraverso una linea di campo facendo la derivata materiale, questo ci servirà subito l'evoluzione delle linee di campo. Per semplificare l'espressione ci ricordiamo (insomma)  un'identità vettoriale:
 	
@@ -45,22 +64,34 @@
 	La resistività fa capire come in tempi molto più brevi del tempo diffusivo cambia la topologia del campo. 
 	
 	Flusso magnetico: su una superficie chiusa fa zero, in generale è 
-	\[\int_S\vec B\cdot d\vec S=\phi\] 
+	\[\int_S\vec B\cdot d\vec S\ =\ \Phi (\vec B)\] 
 \end{teorema}
 
 \begin{teorema}{Alfvén}{}
 	Finché siamo in MHD ideale vale che:
-	\[ \boxed{\ \frac{d\phi}{dt}\ =\ 0\ }\]  
+	\[ \boxed{\ \frac{d\Phi (\vec B)}{dt}\ =\ 0\ }\]  
 	
-	Usando il teorema di Liebnitz per integrare su domini mobili:
+	\begin{multicols}{2}
+		\begin{figure}[H]
+			\centering
+			\includegraphics[width=4cm]{immagini/flusso1.jpg}
+		\end{figure}
+		
+		\begin{figure}[H]
+			\centering
+			\includegraphics[width=4cm]{immagini/flusso2.jpg}
+		\end{figure}
+	\end{multicols}
+	
+	Usando il teorema di Leibnitz per integrare su domini mobili scomponiamo la derivata del flusso in un primo termine, variazione locale di flusso dovuta al cambiamento di B nel tempo, ed un secondo termine invece rappresenta il cambiamento dovuto al fatto che $\mathcal{C}$ :
 	
 	\[\frac{d}{dt}\int_{S(t)}\vec B(\vec r,t)\cdot d\vec S
 	\ =\
 	\int_{S(t)}\frac{\partial \vec B}{\partial t}\cdot d\vec S+\oint_{\mathcal{C}(t)}\vec B\cdot (\vec u\times d\vec l)\] 
 	
-	il primo termine del termine a destra è la variazione locale di flusso dovuta al cambiamento di B nel tempo, il secondo termine invece rappresenta il cambiamento dovuto al fatto che $\mathcal{C}$ si è letteralmente mosso. 
+	Il primo termine del termine al membro destro è la variazione locale di flusso dovuta al cambiamento di B nel tempo, il secondo termine invece rappresenta il cambiamento dovuto al fatto che $\mathcal{C}$ si è mosso: 
 	
-	Usiamo anche il teorema di Stokes e che $\vec B\cdot (\vec u\times d\vec l)=-\vec u\times \vec B\cdot d\vec l$
+	Usiamo il fatto che $\vec B\cdot (\vec u\times d\vec l)=-\vec u\times \vec B\cdot d\vec l$ ed il teorema di Stokes.
 	
 	\[\frac{d\Phi}{dt}
 	\ =\
@@ -76,6 +107,37 @@
 	
 	ed abbiamo così dimostrato il teorema per cui $\boxed{\frac{d\Phi}{dt} = 0}$ .
 \end{teorema}
+
+
+%
+\section{Instabilità di Kelvin-Helmholtz}
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.8\linewidth]{immagini/KH.jpg}
+\end{figure}
+
+\[\begin{cases}
+	\vec \nabla \cdot \vec u\ =\ 0\\
+	\rho_0 \frac{\partial \vec v}{\partial t}\, +\, (\vec v\cdot \vec \nabla )\, \vec v\ =\ -\nabla P\, +\, \rho_0 \vec g
+\end{cases}\]
+
+Prendiamo il rotore dell'equazione con $\vec \nabla \times \vec v = \vec \omega$
+
+\[ \rho_0 \frac{\partial \vec v}{\partial t}\, +\, \nabla \left(\frac{v^2}{2}\right) - \vec v \times \vec \omega\ =\ 0\]
+
+\[ \rho_0 \frac{\partial \vec \omega}{\partial t}\ =\ \vec \nabla\times \left(\vec v\times \vec \omega\right) \]
+
+Prendiamo solo la parte solenoidale di $\vec v$ mentre la parte rotazionale non contribuisce $\iff \vec v =\vec \nabla \phi \iff \vec \omega = 0$.
+
+Cerchiamo le soluzioni dell'equazione imponendo $\vec v = \vec \nabla \phi$:
+
+\[\phi\ =\ \begin{cases} \phi_1\ ,\quad z<0\\ \phi_2\ ,\quad z>0 \end{cases}\]
+
+Parametrizzando la superficie di scorrimento come $\xi (x,y,t)$ e consideranzo che per $z\to \pm \infty$ la velocità $\vec u\to 0$
+
+\[\vec u_2\ =\ \frac{D \xi}{D t}\ =\ \frac{\partial \xi}{\partial t} + \frac{\partial \xi}{\partial x}\frac{\partial x}{\partial t} + \frac{\partial \xi}{\partial y}\frac{\partial y}{\partial t}\]
+
 
 
 %%

@@ -15,13 +15,21 @@ Questa funzione di distribuzione può essere ridotta ('marginalizzata') alla s-e
 Nel limite puramente non collisionale, $g\ll 1$, ci si limita al calcolo di $F^{(1)}(\vec{x_1}, \vec{v_1}, t)$ se invece ci fosse una seconda carica vicina dovremmo scrivere:
 
 \[ F^{(2)}(\vec{x_1}, \vec{x_2}, \vec{v_1}, \vec{v_2})\ =\ F^{(1)}(\vec{x_1}, \vec{v_1})\ F^{(1)}(\vec{x_2}, \vec{v_2}) \ \left[ 1-\color{blue}{P_{12}(\vec{x_1}, \vec{x_2}, \vec{v_1}, \vec{v_2})}\right]\ \ \ \ ,\]
-dove \textbf{$P_{12}$} è detta \textcolor{blue}{funzione di correlazione}. Per la funzione $P_{12}$ si può ricavare una forma del tipo: $P_{12}\sim \frac{\lambda_D}{|x|} e^{-|x|/\lambda_D}$.
 
-In generale, se partiamo da un plasma all'equilibrio ed iniettiamo energia i tempi in cui questa si distribuisce sono così lunghi che la funzione di correlazione risulta trascurabile.\\
-Si può vedere sul Krall come, ipotizzando una distribuzione maxwelliana, il risultato sia che $P_{12}=nT(1-g)$ e quindi scala come la temperatura.\\
+dove \textbf{$P_{12}$} è detta \textcolor{blue}{funzione di correlazione} (cfr. gerarchia di Bogoliubov-Born-Green-Kirkwood-Yvon in Fisica Statistica). 
+
+Per la funzione $P_{12}$ si può ricavare una forma del tipo: $P_{12}\sim \frac{\lambda_D}{|x|} e^{-|x|/\lambda_D}$.
+
+In generale, se partiamo da un plasma all'equilibrio ed iniettiamo energia i tempi in cui questa si distribuisce sono così lunghi che la funzione di correlazione risulta trascurabile.
+
+Si può vedere sul Krall come, ipotizzando una distribuzione maxwelliana, il risultato sia che
+
+\[P_{12}\ =\ n\, T\,(1\,-\,g)\]
+
+e quindi scala come la temperatura.
 
 \begin{teorema}{Teorema di Liouville}
-	Siccome sarà utile in seguito richiamiamo il teorema di Liouville: data la nostra funzione di distribuzione F che descrive il plasma ad ogni tempo occupera un punto dello spazio delle fasi 2n-dimensionale, tracciando nel tempo una traiettoria di fase; secondo il teorema la derivata temporale totale della densità degli stati sarà nulla.
+	 SSiccome sarà utile in seguito, richiamiamo il teorema di Liouville: data la nostra funzione di distribuzione F che descrive il plasma ad ogni tempo occupera un punto dello spazio delle fasi 2n-dimensionale, tracciando nel tempo una traiettoria di fase; secondo il teorema la derivata temporale totale della densità degli stati sarà nulla.
 	
 	\[ \frac{d}{dt} F\ =\ 0\]
 	
@@ -35,25 +43,34 @@ Si può vedere sul Krall come, ipotizzando una distribuzione maxwelliana, il ris
 	
 \end{teorema}
 
-\subsection{L'equazione di Vlasov}
+\vspace{0.5cm}
+\section{L'equazione di Vlasov}
 Dal teorema di Liouville in eq.(\ref{Liouville}) si giunge all'equazioni più nota della fisica dei plasmi, l'equazione di Vlasov, integrando su tutte le particelle da 2 ad N vediamo che il primo termine di eq.(\ref{Liouville}) è legato alla $F^{(1)}$:
-\[ \int \frac{\partial F^{(n)}}{\partial t} dx_1 ...dx_n dv_1 ...dv_n\ =\ \frac{\partial}{\partial t }\left( \int F^{(n)} dx_2 ...dx_n dv_2 ...dv_n\right)\ =\ \frac{\partial F^{(1)}}{\partial t}\]
+\[ \int\ \frac{\partial F^{(n)}}{\partial t}\ dx_1 ...dx_n dv_1 ...dv_n\ =\ \frac{\partial}{\partial t }\ \left( \int F^{(n)}\ dx_2 ...dx_n dv_2 ...dv_n\right)\ =\ \frac{\partial F^{(1)}}{\partial t}\]
 
 Mentre per il secondo e terzo termine di eq.(\ref{Liouville}):
-\[\begin{split} \int\sum^N_{i} \vec v_1 \cdot \frac{\partial F^{(n)}}{\partial \vec x_1} dx_2 ...dx_n dv_2 ...dv_n\ &=\ \int v_1 \cdot \frac{\partial F^{(n)}}{\partial \vec x_1 } dx_2 ...dx_n dv_2 ...dv_n + \cancel{\int \sum^N_{i=2} \vec v_i \cdot \frac{\partial F^{(n)}}{\partial \vec x_i} dx_2 ...dx_n dv_2 ...dv_n} \ =
-	\\ &= \vec v_1 \cdot \frac{\partial}{\partial \vec x_1} \int F^{(n)} dx_2 ...dx_n dv_2 ...dv_n \ =\ \frac{\partial F^{(1)}}{\partial \vec x_1}\ \ \ \ ,
+\[\begin{split} 
+\int\sum^N_{i} \vec v_1 \cdot \frac{\partial F^{(n)}}{\partial \vec x_1} dx_2 ...dx_n dv_2 ...dv_n\ 
+&=\ \int v_1 \cdot \frac{\partial F^{(n)}}{\partial \vec x_1 } dx_2 ...dx_n dv_2 ...dv_n + \cancel{\int \sum^N_{i=2} \vec v_i \cdot \frac{\partial F^{(n)}}{\partial \vec x_i} dx_2 ...dx_n dv_2 ...dv_n} \ =\\ 
+&= \vec v_1 \cdot \frac{\partial}{\partial \vec x_1} \int F^{(n)} dx_2 ...dx_n dv_2 ...dv_n \ =\ \vec v_1 \cdot \frac{\partial F^{(1)}}{\partial \vec x_1}\ \ \ \ ,
 \end{split}\]
 
 \[\begin{split} \sum^N_{i} \int \vec a_i \cdot \frac{\partial F^{(n)}}{\partial \vec x_i} dx_2 ...dx_n dv_2 ...dv_n\ &=\ \int \vec a_1 \cdot \frac{\partial F^{(n)}}{\partial \vec v_1 } dx_2 ...dv_n + \vec a_1\cdot \frac{\partial}{\partial \vec v_1} \int F^{(n)} dx_2 ... dv_n\ +\ ... \\
-	&\ \ \ \ \ \ \ \ ...\ +\ \sum^N_{i=2}\int \vec a_i \cdot \frac{\partial F^{(n)}}{\partial \vec v_i} dx_2 ...dv_n \ \ =\ \ \vec a_1 \cdot \frac{\partial F^{(n)}}{\partial \vec v_1} \ \ \ \ .
+	&\ \ \ \ \ \ \ \ ...\ +\ \sum^N_{i=2}\int \vec a_i \cdot \frac{\partial F^{(n)}}{\partial \vec v_i} dx_2 ...dv_n \ \ =\ \ \vec a_1 \cdot \frac{\partial F^{(1)}}{\partial \vec v_1} \ \ \ \ .
 \end{split}\]
 
 
 
-Per esplicitarla $\vec a_i\, =\, \vec E\,+\, \vec v_i\cdot \vec B\, /\, c$, ma in questa forma abbiamo tenuto conto unicamente dell'accelerazione dovuta ai campi, per tener conto di interazioni fra particelle aggiungiamo un termine di interazione binaria $\vec a_{ij}$ (così che $\vec a_i\, =\, \vec E\,+\, \vec v_i\cdot \vec B\, /\, c\, +\, \vec{a}_{ij}$) a quest'accelerazione e integriamo anch'esso:
-\[ \sum^N_{i=1} \sum_{j>i} \int \vec a_{ij} \cdot \frac{\partial F^{(n)}}{\partial\vec v_i} dx_2 ...dx_n dv_2 ... dv_n\ =\ \sum_{j>i}^N \int \vec a_{ij} \cdot \frac{\partial F^{(n)}}{\partial\vec v_i} dx_2 ...dx_n dv_2 ...dv_n \ \ \ \ . \]
+Per esplicitarla $\vec a_i\, =\, \frac{q}{m}(\vec E\,+\, \vec v_i\cdot \vec B\, /\, c )$, si arriva così, nel limite in cui è possibile ignorare lo scattering di particelle, all'equazione cardine della descrizione statistica dei plasmi, l'\textbf{equazione di Vlasov}:
 
-Per la generica particella $j=\alpha$ ci concentriamo sull'ultimo integrale all'interno della sommatoria, possiamo portare fuori $\vec a_{1\alpha}\cdot \frac{\partial}{\partial \vec v_\alpha}$ in modo che l'integrale ci restituisca un $F^{(2)}$  che però possiamo esprimere in termini della funzione di correlazione $P_{12}$ definita all'inizio del paragrafo, per cui:
+\begin{equation}\label{VLASOV}
+	\boxed{\ \frac{\partial F^{(1)}_\alpha}{\partial t}\ +\ \vec v_1 \cdot \frac{\partial F^{(1)}_\alpha}{\partial \vec x_1}\ +\ \frac{q_\alpha}{m_\alpha}\left( \vec E + \frac{\vec v \times \vec B}{c}\right)\cdot\frac{\partial F^{(1)}_\alpha}{\partial \vec v_1}\ =\ 0\ }
+\end{equation}
+
+Ma in questa forma abbiamo tenuto conto unicamente dell'accelerazione dovuta ai campi, per tener conto di interazioni fra particelle aggiungiamo un termine di interazione binaria $\vec a_{ij}$ (così che $\vec a_i\, =\, \vec E\,+\, \vec v_i\cdot \vec B\, /\, c\, +\, \vec{a}_{ij}$) a quest'accelerazione e integriamo anch'esso:
+\[ \sum^N_{i=1}\ \sum_{j>i}\ \int \vec a_{ij} \cdot \frac{\partial F^{(n)}}{\partial\vec v_i}\ dx_2 ...dx_n dv_2 ... dv_n\ =\ \sum_{j>i}^N\ \int \vec a_{ij} \cdot \frac{\partial F^{(n)}}{\partial\vec v_i}\ dx_2 ...dx_n dv_2 ...dv_n \ \ \ \ . \]
+
+Per la generica particella $j=\alpha$ ci concentriamo sull'ultimo integrale all'interno della sommatoria, possiamo portare fuori $\vec a_{1\alpha}\cdot \frac{\partial}{\partial \vec v_\alpha}$ in modo che l'integrale ci restituisca un $F^{(2)}$  che però possiamo esprimere in termini della funzione di correlazione $P_{12}$ definita in precedenza, per cui:
 \[ \int \vec a_{1\alpha}\cdot \frac{\partial F^{(1)}}{\partial \vec v_1}(\vec x_1,\vec v_1) F(\vec x_\alpha, \vec v_\alpha) dx_\alpha dv_\alpha\ +\ \int \vec a_{1\alpha}\cdot \frac{\partial}{\partial \vec v_1} \left( F^{(1)}(\vec x_1, \vec v_1) P_{12}(\vec x_1,\vec x_\alpha, \vec v_1, \vec v_\alpha) \right) F^{(1)}(\vec x_\alpha, \vec v_\alpha)dx_\alpha dv_\alpha \ \ \ \ ,\]
 il primo termine di quest'espressione andrà a contribuire al termine del tipo $\vec a_1\cdot \partial_{\vec v_1} F^{(1)}$ mentre inseriamo il secondo termine collisionale dipendente da $P_{12}$ in un termine non conosciuto C:
 
@@ -62,23 +79,19 @@ il primo termine di quest'espressione andrà a contribuire al termine del tipo $
 \end{equation}
 
 Questa è conosciuta come \textbf{equazione di Boltzmann}, può essere scritta per ciascuna specie ma per determinarne il risultato sarà necessario esplicitare $\vec E$, $\vec B$ ed il termine di scattering $\mathcal{C}\sim (\partial f_S/\partial t)_{coll.}$.
-Infine, nel limite in cui è possibile ignorare lo scattering di particelle arriviamo finalmente all'equazione cardine della descrizione statistica dei plasmi, l'\textbf{equazione di Vlasov}:
 
-\begin{equation}\label{VLASOV}
-	\boxed{\ \frac{\partial f^{(1)}_\alpha}{\partial t} + \vec v_1 \cdot \frac{\partial f^{(1)}}{\partial \vec x_1} + \frac{q_\alpha}{m_\alpha}\left( \vec E + \frac{\vec v \times \vec B}{c}\right)\cdot\frac{\partial f^{(1)}_\alpha}{\partial \vec v_1}\ =\ 0\ }
-\end{equation}
 
 
 \subsection{Da Vlasov alle equazioni fluide}
 Cerchiamo di ricollegare questa trattazione statistica alle equazioni fluide di inizio corso, osservando per prima cosa come le funzione di distribuzione sia legata alla densità di particelle di una specie  nello spazio delle posizioni $n_\alpha$ e più in generale a quantità macroscopiche:
-\[n_\alpha \ =\ \int f_\alpha d\textbf{v} \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \  \ \ \ \ \ \ \  \int f_\alpha \vec v_\alpha d\textbf{v}\ =\ n_\alpha \vec u_\alpha \]
-Questi sono momenti di ordine zero ed uno della funzione di distribuzione $f_\alpha$ [quindi il momento di ordine n è definito come $\int v^n\, [\text{eq. di Vlasov}]\, dv$ ].
+\[n_\alpha \ =\ \int f_\alpha\ d\textbf{v} \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \  \ \ \ \ \ \ \ n_\alpha \vec u_\alpha\ =\ \int f_\alpha \vec v_\alpha \ d\textbf{v}  \]
+Questi sono momenti di ordine zero ed uno della funzione di distribuzione $f_\alpha$ [quindi il momento di ordine n della funzione di distribuzione è definito come $\int v^n\, [\text{f. di distr.}]\, dv$ mentre ora andremo a calcolare i momenti dell'equazione di Vlasov come: $\int v^n\, [\text{eq. di Vlasov}]\, dv$ ].
 
 \paragraph{Momento di grado 0: } Riprendiamo ora l'eq.(\ref{VLASOV}) ed integriamone i diversi membri sullo spazio delle velocità:
 
 \[ \int \frac{\partial f_\alpha}{\partial t} d\textbf{v} \ =\ \frac{\partial }{\partial t} \int f_\alpha d\textbf{v} \ =\ \frac{\partial n_\alpha}{\partial t}\ \ ,\]
 
-\[ \int \vec v_\alpha \cdot \frac{\partial f_\alpha}{\partial \vec x} d\textbf{v}\ =\ \int \frac{\partial}{\partial \vec x} (\vec v_\alpha f_\alpha) d\textbf{v}\ =\ \int f_\alpha \cancelto{=0}{\frac{\partial}{\partial \vec x } \vec v_\alpha}d\textbf{v} +\int \frac{\partial f_\alpha}{\partial \vec x}\cdot \vec v_\alpha d\text{v} \ =\ \frac{\partial}{\partial \vec x}(n_\alpha \vec u)\ \ , \]
+\[ \int \vec v_\alpha \cdot \frac{\partial f_\alpha}{\partial \vec x} d\textbf{v}\ =\ \int \frac{\partial}{\partial \vec x} (\vec v_\alpha f_\alpha) d\textbf{v}\, -\, \int f_\alpha \cancelto{=0}{\frac{\partial}{\partial \vec x } \vec v_\alpha}d\textbf{v} \ =\ \frac{\partial }{\partial \vec x} \int f_\alpha\cdot \vec v_\alpha\, d\text{v} \ =\ \frac{\partial}{\partial \vec x}(n_\alpha \vec u)\ \ , \]
 
 \[  \int \left(\vec E + \frac{\vec v\times\vec B}{c}\right) \cdot \frac{\partial f_\alpha}{\partial \vec v_\alpha} d\textbf{v}\ =\ \int \frac{\partial}{\partial \vec v_\alpha} \left[f_\alpha  \left( \vec E + \frac{\vec v\times\vec B}{c}\right)  \right] d\textbf{v} - \cancel{\int f_\alpha \frac{\partial}{\partial \vec v_\alpha} \left( \vec E + \frac{\vec v\times\vec B}{c}\right)}\ =\ 0\ \ . \]
 

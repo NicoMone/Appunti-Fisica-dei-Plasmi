@@ -1,9 +1,45 @@
 \chapter{Equilibrio MHD}  
 Allora quando si parla di equilibrio ci permettiamo di dire che stiamo considerando il caso in cui $\vec u=0$ e $\partial_tu=0$. \\Quel che non è vero, invece è che $\partial_t \vec B=0$!. Anzi, l'equazione di Faraday in questo caso diventa un'equazione di diffusione  del campo magnetico, è una sirta di dissipazione di cui abbiamo bisogno, anche noi metodi numerici della riconnesione hamiltoniana serve una dissipazione altrimenti il codice esplode accumulando energia magnetica alla più piccola scala che viene risolta dal codice ... questa cosa del codice mi torna abbastanza ma non ho capito invece in che senso ne abbiamo bisogno noi ora(?)...\\in ogni caso deve passare il messaggio che non c'è evoluzione dell'equilibrio ma su tempi molto più lunghi dei tempi dinamici avviene comunque unaq diffusione.  
+
 \subsection{equazione della dinamica all'equilibrio}
 
-\[\nabla P=\frac{1 }{4\pi}[(\vec\nabla\times\vec B)\times\vec B ]\] 
+\[\vec \nabla P=\frac{1 }{4\pi}[(\vec\nabla\times\vec B)\times\vec B ]\] 
 All'equilibrio le superfici isobare seguono le linee di campo magnetico e della corrente. 
+
+\[
+	\nabla P\ =\ \frac{\vec j \times \vec b}{c} 
+	\quad \Rightarrow \quad
+	\begin{cases}
+		\vec \nabla P \cdot \vec B\ =\ 0\\
+		\vec \nabla P \cdot \vec j\ =\ 0 
+	\end{cases}
+\]
+
+
 \subsection{Equazione di Faraday} 
 come già visto, assume la forma di un'equazione di diffusione.
-\[\frac{\partial \vec B}{\partial t}=\eta\frac{c^2}{4\pi}\nabla^2\vec B\] 
+
+\[\frac{\partial \vec B}{\partial t}\ =\ \eta\,\frac{c^2}{4\pi}\,\nabla^2\vec B\] 
+
+\[\left(\vec \nabla \times \vec B \right)\times \vec B\ =\ 
+-\,\frac{1}{2}\nabla B^2\, +\, \underset{(\vec B\cdot \vec \nabla)\,\vec B}{\underbrace{\vec\nabla : \left(\frac{\overset{\text{tensore}}{\vec B \vec B}}{2}\right)}} 
+\]
+
+\[
+\vec \nabla \left(P\,+\, \frac{B^2}{8\pi}\right)\ =\ \nabla : \left(\frac{\vec B \vec B}{2}\right)
+\]
+
+e dovrebbero valere $\left(\vec \nabla \times \vec B \right)\times \vec B =0$ e $\vec j\times \vec B =0$, questo dovrebbe essere l'\underline{equilibrio \emph{force-free}} ???
+
+Se $\left(\vec \nabla \times \vec B \right)\times \vec B =0$ allora i vettori dovrebbero essere paralleli e questo comporta che $\left(\vec \nabla \times \vec B \right)=\alpha \vec B$ per un certo $\alpha$. $\Rightarrow\ \nabla^2 \vec B + \alpha^2 \vec B =0$.
+
+\begin{itemize}
+	\item $\vec \nabla\cdot \left(\vec \nabla\times \vec B\right)\ =\ \nabla \cdot \left(\alpha \vec B\right)\ =\ \alpha \vec B\cdot \vec B + \alpha\left(\vec B\cdot \vec \nabla \right)\ =\ 0$  
+	\[\Rightarrow \quad \nabla_\parallel \alpha = 0\] 
+	\item $\left(\vec \nabla \times \vec B \right)\times \vec B=-\nabla^2 B = \frac{4\pi}{\eta c^2} \frac{\partial \vec B}{\partial t}$ ma è anche uguale a:
+	\[\vec \nabla \times (\alpha \vec B)\ =\ \alpha \vec \nabla\times \vec B + \vec \nabla_\alpha \times \vec B\ =\ \alpha^2 \vec B + \vec \nabla_\alpha \times \vec B \]
+	\[ \Rightarrow\quad \left[ \frac{4\pi}{c^2}\frac{1}{\eta}\frac{\partial }{\partial t} + \alpha^2\right]\, \vec B\ =\ \vec B\times \vec \nabla_\alpha \]
+\end{itemize}
+
+
+
