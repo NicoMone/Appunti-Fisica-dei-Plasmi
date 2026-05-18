@@ -1,7 +1,11 @@
 \chapter{Equilibrio MHD}  
-Allora quando si parla di equilibrio ci permettiamo di dire che stiamo considerando il caso in cui $\vec u=0$ e $\partial_tu=0$. \\Quel che non è vero, invece è che $\partial_t \vec B=0$!. Anzi, l'equazione di Faraday in questo caso diventa un'equazione di diffusione  del campo magnetico, è una sirta di dissipazione di cui abbiamo bisogno, anche noi metodi numerici della riconnesione hamiltoniana serve una dissipazione altrimenti il codice esplode accumulando energia magnetica alla più piccola scala che viene risolta dal codice ... questa cosa del codice mi torna abbastanza ma non ho capito invece in che senso ne abbiamo bisogno noi ora(?)...\\in ogni caso deve passare il messaggio che non c'è evoluzione dell'equilibrio ma su tempi molto più lunghi dei tempi dinamici avviene comunque unaq diffusione.  
+Allora quando si parla di equilibrio ci permettiamo di dire che stiamo considerando il caso in cui $\vec u=0$ e $\partial_tu=0$. 
 
-\subsection{equazione della dinamica all'equilibrio}
+Quel che non è vero, invece è che $\partial_t \vec B=0$!. 
+
+Anzi, l'equazione di Faraday in questo caso diventa un'equazione di diffusione  del campo magnetico, è una sirta di dissipazione di cui abbiamo bisogno, anche noi metodi numerici della riconnesione hamiltoniana serve una dissipazione altrimenti il codice esplode accumulando energia magnetica alla più piccola scala che viene risolta dal codice . 
+
+\section{equazione della dinamica all'equilibrio}
 
 \[\vec \nabla P=\frac{1 }{4\pi}[(\vec\nabla\times\vec B)\times\vec B ]\] 
 All'equilibrio le superfici isobare seguono le linee di campo magnetico e della corrente. 
@@ -16,7 +20,7 @@ All'equilibrio le superfici isobare seguono le linee di campo magnetico e della 
 \]
 
 
-\subsection{Equazione di Faraday} 
+\section{Equazione di Faraday} 
 come già visto, assume la forma di un'equazione di diffusione.
 
 \[\frac{\partial \vec B}{\partial t}\ =\ \eta\,\frac{c^2}{4\pi}\,\nabla^2\vec B\] 
@@ -34,12 +38,109 @@ e dovrebbero valere $\left(\vec \nabla \times \vec B \right)\times \vec B =0$ e 
 Se $\left(\vec \nabla \times \vec B \right)\times \vec B =0$ allora i vettori dovrebbero essere paralleli e questo comporta che $\left(\vec \nabla \times \vec B \right)=\alpha \vec B$ per un certo $\alpha$. $\Rightarrow\ \nabla^2 \vec B + \alpha^2 \vec B =0$.
 
 \begin{itemize}
-	\item $\vec \nabla\cdot \left(\vec \nabla\times \vec B\right)\ =\ \nabla \cdot \left(\alpha \vec B\right)\ =\ \alpha \vec B\cdot \vec B + \alpha\left(\vec B\cdot \vec \nabla \right)\ =\ 0$  
-	\[\Rightarrow \quad \nabla_\parallel \alpha = 0\] 
-	\item $\left(\vec \nabla \times \vec B \right)\times \vec B=-\nabla^2 B = \frac{4\pi}{\eta c^2} \frac{\partial \vec B}{\partial t}$ ma è anche uguale a:
-	\[\vec \nabla \times (\alpha \vec B)\ =\ \alpha \vec \nabla\times \vec B + \vec \nabla_\alpha \times \vec B\ =\ \alpha^2 \vec B + \vec \nabla_\alpha \times \vec B \]
-	\[ \Rightarrow\quad \left[ \frac{4\pi}{c^2}\frac{1}{\eta}\frac{\partial }{\partial t} + \alpha^2\right]\, \vec B\ =\ \vec B\times \vec \nabla_\alpha \]
+	\item $\vec \nabla\cdot \left(\vec \nabla\times \vec B\right)\ =\ \nabla \cdot \left(\alpha \vec B\right)\ =\ \alpha \vec B\cdot \vec B\, +\, \alpha\left(\vec B\cdot \vec \nabla \right)\ =\ 0$  
+	\[\Rightarrow \qquad \nabla_\parallel \alpha\ =\ 0\ \ .\] 
+	\item $\left(\vec \nabla \times \vec B \right)\times \vec B=-\nabla^2 B = \frac{4\pi}{\eta c^2} \frac{\partial \vec B}{\partial t}$ , ma è anche uguale a:
+	\[\vec \nabla \times (\alpha \vec B)\ =\ \alpha \vec \nabla\times \vec B\, +\, \vec \nabla_\alpha \times \vec B\ =\ \alpha^2 \vec B\, +\, \vec \nabla_\alpha \times \vec B \]
+	\[ \Rightarrow\quad \left[\, \frac{4\pi}{c^2}\,\frac{1}{\eta}\,\frac{\partial }{\partial t}\ +\ \alpha^2\right]\ \vec B\ =\ \vec B\times \vec \nabla_\alpha \]
 \end{itemize}
+
+%
+%
+%
+\section{Equilibri MHD}
+
+\[\text{Force Free:}\qquad \bar\nabla^2 \bar B\ +\ \alpha^2 \bar B\ =\ 0\]
+
+Partiamo da un campo scalare $\phi$:  $\bar\nabla^2 \phi + \alpha^2 \phi\, =\, 0$
+
+Chiamiamo $\bar L, \bar S,\bar T$ le soluzioni a quest'equazione con:
+
+\[\bar L\ =\ \bar \nabla \phi
+\quad \quad \bar\nabla \cdot\bar L \neq 0,\, \bar \nabla \times L = 0\]
+
+\[\bar T\ =\ \bar \nabla \times (\phi \hat e)\] 
+
+\[\bar \nabla \times \bar S\ =\ \frac{1}{\alpha}\bar \nabla \times (\bar \nabla \times \bar T)\ =\ \frac{1}{\alpha}\cancel{\bar \nabla (\bar \nabla\cdot  \bar T)}-\frac{1}{\alpha}\nabla^2 \bar T\ =\ \alpha \bar T\]
+
+\[\Rightarrow \quad \quad 
+\begin{cases}
+	\bar T\ =\ \bar \nabla \times \bar S\\
+	\bar S\ =\ \frac{1}{\alpha} \bar \nabla \times \bar T
+\end{cases}\]
+
+\begin{itemize}
+	\item $\bar \nabla^2 L + \alpha^2 L\, =\, \nabla^2(\nabla \phi)+\alpha^2\nabla \phi\, =\, \nabla\underset{=0}{\underbrace{(\nabla^2 \phi + \alpha^2 \phi)}}=0$, quindi $\bar L$ è soluzione;
+	\item $\bar \nabla^2 \bar T + \alpha^2 \bar T\, =\, \nabla^2 [\bar \nabla \times (\phi \hat e)]+\alpha^2 \nabla \times (\phi \hat e)\,=\, \bar \nabla \times [\underset{=0}{\underbrace{\nabla^2 \phi + \alpha^2 \phi}}\hat e]\, =\, 0$, anche $\bar T$ è soluzione, quindi lo è anche $\bar S$.
+\end{itemize}
+
+\subsubsection{In coordinate cilindriche...}
+\[\bar \nabla \times \bar a\, =\, [\cancel{\frac{1}{r}\frac{\partial a_z}{\partial \theta}}-\frac{\partial a_\theta}{\partial z},\, \frac{\partial a_r}{\partial z}-\frac{\partial a_z}{\partial r},\,\frac{1}{r}\frac{\partial (r a_\theta)}{\partial r}-\cancel{\frac{1}{r}\frac{\partial a_r}{\partial \theta}}]\]
+
+Mettiamoci in condizione assi-simmetrica ($\partial_\theta = 0$): $\phi\equiv\phi(r,z)$:
+
+\[\bar T\ =\ \bar \nabla \times (\phi \hat e_z)\ =\ -\frac{\partial \phi}{\partial r}\hat e_\theta\qquad \text{è toroidale}\]
+
+\[\bar S = \frac{1}{\alpha}\bar \nabla \times T = \frac{1}{\alpha}\left[\frac{\partial^2}{\partial r\partial z} \phi \hat e_z - \frac{1}{r}\frac{\partial}{\partial r}(r\frac{\partial \phi}{\partial r})\hat e_\theta\right]\qquad \text{è poloidale}\]
+
+Né $\bar T$ né $bar S$ sono soluzioni di $\bar \nabla \times \bar B = \alpha \bar B$, ma $(\bar T+\bar S)$ lo è.
+
+\[\bar \nabla \times (\bar T + \bar S)\ =\ \alpha \bar S + \alpha \bar T\ =\ \alpha\, (\bar T + \bar S)\]
+
+\[\text{inoltre:}\quad \nabla\cdot (\bar T+\bar S)=0\]
+
+Allora $(\bar T + \bar S)$ è un campo force-free
+
+%
+%
+\subsubsection{Come costruire un campo force-free}
+
+Una possibile soluzione di $\nabla^2 \phi + \alpha^2 \phi =0$ è $\phi=A\cos(\alpha x)$:
+
+\[\bar T\ =\ \bar \nabla \times (\phi \hat e_z)\ =\ -\, \frac{\partial}{\partial x} \phi \hat e_y\ =\ \alpha A \sin(\alpha x)\]
+
+\[\bar S\ =\ \frac{1}{\alpha} \bar \nabla \times \bar T\ =\ -\frac{1}{\alpha} \frac{\partial^2}{\partial x^2} \phi \hat e_z\]
+
+Quindi: $\bar T +\bar S = \frac{\partial}{\partial x} \phi \hat e_y -\frac{1}{\alpha} \frac{\partial^2}{\partial x^2} \phi \hat e_z$.
+
+Facendo le derivate in modo opportuno si arriverebbe a delle componenti del campo $B_y=A\sin(\alpha x)$ e $B_z = A\cos(\alpha x)$.
+
+%
+%
+%
+\section{Condizione di Ferraro}
+
+\[\bar \nabla \times [(\bar \nabla \times \bar B)\times \bar B]\ =\ 0\]
+
+Caso poloidale puro: $bar B = \bar \nabla \times \bar A$, $\bar B = (B_r,\,0,\,B_z)$.
+
+\[\bar B\, =\, \left(-\frac{\partial A_\theta}{\partial z},\, \frac{\partial A_r}{\partial z}-\frac{\partial A_z}{\partial r},\, \frac{1}{r}\frac{\partial}{\partial r} (rA_\theta)\right)\ =\ \left(-\frac{1}{r} \partial_z (rA_\theta),\, 0,\, \frac{1}{r}\partial_r (rA_\theta)\right)\]
+
+Dato che vogliamo $B_\theta = 0$ allora $A_r=A_z=0$.
+
+Se si definisce la \underline{funzione di flusso} $\phi(r,z)=rA_\theta (r,z)$ :
+
+\[\bar B\ =\ \left(-\frac{1}{r} \frac{\partial \psi}{\partial z},\, 0,\, \frac{1}{r}\frac{\partial \phi}{\partial r}\right)\]
+
+\[\bar \nabla \times \bar B\ =\ \left(0,\, -\partial_z (\frac{1}{r} \partial_z \psi)-\partial_r (\frac{1}{r}\partial_r \psi),\, 0\right)\]
+
+\[(\bar \nabla \times \bar B)\times \bar B  
+\ =\ \left(\left[-\partial_z(\frac{1}{r}\partial_z \phi)-\partial_r (\frac{1}{r}\partial_r \psi)\right]\frac{1}{r}\partial_r \psi,\, 0,\, \left[-\partial_z (\frac{1}{r} \partial_z \psi)-\partial_r (\frac{1}{r}\partial_r \psi \right] \partial_z\psi\right)\]
+
+Andiamo a definire una quantità che semplifichi l'espressione sopra per poterne fare il rotore, definiamo $\boxed{\Delta^2 \psi \equiv r\partial_r (\frac{1}{r}\partial_r \psi) + \partial^2_{zz}\psi}$, in modo che:
+
+\[(\bar \nabla \times \bar B)\times \bar B  
+\ =\ \left(-\frac{1}{r^2}\partial_r \psi \Delta^2\psi,\ 0,\ -\frac{1}{r^2} \partial_z \Delta^2 \psi\right)\]
+
+\[\bar \nabla \times \left[(\bar \nabla \times \bar B)\times \bar B\right]\ =\ \left(0,\ -\partial_z (\partial_r \psi \frac{1}{r^2}\Delta^2 \psi)+\partial_r (\partial_z \psi \frac{1}{r^2}\Delta^2 \psi),\ 0\right)\]
+
+Dobbiamo risolvere un'equazione del tipo $-\partial_z (\partial_z \psi \frac{1}{r^2}\Delta^2 \psi)+\partial_r (\partial_z \psi \frac{1}{r^2}\Delta^2 \psi)$ ($\iff\ \frac{\partial f}{\partial x} \frac{\partial g}{\partial y} - \frac{\partial f}{\partial y} \frac{\partial g}{\partial x}=0$).
+
+Definiamo $F(\psi)$ dall'equazione di Grad-Shafranov semplificata (senza $\nabla P$):
+
+\[\Delta^2 \psi\ =\ r^2\, F(\psi)\]
+
+
 
 
 

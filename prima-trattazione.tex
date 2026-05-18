@@ -321,7 +321,7 @@ Per ora abbiamo ipotizzato di poter trascurare il gradiente di pressione, ora pe
 Nel ricavare la frequenza di plasma abbiamo supposto che la \textbf{velocità termica degli elettroni} $v_{th, e}$ fosse trascurabile rispetto alla \textbf{velocità di fase} 
 $\boxed{c_\phi \equiv \displaystyle\frac{\omega}{k}\gg v_{th}}$, vediamo bene il perché:
 l'equazione di moto - reinserita la pressione come appena ipotizzata - diventa ora: 
-\[-i\omega m_en_0\delta u=iken_0\delta \phi - ikT_{0,e} \delta n_e\]
+\[-i\omega m_en_0\delta u\ =\ iken_0\delta \phi\, -\, ikT_{0,e} \delta n_e\]
 Allora confrontando i termini in un rapporto, vediamo che il termine di pressione è trascurabile nel caso in cui $\boxed{c_\phi\gg v_{th}}$ (è quindi una condizione dell'ipotesi di \underline{plasma freddo}), definita $\boxed{v_{th, e}^2\equiv T_{0, e}/m_e}$ la \underline{velocità termica elettronica}:
 
 \[\frac{\omega\, m_e\,n_0\,\delta u}{k\,\delta P}\ \sim\ \frac{\omega^2}{k^2}\, \frac{m_e}{T_{0,e}}\ \sim\ \frac{\omega^2}{k^2}\, \frac{1}{v^2_{th,e}}\ \sim\ \frac{c^2_{\phi}}{v^2_{th,e}}\] 
@@ -330,6 +330,7 @@ Allora confrontando i termini in un rapporto, vediamo che il termine di pression
 Introduciamo anche la \underline{lunghezza d'onda caratteristica} $\lambda\sim 1/k$ e confrontiamo $\dfrac{\omega^2}{k^2}$ con $v_{th,e}$:
 
 \[\frac{4\pi n_0 e^2}{m_e}\lambda^2\ \sim\ v_{th,e}\] 
+
 \[\lambda^2\ >\ \frac{v_{th,e}^2}{\omega_p^2}\ \equiv\ \frac{T}{4\pi n_0e^2}\] 
 
 $\omega_p$ è la frequenza di plasma e dovrebbe avere anche il contributo degli ioni che comunque è migliaia di volte minore quindi per noi, per il momento, la frequenza di plasma è direttamente $\omega_{p,e}$. 
@@ -344,19 +345,19 @@ Generalmente nel regime di plasma freddo tra $\lambda$ e $\lambda_D$ passano sva
 %
 \subsubsection{Chiusura politropica} 
 Abbiamo già introdotto in questo capitolo l'idea di usare $P_e=cn_e^\gamma$ (espressa in precedenza anche come $P=c\rho^\gamma$) come chiusura alle nostre equazioni, ora torniamo a farlo per ricavare la correzione termica alla relazione di dispersione ricavata per il plasma freddo:
-\[\frac{\partial P_e}{\partial x}=\gamma cn_e^{\gamma-1}\frac{\partial n_e}{\partial x}=\gamma \frac{P_e}{n_e}\frac{\partial n_e}{\partial x}\] 
+\[\frac{\partial P_e}{\partial x}\ =\ \gamma cn_e^{\gamma-1}\frac{\partial n_e}{\partial x}\ =\ \gamma \frac{P_e}{n_e}\frac{\partial n_e}{\partial x}\] 
 
 Linearizzando ed imponendo ancora una volta $P=n_{0,e}T_e$
 
-\[\frac{\partial \delta P_e}{\partial x}=\gamma \frac{P_{0,e}}{n_{0,e}}\frac{\partial\delta n_e}{\partial x}=\gamma T \frac{\partial \delta n_e}{\partial x}\]  
+\[\frac{\partial \delta P_e}{\partial x}\ =\ \gamma \frac{P_{0,e}}{n_{0,e}}\frac{\partial\delta n_e}{\partial x}\ =\ \gamma T \frac{\partial \delta n_e}{\partial x}\]  
 
 Così abbiamo la chiusura voluta, da unire all'equazione di continuità linearizzata a quella del moto e Poisson, tutte ancora una volta in trasformata di Fourier:
 
 \[\begin{cases}
-	\text{dalla politropica: }\delta P=\gamma T_{0,e}\delta n_e \\
-	\text{dalla continuità: }\displaystyle\frac{\omega}{k}\delta n = n_0\delta u\ ,\\
-	\text{dal moto: }-i\omega m_en_0\delta u= en_0\delta E - ik\delta P , \\
-	\text{da Poisson: }\delta \phi =-\displaystyle\frac{4\pi e}{k^2}\delta n_e\ .
+	\text{dalla politropica: }\quad\delta P=\gamma T_{0,e}\delta n_e \\
+	\text{dalla continuità: }\quad\displaystyle\frac{\omega}{k}\delta n = n_0\delta u\ ,\\
+	\text{dal moto: }\quad-i\omega m_en_0\delta u= en_0\delta E - ik\delta P , \\
+	\text{da Poisson: }\quad\delta \phi =-\displaystyle\frac{4\pi e}{k^2}\delta n_e\ .
 \end{cases}\]
 
 Dopo aver inserito la politropica nell'equazione del moto abbiamo: $-i\omega m_en_0\delta u= iken_0\delta \phi\ - ik T_{0,e} \delta n_e$
@@ -440,17 +441,19 @@ Partiamo dall'equazione del moto fluida per le due specie ma poniamo $\vec B_0=0
 
 Ancora una volta si assumono onde piane così che il passaggio in Fourier sia immediato:
 
-\[\Rightarrow\quad \quad -i\omega n_{0,\,\alpha} \delta\bar u_\alpha = \frac{n_{0,\, \alpha}q_\alpha}{m_\alpha}\bar E \]
+\[\Rightarrow\quad \quad -i\omega n_{0,\,\alpha} \delta\bar u_\alpha\ =\ \frac{n_{0,\, \alpha}q_\alpha}{m_\alpha}\bar E \]
 
 Prima di trasformare con Fourier anche le condizioni date dall'equazione di Maxwell-Ampère riportiamo la definizione di corrente di plasma e vi inseriamo l'espressione della variazione di velocità per avere una forma della risposta lineare del plasma:
 
 \[ \vec j\ =\ \sum_\alpha q_\alpha n_{0,\,\alpha}\delta \vec u\alpha\ =\ \sum  q_\alpha n_{0,\,\alpha}\left( \frac{q_\alpha}{m_\alpha (-i\omega)}\bar E\right)\ =\ -\frac{i}{\omega}\sum_\alpha \frac{ q^2_\alpha n_{0,\,\alpha}}{m_\alpha} \vec E \]
 
-\[\vec\nabla\times\vec B\ =\ \frac{1}{c}\frac{\partial \bar E}{\partial t} + \frac{4\pi}{c}\vec j\quad \quad\Rightarrow \quad\quad \quad i\vec k \times \vec B = -\frac{i\omega}{c}\vec E\, +\,\frac{4\pi}{c}\,\frac{i}{\omega}\sum_\alpha \frac{n_{0,\,\alpha} q_{0,\,\alpha}^2}{m_\alpha} \vec E\]
+\[\vec\nabla\times\vec B\ =\ \frac{1}{c}\frac{\partial \bar E}{\partial t} \,+\, \frac{4\pi}{c}\vec j\quad \quad\Rightarrow \quad\quad \quad i\vec k \times \vec B\, =\, -\frac{i\omega}{c}\vec E\, +\,\frac{4\pi}{c}\,\frac{i}{\omega}\sum_\alpha \frac{n_{0,\,\alpha} q_{0,\,\alpha}^2}{m_\alpha}\, \vec E\]
 
 Vogliamo un'equazione con solo $\vec E$ al suo interno, quindi usiamo anche Faraday:
 
-\[ \vec\nabla\times\vec E = \frac{i\omega}{c} \vec B\quad \quad \Rightarrow \quad \quad \vec B =-\frac{i c}{\omega}\vec \nabla\times \vec E \]
+\[ \vec\nabla\times\vec E\ =\ \frac{i\omega}{c}\, \vec B\quad \quad \Rightarrow 
+\quad \quad 
+\vec B\ =\ -\,\frac{i c}{\omega}\,\vec \nabla\times \vec E \]
 
 Reinseriamo questa forma di $\vec B$ nell'equazione di Maxwell-Ampère insieme alla definizione di \underline{frequenza di plasma} $\omega_P^2\, =\,\omega^2_{p,e}+\omega^2_{p,i}\,\sim\, \omega^2_{pe}$\  (\,$\omega^2_{P,\,\alpha}\, \equiv\, \frac{4\pi n_{0,\, \alpha} q^2_\alpha}{m_\alpha}$\ ):
 

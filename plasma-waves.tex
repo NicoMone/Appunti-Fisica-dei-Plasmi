@@ -1,4 +1,4 @@
-\chapter{Onde nei plasmi, smorzamento di Landau e riconnessione}
+\chapter{Onde nei plasmi e smorzamento di Landau}
 
 Abbiamo già visto nel secondo capitolo come trattare delle onde acustiche in un plasma, che abbiamo calcolato avere relazione di dispersione $\boxed{\omega=k\, c_s}$.
 
@@ -116,16 +116,29 @@ RELAZIONE DI DISPERSIONE DELLE ONDE ION-ACOUSTIC: $\boxed{\frac{\omega^2_\text{I
 
 \begin{enumerate}
 	\item il \underline{caso classico} è quello per cui $k^2\,\ll\, \lambda_{\text{D, e}}^{-2},\,\, \lambda_{\text{D, I}}^{-2}$ :
+	
 	\[k^2\ll\frac{1}{\lambda_{\text{D, e}}^2}\iff\lambda^2\gg\lambda_{\text{D, e}}^2,\qquad\qquad k^2\ll\frac{1}{\lambda_{\text{D, I}}^2}\iff\lambda^2\gg\lambda_{\text{D, I}}^2\] 
+	
 	Questa relazione non ci dice in che maniera sono ordinate le $\lambda_D$ e di conseguenza le $T$. in linea di principio è possibile che siano qualsiasi.  
 	
 	\item  Oscillazioni di plasma degli ioni
-	\[k^2\gg\frac{1}{\lambda_De^2}\iff\lambda^2\ll\lambda_{De}^2,\quad k^2\ll\frac{1}{\lambda_{DI}^2}\iff\lambda^2\gg\lambda_{DI}^2\] 
-	\[\lambda_{De}^2\ll\lambda^2\ll\lambda_{DI}^2\implies T_I\gg T_e\]   
-	\[\frac{\omega^2}{k^2}=v_{0I}^2(1+\frac{\lambda_{De}^2}{\lambda_{DI}^2})=\frac{\gamma_I}{m_I}T_I(\frac{T_e+T_I}{T_I})\]
-	\[\boxed{\frac{\omega^2}{k^2}=\frac{\gamma_I}{m_I}(T_e+T_I)}\] Questa può essere vista come una sorta di velocità del suono, infatti queste sono le tipiche onde ionacustic. Si vede che l'inerzia è data dagli ioni nel senso che compare $m_I$ mentre la risposta termica è data da entrambi, anche se quando $T_I\sim T_e$ tipicamente avviene il Dumping di landau e l'onda non si propaga (a meno che non si faccia una forzatura). Invece le onde che sopravvivono sono quelle con $T_e\gg T_i$ \textit{"Se poi ho un forzaggio sono fuori dal regime lineare perché cambio la funzione di distribuaione e cambia anche la risposta dielettrica"} 
 	
-	\item \[k^2\gg\frac{1}{\lambda_De^2}\iff\lambda^2\ll\lambda_{De}^2,\quad k^2\gg\frac{1}{\lambda_{DI}^2}\iff\lambda^2\ll\lambda_{DI}^2\]  Questo caso è praticamente insensato perchè siamo al di sotto delle lunghezze di Debye e praticamente non possiamo nemmeno dire di avere a che fare con un plasma. In questo caso la soluzione ha come relazione di dispersione una relazione analoga alle onde di plasma, ma per gli ioni. \[\omega^2=\omega_{pI}^2+k^2v_{0I}^2\] 
+	\[k^2\gg\frac{1}{\lambda_{D,e}^2}\iff\lambda^2\ll\lambda_{D,e}^2\ \ ,
+	\qquad \quad k^2\ll\frac{1}{\lambda_{DI}^2}\iff\lambda^2\gg\lambda_{DI}^2\] 
+	
+	\[\lambda_{De}^2\ll\lambda^2\ll\lambda_{DI}^2
+	\ \ \implies \ \ 
+	T_I\gg T_e\]   
+	
+	\[\frac{\omega^2}{k^2}\ =\ v_{0I}^2\,\left(1+\frac{\lambda_{De}^2}{\lambda_{DI}^2}\right)\ =\ \frac{\gamma_I}{m_I}\, T_I\, \left(\frac{T_e+T_I}{T_I}\right)\]
+	
+	\[\boxed{\frac{\omega^2}{k^2}\ =\ \frac{\gamma_I}{m_I}\, (T_e+T_I)}\] 
+	
+	Questa può essere vista come una sorta di velocità del suono, infatti queste sono le tipiche onde ionacustic. Si vede che l'inerzia è data dagli ioni nel senso che compare $m_I$ mentre la risposta termica è data da entrambi, anche se quando $T_I\sim T_e$ tipicamente avviene il Dumping di landau e l'onda non si propaga (a meno che non si faccia una forzatura). 
+	Le onde che sopravvivono sono quelle, invece, con $T_e\gg T_i$ [\textit{"Se poi ho un forzaggio sono fuori dal regime lineare perché cambio la funzione di distribuaione e cambia anche la risposta dielettrica"}, boh] 
+	
+	\item \[k^2\gg\frac{1}{\lambda_{De}^2}\iff\lambda^2\ll\lambda_{De}^2,\quad k^2\gg\frac{1}{\lambda_{DI}^2}\iff\lambda^2\ll\lambda_{DI}^2\]  Questo caso è praticamente insensato perchè siamo al di sotto delle lunghezze di Debye e praticamente non possiamo nemmeno dire di avere a che fare con un plasma. In questo caso la soluzione ha come relazione di dispersione una relazione analoga alle onde di plasma, ma per gli ioni. 
+	\[\omega^2\ =\ \omega_{pI}^2\ +\ k^2\,v_{0I}^2\] 
 \end{enumerate} 
 
 Alla fine della fiera quando si parla di onde Ion-Acoustic si parla del caso uno e tendenzialmente con $T_e\gg T_i$. 
@@ -366,15 +379,15 @@ ma i gradienti $\partial_v$ evolvono nel tempo e può arrivare un momento in cui
 Questo può avvenire dopo un certo tempo \textit{di intrappolamento} $\tau_t$.
 
 In ogni caso, quando vale la linearizzazione, abbiamo:
-\[\boxed{\frac{\partial}{\partial_t}f_{a1}\,+\,\vec v\cdot \vec\nabla_{\vec x} f_{a1}\,+\,\frac{q_a}{m_a}\vec E_1\cdot \vec \nabla_{\vec v}f_{a0}\ =\ 0}\] 
+\[\boxed{\ \frac{\partial}{\partial t}f_{a1}\ +\ \vec v\cdot \vec\nabla_{\vec x} f_{a1}\ +\ \frac{q_a}{m_a}\vec E_1\cdot \vec \nabla_{\vec v}f_{a0}\ =\ 0}\] 
 
 Useremo anche l'equazione di Poisson:
-\[\boxed{\vec \nabla\cdot\vec E=4\pi e(n_I-n_e)}\] 
-Questa equazione è già linearizzate perchè $\vec E=\vec E_1$ e $n_{0e}=n_{0I}$.
+\[\boxed{\ \vec \nabla\cdot\vec E\ =\ 4\pi\, e\,(n_I-n_e)}\] 
+Questa equazione è già linearizzata perchè $\vec E=\vec E_1$ e $n_{0e}=n_{0I}$.
 \[-\nabla^2\phi=4\pi e(n_I-n_e)\]
 
 \paragraph{Caratteristiche Fondamentali del Dumping di Landau}
-Il dumping di Landau è spesso chiamato "smorzamento", ma \textbf{non è un fenomeno dissipativo}. Ecco le sue proprietà chiave:
+Il dumping di Landau è spesso chiamato "smorzamento", ma non è un fenomeno dissipativo. Ecco le sue proprietà chiave:
 \begin{itemize}
 	\item \textit{Smorzamento $\neq$ dissipazione};
 	\item \textit{NON è l'equivalente di un attrito};
@@ -382,8 +395,8 @@ Il dumping di Landau è spesso chiamato "smorzamento", ma \textbf{non è un feno
 	\item \textit{NON è l'equivalente di una viscosità};
 	\item \textit{NON viene prodotto calore};
 	\item \textit{NON aumenta l'entropia};
-	\item \textbf{È un trasferimento di energia} dall'onda alle particelle (o viceversa);
-	\item \textbf{L'energia può essere recuperata}: anche se non al 100\%, il trasferimento è potenzialmente reversibile.
+	\item \underline{È un trasferimento di energia} dall'onda alle particelle (o viceversa);
+	\item \underline{L'energia può essere recuperata}: anche se non al 100\%, il trasferimento è potenzialmente reversibile.
 \end{itemize}
 
 \paragraph{Obiettivo del Capitolo}
@@ -405,7 +418,7 @@ L'intrappolamento delle particelle avviene quando un'onda di plasma con velocit�
 Il comportamento del sistema è governato da tre tempi:
 \begin{itemize}
 	\item \(\tau_t = \sqrt{\dfrac{m}{e\hat{E}k}}\): tempo di intrappolamento, dipendente dall'ampiezza dell'onda;
-	\item \(\tau_L= =\frac{1}{k^3\lambda_D^3}e^{-(\frac{3}{2}+\frac{1}{2k^2\lambda_D^2})}\): tempo caratteristico del dumping di Landau;
+	\item \(\tau_L= \displaystyle\frac{1}{k^3\lambda_D^3}e^{-(\frac{3}{2}+\frac{1}{2k^2\lambda_D^2})}\): tempo caratteristico del dumping di Landau;
 	\item \(\tau_D \sim \omega_p^{-1}\): tempo caratteristico dinamico del plasma.
 \end{itemize}
 L'intrappolamento è rilevante solo se \(\tau_D < \tau_t < \tau_L\). Se \(\tau_t > \tau_L\), l'onda viene smorzata prima che l'intrappolamento possa avere effetto.
@@ -451,7 +464,7 @@ n_k\ =\ \int f_{1k}\, d\vec{v}\ \ .
 \subsubsection{Equazioni di partenza}
 L'equazione di Vlasov linearizzata è:
 \[
--i\omega f_{ak}\, +\, i\vec{k} \cdot \vec{v} f_{ak}\, -\, \frac{-iq_a}{m_a} (\vec{k} \cdot \nabla_v) f_{a0} \phi_k\ =\ 0\ \ .
+-i\omega f_{ak}\ +\ i\vec{k} \cdot \vec{v} f_{ak}\ -\ \frac{-iq_a}{m_a} (\vec{k} \cdot \nabla_v) f_{a0} \phi_k\ =\ 0\ \ .
 \]
 Da questa si trova la soluzione per \(f_k\):
 \[
@@ -498,10 +511,38 @@ che porta alla relazione di dispersione:
 \[
 \boxed{\,1 \,+\, \frac{\omega_e^2}{k^2} \int \frac{\partial_u g(u)}{\left(\frac{\omega}{k} - u\right)} du\ =\ 0\ \ .}
 \]
+
+%
+%
+
+\vspace{0.5cm}
+\begin{approfondimento}{Ripasso di metodi matematici}
+	
+	\begin{itemize}
+		\item Una funzione $f(z)=u(x,y)+iv(x,y)$ è olomorfa in $D\in \mathbb C$ se è differenziabile e la sua derivata prima è continua;
+		\item Se integriamo $\oint_{C^+_R} \frac{1}{z-z_0}$ sulla circonferenza in senso antiorario attorno al punto $z_0$, $C^+_R={z(\theta)=z_0 + Re^{i\theta},\ \theta\in [0,2\pi)}$, troveremmo che $\int_0^{2\pi} \frac{1}{z-z_0} \frac{dz}{d\theta}d\theta = \int_0^{2\pi} \frac{1}{Re^{i\theta}}(iRe^{i\theta})d\theta= 2\pi\, i$;
+		\item Per il \underline{teorema di Cauchy} presa $f(z)$ funzione analitica in un dominio D semplicemente connesso, allora $\oint_\Gamma f(z) dz = 0$ per ogni contorno chiuso $\Gamma$ completamente contenuto in D;
+		\item Dal secondo teorema di Cauchy si trova che $\oint_\Gamma \frac{f(z)}{z-z_0}=2\pi i f(z_0)$ fissato un punto interno arbitrario $z_0\in D$;
+		\item un punto singolare si dice "eliminabile" se esiste il limite della funzione per la variabile che tende a quel punto, si dice "polo di ordine m" se lo sviluppo di Taylor-Laurent è $f(z)=\frac{c_{-m}}{(z-z_0)^m} +\dots + \frac{c_0}{(z-z_0)} + \sum_{n=0}^\infty c_n (z-z_0)^n$ ed esiste quindi $\lim_{z\to z_0}f(z)(z-z_0)^m = c_{-m}$, si dice invece che il punto singolare è "essenziale" se questi limiti non esistono;
+		\item Una funzione analitica f(z) nell'intorno di un punto singolare isolato $z_0$ può essere sviluppata in serie di Taylor-Laurent: $f(z)=\sum_{n=-\infty}^{+\infty} \frac{1}{2\pi i} \oint_C \frac{f(\eta)}{(\eta - z_0)^{n+1}}d\eta (z-z_0)^n$;
+		\item $\text{Res}[f(z), z_0] = \frac{1}{2\pi i} \oint_C f(\eta)d\eta$, se $z_0$ è un punto singolare eliminabile $\text{Res}[f(z), z_0] = 0$, se $z_0$ è un polo di ordine 1 $\text{Res}[f(z), z_0] = \lim_{z \to z_0}(z-z_0)f(z)$, se $z_0$ è un polo di ordine m invece $\text{Res}[f(z), z_0] = \frac{1}{(m-1)!} \lim_{z \to z_0}\frac{d^{m-1}}{dz^{m-1}}[(z-z_0)^m f(z)]$  ;
+		\item Per il teorema interno dei residui se la nostra funzione è analitica all'interno di un contorno chiuso, con un numero finito di punti singolari, è possibile sostituire l'integrale su tale contorno con una somma dei residui 
+		\[\oint_\Gamma f(z) dz\ =\ 2\pi i \sum_{k=1}^{N}\,\text{Res}[f(z), z_k]\] 
+		\item La parte principale secondo Cauchy si calcola come $\text{P}\left(\int_a^b f(z) dz = \right)=\lim_{\epsilon \to 0}\left(\int_a^{x_0-\epsilon} f(z) dz +\int _{x_0+\epsilon}^b f(z) dz\right)$ con $x_0$ singolarità;
+		\item Quando vogliamo eliminare un punto singolare sull'asse reale dobbiamo aggirarlo con un semicerchio, fare quindi la parte principale sull'asse reale per non prendere il punto di singolarità $\omega_0$, si somma il semicerchio che contribuisce per $-i\pi\text{Res}[f,\omega_0]$ e poi si chiude la curva con il semicerchio in senso antiorario che si annulla se è rispettato il lemma di Jordan ($|f(z)|<M/|z|$ per $z\to \infty$). 
+	\end{itemize}
+	
+\end{approfondimento}
+
+
+%
+%
 %
 \subsubsection{Regime di propagazione senza dumping} 
 
-Prendiamo un'onda con $v_f\gg v_{th}$, in questo caso la velocità di fase non si sovrappone alla distribuzione e possiamo dire che non ci sono elettroni che si muovono localmente con velocità $u\sim v_{th}$, ovviamente in questo caso la derivata della distribuzione è a maggior ragione nulla. Fisicamente risulta intuituvo che siamo decisamente nel caso in cui non si ha dumping.\\Matematicamente questo significa che in corrispondenza della singolarità \[\dfrac{\omega}{k}-u=0\] che porterebbe ad una divergenza, si ha una soppressione maggiore al numeratore e al netto di tutto il numeratore è uno zero più zero del denominatore e alla fine della fiera l'integrale non ha divergenze. \\a questo punto rimane solo da risolvere il nostro integralozzo:
+Prendiamo un'onda con $v_f\gg v_{th}$, in questo caso la velocità di fase non si sovrappone alla distribuzione e possiamo dire che non ci sono elettroni che si muovono localmente con velocità $u\sim v_{th}$, ovviamente in questo caso la derivata della distribuzione è a maggior ragione nulla. Fisicamente risulta intuituvo che siamo decisamente nel caso in cui non si ha dumping.\\Matematicamente questo significa che in corrispondenza della singolarità \[\dfrac{\omega}{k}-u=0\] che porterebbe ad una divergenza, si ha una soppressione maggiore al numeratore e al netto di tutto il numeratore è uno zero più zero del denominatore e alla fine della fiera l'integrale non ha divergenze. 
+
+Rimane da risolvere l'integrale:
 \[\int\frac{\partial_ug(u)}{(\frac{\omega}{k}-u)}\partial_u\]  
 integro per parti e quando devo valutare il rpodotto  tra le primitive ai bordi del dominio posso mettere tutto a zero, ovviamente non ho particelle con velocità infinita!. 
 \[\int\frac{\partial_ug(u)}{(\frac{\omega}{k}-u)}\partial_u=\cancelto{0}{\frac{g(u)}{(\frac{\omega}{k}-u)^2}\bigg|_{-\infty}^{+\infty}}-\int \frac{g(u)}{(\frac{\omega}{k}-u)^2}du \]
@@ -523,14 +564,14 @@ Questo risultato è molto importante perché analogo con dumping.
 \[\omega^2=\omega_e+\gamma k^2 v_{th}^2\]
 il professore ci dice che ci sono alcune cose che è bene notare \begin{enumerate}
 	\item L'idea di utilizzare una chiusura politropica non è poi così folle. 
-	\item molti eminentissimi coglioni dicono che questo $\gamma=3$ era previsto perché è il coefficiente tipico per un gas monoatomico... califano invece dice che è soltanto una coincidenza senza un particolare significato profondo.
+	\item molti dicono che questo $\gamma=3$ era previsto perché è il coefficiente tipico per un gas monoatomico... Califano invece dice che è soltanto una coincidenza senza un particolare significato profondo.
 	\item  non ho mica ben capito cosa c'entra, da dove viene fuori ... btw, "alla maggior parte degli stimoli, I plasmi reqgiscono in prima approssimazione alla frequenza di plasma indipendentemente da $k$". 
 \end{enumerate} 
 
 %
 \subsubsection{regime con dumping}  
 Ripartiamo dalla nostra relazione del dielettrico, se $\epsilon(k,\omega)=0$ allora abbiamo un modo normale, in generale abbiamo
-\[\boxed{\epsilon(k,\omega)=1-\frac{\omega_e^2}{k^2}\int\frac{\partial_ug(u)}{(u-\dfrac{\omega}{k})}du}\] Ricordiamoci sempre che stiamo facendo la TF cercando il modo che sopravvive più a lungo che corrisponde ad un \textit{polo lontano} con $\omega_i\ll\omega_r$, praticamente stiamo dicendo che il dumping c'è ma poco. Per contestualizzare bene quello che stavamo facendo prima il polo c'era lo stesso ma era in una zona dove il dumping non avviene per come è popolata la distribuzione. \\Sviluppiamo il nostro dielettrico attorno a $\omega_r$, proprio considerando $\omega_i\ll\omega_r$. 
+\[\boxed{\ \epsilon(k,\omega)=1-\frac{\omega_e^2}{k^2}\int\frac{\partial_ug(u)}{(u-\dfrac{\omega}{k})}du\ }\] Ricordiamoci sempre che stiamo facendo la TF cercando il modo che sopravvive più a lungo che corrisponde ad un \textit{polo lontano} con $\omega_i\ll\omega_r$, praticamente stiamo dicendo che il dumping c'è ma poco. Per contestualizzare bene quello che stavamo facendo prima il polo c'era lo stesso ma era in una zona dove il dumping non avviene per come è popolata la distribuzione. \\Sviluppiamo il nostro dielettrico attorno a $\omega_r$, proprio considerando $\omega_i\ll\omega_r$. 
 \[\epsilon(k,\omega)\simeq\epsilon_r(k,\omega_r)+i\epsilon_i(k,\omega_r)+i\omega_i\frac{\partial \epsilon_r}{\partial\omega}\bigg|_{\omega=\omega_r}-\omega_i\frac{\partial \epsilon_i}{\partial\omega}\bigg|_{\omega=\omega_r}\] 
 impongo che siano nulle sia la parte reale che la parte immaginaria (per trovare il modo normale). Dalla parte immaginaria ottengo \[\epsilon_i=-\omega_i\frac{\partial\epsilon_r}{\partial \omega}\bigg|_{\omega_r}\implies \epsilon_i\sim\omega_i\] 
 Dalla parte reale emerge che il termine di derivata va come $\sim \omega_i^2$ e di conseguenza lo posso trascurare, cos' come $\epsilon_r$. In generale la parte reale è zero, a meno di correzioni del second'ordine, che non ci interessano. 

@@ -1,4 +1,4 @@
-This is LuaHBTeX, Version 1.18.0 (TeX Live 2025/dev/Debian)  (format=lualatex 2026.1.21)  12 MAY 2026 21:54
+This is LuaHBTeX, Version 1.18.0 (TeX Live 2025/dev/Debian)  (format=lualatex 2026.1.21)  18 MAY 2026 15:24
  restricted system commands enabled.
 **main_v2.tex
 (./main_v2.tex
@@ -1238,7 +1238,7 @@ Package hyperref Info: Link coloring ON on input line 154.
 \@outlinefile=\write5
 
 \openout5 = main_v2.out
-<immagini/copertina.pdf, id=256, 1156.32pt x 766.36313pt>
+<immagini/copertina.pdf, id=284, 1156.32pt x 766.36313pt>
 File: immagini/copertina.pdf Graphic file (type pdf)
 <use immagini/copertina.pdf>
 Package luatex.def Info: immagini/copertina.pdf  used on input line 159.
@@ -1286,7 +1286,7 @@ Capitolo 1.
 Package hyperref Warning: Difference (2) between bookmark levels is greater 
 (hyperref)                than one, level fixed on input line 21.
 
-<immagini/T-rho.jpg, id=337, 259.0208pt x 276.9284pt>
+<immagini/T-rho.jpg, id=373, 259.0208pt x 276.9284pt>
 File: immagini/T-rho.jpg Graphic file (type jpg)
 <use immagini/T-rho.jpg>
 Package luatex.def Info: immagini/T-rho.jpg  used on input line 33.
@@ -1301,7 +1301,7 @@ Missing character: There is no ’ (U+2019) in font ec-lmr10!
 
 [6<./immagini/T-rho.jpg>]
 Capitolo 2.
-<immagini/A-23.png, id=356, 565.11125pt x 420.57124pt>
+<immagini/A-23.png, id=392, 565.11125pt x 420.57124pt>
 File: immagini/A-23.png Graphic file (type png)
 <use immagini/A-23.png>
 Package luatex.def Info: immagini/A-23.png  used on input line 11.
@@ -1338,7 +1338,7 @@ Overfull \hbox (15.17957pt too wide) detected at line 288
 [14]
 
 [15]
-Overfull \hbox (27.75813pt too wide) in paragraph at lines 455--456
+Overfull \hbox (27.75813pt too wide) in paragraph at lines 458--459
 []\T1/lmr/m/n/10 Rein-se-ria-mo que-sta for-ma di $[]$ nel-l'e-qua-zio-ne di Max
 well-Ampère in-sie-me al-la de-fi-ni-zio-ne di $[]$
  []
@@ -1346,7 +1346,7 @@ well-Ampère in-sie-me al-la de-fi-ni-zio-ne di $[]$
 
 
 [16]
-Overfull \hbox (2.28574pt too wide) in paragraph at lines 475--477
+Overfull \hbox (2.28574pt too wide) in paragraph at lines 478--480
 \T1/lmr/m/n/10 que-sto vuol di-re che k è com-ples-so ($\OML/cmm/m/it/10 k \OM
 S/cmsy/m/n/10  \OML/cmm/m/it/10 i ![]=c$\T1/lmr/m/n/10 ). Que-sto co-sa im-pli-
 ca? $[]\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 i\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 i[]
@@ -1354,10 +1354,10 @@ ca? $[]\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 i\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 i[]
 OML/cmm/m/it/10 ![]x=c\OT1/cmr/m/n/10 )$\T1/lmr/m/n/10 ,
  []
 
-<immagini/scales.jpg, id=421, 99.4917pt x 47.2164pt>
+<immagini/scales.jpg, id=456, 99.4917pt x 47.2164pt>
 File: immagini/scales.jpg Graphic file (type jpg)
 <use immagini/scales.jpg>
-Package luatex.def Info: immagini/scales.jpg  used on input line 529.
+Package luatex.def Info: immagini/scales.jpg  used on input line 532.
 (luatex.def)             Requested size: 284.52756pt x 135.06015pt.
 
 
@@ -1406,10 +1406,6 @@ L/cmm/m/it/10 dx[]dv[]    ;
 ]
 Capitolo 4.
 
-Package hyperref Warning: Difference (2) between bookmark levels is greater 
-(hyperref)                than one, level fixed on input line 25.
-
-
 
 [29]
 
@@ -1436,17 +1432,17 @@ Capitolo 5.
 [38]
 
 [39]
-<immagini/riferimento.jpeg, id=595, 1093.08376pt x 959.585pt>
+<immagini/riferimento.jpeg, id=631, 1093.08376pt x 959.585pt>
 File: immagini/riferimento.jpeg Graphic file (type jpg)
 <use immagini/riferimento.jpeg>
-Package luatex.def Info: immagini/riferimento.jpeg  used on input line 186.
+Package luatex.def Info: immagini/riferimento.jpeg  used on input line 199.
 (luatex.def)             Requested size: 133.57458pt x 117.25368pt.
 
 
 [40<./immagini/riferimento.jpeg>]
 
 [41]
-Overfull \hbox (36.00543pt too wide) in paragraph at lines 285--286
+Overfull \hbox (36.00543pt too wide) in paragraph at lines 298--299
 []\T1/lmr/m/n/10 La scel-ta del se-gno + por-ta ad una ma-gne-to-so-ni-ca si-mi-
 le al mo-do di Al-fvén ma com-pri-mi-bi-le, $[]$. 
  []
@@ -1460,29 +1456,39 @@ le al mo-do di Al-fvén ma com-pri-mi-bi-le, $[]$.
 [44]
 
 [45]
+Underfull \hbox (badness 10000) in paragraph at lines 531--532
+[]\T1/lmr/m/n/10 La par-te prin-ci-pa-le se-con-do Cau-chy si cal-co-la co-me $
+[] [] \OT1/cmr/m/n/10 =
+ []
+
+
 
 [46]
 
-[47]) (./instabilità.tex
+[47]
 
-[48]
+[48]) (./instabilità.tex
+
+[49]
+
+[50
+
+]
 Capitolo 6.
-<immagini/flusso3.jpg, id=653, 1284.8pt x 883.3pt>
+<immagini/flusso3.jpg, id=700, 1284.8pt x 883.3pt>
 File: immagini/flusso3.jpg Graphic file (type jpg)
 <use immagini/flusso3.jpg>
 Package luatex.def Info: immagini/flusso3.jpg  used on input line 9.
 (luatex.def)             Requested size: 142.26378pt x 97.79677pt.
 
 
-[49
-
-<./immagini/flusso3.jpg>]
-<immagini/flusso1.jpg, id=659, 1201.48875pt x 1003.75pt>
+[51<./immagini/flusso3.jpg>]
+<immagini/flusso1.jpg, id=707, 1201.48875pt x 1003.75pt>
 File: immagini/flusso1.jpg Graphic file (type jpg)
 <use immagini/flusso1.jpg>
 Package luatex.def Info: immagini/flusso1.jpg  used on input line 77.
 (luatex.def)             Requested size: 113.81102pt x 95.06624pt.
-<immagini/flusso2.jpg, id=660, 1077.02374pt x 1003.75pt>
+<immagini/flusso2.jpg, id=708, 1077.02374pt x 1003.75pt>
 File: immagini/flusso2.jpg Graphic file (type jpg)
 <use immagini/flusso2.jpg>
 Package luatex.def Info: immagini/flusso2.jpg  used on input line 82.
@@ -1492,57 +1498,59 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 
 
 
-[50<./immagini/flusso1.jpg><./immagini/flusso2.jpg>]
-<immagini/KH.jpg, id=667, 1284.8pt x 767.86874pt>
+[52<./immagini/flusso1.jpg><./immagini/flusso2.jpg>]
+<immagini/KH.jpg, id=715, 1284.8pt x 767.86874pt>
 File: immagini/KH.jpg Graphic file (type jpg)
 <use immagini/KH.jpg>
 Package luatex.def Info: immagini/KH.jpg  used on input line 117.
 (luatex.def)             Requested size: 364.19667pt x 217.66147pt.
 
 
-[51<./immagini/KH.jpg>]
+[53<./immagini/KH.jpg>]
 
-[52]
+[54]
 Underfull \hbox (badness 10000) in paragraph at lines 222--223
 
  []
 
 
 
-[53]
+[55]
 Underfull \hbox (badness 10000) in paragraph at lines 289--290
 
  []
 
 
 
-[54]
-
-[55]) (./MHDequilibrium.tex
-
 [56]
-Capitolo 7.
 
-Package hyperref Warning: Difference (2) between bookmark levels is greater 
-(hyperref)                than one, level fixed on input line 4.
-
-
-
-[57
-
-]) (./drifts.tex
+[57]) (./MHDequilibrium.tex
 
 [58]
-Capitolo 8.
-)
+Capitolo 7.
+
 
 [59
 
 ]
 
-[60]
+[60]) (./drifts.tex
 
-[61] (./main_v2.aux)
+[61]
+
+[62
+
+]
+Capitolo 8.
+
+
+[63])
+
+[64]
+
+[65]
+
+[66] (./main_v2.aux)
  ***********
 LaTeX2e <2024-11-01> patch level 2
 L3 programming layer <2025-01-18>
@@ -1552,19 +1560,19 @@ L3 programming layer <2025-01-18>
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
 Package rerunfilecheck Info: File `main_v2.out' has not changed.
-(rerunfilecheck)             Checksum: F15868804CEE5A6C0138B601FAC8E78C;10710.
+(rerunfilecheck)             Checksum: 8130DF638E889BE4F42B1D507D9278BF;12111.
 )
 
 Here is how much of LuaTeX's memory you used:
- 36280 strings out of 475512
+ 36303 strings out of 475512
  156418,1648299 words of node,token memory allocated
- 4074 words of node memory still in use:
-   31 hlist, 2 vlist, 14 rule, 2 glue, 4 kern, 4 sub_mlist, 1 glyph, 981 attribu
-te, 68 glue_spec, 528 attribute_list, 2 write, 24 pdf_literal, 24 pdf_colorstack
- nodes
-   avail lists: 1:1,2:1943,3:826,4:328,5:771,6:131,7:10858,8:111,9:2044,10:32,11
-:1528
- 58170 multiletter control sequences out of 65536+600000
+ 4320 words of node memory still in use:
+   31 hlist, 2 vlist, 14 rule, 2 glue, 4 kern, 12 sub_mlist, 1 glyph, 1055 attri
+bute, 68 glue_spec, 565 attribute_list, 2 write, 24 pdf_literal, 24 pdf_colorsta
+ck nodes
+   avail lists: 1:1,2:1840,3:818,4:327,5:773,6:130,7:10774,8:111,9:2417,10:32,11
+:1506
+ 58181 multiletter control sequences out of 65536+600000
  64 fonts using 4139199 bytes
  98i,25n,100p,1114b,1406s stack positions out of 10000i,1000n,20000p,200000b,200000s
 {/usr/share/texmf/fonts/enc/dvips/lm/lm-ec.enc}{/usr/share/texmf/fonts/enc/dvips
@@ -1586,11 +1594,12 @@ type1/public/lm/lmbx12.pfb></usr/share/texmf/fonts/type1/public/lm/lmcsc10.pfb><
 ublic/lm/lmr12.pfb></usr/share/texmf/fonts/type1/public/lm/lmr5.pfb></usr/share/
 texmf/fonts/type1/public/lm/lmr7.pfb></usr/share/texmf/fonts/type1/public/lm/lmr
 i10.pfb></usr/share/texmf/fonts/type1/public/lm/lmro10.pfb></usr/share/texlive/t
-exmf-dist/fonts/type1/public/amsfonts/symbols/msbm7.pfb>
-Output written on main_v2.pdf (61 pages, 1378982 bytes).
+exmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/share/texlive/tex
+mf-dist/fonts/type1/public/amsfonts/symbols/msbm7.pfb>
+Output written on main_v2.pdf (66 pages, 1405164 bytes).
 
-PDF statistics: 811 PDF objects out of 1000 (max. 8388607)
- 684 compressed objects within 7 object streams
- 207 named destinations out of 1000 (max. 131072)
- 680 words of extra memory for PDF output out of 10000 (max. 100000000)
+PDF statistics: 874 PDF objects out of 1000 (max. 8388607)
+ 740 compressed objects within 8 object streams
+ 219 named destinations out of 1000 (max. 131072)
+ 736 words of extra memory for PDF output out of 10000 (max. 100000000)
 

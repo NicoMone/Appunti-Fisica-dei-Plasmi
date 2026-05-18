@@ -2,9 +2,11 @@
 
 Assumendo che si trovi una chiusura, come l'incomprimibilità o una politropica, il nostro sistema di equazioni fluide a cui ci siamo ricondotti nel capitolo precedente vanno ancora accoppiate alle equazioni dell'elettrodinamica.
 
-Finora abbiamo trovato le equazioni di bilancio del numero di particelle (equazione di continuità), equazione della quantità di moto (o impulso) ed equazione dell'energia per le varie specie che compongono il plasma, ma nel caso più semplice di due fluidi (ioni + elettroni) possiamo fare alcune definizioni per ricondurci ad una descrizione a un fluido, la \textbf{magnetoidrodinamica}; descrizione che spazia su molti ordini di grandezza ma perdendo alcuni aspetti cinetici. Questa teoria è valida in condizioni come 
+Finora abbiamo trovato le equazioni di bilancio del numero di particelle (equazione di continuità), equazione della quantità di moto (o impulso) ed equazione dell'energia per le varie specie che compongono il plasma, ma nel caso più semplice di due fluidi (ioni + elettroni) possiamo fare alcune definizioni per ricondurci ad una descrizione a un fluido, la \textbf{magnetoidrodinamica} (\text{MHD} da \emph{Magneto-Hydro-Dynamics}); descrizione che spazia su molti ordini di grandezza ma perdendo alcuni aspetti cinetici. 
+
+Questa teoria è valida in condizioni come 
 \begin{itemize}
-	\item il moto è fortemente collettivo $\iff$ vi devono essere molte particelle in un volume di Debye ($n\, \lambda_D^2 \gg 1$);
+	\item il moto è fortemente collettivo $\iff$ molte particelle in un volume di Debye ($n\, \lambda_D^2 \gg 1$);
 	\item collisioni abbastana frequenti da mantenere il sistema in equilibrio locale;
 	\item lunghezze caratteristiche $\gg \lambda_D$;
 	\item frequenze caratteristiche $\ll \omega_P$.
@@ -14,17 +16,22 @@ Diamo come prima cosa alcune definizioni per il singolo fluido:
 
 \[ 
 \begin{split}
-	\textbf{densità di massa} &:\ \ \ \ \ \ \ \ \ \ \ \ \rho\ =\ \sum_\alpha m_\alpha n_\alpha = m_i n_i + m_e n_e \sim \frac{n}{2}(m_i + m_e) \\
-	\textbf{velocità media} &: \ \ \ \ \ \ \ \ \ \ \ \ \bar u\ =\ \frac{\sum_\alpha m_\alpha n_\alpha u_\alpha}{\sum_\alpha m_\alpha n_\alpha}\sim \frac{n_0}{n_0} \frac{m_i \vec u_i + m_e \vec u_e }{m_i + m_e} \sim \vec u_i + \frac{m_e}{m_i} \vec u_e\\
-	\textbf{corrente} &:\ \ \ \ \ \ \ \ \ \ \ \ \vec J\ =\ \sum_\alpha q_\alpha n_\alpha \vec u_\alpha
+	\textbf{densità di massa} &:\qquad \qquad \rho\ =\ \sum_\alpha m_\alpha n_\alpha = m_i n_i + m_e n_e \sim \frac{n}{2}(m_i + m_e) \\
+	\textbf{velocità media} &:\qquad \qquad \bar u\ =\ \frac{\sum_\alpha m_\alpha n_\alpha u_\alpha}{\sum_\alpha m_\alpha n_\alpha}\sim \frac{n_0}{n_0} \frac{m_i \vec u_i + m_e \vec u_e }{m_i + m_e} \sim \vec u_i + \frac{m_e}{m_i} \vec u_e \\
+	\textbf{corrente} &:\qquad \qquad \vec J\ =\ \sum_\alpha q_\alpha n_\alpha \vec u_\alpha
 \end{split}
 \]
 
 Si nota che per la densità di massa il contributo è dato principalmente dagli ioni, come per la velocità dove al primo ordine potremmo approssimare $\bar u \sim \vec u_i$; tuttavia, costruire la teoria a un fluido non è sempre semplice come in quest'ultima approssimazione. Andiamo a vedere innanzitutto come cambiano le nostre equazioni fluide se sommate assieme ed espresse in termini di quantità ad un fluido appena definite.
 
+\vspace{0.5cm}
+\section{``Assembliamo'' la magnetoidrodinamica}
+
 \subsection{Equazione di continuità ad un fluido}
 
-Ricordiamo che l'equazione di continuità per una singola specie è $\frac{\partial n_\alpha}{\partial t} = -\vec \nabla\cdot (n_\alpha \vec u_\alpha)$. Partiamo da quest'ultima, moltiplicandola per $m_\alpha$ e facciamo una somma sulle specie per ottenere una nuova equazione di continuità a singolo fluido:
+Ricordiamo che l'equazione di continuità per una singola specie è $\frac{\partial n_\alpha}{\partial t} = -\vec \nabla\cdot (n_\alpha \vec u_\alpha)$. 
+
+Partiamo da quest'ultima, moltiplicandola per $m_\alpha$ e facciamo una somma sulle specie per ottenere una nuova equazione di continuità a singolo fluido:
 
 \[ \frac{\partial}{\partial t} \left(\sum_\alpha m_\alpha n_\alpha\right) + \vec \nabla \cdot \left(\sum_\alpha m_\alpha n_\alpha \vec u_\alpha \right) = 0 \]
 
@@ -45,7 +52,7 @@ In modo del tutto simile potremmo definire l'equazione di continuità di carica:
 
 Riprendiamo anche l'eq. del moto per l'impulso trovata per i due fluidi in eq.(\ref{moto}) e la moltiplichiamo per $m_\alpha$, in seguito andremo di nuovo a sommare sulle specie:
 
-\[\frac{\partial(m_\alpha n_\alpha \vec u_\alpha)}{\partial t} + \vec\nabla \cdot (n_\alpha m_\alpha \langle \vec v \vec v\rangle_\alpha) - q_\alpha n_\alpha (\vec E + \frac{1}{c}\vec u_\alpha\times \vec B)\ =\ 0\]
+\[\frac{\partial(m_\alpha n_\alpha \vec u_\alpha)}{\partial t}\, +\, \vec\nabla \cdot (n_\alpha m_\alpha \langle \vec v \vec v\rangle_\alpha)\, -\, q_\alpha n_\alpha (\vec E + \frac{1}{c}\vec u_\alpha\times \vec B)\ =\ 0\]
 
 Limitandoci al primo termine notiamo che sommando su $\alpha$ quello che succederebbe banalmente è che in $\partial_t\, \sum_\alpha\, m_\alpha\, n_\alpha\, \vec u_\alpha\, =\, \partial_t\, (\rho \vec u)$ riconosciamo le definizioni che abbiamo dato in precedenza per densità di massa di singolo fluido e velocità media.
 
@@ -66,40 +73,74 @@ Vogliamo riprendere ora l'eq. del moto ad un fluido moltiplicata per la massa, s
 
 Ricordando che $\rho \vec u = \sum_\alpha n_\alpha m_\alpha\vec u_\alpha$ vediamo che nell'equazione di inizio paragrafo il primo termine diventa $\partial_t (\rho \vec u)$ mentre il secondo termine può essere ricondotto al tensore di pressione che abbiamo appena espanso, quindi i primi due termini assieme sono:
 
-\[ \sum_\alpha n_\alpha m_\alpha \langle \vec v \vec v \rangle_\alpha\ =\ \mathbf{P}\, +\, \rho \vec u \vec u\]
+\[ \sum_\alpha\, n_\alpha\, m_\alpha\, \langle \vec v \vec v \rangle_\alpha\ =\ \mathbf{P}\, +\, \rho \vec u \vec u\]
 
-\[\begin{aligned} \frac{\partial}{\partial t} (\rho\vec u) + \vec \nabla\cdot (\rho\vec u\vec u) + \vec \nabla \cdot \mathbf{P}&=\ \rho\,  \frac{\partial \vec u}{\partial t} + \cancelto{\text{eq. di continuità}}{\vec u  \frac{\partial\rho}{\partial t} + \vec u\vec\nabla\cdot (\rho\vec u)} + \rho(\vec u\cdot \vec \nabla)\vec u + \vec \nabla \cdot \mathbf{P} = \\ &=\ \rho \, \left[ \frac{\partial\vec u}{\partial t} +(\vec u\cdot \vec \nabla)\vec u \right] \,+\, \vec \nabla \cdot \mathbf{P}
-	\ =\ \rho\, \frac{D\vec u}{Dt}\, +\, \vec \nabla \cdot \mathbf{P}\end{aligned}\]
+\[\begin{aligned} \frac{\partial}{\partial t} (\rho\vec u)\, +\, \vec \nabla\cdot (\rho\vec u\vec u)\, +\, \vec \nabla \cdot \mathbf{P}\ 
+&=\ \rho\,  \frac{\partial \vec u}{\partial t}\ +\ \cancelto{\text{eq. di continuità}}{\vec u  \frac{\partial\rho}{\partial t}\ +\ \vec u\vec\nabla\cdot (\rho\vec u)}\ +\ \rho(\vec u\cdot \vec \nabla)\vec u\ +\ \vec \nabla \cdot \mathbf{P} = \\ 
+&=\ \rho \, \left[ \frac{\partial\vec u}{\partial t}\, +\, (\vec u\cdot \vec \nabla)\vec u \right]\ +\ \vec \nabla \cdot \mathbf{P}
+\ =\ \rho\, \frac{D\vec u}{Dt}\ +\ \vec \nabla \cdot \mathbf{P}\end{aligned}\]
 
 Per il terzo termine, quello di forza:
 
-\[\sum_\alpha q_\alpha n_\alpha \left(\vec E + \frac{1}{c}\vec u\times \vec B\right)\ =\ \underset{\rho_c}{\underbrace{\left(\sum_\alpha q_\alpha n_\alpha \right) }} \vec E + \underset{\vec j}{\underbrace{\left( \sum_\alpha q_\alpha n_\alpha \vec u_\alpha \right)}}\times \vec B/c\ =\  \rho_c \vec E + \frac{1}{c}\,\vec j\times \vec B\]
+\[\sum_\alpha\, q_\alpha n_\alpha\, \left(\vec E + \frac{1}{c}\vec u\times \vec B\right)\ =\ \underset{\rho_c}{\underbrace{\left(\sum_\alpha q_\alpha n_\alpha \right) }} \vec E + \underset{\vec j}{\underbrace{\left( \sum_\alpha q_\alpha n_\alpha \vec u_\alpha \right)}}\times \vec B/c\ =\  \rho_c \vec E + \frac{1}{c}\,\vec j\times \vec B\]
 
-dove $\rho_c$ è uno sbilancio di carica quindi è vicino a zero, ma non nullo. In definitiva, aver sommato le due equazioni del moto fluide ci ha portato alla forma in eq.(\ref{moto MHD}), un'equazione del moto fluida a singolo fluido:
+dove $\rho_c$ è uno sbilancio di carica quindi è vicino a zero, ma non nullo. In definitiva, aver sommato le due equazioni del moto fluide ci ha portato alla forma in eq.(\ref{moto MHD}), un'\textbf{equazione del moto a singolo fluido}:
 
 \begin{equation}\label{moto MHD}
-	\boxed{\rho\, \frac{D \vec u}{D t} + \vec\nabla\cdot\mathbf{P}-\rho_c \vec E - \frac{1}{c}\,\vec j\times \vec B\ =\ 0}
+	\boxed{\ \rho\, \frac{D \vec u}{D t}\, +\, \vec\nabla\cdot\mathbf{P} \,-\, \rho_c \vec E\, -\, \frac{1}{c}\,\vec j\times \vec B\ =\ 0}
 \end{equation}
 
+\paragraph{Faraday in MHD : } Consideriamo la legge di Faraday $\frac{1}{c}\, \frac{\partial \vec B}{\partial t}\, =\, -\vec \nabla \times \vec E$, dimensionalmente abbiamo che $B\, /\, c\tau \sim E\, / L$ quindi anche $\frac{E}{B}\, \sim\, \frac{L}{c\, \tau}\,\sim\, \frac{u}{c}$ così che abbiamo una stima di una velocità caratteristica in funzione di lunghezza e tempo caratteristici $u\sim L/\tau$.
+
+Nella MHD ideale andiamo a supporre che $\vec E\, +\, \frac{\vec u\times \vec B}{c}\, =\, 0$ quindi, in unità $c=1$, vediamo che l'equazione di Faraday-Maxwell in MHD ideale assume la forma:
+
+\begin{equation}
+	\label{Faraday MHD ideale}
+	\boxed{\ \frac{\partial \vec B}{\partial t}\ =\ \vec \nabla \times \left(\vec u\times \vec B\right)\ }\ \ \ .
+\end{equation}
+
+\paragraph{Ampére in MHD : } Dalla legge di Ampère sappiamo che $\frac{1}{c}\frac{\partial E}{\partial t}\, =\, \vec \nabla \times \vec B\, -\, \frac{4\pi}{c} \vec j$, andiamo a fare ancora un'analisi dimensionale per capire quali termini dominino:
+
+\[ \Rightarrow\qquad\quad \frac{|\partial_t\, \vec E|}{c\,|\vec \nabla\, \times\, \vec B|}\ \sim\ \frac{E\, L}{c\, \tau\, B}\ \sim\ \left( \frac{u}{c}\right)^2 \]
+
+questa ci permette di dire che nel caso in cui $u\ll c$, allora il termine $\partial_t \vec E$ è trascurabile rispetto al termine $\vec \nabla \times\vec B$, quindi l'equazione di \underline{Ampère-Maxwell in MHD} diventa: 
+\begin{equation}
+	\label{Ampére MHD}
+	\boxed{\ \vec \nabla\times \vec B\ \approx\ \frac{4\pi}{c}\,\vec j\ }\ \ ,
+\end{equation}
+quindi, dimensionalmente, diciamo anche che $B/L\, \sim\, j / c$ ed osserviamo che la corrente $\vec j$ è associata al campo e non legata ad $\vec u_e$ e $\vec u_i$.
+
+\paragraph{Equazione del moto in MHD : } Stiamo pian piano costruendo questo nostro modello della magnetoidrodinamica, riconsideriamo ora l'eq. del moto eq.(\ref{moto MHD}). 
+
+In questo caso non possiamo dire che il termine $\rho_c\, \vec E$ si annulli solo per la quasi-neutralità, $n_e\, \simeq\, n_i$, ma possiamo considerarlo come un'approssimazione del termine $\frac{1}{c} \vec j\times \vec B$ , infatti:
+
+\[ \frac{\rho_c\, |\vec E|}{|\vec j\times \vec B|\, /\, c}\ \sim \ \frac{E^2}{L}\,\frac{c}{j\,B}\ \sim\ \frac{E^2}{B^2}\ \sim\ \left(\frac{u}{c}\right)^2\ \ll\ 1 \ \ .\]
+
+quindi nell'\underline{equazione del moto} possiamo trascurare $\rho_c\, \vec E$ e scrivere la versione \underline{semplificata}:
+
+\begin{equation}
+	\label{moto MHD semplificato}
+	\boxed{\ \rho\, \frac{D\, \vec u}{D\, t}\, +\, \vec\nabla\cdot \mathbf{P} \, -\, \frac{1}{c}\vec j\times\vec B\ =\ 0\ }\ \ .
+\end{equation}
+
+Nel caso stazionario $\vec \nabla \cdot \mathbf{P}\, =\, \vec j\times \vec B\, /\, c$ , da cui dimensionalmente: $P\,/\,L\,\sim\, j\,B\,/\,c\,\sim\, B^2\,/\,L$ .
 
 %
 %
 \vspace{0.5cm}
-\subsection{Costruiamo la magnetoidrodinamica}
+\subsection{Arriviamo all'equazione di Ohm generalizzata}
 
 Riportiamo l'equazione del moto fluida di singola specie perché andremo ora a torturarla:
 
 \[\frac{\partial (n_\alpha \vec u_\alpha)}{\partial t} +  \nabla\cdot \left[n_\alpha \left( \bar u _\alpha \bar u_\alpha + \langle \vec w_\alpha \vec w_\alpha \rangle \right) \right] - n_\alpha\frac{q_\alpha}{m_\alpha} \left(\vec E + \frac{\vec u_\alpha \times \vec B}{c}\right)\ =\ 0\ \ .\]
 
-Ora si nota che siamo partiti da 2 equazioni quindi possiamo ricavarne altrettante, c'è ancora dell'informazione da estrarre dall'eq.(\ref{moto}) del moto qui sopra riportata. Andremo infatti a fare sia la somma che la differenza di 
+Ora si nota che siamo partiti da 2 equazioni quindi possiamo ricavarne altrettante, c'è ancora dell'informazione da estrarre dall'eq.(\ref{moto}) del moto qui sopra riportata. Dopo che siamo andati sopra a fare la somma per trovare l'equazione del moto del singolo fluido, se moltiplichiamo per $q_\alpha$ e quindi facciamo la differenza delle singole equazioni del moto delle due specie, quella che troveremo sarà l'equazione di Ohm generalizzata. 
 
+Moltiplichiamo per $q_\alpha$, per poi sommare su $\alpha$:
 
-Prendiamo di nuovo la medesima equazione e stavolta la moltiplichiamo per $q_\alpha$, per poi sommare su $\alpha$:
-
-\[\underset{\partial \vec j/\partial t}{\underbrace{\sum_\alpha \frac{\partial(q_\alpha n_\alpha \vec u_\alpha)}{\partial t} }} + \sum_\alpha q_\alpha \nabla \cdot (n_\alpha \langle \vec v \vec v\rangle_\alpha)\, -\, \sum_\alpha\, q^2_\alpha \,\frac{n_\alpha}{m_\alpha} (\vec E + \frac{1}{c}\vec u_\alpha\times \vec B)\ =\ 0
-\]
-
-ora questa diversa forma da cui partire ci condurrà all'equazione di Ohm generalizzata. 
+\begin{equation}\label{precursore Ohm}
+\underset{\partial \vec j/\partial t}{\underbrace{\sum_\alpha \frac{\partial(q_\alpha n_\alpha \vec u_\alpha)}{\partial t} }}\ +\ \sum_\alpha\, q_\alpha\, \nabla \cdot (n_\alpha \langle \vec v \vec v\rangle_\alpha)\ -\ \sum_\alpha\, q^2_\alpha \,\frac{n_\alpha}{m_\alpha} (\vec E + \frac{1}{c}\vec u_\alpha\times \vec B)\ =\ 0
+\end{equation}
 
 Per il secondo termine torniamo a giocare con la definizione di velocità peculiare:
 
@@ -107,71 +148,17 @@ Per il secondo termine torniamo a giocare con la definizione di velocità peculi
 	&=\ \langle \vec w \vec w\rangle_\alpha\, +\, 2\vec u_\alpha\cdot \vec u\, +\, \vec u\cdot \vec u\ \ .
 \end{aligned}\]
 
-\subsubsection{Equazione dell'energia di singolo fluido}
-Se ora andiamo a richiamare l'equazione dell'energia del capitolo precedente - che riscriviamo qui sotto - possiamo trovare una chiusura (?) $\sum_\alpha \frac{m_\alpha}{2}$:
-
-\[ \frac{\partial \color{blue}{\varepsilon}}{\partial t}\ =\ -\vec \nabla\cdot \color{blue}{\vec Q} \color{black} + \vec E\cdot\color{blue}{\vec J} \]
-
-\[ \frac{\partial}{\partial t} \color{blue}{\int \frac{1}{2} m v^2 f d\vec v} \color{black}\, +\,  \frac{\partial}{\partial\vec x} \color{blue}{\int\frac{1}{2}m v^2 \vec v f d\vec v} \color{black}\, -\, \color{blue}{q\, n\,\vec w} \color{black} \cdot \vec E\ =\ 0\]
-
-che quindi facciamo diventare:
-
-\[\sum_\alpha \frac{m_\alpha}{2} \frac{\partial}{\partial t} (n_\alpha \langle v^2 \rangle_\alpha)\, +\,\frac{1}{2} \sum_\alpha m_\alpha \nabla \cdot (n_\alpha \langle v^2 \vec v\rangle_\alpha)\, -\, \sum_\alpha q_\alpha n_\alpha \vec w_\alpha \cdot \vec E\ =\ 0\]
-
-
-Per il terzo termine sappiamo ora di poter sostituirvi la definizione della corrente, $\sum_\alpha q_\alpha n_\alpha \vec w_\alpha\, \equiv\, \vec j$. 
-
-Guardando al primo termine vediamo che questo rappresenta ora la variazione dell'energia interna $\ \partial_t\, \left( \rho\, u^2\, /\, 2\ +\ 3\, p\, /\, 2 \right)\ $, sappiamo che $P_\alpha = \frac{1}{3} m_\alpha n_\alpha \langle \vec w\vec w \rangle = n_\alpha T_\alpha$ e per magia ci ritroviamo in mano:
-
-\[ \frac{\partial}{\partial t} \,\left[\frac{1}{2} \sum_\alpha n_\alpha m_\alpha \langle v^2 \rangle_\alpha \right]\ =\ \frac{\partial}{\partial t } \left[\frac{1}{2} \rho u^2 + \frac{3}{2} \sum_\alpha n_\alpha T_\alpha\right]\ \ . \]
-
-Mentre, per il secondo termine vediamo che dato che la velocità della singola specie è presa rispetto alla velocità del singolo fluido, allora 
-\[\langle \vec w\rangle_\alpha\,=\, \vec u_\alpha + \vec u \quad \iff \quad \vec v_\alpha = \vec u + \vec w_\alpha\ \ ,\]
-quindi non è più a media nulla. Cerchiamo ora di calcolare $\langle v^2 \vec v\rangle_\alpha$:
-
-\[ \begin{aligned}\langle\, v^2\, \vec v\,\rangle_\alpha\ &=\ \langle\ [\ (\vec w +\vec u)\cdot(\vec w + \vec u)\ ]\ (\vec w + \vec u)\ \rangle_\alpha \\ 
-	&=\ \langle w^2 \vec w\rangle_\alpha\, +\,\langle \vec w^2 \vec u\rangle_\alpha\, +\, \langle u^2 \vec w\rangle_\alpha\, +\, u^2\vec u\, +\, 2\langle (\vec u\cdot \vec w)\,\vec w\rangle_\alpha\, +\, 2\,\langle (\vec u\cdot \vec w)\,\vec u\rangle_\alpha
-\end{aligned} \]
-
-e - a questo punto - cerchiamo un modo intelligente di ridurre questi termini, in particolare riconoscendo i flussi di calore di singola specie $\vec q_\alpha$, le pressioni di singola specie $p_\alpha$ e ricordando le definizioni di $\rho$, $\rho\vec u$ e $\mathbf{P}$ andiamo a vedere cosa diventano questi termini assieme alla somma $\sum_\alpha m_\alpha/2$ ma senza considerare per il momento il gradiente:
-
-
-\[ (\vec w\cdot \vec u) \, \vec w\ =\ \vec w \vec w\cdot \vec u\ \ \Rightarrow\ \ \sum_\alpha n_\alpha m_\alpha \, \langle \vec w \vec w \rangle_\alpha \cdot \vec u\ =\ \mathbf{P}\cdot \vec u\ \ ,\]
-
-dove $\vec w \vec w=w_iw_j$ è da intendersi come tensore.
-
-\[ \frac{1}{2} \sum_\alpha n_\alpha m_\alpha\, \langle w^2 \vec w\, \rangle_\alpha \ \equiv \sum_\alpha \vec q_\alpha\ =\ Q\]
-
-\[ \frac{1}{2} \sum_\alpha n_\alpha m_\alpha \langle w^2 \vec u \rangle_\alpha\ =\ \frac{1}{2} \sum_\alpha n_\alpha m_\alpha \langle w^2 \rangle _\alpha \vec u\ =\ \frac{3}{2} \sum_\alpha p_\alpha \vec u\ =\ \frac{3}{2} \sum_\alpha n_\alpha T_\alpha \vec u\]
-
-\[ \frac{1}{2} \sum_\alpha n_\alpha m_\alpha u^2\ =\ \frac{1}{2} \rho u^2 \vec u\]
-
-\[ \langle u^2 \vec w_\alpha \rangle = u^2 \langle \vec w \rangle_\alpha\ =\ u^2\ \langle\, \vec u_\alpha - u\, \rangle\ =\ \cancel{\rho\vec u} - \cancel{\rho\vec u}\ =\ 0\ \ . \]
-
-Quindi, dopo tutti questi rimaneggiamenti abbiamo che per il \underline{secondo termine dell'equazione dell'energia}, in definitiva:
-
-\[ \frac{1}{2} \sum_\alpha m_\alpha \nabla\, \cdot\, ( n_\alpha\, \langle v^2 \vec v \, \rangle_\alpha )\ =\ \nabla \cdot \left(\frac{1}{2}\rho u^2 \vec u + \frac{3}{2}\, p\, \vec u\, + \mathbf{P}\cdot \vec u\, +\vec q\,\right) \]
-
-
-Otteniamo così l'eq dell'\textbf{energia per singolo fluido} (in caso \emph{collision-less}):
-
-\begin{equation}
-	\label{Energia singolo fluido}
-	\boxed{\frac{\partial}{\partial t} \left(\frac{1}{2}\rho u^2 +\frac{3}{2} p\right) + \vec\nabla \cdot \left( \frac{1}{2}\rho u^2 \vec u + \frac{3}{2}\rho\vec u  + \mathbf{P}\cdot\vec u + \mathbf{q}\right) \ =\ \vec j\cdot \vec E}
-\end{equation}
-
-
-\subsubsection{Plasma di elettroni e protoni}
-Torniamo quindi all'equazione del moto e per semplificare i conti assumiamo che gli ioni siano protoni così da avere carica $+e$:
+\subsubsection{Plasma di $e^-$ e $p$}
+Per semplificare i conti assumiamo che gli ioni siano protoni così da avere carica $+e$:
 
 \[\begin{cases}
-	\vec j = \sum_\alpha q_\alpha n_\alpha \vec u_\alpha = n_e (\vec u_i-\vec u_e)\, ;\\
+	\vec j = \sum_\alpha q_\alpha n_\alpha \vec u_\alpha = n\,e\, (\vec u_i-\vec u_e)\, ;\\
 	\vec u = \vec u_i + \frac{m_e}{m_i} \vec u_e
 \end{cases}
 \quad \quad \rightarrow \quad \quad 
 \begin{cases}
-	\vec u_i = \vec u +\frac{m_e}{m_i} \frac{\vec j}{n_e}\\
-	\vec u_e = \vec u - \frac{j}{n_e}
+	\vec u_i = \vec u +\frac{m_e}{m_i} \frac{\vec j}{n\, e}\\
+	\vec u_e = \vec u - \frac{j}{n\, e}
 \end{cases}\]
 
 \[ \frac{\partial \vec j}{\partial t} + \sum_\alpha q_\alpha \nabla\cdot (n_\alpha \langle v v\rangle_\alpha ) - \sum_\alpha \frac{n_\alpha}{m_\alpha} q_\alpha^2 (\vec E + \frac{1}{c} \vec u_\alpha \times \vec B)\ =\ 0 \]
@@ -179,18 +166,19 @@ Torniamo quindi all'equazione del moto e per semplificare i conti assumiamo che 
 Per il secondo termine possiamo 'portare fuori' la divergenza e sviluppiamo:
 
 \[\begin{aligned}
-	\sum_\alpha n_\alpha q_\alpha \langle vv\rangle_\alpha &= ne \langle \vec v\vec v\rangle_i - ne \langle \vec v\vec v\rangle_e\ =\\
-	&= ne\left[ \langle\, [(\vec v_i - \vec u)+\vec u]\,[(\vec v_i - \vec u)+\vec u]\,\rangle_i - \langle\, [(\vec v_e - \vec u)+\vec u]\, [(\vec v_e - \vec u)+\vec u]\,\rangle_e \right] =\\
-	&= n e \left( \underset{\text{press. singola specie } \langle w w \rangle_i}{\underbrace{\langle (\vec v_i -\vec u)\, (\vec v_i - \vec u) \rangle_i}} + \cancelto{0}{\vec u\vec u} + \langle (\vec v_i - \vec u)\, \vec u \rangle_i + \underset{\vec u\langle v_i - \vec u\rangle_i=\vec u(\vec u_i-\vec u)}{\underbrace{\langle \vec u (\vec v_i - \vec u)\rangle_i}}\right) - ne\,(\dots)_e\,
+\sum_\alpha n_\alpha q_\alpha \langle vv\rangle_\alpha 
+&=\ ne \langle \vec v\vec v\rangle_i - ne \langle \vec v\vec v\rangle_e\ =\\
+&=\ ne\left[ \langle\, [(\vec v_i - \vec u)+\vec u]\,[(\vec v_i - \vec u)+\vec u]\,\rangle_i - \langle\, [(\vec v_e - \vec u)+\vec u]\, [(\vec v_e - \vec u)+\vec u]\,\rangle_e \right] =\\
+&=\ n e \left( \underset{\text{press. singola specie } \langle w w \rangle_i}{\underbrace{\langle (\vec v_i -\vec u)\, (\vec v_i - \vec u) \rangle_i}} + \cancelto{0}{\vec u\vec u} + \langle (\vec v_i - \vec u)\, \vec u \rangle_i + \underset{\vec u\langle v_i - \vec u\rangle_i=\vec u(\vec u_i-\vec u)}{\underbrace{\langle \vec u (\vec v_i - \vec u)\rangle_i}}\right)\, -\, ne\,(\dots)_e\,
 \end{aligned}\]
 
 da cui in definitiva considerando i termini che si elidono fra $+ne(\dots)$ e $-ne(\dots)$ si trova che il secondo termine a meno del gradiente diviene:
 
-\[ \sum_\alpha n_\alpha q_\alpha \langle vv\rangle_\alpha\ =\ \frac{e}{m_i} p_i - \frac{e}{m_e} p_e + (\vec j\,\vec u +\vec u\, \vec j)\ \left(1 + \cancelto{\text{trascurabile in prima analisi}}{\frac{m_e}{m_i}}\right) \]
+\[ \sum_\alpha n_\alpha q_\alpha \langle vv\rangle_\alpha\ =\ \frac{e}{m_i}\, p_i\ -\ \frac{e}{m_e} p_e\ +\ (\vec j\,\vec u +\vec u\, \vec j)\ \left(1 + \cancelto{\text{trascurabile in prima analisi}}{\frac{m_e}{m_i}}\right) \]
 
-Quindi nell'equazione del moto abbiamo:
+Quindi per ora sviluppando eq.\ref{precursore Ohm} abbiamo trovato una forma:
 
-\[ \frac{\partial \vec j}{\partial t} + \nabla \cdot \left[ e\, \left(\frac{p_i}{m_i}- \frac{p_e}{m_e}\right)\, +\,  \vec j \vec u + \vec u\vec j\ \right] \,-\, \frac{n e^2}{m_e}\, \left( \vec E + \frac{\vec u\times \vec B}{c} - \frac{\vec j\times \vec B}{n\, e\, c} \right)\ =\ \eta\dots \text{(termini resistivi)}\ \ . \]
+\[ \frac{\partial \vec j}{\partial t} + \nabla \cdot \left[ e\, \left(\frac{p_i}{m_i}- \frac{p_e}{m_e}\right)\, +\,  \vec j \vec u + \vec u\vec j\ \right] \,-\, \frac{n e^2}{m_e}\, \left( \vec E + \frac{\vec u\times \vec B}{c} - \frac{\vec j\times \vec B}{n\, e\, c} \right)\ =\ 0\ \ . \]
 
 Prendiamo infine il termine finale dell'equazione del moto, quello con $q_\alpha^2$:
 
@@ -214,42 +202,67 @@ Infine eccoci \textbf{finalmente} giunti all'\underline{equazione di Ohm general
 	\boxed{\ \frac{\partial \vec j}{\partial t}\, +\, \vec \nabla\cdot \left[\vec j\,\vec u\, +\, \vec u\, \vec j\, -\, \frac{p_e}{e}\right]\, -\,\frac{n\, e^2}{m_e} \left(\vec E + \frac{1}{c} \vec u\times \vec B - \frac{1}{n\, e\, c} \vec j\times \vec B\right) \ =\ 0\ }
 \end{equation}
 
+
+
+
+\subsection{Equazione dell'energia di singolo fluido}
+Se ora andiamo a richiamare l'equazione dell'energia del capitolo precedente - che riscriviamo qui sotto - possiamo trovare una chiusura (?) $\sum_\alpha \frac{m_\alpha}{2}$:
+
+\[ \frac{\partial \color{blue}{\varepsilon}}{\partial t}\ =\ -\vec \nabla\cdot \color{blue}{\vec Q} \color{black}\, +\, \vec E\cdot\color{blue}{\vec J} \]
+
+\[ \frac{\partial}{\partial t} \color{blue}{\int \frac{1}{2} m v^2 f d\vec v} \color{black}\ +\  \frac{\partial}{\partial\vec x} \color{blue}{\int\frac{1}{2}m v^2 \vec v f d\vec v} \color{black}\ -\ \color{blue}{q\, n\,\vec w} \color{black} \cdot \vec E\ =\ 0\]
+
+che quindi facciamo diventare:
+
+\[\sum_\alpha \frac{m_\alpha}{2} \frac{\partial}{\partial t} (n_\alpha \langle v^2 \rangle_\alpha)\, +\,\frac{1}{2} \sum_\alpha m_\alpha \nabla \cdot (n_\alpha \langle v^2 \vec v\rangle_\alpha)\, -\, \sum_\alpha q_\alpha n_\alpha \vec w_\alpha \cdot \vec E\ =\ 0\]
+
+
+Per il terzo termine sappiamo ora di poter sostituirvi la definizione della corrente, $\sum_\alpha q_\alpha n_\alpha \vec w_\alpha\, \equiv\, \vec j$. 
+
+Guardando al primo termine vediamo che questo rappresenta ora la variazione dell'energia interna $\ \partial_t\, \left( \rho\, u^2\, /\, 2\ +\ 3\, p\, /\, 2 \right)\ $, sappiamo che $P_\alpha = \frac{1}{3} m_\alpha n_\alpha \langle \vec w\vec w \rangle = n_\alpha T_\alpha$ e per magia ci ritroviamo in mano:
+
+\[ \frac{\partial}{\partial t} \,\left[\frac{1}{2} \sum_\alpha n_\alpha m_\alpha \langle v^2 \rangle_\alpha \right]\ =\ \frac{\partial}{\partial t } \left[\frac{1}{2} \rho u^2 + \frac{3}{2} \sum_\alpha n_\alpha T_\alpha\right]\ \ . \]
+
+Mentre, per il secondo termine vediamo che dato che la velocità della singola specie è presa rispetto alla velocità del singolo fluido, allora 
+\[\langle \vec w\rangle_\alpha\ =\ \vec u_\alpha\, +\, \vec u \qquad \iff \qquad \vec v_\alpha\ =\ \vec u\, +\, \vec w_\alpha\ \ ,\]
+quindi non è più a media nulla. Cerchiamo ora di calcolare $\langle v^2 \vec v\rangle_\alpha$:
+
+\[ \begin{aligned}\langle\, v^2\, \vec v\,\rangle_\alpha\ 
+&=\ \langle\ [\ (\vec w +\vec u)\cdot(\vec w + \vec u)\ ]\ (\vec w + \vec u)\ \rangle_\alpha \\ 
+&=\ \langle w^2 \vec w\rangle_\alpha\, +\,\langle \vec w^2 \vec u\rangle_\alpha\, +\, \langle u^2 \vec w\rangle_\alpha\, +\, u^2\vec u\, +\, 2\langle (\vec u\cdot \vec w)\,\vec w\rangle_\alpha\, +\, 2\,\langle (\vec u\cdot \vec w)\,\vec u\rangle_\alpha
+\end{aligned} \]
+
+e - a questo punto - cerchiamo un modo intelligente di ridurre questi termini, in particolare riconoscendo i flussi di calore di singola specie $\vec q_\alpha$, le pressioni di singola specie $p_\alpha$ e ricordando le definizioni di $\rho$, $\rho\vec u$ e $\mathbf{P}$ andiamo a vedere cosa diventano questi termini assieme alla somma $\sum_\alpha m_\alpha/2$ ma senza considerare per il momento il gradiente:
+
+
+\[ (\vec w\cdot \vec u) \, \vec w\ =\ \vec w \vec w\cdot \vec u\ \ \Rightarrow\ \ \sum_\alpha n_\alpha m_\alpha \, \langle \vec w \vec w \rangle_\alpha \cdot \vec u\ =\ \mathbf{P}\cdot \vec u\ \ ,\]
+
+dove $\vec w \vec w=w_iw_j$ è da intendersi come tensore.
+
+\[ \frac{1}{2} \sum_\alpha n_\alpha m_\alpha\, \langle w^2 \vec w\, \rangle_\alpha \ \equiv\ \sum_\alpha \vec q_\alpha\ =\ Q\]
+
+\[ \frac{1}{2} \sum_\alpha n_\alpha m_\alpha \langle w^2 \vec u \rangle_\alpha\ =\ \frac{1}{2} \sum_\alpha n_\alpha m_\alpha \langle w^2 \rangle _\alpha \vec u\ =\ \frac{3}{2} \sum_\alpha p_\alpha \vec u\ =\ \frac{3}{2} \sum_\alpha n_\alpha T_\alpha \vec u\]
+
+\[ \frac{1}{2} \sum_\alpha n_\alpha m_\alpha u^2\ =\ \frac{1}{2} \rho u^2 \vec u\]
+
+\[ \langle u^2 \vec w_\alpha \rangle = u^2 \langle \vec w \rangle_\alpha\ =\ u^2\ \langle\, \vec u_\alpha - u\, \rangle\ =\ \cancel{\rho\vec u} - \cancel{\rho\vec u}\ =\ 0\ \ . \]
+
+Quindi, dopo tutti questi rimaneggiamenti abbiamo che per il \underline{secondo termine dell'equazione dell'energia}, in definitiva:
+
+\[ \frac{1}{2} \sum_\alpha m_\alpha \nabla\, \cdot\, ( n_\alpha\, \langle v^2 \vec v \, \rangle_\alpha )\ =\ \nabla \cdot \left(\frac{1}{2}\rho u^2 \vec u + \frac{3}{2}\, p\, \vec u\, + \mathbf{P}\cdot \vec u\, +\vec q\,\right) \]
+
+
+Otteniamo così l'eq dell'\textbf{energia per singolo fluido} (in caso \emph{collision-less}):
+
+\begin{equation}
+	\label{Energia singolo fluido}
+	\boxed{\frac{\partial}{\partial t} \left(\frac{1}{2}\rho u^2 +\frac{3}{2} p\right) + \vec\nabla \cdot \left( \frac{1}{2}\rho u^2 \vec u + \frac{3}{2}\rho\vec u  + \mathbf{P}\cdot\vec u + \mathbf{q}\right) \ =\ \vec j\cdot \vec E}
+\end{equation}
+
+
+
 \vspace{0.5cm}
 
-\subsubsection{Altre considerazioni per costruire MHD}
-
-\paragraph{Faraday in MHD : } Consideriamo la legge di Faraday $\frac{1}{c}\, \frac{\partial \vec B}{\partial t}\, =\, -\vec \nabla \times \vec E$, dimensionalmente abbiamo che $B\, /\, c\tau \sim E\, / L$ quindi anche $\frac{E}{B}\, \sim\, \frac{L}{c\, \tau}\,\sim\, \frac{u}{c}$ così che abbiamo una stima di una velocità caratteristica in funzione di lunghezza e tempo caratteristici $u\sim L/\tau$.
-
-Nella MHD ideale andiamo a supporre che $\vec E\, +\, \frac{\vec u\times \vec B}{c}\, =\, 0$ quindi, in unità $c=1$, vediamo che l'equazione di Faraday-Maxwell in MHD ideale assume la forma:
-
-\begin{equation}
-	\label{Faraday MHD ideale}
-	\boxed{\frac{\partial \vec B}{\partial t}\, =\, \vec \nabla \times \left(\vec u\times \vec B\right)}\ \ \ .
-\end{equation}
-
-\paragraph{Ampére in MHD : } Dalla legge di Ampère sappiamo che $\frac{1}{c}\frac{\partial E}{\partial t}\, =\, \vec \nabla \times \vec B\, -\, \frac{4\pi}{c} \vec j$, andiamo a fare ancora un'analisi dimensionale per capire quali termini dominino:
-
-\[ \Rightarrow\quad \frac{|\partial_t\, \vec E|}{c\,|\vec \nabla\, \times\, \vec B|}\ \sim\ \frac{E\, L}{c\, \tau\, B}\ \sim\ \left( \frac{u}{c}\right)^2 \]
-
-questa ci permette di dire che nel caso in cui $u\ll c$, allora il termine $\partial_t \vec E$ è trascurabile rispetto al termine $\vec \nabla \times\vec B$, quindi l'equazione di \underline{Ampère-Maxwell in MHD} diventa: 
-\begin{equation}
-	\label{Ampére MHD}
-	\boxed{\vec \nabla\times \vec B\ \approx\ \frac{4\pi}{c}\vec j}\ \ ,
-\end{equation}
-quindi, dimensionalmente, diciamo anche che $B/L\, \sim\, j / c$ ed osserviamo che la corrente $\vec j$ è associata al campo e non legata ad $\vec u_e$ e $\vec u_i$.
-
-\paragraph{Equazione del moto in MHD : } Stiamo pian piano costruendo questo nostro modello della magnetoidrodinamica, riconsideriamo ora l'eq. del moto eq.(\ref{moto MHD}), per la quale eravamo rimasti con la forma $\ \rho\,\frac{D\, \vec u}{D\, t}\,=\,- \nabla p + \rho_c\, \vec E + \vec j\times \vec B\, /\, c$ . In questo caso non possiamo dire che il termine $\rho_c\, \vec E$ si annulli solo per la quasi-neutralità, $n_e\, \simeq\, n_i$, ma possiamo considerarlo come un'approssimazione del termine $\frac{1}{c} \vec j\times \vec B$ , infatti:
-
-\[ \frac{\rho_c\, |\vec E|}{|\vec j\times \vec B|\, /\, c}\ \sim \ \frac{E^2}{L}\,\frac{c}{j\,B}\ \sim\ \frac{E^2}{B^2}\ \sim\ \left(\frac{u}{c}\right)^2\ \ll\ 1 \ \ .\]
-
-quindi nell'\underline{equazione del moto} possiamo trascurare $\rho_c\, \vec E$ e scrivere la versione \underline{semplificata}:
-
-\begin{equation}
-	\label{moto MHD semplificato}
-	\boxed{\rho\, \frac{D\, \vec u}{D\, t}\, +\, \vec\nabla\cdot \mathbf{P} \, -\, \frac{1}{c}\vec j\times\vec B\ =\ 0}\ \ .
-\end{equation}
-
-Nel caso stazionario $\vec \nabla \cdot \mathbf{P}\, =\, \vec j\times \vec B\, /\, c$ , da cui dimensionalmente: $P\,/\,L\,\sim\, j\,B\,/\,c\,\sim\, B^2\,/\,L$ .
 
 \paragraph{Altre definizioni importanti : } Ancora sulla linea del fornire altre rifiniture per completare il nostro modello MHD, definiamo un'altra velocità caratteristica del plasma diversa dalla velocità del suono, cioè la \underline{velocità di Alfvén}, che partendo da $\rho \frac{\partial u}{\partial t}\sim \frac{j}{c}\, B= \frac{1}{4\pi}\frac{B^2}{L}$ e scrivendo $\rho \frac{\partial u}{\partial t}\sim \rho \frac{u_a}{\tau}$, si definisce come:
 
@@ -268,7 +281,12 @@ Altra quantità che solitamente si definisce in ambito di fusione soprattutto è
 	\boxed{\,\beta\ \equiv\ \frac{8\, \pi\, p}{B^2}\,}
 \end{equation}
 
-\paragraph{Equazione di Ohm generalizzata : } Ripartiamo dall'equazione di Ohm generalizzata, ma riarrangiata rispetto ad eq.(\ref{eq di Ohm generalizzata}) e questa volta non ideale quindi inserendo il termine resistivo:
+%
+%
+%
+\subsection{Equazione di Ohm ideale vs. resistiva} 
+
+Ripartiamo dall'equazione di Ohm generalizzata, ma riarrangiata rispetto ad eq.(\ref{eq di Ohm generalizzata}) e questa volta non ideale quindi inserendo il termine resistivo:
 
 \begin{equation}
 	\label{Ohm come dio comanda}
@@ -316,7 +334,7 @@ Un'altra versione accennata a lezione è la \emph{'electron MHD Ohm's law'} $\ve
 
 %
 %
-\subsubsection{Ancora sull'equazione dell'energia}
+\subsection{Ancora sull'equazione dell'energia}
 
 Torniamo sull'equazione dell'energia per singolo fluido, in eq.(\ref{Energia singolo fluido}), in modo da capire in che condizioni ridurci ad una politropica:
 
@@ -355,11 +373,9 @@ Per invarianza del prodotto misto sotto permutazioni cicliche otteniamo $\vec j\
 
 
 
-
-
 %
 %
-\subsection{Riassumendo il framework di MHD ideale}
+\section{Riassumendo il framework di MHD ideale}
 Abbiamo infine un sistema di equazioni per l'MHD ideale che comprende:
 
 \begin{equation}
