@@ -136,7 +136,23 @@ Cerchiamo le soluzioni dell'equazione imponendo $\vec v = \vec \nabla \phi$:
 
 Parametrizzando la superficie di scorrimento come $\xi (x,y,t)$ e consideranzo che per $z\to \pm \infty$ la velocità $\vec u\to 0$
 
-\[\vec u_2\ =\ \frac{D \xi}{D t}\ =\ \frac{\partial \xi}{\partial t} + \frac{\partial \xi}{\partial x}\frac{\partial x}{\partial t} + \frac{\partial \xi}{\partial y}\frac{\partial y}{\partial t}\]
+\[\vec u_2\ =\ \frac{D \xi}{D t}\ =\ \frac{\partial \xi}{\partial t} + \frac{\partial \xi}{\partial x}\frac{\partial x}{\partial t} + \cancelto{\text{secondo ordine}}{\frac{\partial \xi}{\partial y}\frac{\partial y}{\partial t}}\]
+
+Ora facendo i calcoli che si farebbero per l'instabilità di Kelvin-Helmholtz in fluidodinamica si giunge a:
+
+\[
+\gamma\ =\ -\frac{im(\rho_1 u_1+\rho_2 u_2)}{\rho_1 + \rho_2}\, \pm \, \left[m^2\rho_1 \rho_2\frac{(u_1 - u_2)^2}{(\rho_1 + \rho_2)^2}\, -\, ky\frac{\rho_1 - \rho_2}{\rho_1 + \rho_2}\right]^{1/2}
+\]
+
+Vediamo due casi particolari:
+\begin{itemize}
+	\item Se $\rho_1=\rho_2=\rho$ si ha un K-H "puro":
+	\[ \gamma\ =\ -\,i\,m\, \frac{u_1 + u_2}{2}\, \pm \, m\left[ \frac{(u_1 - u_2)^2}{4} \right]^{1/2} \]
+	\item Se $u_1 = u_2 = u$:	
+	\[\gamma\ =\ i\, \left[mu\, \pm\, \left( k y\frac{\rho_1 - \rho_2}{\rho_1 + \rho_2}\right)^{1/2}\right]\]
+\end{itemize}
+
+
 
 
 
@@ -159,6 +175,8 @@ Stiamo lavorando in una regione in cui la relazione fra tempo caratteristico \un
 \[1\ \ll\ \frac{1}{\gamma\tau_a}\ \ll\ \frac{\tau_A}{\tau_R}\ \equiv\  S\ \equiv\ R_a\quad \text{che è un numero enorme}\] 
 
 Noi osserviamo chiaramente che la riconnessione avviene anche in 3D ma per il momento la studiamo in 2D.
+
+\subsubsection{Riconnessione in 2D:}
 
 Le condizioni del problema sono che ci mettiamo in 2D ($\partial_z=0$) in approssimazione incomprimibile $\vec\nabla\cdot\vec u=0$ e: 
 
@@ -204,25 +222,23 @@ facciamo tutti i conti passo passo
 	\partial_x & \partial_y & 0\\
 	0& 0 &  B_0\partial_y\phi
 \end{vmatrix} 
-=B_0\partial_{yy}\phi\hat x-\partial x[B_0\partial \phi]\hat y=B_0\partial_{yy}\phi\hat x-(B_0'\partial_y\phi+B_0\partial{xy}\phi)\hat y\] 
+\ =\ B_0\partial_{yy}\phi\hat x-\partial_x[B_0\partial \phi]\hat y\ =\ B_0\partial_{yy}\phi\hat x-(B_0'\partial_y\phi+B_0\partial_{xy}\phi)\hat y\] 
 
 dove $B_0'=\partial_ xB_0$ e in generale d'ora in poi i termini col primo si intende derivata lungo x. 
 
-\[\nabla^2\vec b=(\partial_{xx}+\partial{yy})(\partial_y\psi\hat x-\partial_x\psi\hat y)=(\partial_{xxy}+\partial_{yyy})\psi\hat x-(\partial_{xxx}+\partial_{yyx})\psi\hat y\] 
+\[\nabla^2\vec b\ =\ (\partial_{xx}+\partial_{yy})(\partial_y\psi\hat e_x-\partial_x\psi\hat e_y)\ =\ (\partial_{xxy}+\partial_{yyy})\psi\hat e_x\,-\,(\partial_{xxx}+\partial_{yyx})\psi\hat e_y\] 
 
 chiaramente la derivata rispetto al tempo del campo elettrico mi ammazza il campo medio $B_0$ 
 
-\[\partial_t\vec B=\partial _t\vec b=\partial_{ty}\psi\hat x-\partial_{tx}\psi\hat y\]
+\[\partial_t\vec B=\partial _t\vec b=\partial_{ty}\psi\hat x-\partial_{tx}\psi\hat e_y\]
 
-Metto tutto insieme , separo le componenti e impongo una bella soluzione piana  (non è per davvero un'onda piana, al massimo posso dire che è un ansatz)
-
-\[\sim f(x)e^{iky-\gamma t}\]:
+Metto tutto insieme , separo le componenti e impongo una soluzione piana $\sim f(x)e^{iky-\gamma t}$.
 
 \begin{itemize}
-	\item componente $\hat x$:\[ \partial_{ty}\psi=B_0\partial_{yy}\phi+\eta(\partial_{xxy}+\partial_{yyy})\psi\] tutti i termini contengono un $\partial _y$ e quindi posso integrare in $\partial y$.\\
-	\[\gamma\psi=ikB_0\phi+\eta(\psi''-k^2\psi)\] 
+	\item componente $\hat e_x$:\[ \partial_{ty}\psi\ =\ B_0\partial_{yy}\phi\,+\,\eta\,(\partial_{xxy}+\partial_{yyy})\psi\] tutti i termini contengono un $\partial _y$ e quindi posso integrare in $\partial y$.\\
+	\[\gamma\psi\ =\ ikB_0\phi\,+\,\eta(\psi''-k^2\psi)\] 
 	\item componente y:  \\ho ricucito la derivata del prodotto. 
-	\[ -\partial_{tx}\psi=-(B_0\partial_y\phi)'-\eta(\partial_{xxx}-\partial_{yyx})\psi\]
+	\[ -\partial_{tx}\psi\ =\ -(B_0\partial_y\phi)'\,-\,\eta(\partial_{xxx}-\partial_{yyx})\psi\]
 	
 \end{itemize} 
 
