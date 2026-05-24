@@ -10,7 +10,9 @@ Ora andremo prima a vedere delle ultime onde ricavate in regime a due fluidi, pe
 \section{Onde ion-acustic}
 
 
-Onde elettrostatiche di tipo autistico, ovviamente si possono ricavare da vlasov ma noi non lo facciamo, le ricaviamo con il modello a due fluidi, che va dall'MHD alle onde di plasma. se partissimo direttamente dall'MHD non troveremmo le onde di plasma (e il landau damping), ma noi invece le troveremo (questa parte è un po' poco chiara, si fa facilmente confusione fra tutti questi tipi di onde in diversi regimi, ma vediamo come rimettere il tutto in ordine).
+Onde elettrostatiche di tipo acustico/sonoro, ovviamente si possono ricavare da vlasov ma noi non lo facciamo, le ricaviamo con il modello a due fluidi, che va dall'MHD alle onde di plasma. 
+
+Se partissimo direttamente dall'MHD non troveremmo le onde di plasma (e il landau damping), ma noi invece le troveremo (questa parte è un po' poco chiara, si fa facilmente confusione fra tutti questi tipi di onde in diversi regimi, ma vediamo come rimettere il tutto in ordine).
 
 Abbiamo un plasma non magnetizzato:
 
@@ -48,7 +50,7 @@ Risulta utile definire una sorta di "\underline{velocità del suono per la speci
 
 \[\boxed{ v^2_{0\alpha}=\frac{\gamma_\alpha P_{0\alpha}}{m_\alpha n_{0\alpha}} }\] 
 
-Tolgo i segni di vettore perché il nostro problema adesso è unidimensionale.
+Facciamo una trasformata di Fourier e togliamo i segni di vettore perché il nostro problema adesso è unidimensionale:
 
 \[\begin{cases}
 	-i\omega\,n_{1\alpha}\,+\,ik\,n_{0\alpha}u_\alpha\ =\ 0
@@ -82,9 +84,9 @@ Se trascuriamo il termine degli ioni, ritroviamo le onde di plasma freddo con co
 Per trovare la relazione generale imponiamo di trovarci in un modo normale isotropo, $\epsilon=0$. 
 Dobbiamo ricordare che $\omega_{pI}^2\sim\frac{1}{m_I}\ll\omega_{pe}^2\sim\frac{1}{m_e}$ ed andare a risolvere l'espressione di quarto grado per $\omega^2$:
 
-\[\cancelto{=0}{(\omega^2-k^2v_{0e}^2)\,(\omega^2-k^2v_{0I}^2)\,\epsilon} \ =\ (\omega^2-k^2v_{0e}^2)\,(\omega^2-k^2v_{0I}^2)\, -\,\omega_{pI}^2\,(\omega^2-k^2v_{0e}^2)\, -\, \omega_{pe}^2\, (\omega^2-k^2v_{0I}^2)\]
+\[0 \ =\ (\omega^2-k^2v_{0e}^2)\,(\omega^2-k^2v_{0I}^2)\, -\,\omega_{pI}^2\,(\omega^2-k^2v_{0e}^2)\, -\, \omega_{pe}^2\, (\omega^2-k^2v_{0I}^2)\]
 
-\[\omega^4\, -\,\left[k^2(v^2_{0,\,e}+v^2_{0,\,I})+ \omega^2_{p,\,e} + \omega^2_{p,\,I}\right]\omega^2\, +\, k^4 v^2_{0,\,e} v^2_{0,\,I} + k^2(\omega^2_{p,\,I}v^2_{0,\,e}+\omega^2_{p,\,e}v^2_{0,\,I})\ =\ 0\]
+\[\omega^4\, -\,\left[k^2(v^2_{0,\,e}+v^2_{0,\,I})+ \omega^2_{p,\,e} + \omega^2_{p,\,I}\right]\omega^2\, +\, [k^4 v^2_{0,\,e} v^2_{0,\,I} + k^2(\omega^2_{p,\,I}v^2_{0,\,e}+\omega^2_{p,\,e}v^2_{0,\,I})]\ =\ 0\]
 
 Per procedere più agevolmente prendiamo $\omega^4-A\omega^2+C=0$ poniamo $\omega^2=\frac{A}{2}[1\pm(1-B)^\frac{1}{2}]$, con un nuovo $B=4C/A^2$. Vediamo che $B$ è piccolo, $B\,\sim\,m_e/\,m_I\,\ll\, 1$, quindi possiamo fare un'approssimazione di Taylor (per intenderci il numeratore va come $\displaystyle\frac{1}{m_Im_e}$ e il denominatore va come $\displaystyle\frac{1}{m_e^2}$.).
 
@@ -98,7 +100,7 @@ Per procedere più agevolmente prendiamo $\omega^4-A\omega^2+C=0$ poniamo $\omeg
 \end{cases}
 \]
 
-Otteniamo due soluzioni, una è la soluzione già trovata delle onde di plasma con correzione termica, questo perché stiamo considerando il modello a due fluidi in cui le onde di plasma sono previste. 
+Otteniamo due soluzioni, una è la soluzione già trovata delle \underline{onde di plasma con correzione termica} $\omega_{th}$, questo perché stiamo considerando il modello a due fluidi in cui le onde di plasma sono previste. 
 
 L'altra soluzione, $\omega^2_{IA}$, invece è quella che ci interessa.
 
@@ -151,15 +153,19 @@ Nel caso invece in cui $T_I\sim T_e $ siamo nelle condizioni in cui tendenzialme
 %
 %
 \section{Onde magnetoidrodinamiche}
-\subsection{Onde di Alfvén}
+
+Passiamo a studiare onde che emergono dalla trattazione magnetoidrodinamica.
 
 Le onde in MHD si dividono in tre gruppi, due magnetosoniche e poi le onde di Alfvén.
+
+\subsection{Onde di Alfvén}
 
 Le \textbf{onde di Alfvén} sono onde \underline{non dispersive}, inoltre non sono \underline{compressive} ($\vec \nabla \cdot \vec u\, =\, 0$), quindi l'energia che trasportano può essere portata più lontano rispetto ad onde compressive.
 
 Ancora una volta linearizziamo $\rho,\ p,\ \vec u\ $, usiamo un pedice 0 per le quantità ad equilibrio ($\rho_0,\ p_0,\ \vec u_0\ $) ed un pedice 1 per le fluttuazioni ($\rho_1,\ p_1,\ \vec u_1\ $). 
 
-Per il campo magnetico in particolare scriviamo $\vec B = B_0 \hat e_z + \vec b\ $, vale $\vec\nabla\cdot \vec B=0=\frac{\partial b}{\partial z}$ quindi il nostro sistema di equazioni linearizzate è:
+Per il campo magnetico in particolare scriviamo $\vec B = B_0 \hat e_z + \vec b\ $.
+Vale $\vec\nabla\cdot \vec B=0=\frac{\partial b}{\partial z}$ quindi il nostro sistema di equazioni linearizzate è:
 
 \[\begin{cases}
 	\displaystyle \frac{\partial \rho_1}{\partial t} + \rho_0\,\vec \nabla\cdot \vec u\ =\ 0\\
@@ -208,15 +214,17 @@ Proseguiamo i calcoli in trasformata di Fourier:
 	-k_{\parallel} b_y & - k b_{\bar z} & k_{\perp} b_y
 \end{vmatrix} \ =\ \hat x\,(k\,B_0\, b_{\bar z})\, -\, \hat y (k_{\parallel}\, b_y\, B_0) + \hat z(0)\]
 
-Ne deriva che la seconda equazione del sitema sia:  $\omega \rho_0\vec u = c^2_S \vec k \rho_1 + \frac{1}{4\pi}(kB_0 b_{\bar z} \hat x - k_\parallel b_y B_0 \hat y)$ . 
+Ne deriva che la seconda equazione del sitema sia:  
+
+\[\omega \rho_0\vec u = c^2_S \vec k \rho_1 + \frac{1}{4\pi}(kB_0 b_{\bar z} \hat x - k_\parallel b_y B_0 \hat y)\ \ .\] 
 
 Finito questo rimaneggiamento passiamo a fare lo stesso per la terza equazione:
 
 \[ \vec u\,\times\,\vec B_0\ =\ \begin{vmatrix} 
 	\hat x & \hat y & \hat{z} \\ 
-	0 & 0 & B_0\\
-	u_x & u_y & u_{z}
-\end{vmatrix} \ =\ -b_0 u_y \hat x\, +\,  b_0 u_x \hat{y} \]
+	u_x & u_y & u_{z}\\
+	0 & 0 & B_0
+\end{vmatrix} \ =\ B_0 u_y \hat x\, -\,  B_0 u_x \hat{y} \]
 
 \[ \vec k\times (\vec u\times \vec B_0) \ =\ \begin{vmatrix} 
 	\hat k & \hat y & \hat{\bar z} \\ 
@@ -230,7 +238,9 @@ In questo modo abbiamo ridotto il sistema ad uno di :
 	\omega \rho_0 u_y\ =\ \frac{B_0}{4\pi}\, k_\parallel b_y
 \end{cases}\]
 
-Questo sistema si limite alla direzione y con incognite $u_y$ e $b_y$, mentre il eiste un secondo sitema con $u_z,\, u_x$ e $b_x,\, b_y$. Otteniamo $\omega u_y = \omega^2 b_y / (k_\parallel B_0)$ e $\rho_0 \omega^2 b_y/(k_\parallel B_0) = B_0 k_\parallel b_y / (4\pi)$ che ci permettono di scrivere una \textbf{relazione di dispersione} per le onde di Alfvén $\forall\ \ \theta$, notando che per $\theta = \pi/2$ non vi sono onde:
+Questo sistema si limite alla direzione y con incognite $u_y$ e $b_y$, mentre il esiste un secondo sitema con $u_z,\, u_x$ e $b_x,\, b_y$, che vedremo nel prossimo paragrafo. 
+
+Otteniamo $\omega u_y = \omega^2 b_y / (k_\parallel B_0)$ e $\rho_0 \omega^2 b_y/(k_\parallel B_0) = B_0 k_\parallel b_y / (4\pi)$ che ci permettono di scrivere una \textbf{relazione di dispersione} per le onde di Alfvén $\forall\ \ \theta$, notando che per $\theta = \pi/2$ non vi sono onde:
 
 \begin{equation}
 	\boxed{\ \omega^2\ =\ k^2_\parallel c^2_a\ =\ k^2\, cos^2\theta\, c^2_a\ }
@@ -254,7 +264,7 @@ Riprendiamo il sistema precedente, questa volta consideriamo la direzione perpen
 	\omega\,\vec b\ =\ -\vec k\times (\vec u \times \vec B_0)
 \end{cases} \]
 
-\[\omega \rho_0 \vec u\ =\ c^2_s \frac{\rho_0}{\omega} (k_\perp u_x + k_\parallel u_z)\vec k + \frac{k\, B_0 b_{\bar z}}{4\pi} \hat x + \dots \hat y \]
+\[\omega \rho_0 \vec u\ =\ c^2_s\, \frac{\rho_0}{\omega}\, (k_\perp u_x + k_\parallel u_z)\vec k\ +\ \frac{k\, B_0 b_{\bar z}}{4\pi}\, \hat x\ +\ \dots\, \hat y \]
 
 Dalla terza equazione del sistema prendiamo $\omega b_z = k B_0 u_x$, usiamo poi il fatto che $\displaystyle\frac{k^2 B_0^2}{4\pi \rho_0}\, u_x=k^2\, c^2_a u_x$ per ottenere:
 
@@ -333,6 +343,11 @@ Questo meccanismo descrive come le onde di plasma possono \underline{perdere ene
 	
 	\item \textbf{Risonanza onda-particella:}
 	Il dumping avviene quando la \underline{velocità di fase dell'onda} $v_f = \omega/k$ (dove $\omega$ è la frequenza e $k$ il numero d'onda) \underline{coincide} con la velocità di alcune particelle del plasma, cioè $v \sim v_f$. In altre parole, alcune particelle viaggiano \underline{alla stessa velocità dell'onda} e interagiscono con essa in modo risonante.
+	\begin{figure}[H]
+		\centering
+		\includegraphics[width=6cm]{immagini/LD.png}
+	\end{figure}
+
 	
 	\item \textbf{Effetto netto:}
 	In media, se ci sono \underline{più particelle con $v < v_f$} rispetto a quelle con $v > v_f$, l'onda \underline{perde energia} (dumping). Al contrario, se $f(v)$ è monotona crescente, l'onda \underline{guadagna energia} (inverso del dumping).
@@ -347,13 +362,13 @@ Questo meccanismo descrive come le onde di plasma possono \underline{perdere ene
 	In assenza di un campo magnetico, il dumping di Landau diventa rilevante. Questo è il caso che tratteremo in dettaglio.
 \end{itemize}
 
-Il plasma non è magnetizzato, pertanto:$\vec{B}_0 = \vec{B}_1 = \vec{B} = 0$.
+Il plasma non è magnetizzato, pertanto: $\boxed{\, \vec{B} = 0\,}$ .
 
-Il campo elettrico medio è nullo e la fluttuazione è esprimibile come gradiente di un potenziale: $\vec{E} = \vec{E}_1 = -\vec{\nabla}\phi$.
+Il campo elettrico medio è nullo e la fluttuazione è esprimibile come gradiente di un potenziale: $\boxed{\,\vec{E} = 0\,}$, $\boxed{\,\vec{E}_1 = -\vec{\nabla}\phi\,}$ .
 
 La funzione di distribuzione per una specie $a$ (elettroni o ioni) è:
 \[
-f_a(\vec{x}, \vec{v}, t) = f_{a0}(\vec{v}) + f_{a1}(\vec{x}, \vec{v}, t),
+f_a(\vec{x}, \vec{v}, t)\ =\ f_{a0}(\vec{v})\, +\, f_{a1}(\vec{x}, \vec{v}, t)\ \ ,
 \]
 
 dove $f_{a0}(\vec{v})$ dipende esclusivamente dalla velocità e la distribuzione è pari, ossia $f(v) = f(-v)$.
@@ -366,19 +381,16 @@ Per descrivere il dumping di Landau, è necessario utilizzare l'\textbf{equazion
 \end{itemize}
 Le isolinee sono più dense nelle regioni dello spazio delle fasi dove il gradiente di $f$ è maggiore. Se si forma un \textbf{vortice} attorno a $v_f$, le isolinee si avvolgono, e si osserva un \textbf{cambio di segno della velocità} nel sistema di riferimento dell'onda (fenomeno noto come \textbf{trapping}).
 
-\[\frac{\partial}{\partial_t}f_a+\vec v\cdot \vec\nabla_{\vec x} f_a+\frac{q_a}{m_a}\vec E\cdot \vec \nabla_{\vec v}f_a=0\] 
+\[\frac{\partial}{\partial_t}f_a\,+\,\vec v\cdot \vec\nabla_{\vec x} f_a\,+\,\frac{q_a}{m_a}\vec E\cdot \vec \nabla_{\vec v}f_a\ =\ 0\ \ .\] 
 
 Quando linearizzo i primi termini è tutto abbastanza naturale: $f_{0a}$ non dipende né da $\vec x$ né da $t$ e quindi rimane solamente il termine $f_{a1}$. Per quanto riguarda il termine $\vec E\cdot \vec \nabla_{\vec v}f_a$, le cose sono più delicate;\\ è vero che all'istante iniziale 
-
-\[\frac{\partial f_{a0}}{\partial v}\gg\frac{\partial f_{a1}}{\partial v}\] 
-
+$\frac{\partial f_{a0}}{\partial v}\gg\frac{\partial f_{a1}}{\partial v}$
 ma i gradienti $\partial_v$ evolvono nel tempo e può arrivare un momento in cui la nostra linearizzazione non vale più e in gradienti evolvono in maniera da avere 
-
-\[\frac{\partial f_{a0}}{\partial v}\simeq\frac{\partial f_{a1}}{\partial v}\] 
-
-Questo può avvenire dopo un certo tempo \textit{di intrappolamento} $\tau_t$.
+$\frac{\partial f_{a0}}{\partial v}\simeq\frac{\partial f_{a1}}{\partial v}$ .
+Questo può avvenire dopo un certo \underline{tempo di intrappolamento} $\tau_t$.
 
 In ogni caso, quando vale la linearizzazione, abbiamo:
+
 \[\boxed{\ \frac{\partial}{\partial t}f_{a1}\ +\ \vec v\cdot \vec\nabla_{\vec x} f_{a1}\ +\ \frac{q_a}{m_a}\vec E_1\cdot \vec \nabla_{\vec v}f_{a0}\ =\ 0}\] 
 
 Useremo anche l'equazione di Poisson:
@@ -390,12 +402,9 @@ Questa equazione è già linearizzata perchè $\vec E=\vec E_1$ e $n_{0e}=n_{0I}
 Il dumping di Landau è spesso chiamato "smorzamento", ma non è un fenomeno dissipativo. Ecco le sue proprietà chiave:
 \begin{itemize}
 	\item \textit{Smorzamento $\neq$ dissipazione};
-	\item \textit{NON è l'equivalente di un attrito};
-	\item \textit{NON è l'equivalente di una resistività};
-	\item \textit{NON è l'equivalente di una viscosità};
-	\item \textit{NON viene prodotto calore};
-	\item \textit{NON aumenta l'entropia};
-	\item \underline{È un trasferimento di energia} dall'onda alle particelle (o viceversa);
+	\item \textit{NON è l'equivalente di un attrito, di una resistività, di una viscosità};
+	\item \textit{NON viene prodotto calore o NON aumenta l'entropia};
+	\item \underline{È un trasferimento di energia} dall'onda alle particelle (o viceversa), è un fenomeno di interazione \underline{particella-onda};
 	\item \underline{L'energia può essere recuperata}: anche se non al 100\%, il trasferimento è potenzialmente reversibile.
 \end{itemize}
 
@@ -427,7 +436,7 @@ Le particelle intrappolate modificano la distribuzione in velocità, appiattendo
 	
 L'evoluzione della distribuzione perturbata \(f_1\) è descritta dall'equazione di Vlasov linearizzata:
 \[
-\frac{\partial f_1}{\partial t} + v \frac{\partial f_1}{\partial x} = \frac{e\hat{E}}{m} \sin(kx - \omega t) \frac{\partial f_0}{\partial v}.
+\frac{\partial f_1}{\partial t}\, +\, v \frac{\partial f_1}{\partial x}\ =\ \frac{e\hat{E}}{m}\, \sin(kx - \omega t)\, \frac{\partial f_0}{\partial v}\ \ .
 \]
 
 Sviluppando attorno a \(v \sim v_f\), si osserva che \(\partial_v f_1\) cresce quadraticamente nel tempo, invalidando l'ipotesi di linearità in un tempo \(\tau_t\).
@@ -435,7 +444,7 @@ Sviluppando attorno a \(v \sim v_f\), si osserva che \(\partial_v f_1\) cresce q
 \[f_1=f_1(v,t=0)\cos(kx-kvt)-\frac{e\hat E}m\frac{\partial f_0}{\partial v}\bigg[ \frac{\cos(kx-\omega _e t)}{kv-\omega_e} - \frac{\cos(kx-kv t)}{kv-\omega_e}\bigg]\] 
 
 \[
-\partial_v f_1\ \approx\ \frac{ek\hat{E}}{m}\, t^2\, \partial_v f_0\, \frac{\cos(kx - \omega t)}{2}\ \propto\ t^2.
+\partial_v f_1\ \approx\ \frac{ek\hat{E}}{m}\, t^2\, \partial_v f_0\, \frac{\cos(kx - \omega t)}{2}\ \propto\ t^2\ \ .
 \]
 Questo mostra che, in un tempo \(\tau_t \sim \sqrt{\dfrac{m}{e\hat{E}k}}\), la derivata \(\partial_v f_1\) diventa dell'ordine di 1, invalidando l'ipotesi di linearità. L'intrappolamento, quindi, modifica la funzione di distribuzione e segna il limite fisico della linearizzazione.
  

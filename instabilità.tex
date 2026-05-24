@@ -159,7 +159,7 @@ Vediamo due casi particolari:
 %%
 %
 %
-\section{Riconnessione} 
+\section{Riconnessione 2D} 
 La riconnessione è una transizione verso uno stato di energia minore che sarebbe proibita per la MHD ideale, ma può accadere in MHD resistiva, venendo violata localmente la legge di OHM ideale in una regione  (detta zona ad x  o zona resistiva) di dimensione caratteristica $\delta$  infinitesima rispetto al sistema totale, permettendo così una rottura delle linee di campo.
 
 Viene cambiata globalmente la topologia  creando una cosidetta isola di campo, inoltre viene liberata una grandissima quantità di energia Questa quantità di energia viene presa dalla struttura stessa del campo che si riarrangia nella sua interezza in una configurazione meno energetica.
@@ -170,20 +170,26 @@ Il termine del quart'ordine $\boxed{\eta\frac{d^4}{dx^4}\bar b}$ non conta mai t
 
 $L$ è la dimensione caratteristica MHD "lunghezza scala del campo di equilibrio". 
 
-Stiamo lavorando in una regione in cui la relazione fra tempo caratteristico \underline{resistivo} e \underline{di Alfvén} consiste in $\tau_A\,\ll\, 1/\gamma\,\ll\,\tau_R$, con $\gamma$ che è la stessa in $f(x)\, exp(i k y\pm \gamma t)$ in modo da poter definire:
+Stiamo lavorando in una regione in cui la relazione fra \underline{tempo caratteristico} \underline{resistivo} e \underline{di Alfvén} consiste in:
+$$\tau_A\,\ll\, 1/\gamma\,\ll\,\tau_R\ \ ,$$ 
+
+con $\gamma$ che è la stessa in $f(x)\, exp(i k y\pm \gamma t)$ in modo da poter definire:
 
 \[1\ \ll\ \frac{1}{\gamma\tau_a}\ \ll\ \frac{\tau_A}{\tau_R}\ \equiv\  S\ \equiv\ R_a\quad \text{che è un numero enorme}\] 
 
 Noi osserviamo chiaramente che la riconnessione avviene anche in 3D ma per il momento la studiamo in 2D.
 
-\subsubsection{Riconnessione in 2D:}
+\subsubsection{Condizioni per studiare la riconnessione:}
 
 Le condizioni del problema sono che ci mettiamo in 2D ($\partial_z=0$) in approssimazione incomprimibile $\vec\nabla\cdot\vec u=0$ e: 
 
 \[\vec B=B_0(x)\hat y+\vec b\hspace{1cm}u_z\,=\,0=\,b_z\ ,\hspace{1cm} \vec u_0=0\]
 
 
-Praticamente l'intensità del campo magnetico seguendo l'asse x ha valori asintotici $B_0$ per $x\to\infty$ e $-B_0$ per $x\to-\infty$. poi c'è una zona di alto gradiente di dimensioni caratteristiche L lunghezza scala del campo di equilibrio, 
+Praticamente l'intensità del campo magnetico seguendo l'asse x ha valori asintotici $B_0$ per $x\to\infty$ e $-B_0$ per $x\to-\infty$. 
+
+
+Poi c'è una zona di alto gradiente di dimensioni caratteristiche L lunghezza scala del campo di equilibrio, 
 
 \[L\sim\frac{B_0}{B_0'} \hspace{1cm}L\gg\delta\]
 
@@ -193,9 +199,9 @@ I campi di variazione sono
 
 \[\vec b=b_x(x,y)\hat x+b_y(x,y)\hat y,\hspace{1cm}\vec u=u_x(x,y)\hat x+u_y(x,y)\hat y\] 
 
-Dalla fluidodinamica sappiamo che possiamo scrivere il campo 2D come gradiente di un campo ausiliario
+Dalla fluidodinamica sappiamo che possiamo scrivere il campo 2D come gradiente di un potenziale $\psi$:
 
-\[\vec b=\nabla\psi\times\hat z=\partial_y\psi\hat x-\partial_x\psi\hat y,\hspace{1cm}\vec u=\nabla\phi\times\hat z=\partial_y\phi\hat x-\partial_x\phi\hat y\] 
+\[\vec b\ =\ \nabla\psi\times\hat e_z\ =\ \partial_y\psi\hat e_x-\partial_x\psi\hat e_y,\hspace{2cm}\vec u\ =\ \nabla\phi\times\hat z\ =\ \partial_y\phi\hat x-\partial_x\phi\hat y\] 
 
 Dopodiché ho bisogno dell'equazione di Faraday ("dell'induzione") 
 
@@ -205,20 +211,19 @@ Dopodiché ho bisogno dell'equazione di Faraday ("dell'induzione")
 %
 \subsection{equazione di faraday}  Vorrei tanto sapere come mai l'equazione di faraday è proprio scritta così, io non me la ricordo mica come siarriva a questo punto e mi auguro di scoprirlo presto... cmq davanti ad eta potrebbe esserci un $4\pi$ o comunque una costante
 
-\[\partial_t\, \vec B\ =\ \nabla\times(\vec u\times\vec B_0)\ +\ \eta\,\nabla^2\vec b\]
+\[\partial_t\, \vec B\ =\ \nabla\times(\vec u\times\vec B_0)\ +\ \eta\,\nabla^2\,\vec b\]
 
-facciamo tutti i conti passo passo
 \[\vec u\times\vec B_0= 
 \begin{vmatrix} 
-	\hat i & \hat j & \hat k\\ 
+	\hat x & \hat y & \hat z\\ 
 	\partial_y\phi & \partial_x\phi & 0\\
 	0& B_0 &  0
 \end{vmatrix} 
-=B_0\partial_y\phi\hat z\] 
+\ =\ B_0\,\partial_y\phi\,\hat e_z\] 
 
 \[\nabla\times[\vec u\times\vec B_0]= 
 \begin{vmatrix} 
-	\hat i & \hat j & \hat k\\ 
+	\hat x & \hat y & \hat z\\ 
 	\partial_x & \partial_y & 0\\
 	0& 0 &  B_0\partial_y\phi
 \end{vmatrix} 
@@ -235,23 +240,31 @@ chiaramente la derivata rispetto al tempo del campo elettrico mi ammazza il camp
 Metto tutto insieme , separo le componenti e impongo una soluzione piana $\sim f(x)e^{iky-\gamma t}$.
 
 \begin{itemize}
-	\item componente $\hat e_x$:\[ \partial_{ty}\psi\ =\ B_0\partial_{yy}\phi\,+\,\eta\,(\partial_{xxy}+\partial_{yyy})\psi\] tutti i termini contengono un $\partial _y$ e quindi posso integrare in $\partial y$.\\
+	\item componente $\hat e_x$:\[ \partial_{ty}\psi\ =\ B_0\partial_{yy}\phi\,+\,\eta\,(\partial_{xxy}+\partial_{yyy})\psi\] tutti i termini contengono un $\partial _y$ e quindi posso integrare in $y$.\\
 	\[\gamma\psi\ =\ ikB_0\phi\,+\,\eta(\psi''-k^2\psi)\] 
 	\item componente y:  \\ho ricucito la derivata del prodotto. 
-	\[ -\partial_{tx}\psi\ =\ -(B_0\partial_y\phi)'\,-\,\eta(\partial_{xxx}-\partial_{yyx})\psi\]
+	\[ -\partial_{tx}\psi\ =\ -(\partial_x B_0 \partial_y \phi + B_0 \partial_{xy}\phi) \,-\,\eta(\partial_{xxx}-\partial_{yyx})\psi\ =\ -\partial_x (B_0\partial_y\phi)\,-\,\eta(\partial_{xxx}-\partial_{yyx})\psi\]
+	Questa volta si integra in x:
+	\[-\gamma\psi\ =\ -ikB_0\phi\,+\,\eta(\psi''-k^2\psi)\]
 	
 \end{itemize} 
 
 Infine mi interesso di normalizzare l'equazione praticamente in temini di $L,\tilde c_a, \tilde B$ che sono i valori caratteristici di $\phi$ e di $\psi$. compare il termine  parente stretto di $\eta$, $\frac{t_a}{t_r}=S^{-1}$.  
 alla fine dela fiera quello che viene fuori è per quanto riguarda la componente x  
-\[\gamma\psi=ikB_0\phi+S^{-1}(\psi''-k^2\psi)\] Attenzione !!! e la componente y quanto fa??
+\[\gamma\psi=ikB_0\phi+S^{-1}(\psi''-k^2\psi)\] 
+
+
 
 %
 %
-\subsection{equazione del moto } dall'incomprimibilità si ha sicuramente che non vi sono variazioni nella densità che è uniformemente $\rho_0$.;\\ il termine $\vec u\nabla\cdot\vec u$ è del second'ordine e lo lasciamo perdere sin da subito.  
-\[ \rho_0\partial_t(\nabla\times\vec u)=\frac{1}{4\pi}\nabla\times[(\nabla\times \vec B)\times\vec B]\]
-intanto sicuramernte posso linearizzare e mi trovo solamente i termini di primo grado. 
-\[ \rho_0\partial_t(\nabla\times\vec u)=\frac{1}{4\pi}\nabla\times[(\nabla\times \vec b)\times\vec B_0]+\frac{1}{4\pi}\nabla\times[(\nabla\times \vec B_0)\times\vec b]\] 
+\subsection{equazione del moto } 
+Dall'ipotesi di incomprimibilità si ha sicuramente che non vi sono variazioni nella densità che è uniformemente $\rho_0$.; il termine $\vec u\nabla\cdot\vec u$ è del second'ordine e lo lasciamo perdere sin da subito, per il resto scriviamo la linearizzazione  
+\[ \begin{aligned}
+\rho_0\,\partial_t(\nabla\times\vec u)\
+&=\ \frac{1}{4\pi}\nabla\times\left[(\nabla\times \vec B)\times\vec B\right]\ =\\ 
+&=\ \frac{1}{4\pi}\nabla\times\left[(\nabla\times \vec b)\times\vec B_0\right]+\frac{1}{4\pi}\nabla\times\left[(\nabla\times \vec B_0)\times\vec b\right]
+\end{aligned}\]
+
 ora di nuovo bisogna fare  i prodotti vettoriali e i rotori per benino benissimo
 \[\nabla\times \vec b=\begin{vmatrix}
 	\hat i&\hat j&\hat k\\

@@ -1,4 +1,25 @@
 \chapter{Equilibrio MHD}  
+
+\fboxrule=1.5pt
+\begin{empheq}[box=\fcolorbox{blue}{white}]{align}
+	\text{continuità:} \qquad
+	& \frac{\partial \rho}{\partial t} + \vec\nabla \cdot (\rho \vec u) = 0 \\
+	\text{eq.\ del moto:} \qquad
+	& \rho\!\left( \frac{\partial \vec u}{\partial t} + (\vec u \cdot \vec\nabla)\vec u \right)
+	= -\vec\nabla p + \frac{1}{4\pi}(\vec\nabla \times \vec B)\times \vec B \\
+	\text{Faraday-Maxwell:} \qquad
+	& \frac{\partial \vec B}{\partial t}
+	= \vec\nabla \times (\vec u \times \vec B) \\
+	\text{politropica:} \qquad
+	& p\,\rho^{-\gamma} = \text{cost.} \\
+	\text{campo elettrico:} \qquad
+	& \vec E = -\frac{1}{c}\vec u \times \vec B \\
+	\text{corrente:} \qquad
+	& \vec j = \frac{c}{4\pi} \, \vec \nabla \times \vec B
+	\label{sistema_MHD}
+\end{empheq}
+
+
 Un sistema è in \underline{equilibrio MHD} se la velocità del fluido è nulla ($\vec u=0$) e la sua derivata temporale è nulla ($\partial_tu=0$).
 
 Quel che non è vero, invece è che $\partial_t \vec B=0$!. Il campo magnetico non è statico.
@@ -7,7 +28,7 @@ Anzi, l'equazione di Faraday in questo caso si riduce ad un'equazione di diffusi
 
 \subsection{equazione della dinamica all'equilibrio}
 
-\[\vec \nabla P=\frac{1 }{4\pi}[(\vec\nabla\times\vec B)\times\vec B ]\] 
+\[\vec \nabla P\ =\ \frac{1 }{4\pi}\,[(\vec\nabla\times\vec B)\times\vec B ]\] 
 All'equilibrio le superfici isobare seguono le linee di campo magnetico e della corrente. 
 
 \[
@@ -34,6 +55,7 @@ Assume la forma di un'equazione di diffusione (derivata temporale del campo prop
 \]
 
 \section{Equilibrio force-free}
+\fboxrule=1pt
 In un \underline{equilibrio \emph{force-free}}, dove non vi sono forze, dovrebbero valere $\boxed{\left(\vec \nabla \times \vec B \right)\times \vec B =0}$  e  $\boxed{\vec j\times \vec B =0}$.
 
 Se $\left(\vec \nabla \times \vec B \right)\times \vec B =0$ allora i vettori dovrebbero essere paralleli e questo comporta che $\left(\vec \nabla \times \vec B \right)=\alpha \vec B$ per un certo $\alpha$. $\Rightarrow\ \nabla^2 \vec B + \alpha^2 \vec B =0$.

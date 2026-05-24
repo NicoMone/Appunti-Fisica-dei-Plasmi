@@ -266,7 +266,7 @@ Conclusione: l'onda sonora in un gas è non dissipativa, con relazione di disper
 %
 %
 \subsection{Onde di plasma} 
-Abbiamo capito quindi che le onde nei plasmi sono la principale reazione collettiva, tipicamente sono la risposta ad un eventuale spilanciamento di carica.
+Abbiamo capito quindi che le onde nei plasmi sono la principale reazione collettiva, tipicamente sono la risposta ad un eventuale sbilanciamento di carica.
 
 Ad esempio, per capirne la natura, studiamo il caso semlice in cui sono gli elettroni a muoversi e oscillare mentre gli ioni rimangono fermi (vista la differenza di massa di un fattore $\sim2000$). In principio potremmo usare le equazioni fluide costruite nei paragrafi precedenti separatamente per le due specie, ma ci soffermiamo solo sugli elettroni.
 
@@ -368,12 +368,19 @@ Il $\delta P$ serve per poter utilizzare l'equazione completa della dinamica, in
 
 \[\omega^2  = \frac{4\pi e^2n_0}{m_e} +k^2 \gamma \frac{T_{0,e}}{m_e}\]
 
-Riconosciamo le definizioni date precedentemente:
-
+Riconosciamo le definizioni date precedentemente e troviamo la nostra relazione di dispersione, chiamata in letteratura anche \underline{Bohm-Gross dispersion relation}:
+\
 \begin{equation}
 	\boxed{\omega^2=\omega^2_p+\gamma k^2v_{th,e}}
 \end{equation}
 \[\omega=\omega_p^2\left(1+\gamma\frac{k^2v_{th,e}}{\omega_p^2}\right)=\omega_p^2\left(1+\gamma k^2\lambda_D^2\right)\] 
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=9cm]{immagini/langmuir.jpeg}
+	\caption{Non vi sono onde di Langmuir per $\omega < \omega_P$.\\ Per grandi lunghezze d'onda (bassi k) o basse temperature si osservano le oscillazioni di plasma, o di Langmuir, causate da una velocità di fase $\omega/k$ che può essere arbitrariamente grande ma con una velocità di gruppo $\partial \omega/\partial k$ che va a zero, non vi è propagazione.\\ Per piccole lunghezze d'onda sia la velocità di fase che di gruppo convergono a $\sqrt{3}v_{th,e}$ e l'onda di plasma si propaga come un'onda sonora.}
+	\label{Langmuir dispersion}
+\end{figure}
 
 
 %
@@ -469,6 +476,13 @@ Sappiamo poi da una identità che $\vec k\times(\vec k\times \vec E) = (\vec k\c
 \end{equation}
 
 Questa è la \underline{relazione di dispersione} per un'\underline{onda elettromagnetica trasversa} che si propaga in un plasma freddo, omogeneo e non magnetizzato.
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=8cm]{immagini/HF-EM-wave.png}
+	\caption{Relazione di dispersione di onda e.m. trasversa ($\vec k \parallel \vec E$)}
+	\label{HF-EM wave dispersion - unmagnetized}
+\end{figure}
 
 Notiamo comportamenti interessanti dell'onda e.m. trasversa nei due limiti:
 \begin{itemize}
