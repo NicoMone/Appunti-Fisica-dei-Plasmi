@@ -136,7 +136,7 @@ RELAZIONE DI DISPERSIONE DELLE ONDE ION-ACOUSTIC: $\boxed{\frac{\omega^2_\text{I
 	
 	\[\boxed{\frac{\omega^2}{k^2}\ =\ \frac{\gamma_I}{m_I}\, (T_e+T_I)}\] 
 	
-	Questa può essere vista come una sorta di velocità del suono, infatti queste sono le tipiche onde ionacustic. Si vede che l'inerzia è data dagli ioni nel senso che compare $m_I$ mentre la risposta termica è data da entrambi, anche se quando $T_I\sim T_e$ tipicamente avviene il Dumping di landau e l'onda non si propaga (a meno che non si faccia una forzatura). 
+	Questa può essere vista come una sorta di velocità del suono, infatti queste sono le tipiche onde ionacustic. Si vede che l'inerzia è data dagli ioni nel senso che compare $m_I$ mentre la risposta termica è data da entrambi, anche se quando $T_I\sim T_e$ tipicamente avviene il Damping di Landau e l'onda non si propaga (a meno che non si faccia una forzatura). 
 	Le onde che sopravvivono sono quelle, invece, con $T_e\gg T_i$ [\textit{"Se poi ho un forzaggio sono fuori dal regime lineare perché cambio la funzione di distribuaione e cambia anche la risposta dielettrica"}, boh] 
 	
 	\item \[k^2\gg\frac{1}{\lambda_{De}^2}\iff\lambda^2\ll\lambda_{De}^2,\quad k^2\gg\frac{1}{\lambda_{DI}^2}\iff\lambda^2\ll\lambda_{DI}^2\]  Questo caso è praticamente insensato perchè siamo al di sotto delle lunghezze di Debye e praticamente non possiamo nemmeno dire di avere a che fare con un plasma. In questo caso la soluzione ha come relazione di dispersione una relazione analoga alle onde di plasma, ma per gli ioni. 
@@ -147,7 +147,7 @@ Alla fine della fiera quando si parla di onde Ion-Acoustic si parla del caso uno
 
 Nel caso delle onde Ion-Acoustic si ha $v_f\gg v_{th,I}$ (e quindi gli ioni hanno una risposta adiabatica) mentre $v_f\ll v_{th,e}$ (e quindi gli elettroni hanno una risposta isoterma). 
 
-Nel caso invece in cui $T_I\sim T_e $ siamo nelle condizioni in cui tendenzialmente l'onda non sopravvive perché avviene il Dumping di Landau. Se l'onda viene sforzata con un intervento esterno la distribuzione si appiattisce finché non smette di avvenire il Dumping.
+Nel caso invece in cui $T_I\sim T_e $ siamo nelle condizioni in cui tendenzialmente l'onda non sopravvive perché avviene il Damping di Landau. Se l'onda viene sforzata con un intervento esterno la distribuzione si appiattisce finché non smette di avvenire il damping.
 
 %
 %
@@ -294,7 +294,7 @@ La scelta del $\pm$ dipende dalla soluzione dell'equazione al quart'ordine, la s
 %
 \subsubsection{osserviamo i vari limiti}
 
-Le onde magnetoidrodinamiche fast possono creare shock mentre le onde slow sono soggette a Landau dumping.
+Le onde magnetoidrodinamiche fast possono creare shock mentre le onde slow sono soggette a Landau damping.
 
 Osserviamo i vari limiti, partendo dal limite di grandi campi magnetici $\boxed{\beta \ll 1}$ (che si ricollega alla condizione $c_s\ll c_A$), come il caso che si verifica nei tokamak: 
 
@@ -321,6 +321,7 @@ Osserviamo il limite contrario di campi deboli $\boxed{\beta \gg 1}$ :
 In questo caso risulta $\boxed{\omega_f=c_s^2}$ proprio come per le onde acustiche, mentre $\boxed{\omega_s=c_A^2 \cos^2\theta}$ .
 
 Quindi per le onde comprimibili se domina B l'onda veloce è un modo di Alfvén e l'onda slow è una specie di onda sonora.
+
 Se invece non domina B l'onda fast è proprio un'onda sonora e l'onda slow è formalmente un modo di Alfvén.
 
 
@@ -330,36 +331,36 @@ Se invece non domina B l'onda fast è proprio un'onda sonora e l'onda slow è fo
 %
 %
 \vspace{0.5cm}
-\section{Dumping di Landau}
+\section{Damping di Landau}
 
-Nei capitoli precedenti, abbiamo introdotto la \textbf{trattazione statistica a due fluidi}, l'\underline{equazione di Vlasov} e la \underline{MHD}, che descrivono il comportamento dei plasmi su scale macroscopiche e cinetiche. Ora ci concentriamo su un fenomeno fondamentale della fisica dei plasmi: l'\underline{interazione onda-particella}, nota come \underline{dumping di Landau}.
+Nei capitoli precedenti, abbiamo introdotto la \underline{trattazione statistica a due fluidi}, l'\underline{equazione di Vlasov} e la \underline{MHD}, che descrivono il comportamento dei plasmi su scale macroscopiche e cinetiche. Ora ci concentriamo su un fenomeno fondamentale della fisica dei plasmi: l'\underline{interazione onda-particella}, nota come \underline{damping di Landau}.
 
-Questo meccanismo descrive come le onde di plasma possono \underline{perdere energia} (o, in alcuni casi, guadagnarla) a causa dell'interazione con le particelle del plasma, senza che avvenga \underline{termalizzazione} o produzione di calore. È un esempio di \underline{smorzamento non dissipativo}, che si distingue nettamente da fenomeni come la resistività o la viscosità.
+Questo meccanismo descrive come le onde di plasma possono \underline{perdere energia} (o, in alcuni casi, guadagnarla, cfr. inverse landau damping) a causa dell'interazione con le particelle del plasma, senza che avvenga \underline{termalizzazione} o produzione di calore. È un esempio di \underline{smorzamento non dissipativo}, che si distingue nettamente da fenomeni come la resistività o la viscosità.
 
-\paragraph{Condizioni per il Dumping di Landau}
+\paragraph{Condizioni per il Damping di Landau}
 \begin{itemize}
-	\item \textbf{Distribuzione delle particelle:}
-	Il dumping di Landau si verifica quando la funzione di distribuzione delle velocità $f(v)$ delle particelle presenta una \textbf{monotonicità locale}. Tipicamente, ci si concentra sul caso in cui $f(v)$ è \underline{monotona decrescente} (se $f(v)$ è monotona crescente, si osserva il fenomeno opposto, noto come \underline{inverso del dumping di Landau}, $LD^{-1}$).
+	\item \emph{Distribuzione delle particelle:}
+	Il damping di Landau si verifica quando la funzione di distribuzione delle velocità $f(v)$ delle particelle presenta una \underline{monotonicità locale}. Tipicamente, ci si concentra sul caso in cui $f(v)$ è \underline{monotona decrescente} (se $f(v)$ è monotona crescente, si osserva il fenomeno opposto, noto come \underline{inverso del damping di Landau}, $LD^{-1}$).
 	
-	\item \textbf{Risonanza onda-particella:}
-	Il dumping avviene quando la \underline{velocità di fase dell'onda} $v_f = \omega/k$ (dove $\omega$ è la frequenza e $k$ il numero d'onda) \underline{coincide} con la velocità di alcune particelle del plasma, cioè $v \sim v_f$. In altre parole, alcune particelle viaggiano \underline{alla stessa velocità dell'onda} e interagiscono con essa in modo risonante.
+	\item \emph{Risonanza onda-particella:}
+	Il damping avviene quando la \underline{velocità di fase dell'onda} $v_f = \omega/k$ (dove $\omega$ è la frequenza e $k$ il numero d'onda) \underline{coincide} con la velocità di alcune particelle del plasma, cioè $v \sim v_f$. In altre parole, alcune particelle viaggiano \underline{alla stessa velocità dell'onda} e interagiscono con essa in modo risonante.
 	\begin{figure}[H]
 		\centering
 		\includegraphics[width=6cm]{immagini/LD.png}
 	\end{figure}
 
 	
-	\item \textbf{Effetto netto:}
-	In media, se ci sono \underline{più particelle con $v < v_f$} rispetto a quelle con $v > v_f$, l'onda \underline{perde energia} (dumping). Al contrario, se $f(v)$ è monotona crescente, l'onda \underline{guadagna energia} (inverso del dumping).
+	\item \emph{Effetto netto:}
+	In media, se ci sono \underline{più particelle con $v < v_f$} rispetto a quelle con $v > v_f$, l'onda \underline{perde energia} (damping). Al contrario, se $f(v)$ è monotona crescente, l'onda \underline{guadagna energia} (inverso del damping, $LD^{-1}$).
 \end{itemize}
 
 \paragraph{Plasma Magnetizzato vs. Non Magnetizzato}
 \begin{itemize}
-	\item \textbf{Plasma magnetizzato:}
-	In presenza di un campo magnetico, le onde possono propagarsi liberamente lungo la direzione del campo, e il dumping di Landau \underline{non avviene}.
+	\item \underline{Plasma magnetizzato:}
+	In presenza di un campo magnetico, le onde possono propagarsi liberamente lungo la direzione del campo, e il damping di Landau \underline{non avviene}.
 	
-	\item \textbf{Plasma non magnetizzato:}
-	In assenza di un campo magnetico, il dumping di Landau diventa rilevante. Questo è il caso che tratteremo in dettaglio.
+	\item \underline{Plasma non magnetizzato:}
+	In assenza di un campo magnetico, il damping di Landau diventa rilevante. Questo è il caso che tratteremo in dettaglio.
 \end{itemize}
 
 Il plasma non è magnetizzato, pertanto: $\boxed{\, \vec{B} = 0\,}$ .
@@ -374,12 +375,21 @@ f_a(\vec{x}, \vec{v}, t)\ =\ f_{a0}(\vec{v})\, +\, f_{a1}(\vec{x}, \vec{v}, t)\ 
 dove $f_{a0}(\vec{v})$ dipende esclusivamente dalla velocità e la distribuzione è pari, ossia $f(v) = f(-v)$.
 
 \paragraph{Strumento Matematico: L'Equazione di Vlasov}
-Per descrivere il dumping di Landau, è necessario utilizzare l'\textbf{equazione di Vlasov}, che governa l'evoluzione della funzione di distribuzione $f(\vec{x}, \vec{v}, t)$ nello spazio delle fasi. L'equazione di Vlasov è particolarmente adatta perché:
+Per descrivere il damping di Landau, è necessario utilizzare l'\underline{equazione di Vlasov}, che governa l'evoluzione della funzione di distribuzione $f(\vec{x}, \vec{v}, t)$ nello spazio delle fasi. L'equazione di Vlasov è particolarmente adatta perché:
 \begin{itemize}
-	\item \textbf{Non richiede una chiusura} (a differenza delle equazioni fluide).
-	\item \textbf{Conserva l'entropia}: $\dfrac{d}{dt}(f \ln f) = 0$, il che implica che le \textbf{isolinee} della funzione di distribuzione possono essere deformate, ma \textbf{non possono essere "strappate" o "riconnesse"}.
+	\item \underline{Non richiede una chiusura} (a differenza delle equazioni fluide).
+	\item \underline{Conserva l'entropia}: $\dfrac{d}{dt}(f \ln f) = 0$, il che implica che le \underline{isolinee} della funzione di distribuzione possono essere deformate, ma \underline{non possono essere "strappate" o "riconnesse"}.
 \end{itemize}
-Le isolinee sono più dense nelle regioni dello spazio delle fasi dove il gradiente di $f$ è maggiore. Se si forma un \textbf{vortice} attorno a $v_f$, le isolinee si avvolgono, e si osserva un \textbf{cambio di segno della velocità} nel sistema di riferimento dell'onda (fenomeno noto come \textbf{trapping}).
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=7cm]{immagini/LDvisualized.png}
+	\label{Landau Damping}
+	\caption{preso da \href{https://kunimune.blog/2023/12/02/an-animated-description-of-landau-damping/}{--> qui.}}
+\end{figure}
+
+
+Le isolinee sono più dense nelle regioni dello spazio delle fasi dove il gradiente di $f$ è maggiore. Se si forma un \underline{vortice} attorno a $v_f$, le isolinee si avvolgono, e si osserva un \underline{cambio di segno della velocità} nel sistema di riferimento dell'onda (fenomeno noto come \underline{trapping}).
 
 \[\frac{\partial}{\partial_t}f_a\,+\,\vec v\cdot \vec\nabla_{\vec x} f_a\,+\,\frac{q_a}{m_a}\vec E\cdot \vec \nabla_{\vec v}f_a\ =\ 0\ \ .\] 
 
@@ -391,15 +401,15 @@ Questo può avvenire dopo un certo \underline{tempo di intrappolamento} $\tau_t$
 
 In ogni caso, quando vale la linearizzazione, abbiamo:
 
-\[\boxed{\ \frac{\partial}{\partial t}f_{a1}\ +\ \vec v\cdot \vec\nabla_{\vec x} f_{a1}\ +\ \frac{q_a}{m_a}\vec E_1\cdot \vec \nabla_{\vec v}f_{a0}\ =\ 0}\] 
+\[\boxed{\ \frac{\partial}{\partial t}\,f_{a1}\ +\ \vec v\cdot \vec\nabla_{\vec x}\, f_{a1}\ +\ \frac{q_a}{m_a}\, \vec E_1\cdot \vec \nabla_{\vec v}\,f_{a0}\ =\ 0}\] 
 
 Useremo anche l'equazione di Poisson:
 \[\boxed{\ \vec \nabla\cdot\vec E\ =\ 4\pi\, e\,(n_I-n_e)}\] 
 Questa equazione è già linearizzata perchè $\vec E=\vec E_1$ e $n_{0e}=n_{0I}$.
 \[-\nabla^2\phi=4\pi e(n_I-n_e)\]
 
-\paragraph{Caratteristiche Fondamentali del Dumping di Landau}
-Il dumping di Landau è spesso chiamato "smorzamento", ma non è un fenomeno dissipativo. Ecco le sue proprietà chiave:
+\paragraph{Caratteristiche Fondamentali del Damping di Landau}
+Il damping di Landau è spesso chiamato "smorzamento", ma non è un fenomeno dissipativo. Ecco le sue proprietà chiave:
 \begin{itemize}
 	\item \textit{Smorzamento $\neq$ dissipazione};
 	\item \textit{NON è l'equivalente di un attrito, di una resistività, di una viscosità};
@@ -411,9 +421,9 @@ Il dumping di Landau è spesso chiamato "smorzamento", ma non è un fenomeno dis
 \paragraph{Obiettivo del Capitolo}
 In questo capitolo, esploreremo:
 \begin{enumerate}
-	\item Come il dumping di Landau emerge dall'equazione di Vlasov;
-	\item Le condizioni per cui il dumping è rilevante (ad esempio, $v_f \sim v_{th}$, dove $v_{th}$ è la velocità termica);
-	\item Le implicazioni fisiche e le applicazioni del dumping di Landau nei plasmi reali.
+	\item Come il damping di Landau emerge dall'equazione di Vlasov;
+	\item Le condizioni per cui il damping è rilevante (ad esempio, $v_f \sim v_{th}$, dove $v_{th}$ è la velocità termica);
+	\item Le implicazioni fisiche e le applicazioni del damping di Landau nei plasmi reali.
 \end{enumerate}
 
 
@@ -427,7 +437,7 @@ L'intrappolamento delle particelle avviene quando un'onda di plasma con velocit�
 Il comportamento del sistema è governato da tre tempi:
 \begin{itemize}
 	\item \(\tau_t = \sqrt{\dfrac{m}{e\hat{E}k}}\): tempo di intrappolamento, dipendente dall'ampiezza dell'onda;
-	\item \(\tau_L= \displaystyle\frac{1}{k^3\lambda_D^3}e^{-(\frac{3}{2}+\frac{1}{2k^2\lambda_D^2})}\): tempo caratteristico del dumping di Landau;
+	\item \(\tau_L= \displaystyle\frac{1}{k^3\lambda_D^3}e^{-(\frac{3}{2}+\frac{1}{2k^2\lambda_D^2})}\): tempo caratteristico del damping di Landau;
 	\item \(\tau_D \sim \omega_p^{-1}\): tempo caratteristico dinamico del plasma.
 \end{itemize}
 L'intrappolamento è rilevante solo se \(\tau_D < \tau_t < \tau_L\). Se \(\tau_t > \tau_L\), l'onda viene smorzata prima che l'intrappolamento possa avere effetto.
@@ -441,7 +451,7 @@ L'evoluzione della distribuzione perturbata \(f_1\) è descritta dall'equazione 
 
 Sviluppando attorno a \(v \sim v_f\), si osserva che \(\partial_v f_1\) cresce quadraticamente nel tempo, invalidando l'ipotesi di linearità in un tempo \(\tau_t\).
 
-\[f_1=f_1(v,t=0)\cos(kx-kvt)-\frac{e\hat E}m\frac{\partial f_0}{\partial v}\bigg[ \frac{\cos(kx-\omega _e t)}{kv-\omega_e} - \frac{\cos(kx-kv t)}{kv-\omega_e}\bigg]\] 
+\[f_1\ =\ f_1(v,t=0)\,\cos(kx-kvt)\ -\ \frac{e\hat E}m\frac{\partial f_0}{\partial v}\bigg[ \frac{\cos(kx-\omega _e t)}{kv-\omega_e}\, -\, \frac{\cos(kx-kv t)}{kv-\omega_e}\bigg]\] 
 
 \[
 \partial_v f_1\ \approx\ \frac{ek\hat{E}}{m}\, t^2\, \partial_v f_0\, \frac{\cos(kx - \omega t)}{2}\ \propto\ t^2\ \ .
@@ -456,13 +466,13 @@ Questo mostra che, in un tempo \(\tau_t \sim \sqrt{\dfrac{m}{e\hat{E}k}}\), la d
 
 Facciamo la trasformata di Fourier per studiare i modi normali dell'onda di plasma e trovare quello meno smorzato, cioè caratterizzato da un coefficiente di smorzamento \(\omega_i\) molto piccolo rispetto alla frequenza reale \(\omega_r\).
 
-Cerchiamo i termini che vanno come $\sim e^{i(\vec k \cdot \vec x - \omega t)}$, dove \(\omega = \omega_r + i\omega_i\) è in generale un numero complesso: la parte reale \(\omega_r\) rappresenta l'oscillazione, mentre la parte immaginaria \(\omega_i\) rappresenta lo smorzamento (se \(\omega_i < 0\)) o l'amplificazione (se \(\omega_i > 0\)).
+Cerchiamo i termini che vanno come $\sim e^{i(\vec k \cdot \vec x - \omega t)}$, dove  \(\boxed{\omega = \omega_r + i\omega_i}\)  è in generale un numero complesso: la parte reale \(\omega_r\) rappresenta l'oscillazione, mentre la parte immaginaria \(\omega_i\) rappresenta lo smorzamento (se \(\omega_i < 0\)) o l'amplificazione (se \(\omega_i > 0\)).
 
 Le soluzioni per la distribuzione perturbata \(f_1\) e il potenziale \(\phi\) sono quindi:
 \[
-f_1\ =\ \sum_k f_k e^{i(\vec k \cdot \vec x - \omega t)}\; 
+f_1\ =\ \sum_k \,f_k\, e^{i(\vec k \cdot \vec x - \omega t)}\ \ ; 
 \qquad 
-\phi\ =\ \sum_k \phi_k e^{i(\vec k \cdot \vec x - \omega t)}\ \ .
+\phi\ =\ \sum_k \,\phi_k\, e^{i(\vec k \cdot \vec x - \omega t)}\ \ .
 \]
 
 Scriviamo anche le concentrazioni in termini della distribuzione (interessano solo i termini di fluttuazione, per la quasi-neutralità del plasma). Questo vale modo per modo (k per k), anche attraverso la trasformata:
@@ -500,11 +510,11 @@ da cui si ottiene la \textbf{relazione di dispersione}:
 
 \subsubsection{Onda di plasma a ioni fissi}
 
-Consideriamo un'onda di plasma con frequenza tale che gli ioni non facciano in tempo a reagire. Il contributo degli ioni si limita quindi a mantenere la quasi-neutralità tramite \(n_0\). Se non facessimo questa assunzione, troveremmo anche soluzioni con onde ion-acustiche (IA).
+Consideriamo un'onda di plasma con frequenza tale che gli ioni non facciano in tempo a reagire. Il contributo degli ioni si limita quindi a mantenere la quasi-neutralità tramite \(n_0\). Se non facessimo questa assunzione, troveremmo anche soluzioni con onde ion-acoustic (IA).
 
 Se l'onda di plasma si propaga in direzione \(x\), possiamo integrare la distribuzione in \(dv_y\) e \(dv_z\), perché il termine \(\vec{k} \cdot \nabla_v\) non coinvolge quelle direzioni. L'integrale diventa quindi un integrale 1D, dato che l'onda si propaga in un'unica direzione:
 \[
-\vec{k} \cdot \nabla_v \to k \partial_u, \qquad u \equiv v_x.
+\vec{k} \cdot \nabla_v\, \to\, k\, \partial_u\ \ , \qquad u \equiv v_x\ \ .
 \]
 
 È conveniente definire la funzione di distribuzione normalizzata a 1 in termini di \(n_0\), perché si riconosce che, a meno di \(n_0\), la frequenza di plasma degli elettroni \(\omega_e\) moltiplica l'integrale:
@@ -514,11 +524,11 @@ g(u)\, =\, \frac{f(u)}{n_0}\ ; \qquad \int f(u) du\, =\, n_0\ \to\ \int g(u) du\
 
 Si ottiene quindi:
 \[
-\phi_k\ =\ -\frac{\omega_e^2}{k^2}\, \int \frac{(\vec{k} \cdot \nabla_v)\, f_{0e}}{(\omega - \vec{k} \cdot \vec{v})}\, d\vec{v} \, \phi_k\ \ ,
+\phi_k\ =\ -\frac{\omega_e^2}{k^2}\, \int \frac{(\vec{k} \cdot \nabla_v)\, f_{0e}}{(\omega - \vec{k} \cdot \vec{v})}\, d\vec{v} \, \phi_k\ \ \ ,
 \]
 che porta alla relazione di dispersione:
 \[
-\boxed{\,1 \,+\, \frac{\omega_e^2}{k^2} \int \frac{\partial_u g(u)}{\left(\frac{\omega}{k} - u\right)} du\ =\ 0\ \ .}
+\boxed{\,1 \ +\ \frac{\omega_e^2}{k^2}\, \int\, \frac{\partial_u\, g(u)}{\left(\frac{\omega}{k}\, -\, u\right)} du\ =\ 0}\ \ \ .
 \]
 
 %
@@ -536,7 +546,7 @@ che porta alla relazione di dispersione:
 		\item Una funzione analitica f(z) nell'intorno di un punto singolare isolato $z_0$ può essere sviluppata in serie di Taylor-Laurent: $f(z)=\sum_{n=-\infty}^{+\infty} \frac{1}{2\pi i} \oint_C \frac{f(\eta)}{(\eta - z_0)^{n+1}}d\eta (z-z_0)^n$;
 		\item $\text{Res}[f(z), z_0] = \frac{1}{2\pi i} \oint_C f(\eta)d\eta$, se $z_0$ è un punto singolare eliminabile $\text{Res}[f(z), z_0] = 0$, se $z_0$ è un polo di ordine 1 $\text{Res}[f(z), z_0] = \lim_{z \to z_0}(z-z_0)f(z)$, se $z_0$ è un polo di ordine m invece $\text{Res}[f(z), z_0] = \frac{1}{(m-1)!} \lim_{z \to z_0}\frac{d^{m-1}}{dz^{m-1}}[(z-z_0)^m f(z)]$  ;
 		\item Per il teorema interno dei residui se la nostra funzione è analitica all'interno di un contorno chiuso, con un numero finito di punti singolari, è possibile sostituire l'integrale su tale contorno con una somma dei residui 
-		\[\oint_\Gamma f(z) dz\ =\ 2\pi i \sum_{k=1}^{N}\,\text{Res}[f(z), z_k]\] 
+		\[\oint_\Gamma f(z)\, dz\ =\ 2\pi\, i\, \sum_{k=1}^{N}\,\text{Res}[f(z),\, z_k]\] 
 		\item La parte principale secondo Cauchy si calcola come $\text{P}\left(\int_a^b f(z) dz = \right)=\lim_{\epsilon \to 0}\left(\int_a^{x_0-\epsilon} f(z) dz +\int _{x_0+\epsilon}^b f(z) dz\right)$ con $x_0$ singolarità;
 		\item Quando vogliamo eliminare un punto singolare sull'asse reale dobbiamo aggirarlo con un semicerchio, fare quindi la parte principale sull'asse reale per non prendere il punto di singolarità $\omega_0$, si somma il semicerchio che contribuisce per $-i\pi\text{Res}[f,\omega_0]$ e poi si chiude la curva con il semicerchio in senso antiorario che si annulla se è rispettato il lemma di Jordan ($|f(z)|<M/|z|$ per $z\to \infty$). 
 	\end{itemize}
@@ -547,40 +557,64 @@ che porta alla relazione di dispersione:
 %
 %
 %
-\subsubsection{Regime di propagazione senza dumping} 
+\subsubsection{Regime di propagazione senza damping} 
 
-Prendiamo un'onda con $v_f\gg v_{th}$, in questo caso la velocità di fase non si sovrappone alla distribuzione e possiamo dire che non ci sono elettroni che si muovono localmente con velocità $u\sim v_{th}$, ovviamente in questo caso la derivata della distribuzione è a maggior ragione nulla. Fisicamente risulta intuituvo che siamo decisamente nel caso in cui non si ha dumping.\\Matematicamente questo significa che in corrispondenza della singolarità \[\dfrac{\omega}{k}-u=0\] che porterebbe ad una divergenza, si ha una soppressione maggiore al numeratore e al netto di tutto il numeratore è uno zero più zero del denominatore e alla fine della fiera l'integrale non ha divergenze. 
+Prendiamo un'onda con $v_f\gg v_{th}$, in questo caso la velocità di fase non si sovrappone alla distribuzione e possiamo dire che non ci sono elettroni che si muovono localmente con velocità $u\sim v_{th}$, ovviamente in questo caso la derivata della distribuzione è a maggior ragione nulla. 
+
+Fisicamente risulta intuitivo (no?) che siamo nel caso in cui non si ha damping.
+
+Matematicamente questo significa che in corrispondenza della singolarità 
+
+\[\dfrac{\omega}{k}-u=0\] 
+
+che porterebbe ad una divergenza, si ha una soppressione maggiore al numeratore e al netto di tutto il numeratore è uno zero più zero del denominatore e alla fine della fiera l'integrale non ha divergenze. 
 
 Rimane da risolvere l'integrale:
-\[\int\frac{\partial_ug(u)}{(\frac{\omega}{k}-u)}\partial_u\]  
-integro per parti e quando devo valutare il rpodotto  tra le primitive ai bordi del dominio posso mettere tutto a zero, ovviamente non ho particelle con velocità infinita!. 
-\[\int\frac{\partial_ug(u)}{(\frac{\omega}{k}-u)}\partial_u=\cancelto{0}{\frac{g(u)}{(\frac{\omega}{k}-u)^2}\bigg|_{-\infty}^{+\infty}}-\int \frac{g(u)}{(\frac{\omega}{k}-u)^2}du \]
-Ora spero di avere caèpito da dove viene questa espansione...
-\\ ci dobbiamo occupare del secondo termine, la distribuzione conta qualcosa nella zona $u\ll\omega/k$, questo equivale a dire che possiamo espandere il denominatore attorno a $u=0$.
-\[\frac{1}{(\frac{\omega}{k}-u)^2}\simeq \frac{1}{(\frac{\omega}{k})^2}+\frac{2u}{(\frac{\omega}{k})^3}+\frac{3u^2}{(\frac{\omega}{k})^4}+...\]
-Ora uso il fatto che la distribuzione è pari per cancellare il termine dispari nell'integrale 
-\[1-\frac{\omega_e^2}{k^2}\int\frac{\partial_ug(u)}{(\frac{\omega}{k}-u)}\partial_u=1-\frac{\omega_e^2}{k^2}\int_{-\infty}^{+\infty} g(u) \bigg[\frac{k^2}{\omega^2}+\cancel{\frac{2uk^3}{\omega^3}}+\frac{3u^2k^4}{\omega^4}\bigg]   du \]  
-Uso il fatto che la sitribuzione è normalizzata ad 1 e anche che vale che (dovrei dimostrarlo)
-\[\int g(u)du=1,\quad \int g(u)u^2du=v_{th}^2\] 
-Troviamo la relazione di dispersione. 
-\[\boxed{1-\frac{\omega_e^2}{\omega^2}-\frac{3k^2v^2_{th}\omega_e^2}{\omega^4}=0}\]
-Questa equazione ha due soluzioni ma solamente una è fisica (quella col+) \\ ricordiamoci sempre che  $\dfrac{v_{th}^2}{\omega_e^2/k^2}\ll1\iff v_f\gg v_{th}$ 
-\[\omega^2=\frac{\omega_e^2\pm\sqrt{\omega_e^4\bigg[1+\dfrac{12k^2v_{th}^2}{\omega_e^2}\bigg]}}{2}\simeq\frac{\omega^2_e\pm\omega_e^2\bigg[1+\dfrac{6k^2v_{th}^2}{\omega_e^2}\bigg]}{2}\] 
-Questo risultato è molto importante perché analogo con dumping.
-\[\boxed{\omega_+^2=\omega_e^2+3k^2v_{th}^2}\]
 
-è proprio il caso di confrontare questo risultato con la relazione di dispersione ottenuta con le equazioni fluide chiuse con una politropica 
+\[\int\frac{\partial_ug(u)}{(\frac{\omega}{k}-u)}\partial_u\]  
+
+integro per parti e quando devo valutare il prodotto  tra le primitive ai bordi del dominio posso mettere tutto a zero, non ho particelle con velocità infinita! 
+
+\[\int\frac{\partial_u\,g(u)}{(\frac{\omega}{k}-u)}\,du\ \, =\, \ \cancelto{0}{\frac{g(u)}{(\frac{\omega}{k}-u)^2}\bigg|_{-\infty}^{+\infty}}\ -\ \int \frac{g(u)}{(\frac{\omega}{k}-u)^2}du \]
+
+Ci dobbiamo occupare del secondo termine, la distribuzione conta qualcosa nella zona  $\boxed{ u \ll \omega / k }$ , questo equivale a dire che possiamo espandere il denominatore attorno a $u=0$:
+
+\[\frac{1}{(\frac{\omega}{k}-u)^2}\ \simeq\ 
+ \frac{1}{(\frac{\omega}{k})^2}\ +\ \frac{2u}{(\frac{\omega}{k})^3}\ +\ \frac{3u^2}{(\frac{\omega}{k})^4}\ +\ ...\]
+
+Ora uso il fatto che la distribuzione è pari per cancellare il termine dispari nell'integrale 
+
+\[1\ -\ \frac{\omega_e^2}{k^2} \int \frac{\partial_ug(u)}{(\frac{\omega}{k}-u)}\,du\ \ =\ \ 1\ -\  \int_{-\infty}^{+\infty} g(u)\, \frac{\omega_e^2}{k^2} \, \bigg[\frac{k^2}{\omega^2}\,+\,\cancel{\frac{2uk^3}{\omega^3}}\,+\,\frac{3u^2k^4}{\omega^4}\bigg]\, du \]  
+
+Uso il fatto che la sitribuzione è normalizzata ad 1 e anche che vale che (dovrei dimostrarlo)
+
+\[\int\, g(u)\,du\,=\,1\ \ ,\qquad \int g(u)\,u^2\,du\ =\ v_{th}^2\] 
+
+Troviamo la relazione di dispersione. 
+
+\[\boxed{\,1\ -\ \frac{\omega_e^2}{\omega^2}\ -\ \frac{3k^2v^2_{th}\omega_e^2}{\omega^4}\ =\ 0}\ \ .\]
+
+Ricordiamoci sempre che  $\dfrac{v_{th}^2 k^2}{\omega_e^2}\ll1\iff v_f\gg v_{th}$ , per cui:
+
+\[\omega^2\ =\ \frac{\omega_e^2\,\pm\, \sqrt{\omega_e^4\bigg[1+\dfrac{12k^2v_{th}^2}{\omega_e^2}\bigg]}}{2}\ \simeq\ \frac{\omega^2_e\, \pm\, \omega_e^2\bigg[1+\dfrac{6k^2v_{th}^2}{\omega_e^2}\bigg]}{2}\]
+
+Questa equazione ha due soluzioni ma solamente una è fisica (quella con il segno +).
+ 
+Questo risultato è molto importante perché analogo nel caso con damping:
+\[\boxed{\omega_+^2=\omega_e^2+3k^2v_{th}^2}\ \ ,\]
+
+è il caso di confrontare questo risultato con la relazione di dispersione ottenuta con le equazioni fluide chiuse con una politropica 
 \[\omega^2=\omega_e+\gamma k^2 v_{th}^2\]
 il professore ci dice che ci sono alcune cose che è bene notare \begin{enumerate}
 	\item L'idea di utilizzare una chiusura politropica non è poi così folle. 
 	\item molti dicono che questo $\gamma=3$ era previsto perché è il coefficiente tipico per un gas monoatomico... Califano invece dice che è soltanto una coincidenza senza un particolare significato profondo.
-	\item  non ho mica ben capito cosa c'entra, da dove viene fuori ... btw, "alla maggior parte degli stimoli, I plasmi reqgiscono in prima approssimazione alla frequenza di plasma indipendentemente da $k$". 
+	\item  alla maggior parte degli stimoli, I plasmi reagiscono in prima approssimazione alla frequenza di plasma indipendentemente da $k$. 
 \end{enumerate} 
 
 %
-\subsubsection{regime con dumping}  
+\subsubsection{regime con damping}  
 Ripartiamo dalla nostra relazione del dielettrico, se $\epsilon(k,\omega)=0$ allora abbiamo un modo normale, in generale abbiamo
-\[\boxed{\ \epsilon(k,\omega)=1-\frac{\omega_e^2}{k^2}\int\frac{\partial_ug(u)}{(u-\dfrac{\omega}{k})}du\ }\] Ricordiamoci sempre che stiamo facendo la TF cercando il modo che sopravvive più a lungo che corrisponde ad un \textit{polo lontano} con $\omega_i\ll\omega_r$, praticamente stiamo dicendo che il dumping c'è ma poco. Per contestualizzare bene quello che stavamo facendo prima il polo c'era lo stesso ma era in una zona dove il dumping non avviene per come è popolata la distribuzione. \\Sviluppiamo il nostro dielettrico attorno a $\omega_r$, proprio considerando $\omega_i\ll\omega_r$. 
+\[\boxed{\ \epsilon(k,\omega)=1-\frac{\omega_e^2}{k^2}\int\frac{\partial_ug(u)}{(u-\dfrac{\omega}{k})}du\ }\] Ricordiamoci sempre che stiamo facendo la TF cercando il modo che sopravvive più a lungo che corrisponde ad un \textit{polo lontano} con $\omega_i\ll\omega_r$, praticamente stiamo dicendo che il damping c'è ma poco. Per contestualizzare bene quello che stavamo facendo prima il polo c'era lo stesso ma era in una zona dove il damping non avviene per come è popolata la distribuzione. \\Sviluppiamo il nostro dielettrico attorno a $\omega_r$, proprio considerando $\omega_i\ll\omega_r$. 
 \[\epsilon(k,\omega)\simeq\epsilon_r(k,\omega_r)+i\epsilon_i(k,\omega_r)+i\omega_i\frac{\partial \epsilon_r}{\partial\omega}\bigg|_{\omega=\omega_r}-\omega_i\frac{\partial \epsilon_i}{\partial\omega}\bigg|_{\omega=\omega_r}\] 
 impongo che siano nulle sia la parte reale che la parte immaginaria (per trovare il modo normale). Dalla parte immaginaria ottengo \[\epsilon_i=-\omega_i\frac{\partial\epsilon_r}{\partial \omega}\bigg|_{\omega_r}\implies \epsilon_i\sim\omega_i\] 
 Dalla parte reale emerge che il termine di derivata va come $\sim \omega_i^2$ e di conseguenza lo posso trascurare, cos' come $\epsilon_r$. In generale la parte reale è zero, a meno di correzioni del second'ordine, che non ci interessano. 
@@ -590,7 +624,7 @@ comunque a questo punto abbiamo un integrale complesso da risolvere  con il meto
 \[\lim_{\epsilon\to0}\frac{1}{x\pm i\epsilon}=\mathcal P\frac{1}{x}\mp i\pi\delta(x)\] 
 \[\frac{1}{u-a}=\mathcal{P}\bigg(\frac{1}{u-a}\bigg)+i\pi\delta(u-a)\] 
 \[\mathcal{P}\bigg(\frac{1}{u-a}\bigg)\equiv \lim_{\epsilon\to 0}\bigg[\int_{-\infty}^{a-\epsilon}\frac{f(u)}{u-a}du+\int^{\infty}_{a+\epsilon}\frac{f(u)}{u-a}du\bigg]\] Questo integrale ha la proprietà che le due divrgenze  sono uguali ma opposte e quindi si annullano a vicenda. in questo caso non è la distribuzione vuota ad ammazzare l'integrale ma è questa sottigliezza matematica, però l'effetto finale  è lo stesso, è come se non avessi elettroni nel polo.\\Questo mi permette di andare avanti nel calcolo come nel caso precedente assumendo che $v_f^2\gg v_{th}^2$ (ovvero $v_f>v_{th}$) e trovare un risultato completamente analogo 
-\[\epsilon_r=1-\frac{\omega_e^2}{\omega^2}-\frac{3k^2v_{th}^2\omega_e^2}{\omega^4}\] Questo è un caso un pochino borderline \textit{"fa venire mal di pancia"} perché non siamo nelle condizioni più favorevoli per avere il dumping e la risonanza avviene con "pochi" elettroni. Purtroppo il calcolo dell'integrale in maniera analitica al di fuori di questa assunzione è molto complicato, e non solo... in un regime di forte smorzamento di landau ($\omega/k\sim v_{th}$) non vale la linearizzazione assunta inizialmente e quindi va tutto il conto a ramengo.
+\[\epsilon_r=1-\frac{\omega_e^2}{\omega^2}-\frac{3k^2v_{th}^2\omega_e^2}{\omega^4}\] Questo è un caso un pochino borderline \textit{"fa venire mal di pancia"} perché non siamo nelle condizioni più favorevoli per avere il damping e la risonanza avviene con "pochi" elettroni. Purtroppo il calcolo dell'integrale in maniera analitica al di fuori di questa assunzione è molto complicato, e non solo... in un regime di forte smorzamento di landau ($\omega/k\sim v_{th}$) non vale la linearizzazione assunta inizialmente e quindi va tutto il conto a ramengo.
 \\Nonostante ciò va detto che l'integrazione numerica di Vlasov porta a risultati sorprendentemente coerenti (nell'ordine del percento)
 \\Ora se faccio la derivata (calcolata in $\omega=\omega_r$) trovo due termini, uno dei quali è trascurabile in quanto $v_f^2\gg v_{th}^2$. 
 \[\frac{\partial \epsilon_r}{\partial\omega}\bigg|_{\omega=\omega_r}=-2\frac{\omega_e^2}{\omega_r^3}-\cancelto{0}{\frac{12k^2v_{th}^2\omega_e^2}{\omega_r^5}}\]  
@@ -600,11 +634,11 @@ e a questo punto posso ricucire insieme tutti quanti i pezzi e trovare la parte 
 \[\boxed{\omega_i=\dfrac{-\epsilon_i}{\partial _\omega\epsilon_r}=\frac{\pi\omega_e^3}{2k^2}\partial_ug(u)\bigg|_{u=\omega_r/k}}\]   
 Questa è la parte immaginaria della frequenza ottenuta con la FT, se teniamo presente che stavamo cercando una soluzione con $e^{-i(\omega_r+i\omega_i) t}$ si vede che la parte immaginaria costtistuisce uno smorzamento (o un'amplificazione) esponenziale $\sim e^{\omega_it}$.\\In particolare ci piace molto il fatto che $\omega_i\propto \partial_ug(u)$ sicché quando $g(u)$ è decrescente si ha lo smorzamento, quando $g(u)$ cresce si ha LD$^{-1}$ mentre non succede niente di niente se la distribuzione è piatta. Questo intuitivamente ci piace anche se pensiamo al fenomeno dell'intrappolamento anche se cade l'ipotesi della linearizzazione.  
 \subsection{Soluzione con maxwelliana} 
-\textit{"Non ho bisogno di una maxwelliana per avere Dumping, ma ho bisogno di una maxwelliana per fare il conto"}  scansoequivoci la maxweliana è siffatta:
+\textit{"Non ho bisogno di una maxwelliana per avere Damping, ma ho bisogno di una maxwelliana per fare il conto"}  scansoequivoci la maxweliana è siffatta:
 \[f=\frac{n_0}{\sqrt{(2\pi)^3}v_{th}^3}e^{-\dfrac{v_x^2+v_y^2+v_z^2}{2v_{th}^2}}\]
 La nostra funzione di distribuzione in particolare è normalizzata e 1D
 \[g(u)=\frac{1}{\sqrt{2\pi}v_{th}}e^{-\dfrac{u^2}{2v_{th}^2}}\]
-Da cui si trova agevolmente la parte immaginaria della frequenza che corrisponde al dumping. 
+Da cui si trova agevolmente la parte immaginaria della frequenza che corrisponde al damping. 
 \[\boxed{\omega_i=-\omega_e\sqrt{\frac{\pi}{8}}\frac{1}{(k\lambda_D)^3}e^{-\dfrac{3+k^2\lambda_D^2}{2}}}\]
 Si vede che come atteso lo smorzamento scompare completamente per $k^2\lambda_D\to0$. 
 

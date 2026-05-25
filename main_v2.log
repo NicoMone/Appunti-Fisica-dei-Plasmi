@@ -1,4 +1,4 @@
-This is LuaHBTeX, Version 1.22.0 (TeX Live 2025/Debian)  (format=lualatex 2026.5.22)  24 MAY 2026 18:47
+This is LuaHBTeX, Version 1.22.0 (TeX Live 2025/Debian)  (format=lualatex 2026.5.22)  25 MAY 2026 13:22
  restricted system commands enabled.
 **main_v2.tex
 (./main_v2.tex
@@ -1448,30 +1448,39 @@ le al mo-do di Al-fvén ma com-pri-mi-bi-le, $[]$.
 <immagini/LD.png, id=669, 740.7675pt x 410.53375pt>
 File: immagini/LD.png Graphic file (type png)
 <use immagini/LD.png>
-Package luatex.def Info: immagini/LD.png  used on input line 348.
+Package luatex.def Info: immagini/LD.png  used on input line 349.
 (luatex.def)             Requested size: 170.71652pt x 94.6087pt.
-[42] [43<./immagini/LD.png>] [44] [45]
-Underfull \hbox (badness 10000) in paragraph at lines 540--541
+[42]
+<immagini/LDvisualized.png, id=677, 898.35625pt x 671.50874pt>
+File: immagini/LDvisualized.png Graphic file (type png)
+<use immagini/LDvisualized.png>
+Package luatex.def Info: immagini/LDvisualized.png  used on input line 386.
+(luatex.def)             Requested size: 199.16928pt x 148.86972pt.
+
+Underfull \vbox (badness 3492) has occurred while \output is active []
+
+ [43<./immagini/LD.png>] [44<./immagini/LDvisualized.png>] [45]
+Underfull \hbox (badness 10000) in paragraph at lines 550--551
 []\T1/lmr/m/n/10 La par-te prin-ci-pa-le se-con-do Cau-chy si cal-co-la co-me $
 [] [] \OT1/cmr/m/n/10 =
  []
 
-[46] [47] [48]) (./instabilità.tex [49] [50
-
-]
+[46] [47] [48] [49]) (./instabilità.tex [50]
 Capitolo 6.
-<immagini/flusso3.jpg, id=728, 1284.8pt x 883.3pt>
+<immagini/flusso3.jpg, id=734, 1284.8pt x 883.3pt>
 File: immagini/flusso3.jpg Graphic file (type jpg)
 <use immagini/flusso3.jpg>
 Package luatex.def Info: immagini/flusso3.jpg  used on input line 9.
 (luatex.def)             Requested size: 142.26378pt x 97.79677pt.
-[51<./immagini/flusso3.jpg>]
-<immagini/flusso1.jpg, id=735, 1201.48875pt x 1003.75pt>
+[51
+
+<./immagini/flusso3.jpg>]
+<immagini/flusso1.jpg, id=741, 1201.48875pt x 1003.75pt>
 File: immagini/flusso1.jpg Graphic file (type jpg)
 <use immagini/flusso1.jpg>
 Package luatex.def Info: immagini/flusso1.jpg  used on input line 77.
 (luatex.def)             Requested size: 113.81102pt x 95.06624pt.
-<immagini/flusso2.jpg, id=736, 1077.02374pt x 1003.75pt>
+<immagini/flusso2.jpg, id=742, 1077.02374pt x 1003.75pt>
 File: immagini/flusso2.jpg Graphic file (type jpg)
 <use immagini/flusso2.jpg>
 Package luatex.def Info: immagini/flusso2.jpg  used on input line 82.
@@ -1480,7 +1489,7 @@ Package luatex.def Info: immagini/flusso2.jpg  used on input line 82.
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [52<./immagini/flusso1.jpg><./immagini/flusso2.jpg>]
-<immagini/KH.jpg, id=743, 1284.8pt x 767.86874pt>
+<immagini/KH.jpg, id=749, 1284.8pt x 767.86874pt>
 File: immagini/KH.jpg Graphic file (type jpg)
 <use immagini/KH.jpg>
 Package luatex.def Info: immagini/KH.jpg  used on input line 117.
@@ -1533,11 +1542,11 @@ L3 programming layer <2026-01-19>
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
 Package rerunfilecheck Info: File `main_v2.out' has not changed.
-(rerunfilecheck)             Checksum: 2833F8CC51DA771DB6B7D546973E41B1;12820.
+(rerunfilecheck)             Checksum: C43078C5BD7CF9326411B9EEFE18DA34;12820.
 )
 
 Here is how much of LuaTeX's memory you used:
- 37345 strings out of 476076
+ 37356 strings out of 476076
  125129,1373583 words of node,token memory allocated
  4436 words of node memory still in use:
    32 hlist, 2 vlist, 14 rule, 2 glue, 4 kern, 12 sub_mlist, 1 glyph, 1086 attri
@@ -1545,7 +1554,7 @@ bute, 71 glue_spec, 580 attribute_list, 2 write, 24 pdf_literal, 24 pdf_colorsta
 ck nodes
    avail lists: 1:4,2:1816,3:799,4:326,5:879,6:130,7:8813,8:111,9:2430,10:32,11:
 1231
- 58621 multiletter control sequences out of 65536+600000
+ 58628 multiletter control sequences out of 65536+600000
  73 fonts using 4678871 bytes
  98i,25n,113p,1122b,1424s stack positions out of 10000i,1000n,20000p,200000b,200000s
 {/usr/share/texmf/fonts/enc/dvips/lm/lm-ec.enc}{/usr/share/texmf/fonts/enc/dvips
@@ -1570,10 +1579,10 @@ onts/type1/public/lm/lmr7.pfb></usr/share/texmf/fonts/type1/public/lm/lmri10.pfb
 ></usr/share/texmf/fonts/type1/public/lm/lmro10.pfb></usr/share/texlive/texmf-di
 st/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/share/texlive/texmf-dist
 /fonts/type1/public/amsfonts/symbols/msbm7.pfb>
-Output written on main_v2.pdf (69 pages, 1608239 bytes).
+Output written on main_v2.pdf (69 pages, 2039603 bytes).
 
-PDF statistics: 928 PDF objects out of 1000 (max. 8388607)
- 785 compressed objects within 8 object streams
- 238 named destinations out of 1000 (max. 131072)
+PDF statistics: 934 PDF objects out of 1000 (max. 8388607)
+ 788 compressed objects within 8 object streams
+ 239 named destinations out of 1000 (max. 131072)
  768 words of extra memory for PDF output out of 10000 (max. 100000000)
 
