@@ -197,11 +197,11 @@ Per fare un esempio dell'andamento tipico possiamo considerare  $B_0(x)=\tanh{\f
 
 I campi di variazione sono 
 
-\[\vec b=b_x(x,y)\hat x+b_y(x,y)\hat y,\hspace{1cm}\vec u=u_x(x,y)\hat x+u_y(x,y)\hat y\] 
+\[\vec b=b_x(x,y)\hat e_x+b_y(x,y)\hat e_y,\hspace{1cm}\vec u=u_x(x,y)\hat e_x+u_y(x,y)\hat e_y\] 
 
-Dalla fluidodinamica sappiamo che possiamo scrivere il campo 2D come gradiente di un potenziale $\psi$:
+Come nella fluidodinamica, sappiamo che possiamo scrivere il campo 2D come gradiente di un potenziale $\psi$:
 
-\[\vec b\ =\ \nabla\psi\times\hat e_z\ =\ \partial_y\psi\hat e_x-\partial_x\psi\hat e_y,\hspace{2cm}\vec u\ =\ \nabla\phi\times\hat z\ =\ \partial_y\phi\hat x-\partial_x\phi\hat y\] 
+\[\boxed{\vec b\ =\ \nabla\psi\times\hat e_z\ =\ \partial_y\psi\hat e_x-\partial_x\psi\hat e_y}\ \ ,\hspace{2cm} \boxed{\vec u\ =\ \nabla\phi\times\hat z\ =\ \partial_y\phi\hat e_x-\partial_x\phi\hat e_y}\] 
 
 Dopodiché ho bisogno dell'equazione di Faraday ("dell'induzione") 
 
@@ -209,40 +209,40 @@ Dopodiché ho bisogno dell'equazione di Faraday ("dell'induzione")
 %
 %
 %
-\subsection{equazione di faraday}  Vorrei tanto sapere come mai l'equazione di faraday è proprio scritta così, io non me la ricordo mica come siarriva a questo punto e mi auguro di scoprirlo presto... cmq davanti ad eta potrebbe esserci un $4\pi$ o comunque una costante
+\subsection{equazione di faraday}  
 
-\[\partial_t\, \vec B\ =\ \nabla\times(\vec u\times\vec B_0)\ +\ \eta\,\nabla^2\,\vec b\]
+\[\boxed{\, \partial_t\, \vec B\ =\ \nabla\times(\vec u\times\vec B_0)\ +\ \eta\,\nabla^2\,\vec b\, }\]
 
-\[\vec u\times\vec B_0= 
+\[\vec u\times\vec B_0\ =\ 
 \begin{vmatrix} 
-	\hat x & \hat y & \hat z\\ 
+	\hat e_x & \hat e_y & \hat e_z\\ 
 	\partial_y\phi & \partial_x\phi & 0\\
 	0& B_0 &  0
 \end{vmatrix} 
 \ =\ B_0\,\partial_y\phi\,\hat e_z\] 
 
-\[\nabla\times[\vec u\times\vec B_0]= 
+\[\nabla\times[\vec u\times\vec B_0]\ =\ 
 \begin{vmatrix} 
-	\hat x & \hat y & \hat z\\ 
+	\hat e_x & \hat e_y & \hat e_z\\ 
 	\partial_x & \partial_y & 0\\
 	0& 0 &  B_0\partial_y\phi
 \end{vmatrix} 
-\ =\ B_0\partial_{yy}\phi\hat x-\partial_x[B_0\partial \phi]\hat y\ =\ B_0\partial_{yy}\phi\hat x-(B_0'\partial_y\phi+B_0\partial_{xy}\phi)\hat y\] 
+\ =\ B_0\partial_{yy}\phi\hat x-\partial_x[B_0\partial \phi]\hat e_y\ =\ B_0\partial_{yy}\phi\hat e_x\, -\, (B_0'\partial_y\phi\, +\, B_0\partial_{xy}\phi)\hat e_y\] 
 
 dove $B_0'=\partial_ xB_0$ e in generale d'ora in poi i termini col primo si intende derivata lungo x. 
 
-\[\nabla^2\vec b\ =\ (\partial_{xx}+\partial_{yy})(\partial_y\psi\hat e_x-\partial_x\psi\hat e_y)\ =\ (\partial_{xxy}+\partial_{yyy})\psi\hat e_x\,-\,(\partial_{xxx}+\partial_{yyx})\psi\hat e_y\] 
+\[\nabla^2\vec b\ =\ (\partial_{xx}+\partial_{yy})(\partial_y\psi\hat e_x-\partial_x\psi\hat e_y)\ =\ (\partial_{xxy}+\partial_{yyy})\psi\hat e_x-(\partial_{xxx}+\partial_{yyx})\psi\hat e_y\] 
 
 chiaramente la derivata rispetto al tempo del campo elettrico mi ammazza il campo medio $B_0$ 
 
-\[\partial_t\vec B=\partial _t\vec b=\partial_{ty}\psi\hat x-\partial_{tx}\psi\hat e_y\]
+\[\partial_t\vec B\ =\ \partial _t\vec b\ =\ \partial_{ty}\psi\hat e_x-\partial_{tx}\psi\hat e_y\]
 
-Metto tutto insieme , separo le componenti e impongo una soluzione piana $\sim f(x)e^{iky-\gamma t}$.
+Metto tutto insieme , separo le componenti e impongo una soluzione piana $\sim f(x)e^{iky-\gamma t}$ , con $\gamma \in \mathbb C$.
 
 \begin{itemize}
 	\item componente $\hat e_x$:\[ \partial_{ty}\psi\ =\ B_0\partial_{yy}\phi\,+\,\eta\,(\partial_{xxy}+\partial_{yyy})\psi\] tutti i termini contengono un $\partial _y$ e quindi posso integrare in $y$.\\
 	\[\gamma\psi\ =\ ikB_0\phi\,+\,\eta(\psi''-k^2\psi)\] 
-	\item componente y:  \\ho ricucito la derivata del prodotto. 
+	\item componente $\hat e_y$:  \\ho ricucito la derivata del prodotto. 
 	\[ -\partial_{tx}\psi\ =\ -(\partial_x B_0 \partial_y \phi + B_0 \partial_{xy}\phi) \,-\,\eta(\partial_{xxx}-\partial_{yyx})\psi\ =\ -\partial_x (B_0\partial_y\phi)\,-\,\eta(\partial_{xxx}-\partial_{yyx})\psi\]
 	Questa volta si integra in x:
 	\[-\gamma\psi\ =\ -ikB_0\phi\,+\,\eta(\psi''-k^2\psi)\]
@@ -258,64 +258,99 @@ alla fine dela fiera quello che viene fuori è per quanto riguarda la componente
 %
 %
 \subsection{equazione del moto } 
-Dall'ipotesi di incomprimibilità si ha sicuramente che non vi sono variazioni nella densità che è uniformemente $\rho_0$.; il termine $\vec u\nabla\cdot\vec u$ è del second'ordine e lo lasciamo perdere sin da subito, per il resto scriviamo la linearizzazione  
+Dall'ipotesi di incomprimibilità si ha sicuramente che non vi sono variazioni nella densità che è uniformemente $\rho_0$; il termine $\vec u\nabla\cdot\vec u$ è del second'ordine e lo lasciamo perdere sin da subito, per il resto scriviamo la linearizzazione  
 \[ \begin{aligned}
 \rho_0\,\partial_t(\nabla\times\vec u)\
 &=\ \frac{1}{4\pi}\nabla\times\left[(\nabla\times \vec B)\times\vec B\right]\ =\\ 
 &=\ \frac{1}{4\pi}\nabla\times\left[(\nabla\times \vec b)\times\vec B_0\right]+\frac{1}{4\pi}\nabla\times\left[(\nabla\times \vec B_0)\times\vec b\right]
 \end{aligned}\]
 
-ora di nuovo bisogna fare  i prodotti vettoriali e i rotori per benino benissimo
-\[\nabla\times \vec b=\begin{vmatrix}
+Andiamo a fare esplicitamente tutte queste operazioni vettoriali per i termini di entrambi i membri:
+
+\[\nabla\times \vec b\ =\ 
+\begin{vmatrix}
 	\hat i&\hat j&\hat k\\
-	\partial x &\partial_y& 0\\
+	\partial_x &\partial_y& 0\\
 	\partial_y\psi&-\partial _x\psi&0
-\end{vmatrix}=-(\partial_{xx}\psi+\partial_{yy}\psi)\hat z\] 
-\[\nabla\times\vec u=-(\partial_{xx}\phi+\partial_{yy}\phi)\hat z\]
-\[\nabla\times \vec B_0=\begin{vmatrix}
+\end{vmatrix}
+\ =\ -\,(\partial_{xx}\psi+\partial_{yy}\psi)\,\hat e_z\ \ ;\] 
+
+\[\nabla\times\vec u\ =\ -\,(\partial_{xx}\phi+\partial_{yy}\phi)\hat e_z\quad \text{proprio come $\vec\nabla \times\vec b$ per $\psi\to\phi$}\ \ ;\]
+
+\[\nabla\times \vec B_0\ =\
+\begin{vmatrix}
 	\hat i&\hat j&\hat k\\
-	\partial x &\partial_y& 0\\
+	\partial_x &\partial_y& 0\\
 	0&B_0&0
-\end{vmatrix}=\partial _x B_0\hat z=B_0'\hat z\] \[(\nabla\times\vec b)\times\vec B_0=
+\end{vmatrix}
+\ =\ \partial _x B_0 \, \hat e_z\ =\ B_0' \,\hat e_z\ \ ;\] 
+
+\[(\nabla\times\vec b)\times\vec B_0\ =\
 \begin{vmatrix}
 	\hat i&\hat j&\hat k\\
 	0 & 0& -(\partial_{xx}+\partial_{yy})\psi\\
 	0 & B_0& 0
-\end{vmatrix}=B_0(\partial_{xx}+\partial_{yy})\psi\hat x \]
-\[(\nabla\times\vec B_0)\times\vec b=
+\end{vmatrix}
+\ =\ B_0(\partial_{xx}+\partial_{yy})\,\psi\,\hat e_x\, =\, B_0\, \vec \nabla^2 \psi \, \hat e_x\ \ ;\]
+
+\[(\nabla\times\vec B_0)\times\vec b\ =\
 \begin{vmatrix}
 	\hat i&\hat j&\hat k\\
 	0&0&B'_0\\
-	\partial_y\psi&\partial_x\psi&0
+	\partial_y\psi&-\partial_x\psi&0
 \end{vmatrix}
-=B_0'\partial_x\psi\hat x+B_0'\partial_y\psi\hat y\] 
+\ =\ B_0'\,\partial_x\psi\,\hat e_x\, + \,B_0'\,\partial_y\psi\,\hat e_y\ \ ;\] 
 
-\[\nabla\times[(\nabla\times \vec b)\times\vec B_0]=
+\[\nabla\times[(\nabla\times \vec b)\times\vec B_0]\ =\
 \begin{vmatrix}
 	\hat i& \hat j&\hat k \\
 	\partial _x&\partial_y&0\\
 	B_0(\partial_{xx}+\partial_{yy})\psi&0&0
 \end{vmatrix}
-=-B_0(\partial_{yxx}+\partial_{yyy})\psi\hat z\] 
-\[\nabla\times[(\nabla\times \vec B_0)\times\vec b]
-=
+\ =\ -\, \partial_y( B_0\vec \nabla^2 \psi )\, \hat e_z\ =\ -\,B_0\,(\partial_{yxx}+\partial_{yyy})\,\psi\,\hat e_z\ \ ;\] 
+
+\[\begin{aligned}
+\nabla\times[(\nabla\times \vec B_0)\times\vec b]\
+&=\
 \begin{vmatrix}
 	\hat i& \hat j&\hat k \\
 	\partial _x&\partial_y&0\\
 	B_0'\partial_x\psi&B_0'\partial_y\psi&0
 \end{vmatrix}
-=[\partial_x(B_0'\partial_y\psi)-B_0'\partial_{yx}\psi]\hat z=\]\[=[B_0''\partial_y\psi+B_0'\partial_{yx}\psi-B_0'\partial_{yx}\psi]\hat z=B_0''\partial_y\psi\hat z\]
+\ =\ [\,\partial_x(B_0'\partial_y\psi)\, - \, \partial_y (B_0'\partial_{x}\psi)\,]\, \hat e_z\ =\\
+&=\ [\, B_0''\partial_y\psi\,+\,\cancel{B_0'\partial_{yx}\psi}\,-\,\cancel{B_0'\partial_{yx}\psi}\,]\,\hat e_z\ =\ B_0''\,\partial_y\psi\,\hat e_z
+\end{aligned}\]
 
-\[4\pi\rho_0\partial_t(\partial_{xx}+\partial_{yy})\phi=B_0(\partial_{yxx}+\partial_{yyy})\psi-B_0''\psi\] imponendo una soluzione di tipo onda piana (oddio non è mica vero che è un'onda piana... chiedere) le derivate rispetto al tempo fanno scendere un $\gamma$, le derivate seconde rispetto ad x danno un doppio primo, le derivate seconde rispetto a y danno $-k^2$.  ora bisogna normalizzare e $\gamma$ lo normalizzo col tempo di alfven, $\phi $ è una velocità  per una lunghezza e quindi va diviso per $\tilde c_aL$, se moltiplico per $L^2$ normalizzo sia la derivata seconda rispetto a x sia rispetto a $k^2$. 
-\[\frac{\tau_aL^2}{L\tilde c_a}=\frac{L^2}{\tilde c_a L/\tau_a}\sim\frac{L^2}{\tilde c_a^2}\] allora se moltiplico il membro a sx per $\tau_a\frac{L}{\tilde c_a}$ mi rimane la densità $\rho_0$. dall'altra parte la $\psi$ è $\sim \tilde BL\implies \psi''$ e anche $k^2\psi\sim \frac{\tilde B}{L}$ contando anche il $k$ davanti a tutto e il campo magnetico hoche il membro a dx è $\sim B^2/L^2$. il fattore con cui ho moltiplicato il membro a sx mi fa diventare il membro a destra $\sim \frac{\tilde B}{\tilde c_a^2}$.\\Se riesco a capire che $\rho_0\sim\frac{\tilde B^2}{c_a^2}$ sono a cavallo. \\in alternativa mi piace anche magari che $\rho_0\sim\frac{\tilde B}{c_a^2}$  perché comunque mi va bene che sia in termini del campo magnetico.  
-\\Credo che ho bisogno dell'equazione di continuità per riuscire a dimensionare campo magnetico e densità. 
+Così che, infine, l'equazione del moto di inizio paragrafo diventi:
+
+\[4\pi\,\rho_0\,\partial_t(\partial_{xx}\phi+\partial_{yy}\phi)\ =\ B_0\,(\partial_{yxx}+\partial_{yyy})\,\psi\,-\,B_0''\,\psi\]
+
+Imponendo una soluzione di tipo onda piana ($\sim f(x)e^{iky-\gamma t}$) le derivate rispetto al tempo fanno scendere un $\gamma$, le derivate seconde rispetto ad x danno un doppio primo, le derivate seconde rispetto a y danno $-k^2$.  
+
+\[\gamma (\phi '' - k^2 \phi)\ =\ i k \frac{B^2}{4\pi \rho_0} \frac{B_0}{\tilde B} \,\left(\frac{\psi '' - k^2 \psi}{\tilde B} \right)\, - \, ik\, \frac{B_0 ''\, \psi}{\tilde B^2}\]
+
+Ora bisogna normalizzare e $\gamma$ lo normalizzo col tempo di Alfvén $\tau_A$, $\phi $ è una velocità  per una lunghezza e quindi va diviso per $\tilde c_aL$, se moltiplico per $L^2$ normalizzo sia $\phi ''$ che $k^2\phi$. 
+
+\[\frac{\tau_a\, L^2}{L\tilde c_a}\ =\ \frac{L\, \tau_a}{\tilde c_a }\ \sim\ \frac{L^2}{\tilde c_a^2}\]
+
+Allora se moltiplico il membro a sx per $\tau_a\frac{L}{\tilde c_a}$ mi rimane la densità $\rho_0$. 
+
+Nell'altro membro, $\psi\sim \tilde BL\implies \psi''\sim \tilde B/L$, anche $k^2\psi\sim \tilde B/L$, contando anche il $k$ davanti a tutto e il campo magnetico, varrà che il membro a dx è $\sim B^2/L^2$. 
+Il fattore con cui ho moltiplicato il membro a sx mi fa diventare il membro a destra $\sim \frac{\tilde B}{\tilde c_a^2}$.
+
+Se riesco a capire che $\rho_0\sim\frac{\tilde B^2}{c_a^2}$ sono a cavallo. 
+
 
 %
 %
-\subsection{equazioni MHD incomprimibile} 
+%%
+%%%%
+\subsection{equazioni MHD incomprimibile}
+ 
 \begin{enumerate}
-	\item \[\gamma(\phi''-k^2\phi)=ikB_0(\psi''-k^2\psi)-ikB_0\psi\]
-	\item \[\gamma\psi-ikB_0\phi=S^{-1}(\psi''-k^2\psi)\] è da qui che emerge l'equazione differenziale del uart'ordine. il termine alla derivata quarta è effettivamente quello legato al numero di Raynolds magnetico, $S^{-1}$ è un numero piccolissimo e sono necessari grandi gradienti per farlo uscire fuori. Queste equazioni presentano una singolarità ed è in quel punto che comincia a contare il termine del quart'ordine. Quando la velocità di fase dell'onda di alfven matcha la velocità del suono locale ovvero quando $\frac{\omega}{k}\sim c_a(x_0)$ in $x_0$ c'è la singolrità. Avere questa singolarità non necessariamente porta ad una riconnessione, è infatti questo il caso anche per le oscillazioni di kelvinhelmoltz  in cui le onde fanno risonanza con la disomogeneità e dissipano l'energia, però se il campo magnetico passa da zero e fa un'inversione "si inverte", posso avere la riconnsessone. in questo caso l'energia  viene liberata dal campo medio che cambiando configurazione passa ad uno stato di minore energia. \\
+	\item \[\gamma\,(\phi''-k^2\phi)\ =\ ik\,B_0\,(\psi''-k^2\psi)\,-\,ikB_0\,\psi\]
+	\item \[\gamma\psi\,-\,ik\,B_0\phi\ =\ S^{-1}\,(\psi''-k^2\psi)\] 
+	è da qui che emerge l'equazione differenziale del quart'ordine. Il termine alla derivata quarta è effettivamente quello legato al numero di Reynolds magnetico, $S^{-1}$ è un numero piccolissimo e sono necessari grandi gradienti per farlo uscire fuori. Queste equazioni presentano una singolarità ed è in quel punto che comincia a contare il termine del quart'ordine. Quando la velocità di fase dell'onda di alfven matcha la velocità del suono locale ovvero quando $\frac{\omega}{k}\sim c_a(x_0)$ in $x_0$ c'è la singolrità. Avere questa singolarità non necessariamente porta ad una riconnessione, è infatti questo il caso anche per le oscillazioni di kelvinhelmoltz  in cui le onde fanno risonanza con la disomogeneità e dissipano l'energia, però se il campo magnetico passa da zero e fa un'inversione "si inverte", posso avere la riconnsessone. in questo caso l'energia  viene liberata dal campo medio che cambiando configurazione passa ad uno stato di minore energia. \\
 	
 	DOMANDA:
 	

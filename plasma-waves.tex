@@ -333,7 +333,9 @@ Se invece non domina B l'onda fast è proprio un'onda sonora e l'onda slow è fo
 \vspace{0.5cm}
 \section{Damping di Landau}
 
-Nei capitoli precedenti, abbiamo introdotto la \underline{trattazione statistica a due fluidi}, l'\underline{equazione di Vlasov} e la \underline{MHD}, che descrivono il comportamento dei plasmi su scale macroscopiche e cinetiche. Ora ci concentriamo su un fenomeno fondamentale della fisica dei plasmi: l'\underline{interazione onda-particella}, nota come \underline{damping di Landau}.
+Nei capitoli precedenti, abbiamo introdotto la \underline{trattazione statistica a due fluidi}, l'\underline{equazione di Vlasov} e la \underline{MHD}, che descrivono il comportamento dei plasmi su scale macroscopiche e cinetiche. 
+
+Ora ci concentriamo su un fenomeno fondamentale della fisica dei plasmi: l'\underline{interazione onda-particella}, nota come \underline{damping di Landau}.
 
 Questo meccanismo descrive come le onde di plasma possono \underline{perdere energia} (o, in alcuni casi, guadagnarla, cfr. inverse landau damping) a causa dell'interazione con le particelle del plasma, senza che avvenga \underline{termalizzazione} o produzione di calore. È un esempio di \underline{smorzamento non dissipativo}, che si distingue nettamente da fenomeni come la resistività o la viscosità.
 
@@ -372,10 +374,17 @@ La funzione di distribuzione per una specie $a$ (elettroni o ioni) è:
 f_a(\vec{x}, \vec{v}, t)\ =\ f_{a0}(\vec{v})\, +\, f_{a1}(\vec{x}, \vec{v}, t)\ \ ,
 \]
 
-dove $f_{a0}(\vec{v})$ dipende esclusivamente dalla velocità e la distribuzione è pari, ossia $f(v) = f(-v)$.
+dove $f_{a0}(\vec{v})$ dipende esclusivamente dalla velocità e la distribuzione è pari, ossia $f(v) = f(-v)$, ed è una soluzione all'equilibrio, mentre $f_{a1}(\vec x, \vec v, t)$ è una piccola perturbazione.
 
-\paragraph{Strumento Matematico: L'Equazione di Vlasov}
+Per ciascuna specie vale 
+
+
+\paragraph{LD emerge dal framework cinetico: riprendiamo l'eq. di Vlasov.}
+
+\[\frac{\partial}{\partial_t}f_a\ +\\vec v\cdot \vec\nabla_{\vec x}\, f_a\ +\ \frac{q_a}{m_a}\,\vec E\cdot \vec \nabla_{\vec v}\,f_a\ =\ 0\ \ .\] 
+
 Per descrivere il damping di Landau, è necessario utilizzare l'\underline{equazione di Vlasov}, che governa l'evoluzione della funzione di distribuzione $f(\vec{x}, \vec{v}, t)$ nello spazio delle fasi. L'equazione di Vlasov è particolarmente adatta perché:
+
 \begin{itemize}
 	\item \underline{Non richiede una chiusura} (a differenza delle equazioni fluide).
 	\item \underline{Conserva l'entropia}: $\dfrac{d}{dt}(f \ln f) = 0$, il che implica che le \underline{isolinee} della funzione di distribuzione possono essere deformate, ma \underline{non possono essere "strappate" o "riconnesse"}.
@@ -391,15 +400,16 @@ Per descrivere il damping di Landau, è necessario utilizzare l'\underline{equaz
 
 Le isolinee sono più dense nelle regioni dello spazio delle fasi dove il gradiente di $f$ è maggiore. Se si forma un \underline{vortice} attorno a $v_f$, le isolinee si avvolgono, e si osserva un \underline{cambio di segno della velocità} nel sistema di riferimento dell'onda (fenomeno noto come \underline{trapping}).
 
-\[\frac{\partial}{\partial_t}f_a\,+\,\vec v\cdot \vec\nabla_{\vec x} f_a\,+\,\frac{q_a}{m_a}\vec E\cdot \vec \nabla_{\vec v}f_a\ =\ 0\ \ .\] 
+Quando linearizzo i primi termini: possiamo cancellare l'ordine zero $\frac{\partial f_{a,0}}{\partial t} + \vec v\cdot \vec\nabla_{\vec x} f_{a,0}$ per l'eq. di continuità.
 
-Quando linearizzo i primi termini è tutto abbastanza naturale: $f_{0a}$ non dipende né da $\vec x$ né da $t$ e quindi rimane solamente il termine $f_{a1}$. Per quanto riguarda il termine $\vec E\cdot \vec \nabla_{\vec v}f_a$, le cose sono più delicate;\\ è vero che all'istante iniziale 
-$\frac{\partial f_{a0}}{\partial v}\gg\frac{\partial f_{a1}}{\partial v}$
-ma i gradienti $\partial_v$ evolvono nel tempo e può arrivare un momento in cui la nostra linearizzazione non vale più e in gradienti evolvono in maniera da avere 
-$\frac{\partial f_{a0}}{\partial v}\simeq\frac{\partial f_{a1}}{\partial v}$ .
+Per il termine 
+
+Per quanto riguarda il termine $\vec E\cdot \vec \nabla_{\vec v}f_a$, che linearizziamo in $\frac{q_a}{m_a} (\vec E_0 + \vec E_1)\vec \nabla_{\vec v} (f_{s,0}+f_{s,1})$, le cose sono più delicate; è vero che all'istante iniziale $\displaystyle\frac{\partial f_{a0}}{\partial v}\gg\frac{\partial f_{a1}}{\partial v}$ ma i gradienti $\partial_v$ evolvono nel tempo e può arrivare un momento in cui la nostra linearizzazione non vale più e in gradienti evolvono in maniera da avere 
+$\displaystyle\frac{\partial f_{a0}}{\partial v}\simeq\frac{\partial f_{a1}}{\partial v}$ .
+
 Questo può avvenire dopo un certo \underline{tempo di intrappolamento} $\tau_t$.
 
-In ogni caso, quando vale la linearizzazione, abbiamo:
+In ogni caso, quando vale la linearizzazione ponendo $\vec E_0=0$, abbiamo al primo ordine:
 
 \[\boxed{\ \frac{\partial}{\partial t}\,f_{a1}\ +\ \vec v\cdot \vec\nabla_{\vec x}\, f_{a1}\ +\ \frac{q_a}{m_a}\, \vec E_1\cdot \vec \nabla_{\vec v}\,f_{a0}\ =\ 0}\] 
 
@@ -425,6 +435,66 @@ In questo capitolo, esploreremo:
 	\item Le condizioni per cui il damping è rilevante (ad esempio, $v_f \sim v_{th}$, dove $v_{th}$ è la velocità termica);
 	\item Le implicazioni fisiche e le applicazioni del damping di Landau nei plasmi reali.
 \end{enumerate}
+
+%%
+%
+\subsection{Equazioni di partenza}
+
+Facciamo la trasformata di Fourier per studiare i modi normali dell'onda di plasma e trovare quello meno smorzato, cioè caratterizzato da un coefficiente di smorzamento \(\omega_i\) molto piccolo rispetto alla frequenza reale \(\omega_r\).
+Cerchiamo i termini che vanno come $\sim e^{i(\vec k \cdot \vec x - \omega t)}$, dove  \(\boxed{\omega = \omega_r + i\omega_i}\)  è in generale un numero complesso: la parte reale \(\omega_r\) rappresenta l'oscillazione, mentre la parte immaginaria \(\omega_i\) rappresenta lo smorzamento (se \(\omega_i < 0\)) o l'amplificazione (se \(\omega_i > 0\)).
+
+L'equazione di Vlasov linearizzata, in trasformata di Fourier, è:
+\[
+-\,i\omega\, f_{a,1}\, +\, i\,(\vec{k} \cdot \vec{v})\, f_{a,1}\, +\, \frac{q_a}{m_a}\, (\vec{E} \cdot \nabla_v)\, f_{a,0}\ =\ 0\ \ .
+\]
+Da questa si trova la soluzione per \(f_1\) ($\vec \nabla \phi_1 \rightarrow i\vec k \phi_1$):
+\[
+f_{1}(\vec x,\, \vec v,\, t)\ =\ -\,\sum_a\, \frac{q_a}{m_a}\, \frac{(\vec{k} \cdot \nabla_v)\, f_{a,\, 0}}{(\omega\, -\, \vec{k} \cdot \vec{v})}\ \phi_1\ \ \ .
+\]
+
+\emph{Nota:} La condizione \(\vec{k} \parallel \vec{E}\) non è esplicitamente derivata qui, ma è implicita nel fatto che per onde longitudinali (come le onde di plasma), il campo elettrico è parallelo a \(\vec{k}\) (perché \(\vec{E}_1 = -\nabla \phi_1\) e \(\phi \sim e^{i\vec{k} \cdot \vec{x}}\)).
+
+L'equazione di Poisson ($ikE_1=4\pi e (n_i - n_e)$) linearizzata è:
+\[
+-(ik)^2\, \phi_1\ =\ 4\pi e \int (f_{i,1} - f_{e,1})\, d\vec{v}.
+\]
+La soluzione del sistema di equazioni è:
+\[
+k^2\, \phi_1\ =\ -4\pi e\, \sum_a \frac{q_a}{m_a} \int \frac{(\vec{k} \cdot \nabla_v) f_{0a}}{(\omega - \vec{k} \cdot \vec{v})}\, d\vec{v} \,
+\phi_k\ \ ,
+\]
+
+da cui si ottiene la \textbf{relazione di dispersione}:
+
+\[
+\boxed{\, k^2\ =\ -4\pi e\, \sum_a \frac{q_a}{m_a}\, \int \frac{(\vec{k} \cdot \nabla_v) f_{0a}}{(\omega - \vec{k} \cdot \vec{v})}\, d\vec{v}\ \ .}
+\]
+
+%
+
+\subsubsection{Onda di plasma a ioni fissi}
+
+Consideriamo un'onda di plasma con frequenza tale che gli ioni non facciano in tempo a reagire. Il contributo degli ioni si limita quindi a mantenere la quasi-neutralità tramite \(n_0\). Se non facessimo questa assunzione, troveremmo anche soluzioni con onde ion-acoustic (IA).
+
+Se l'onda di plasma si propaga in direzione \(x\), possiamo integrare la distribuzione in \(dv_y\) e \(dv_z\), perché il termine \(\vec{k} \cdot \nabla_v\) non coinvolge quelle direzioni. L'integrale diventa quindi un integrale 1D, dato che l'onda si propaga in un'unica direzione:
+\[
+\vec{k} \cdot \nabla_v\, \to\, k\, \partial_u\ \ , \qquad u \equiv v_x\ \ .
+\]
+
+È conveniente definire la funzione di distribuzione normalizzata a 1 in termini di \(n_0\), perché si riconosce che, a meno di \(n_0\), la frequenza di plasma degli elettroni \(\omega_e\) moltiplica l'integrale:
+\[
+g(u)\, =\, \frac{f(u)}{n_0}\ ; \qquad \int f(u) du\, =\, n_0\ \to\ \int g(u) du\, =\, 1\ \ .
+\]
+
+Si ottiene quindi:
+\[
+\phi_k\ =\ -\frac{\omega_e^2}{k^2}\, \int \frac{(\vec{k} \cdot \nabla_v)\, f_{0e}}{(\omega - \vec{k} \cdot \vec{v})}\, d\vec{v} \, \phi_k\ \ \ ,
+\]
+che porta alla relazione di dispersione:
+\[
+\boxed{\,1 \ +\ \frac{\omega_e^2}{k^2}\, \int\, \frac{\partial_u\, g(u)}{\left(\frac{\omega}{k}\, -\, u\right)} du\ =\ 0}\ \ \ .
+\]
+
 
 
 %
@@ -459,77 +529,7 @@ Sviluppando attorno a \(v \sim v_f\), si osserva che \(\partial_v f_1\) cresce q
 Questo mostra che, in un tempo \(\tau_t \sim \sqrt{\dfrac{m}{e\hat{E}k}}\), la derivata \(\partial_v f_1\) diventa dell'ordine di 1, invalidando l'ipotesi di linearità. L'intrappolamento, quindi, modifica la funzione di distribuzione e segna il limite fisico della linearizzazione.
  
 
-%
-%
-%
-\subsection{Trasformata di Fourier: ricerca dei modi normali}
 
-Facciamo la trasformata di Fourier per studiare i modi normali dell'onda di plasma e trovare quello meno smorzato, cioè caratterizzato da un coefficiente di smorzamento \(\omega_i\) molto piccolo rispetto alla frequenza reale \(\omega_r\).
-
-Cerchiamo i termini che vanno come $\sim e^{i(\vec k \cdot \vec x - \omega t)}$, dove  \(\boxed{\omega = \omega_r + i\omega_i}\)  è in generale un numero complesso: la parte reale \(\omega_r\) rappresenta l'oscillazione, mentre la parte immaginaria \(\omega_i\) rappresenta lo smorzamento (se \(\omega_i < 0\)) o l'amplificazione (se \(\omega_i > 0\)).
-
-Le soluzioni per la distribuzione perturbata \(f_1\) e il potenziale \(\phi\) sono quindi:
-\[
-f_1\ =\ \sum_k \,f_k\, e^{i(\vec k \cdot \vec x - \omega t)}\ \ ; 
-\qquad 
-\phi\ =\ \sum_k \,\phi_k\, e^{i(\vec k \cdot \vec x - \omega t)}\ \ .
-\]
-
-Scriviamo anche le concentrazioni in termini della distribuzione (interessano solo i termini di fluttuazione, per la quasi-neutralità del plasma). Questo vale modo per modo (k per k), anche attraverso la trasformata:
-\[
-n_k\ =\ \int f_{1k}\, d\vec{v}\ \ .
-\]
-
-\subsubsection{Equazioni di partenza}
-L'equazione di Vlasov linearizzata è:
-\[
--i\omega f_{ak}\ +\ i\vec{k} \cdot \vec{v} f_{ak}\ -\ \frac{-iq_a}{m_a} (\vec{k} \cdot \nabla_v) f_{a0} \phi_k\ =\ 0\ \ .
-\]
-Da questa si trova la soluzione per \(f_k\):
-\[
-f_k\ =\ -\sum_a \frac{q_a}{m_a}\, \frac{(\vec{k} \cdot \nabla_v) f_{a0}}{(\omega - \vec{k} \cdot \vec{v})}\, \phi_k\ \ .
-\]
-
-\emph{Nota:} La condizione \(\vec{k} \parallel \vec{E}\) non è esplicitamente derivata qui, ma è implicita nel fatto che per onde longitudinali (come le onde di plasma), il campo elettrico è parallelo a \(\vec{k}\) (perché \(\vec{E} = -\nabla \phi\) e \(\phi \sim e^{i\vec{k} \cdot \vec{x}}\)).
-
-L'equazione di Poisson linearizzata è:
-\[
--(ik)^2\, \phi_k\ =\ 4\pi e \int (f_{1k} - f_{ek})\, d\vec{v}.
-\]
-La soluzione del sistema di equazioni è:
-\[
-k^2 \phi_k\ =\ -4\pi e\, \sum_a \frac{q_a}{m_a} \int \frac{(\vec{k} \cdot \nabla_v) f_{0a}}{(\omega - \vec{k} \cdot \vec{v})}\, d\vec{v} \,
-\phi_k\ \ ,
-\]
-da cui si ottiene la \textbf{relazione di dispersione}:
-\[
-\boxed{\, k^2\ =\ -4\pi e\, \sum_a \frac{q_a}{m_a}\, \int \frac{(\vec{k} \cdot \nabla_v) f_{0a}}{(\omega - \vec{k} \cdot \vec{v})}\, d\vec{v}\ \ .}
-\]
-
-%
-
-\subsubsection{Onda di plasma a ioni fissi}
-
-Consideriamo un'onda di plasma con frequenza tale che gli ioni non facciano in tempo a reagire. Il contributo degli ioni si limita quindi a mantenere la quasi-neutralità tramite \(n_0\). Se non facessimo questa assunzione, troveremmo anche soluzioni con onde ion-acoustic (IA).
-
-Se l'onda di plasma si propaga in direzione \(x\), possiamo integrare la distribuzione in \(dv_y\) e \(dv_z\), perché il termine \(\vec{k} \cdot \nabla_v\) non coinvolge quelle direzioni. L'integrale diventa quindi un integrale 1D, dato che l'onda si propaga in un'unica direzione:
-\[
-\vec{k} \cdot \nabla_v\, \to\, k\, \partial_u\ \ , \qquad u \equiv v_x\ \ .
-\]
-
-È conveniente definire la funzione di distribuzione normalizzata a 1 in termini di \(n_0\), perché si riconosce che, a meno di \(n_0\), la frequenza di plasma degli elettroni \(\omega_e\) moltiplica l'integrale:
-\[
-g(u)\, =\, \frac{f(u)}{n_0}\ ; \qquad \int f(u) du\, =\, n_0\ \to\ \int g(u) du\, =\, 1\ \ .
-\]
-
-Si ottiene quindi:
-\[
-\phi_k\ =\ -\frac{\omega_e^2}{k^2}\, \int \frac{(\vec{k} \cdot \nabla_v)\, f_{0e}}{(\omega - \vec{k} \cdot \vec{v})}\, d\vec{v} \, \phi_k\ \ \ ,
-\]
-che porta alla relazione di dispersione:
-\[
-\boxed{\,1 \ +\ \frac{\omega_e^2}{k^2}\, \int\, \frac{\partial_u\, g(u)}{\left(\frac{\omega}{k}\, -\, u\right)} du\ =\ 0}\ \ \ .
-\]
 
 %
 %
@@ -557,21 +557,20 @@ che porta alla relazione di dispersione:
 %
 %
 %
-\subsubsection{Regime di propagazione senza damping} 
+\subsection{Regime di propagazione senza damping} 
 
-Prendiamo un'onda con $v_f\gg v_{th}$, in questo caso la velocità di fase non si sovrappone alla distribuzione e possiamo dire che non ci sono elettroni che si muovono localmente con velocità $u\sim v_{th}$, ovviamente in questo caso la derivata della distribuzione è a maggior ragione nulla. 
+Prendiamo un'onda con $v_f\gg v_{th}$, in questo caso la velocità di fase non si sovrappone alla distribuzione e possiamo dire che non ci sono elettroni che si muovono localmente con velocità $u\sim v_{th}$, questo significa che la derivata della distribuzione è a maggior ragione nulla. 
 
-Fisicamente risulta intuitivo (no?) che siamo nel caso in cui non si ha damping.
 
-Matematicamente questo significa che in corrispondenza della singolarità 
+Matematicamente questo significa che in corrispondenza della singolarità, 
 
-\[\dfrac{\omega}{k}-u=0\] 
+\[\dfrac{\omega}{k}\,-\,u\ =\ 0\ \ ,\] 
 
 che porterebbe ad una divergenza, si ha una soppressione maggiore al numeratore e al netto di tutto il numeratore è uno zero più zero del denominatore e alla fine della fiera l'integrale non ha divergenze. 
 
 Rimane da risolvere l'integrale:
 
-\[\int\frac{\partial_ug(u)}{(\frac{\omega}{k}-u)}\partial_u\]  
+\[\int\, \frac{\partial_u\, g(u)}{(\frac{\omega}{k}-u)}\, \partial_u\]  
 
 integro per parti e quando devo valutare il prodotto  tra le primitive ai bordi del dominio posso mettere tutto a zero, non ho particelle con velocità infinita! 
 
@@ -590,7 +589,7 @@ Uso il fatto che la sitribuzione è normalizzata ad 1 e anche che vale che (dovr
 
 \[\int\, g(u)\,du\,=\,1\ \ ,\qquad \int g(u)\,u^2\,du\ =\ v_{th}^2\] 
 
-Troviamo la relazione di dispersione. 
+Troviamo la relazione di dispersione: 
 
 \[\boxed{\,1\ -\ \frac{\omega_e^2}{\omega^2}\ -\ \frac{3k^2v^2_{th}\omega_e^2}{\omega^4}\ =\ 0}\ \ .\]
 
@@ -611,25 +610,68 @@ il professore ci dice che ci sono alcune cose che è bene notare \begin{enumerat
 	\item  alla maggior parte degli stimoli, I plasmi reagiscono in prima approssimazione alla frequenza di plasma indipendentemente da $k$. 
 \end{enumerate} 
 
+
+
 %
-\subsubsection{regime con damping}  
+%
+%
+\subsection{Regime di propagazione con damping}  
+
 Ripartiamo dalla nostra relazione del dielettrico, se $\epsilon(k,\omega)=0$ allora abbiamo un modo normale, in generale abbiamo
-\[\boxed{\ \epsilon(k,\omega)=1-\frac{\omega_e^2}{k^2}\int\frac{\partial_ug(u)}{(u-\dfrac{\omega}{k})}du\ }\] Ricordiamoci sempre che stiamo facendo la TF cercando il modo che sopravvive più a lungo che corrisponde ad un \textit{polo lontano} con $\omega_i\ll\omega_r$, praticamente stiamo dicendo che il damping c'è ma poco. Per contestualizzare bene quello che stavamo facendo prima il polo c'era lo stesso ma era in una zona dove il damping non avviene per come è popolata la distribuzione. \\Sviluppiamo il nostro dielettrico attorno a $\omega_r$, proprio considerando $\omega_i\ll\omega_r$. 
-\[\epsilon(k,\omega)\simeq\epsilon_r(k,\omega_r)+i\epsilon_i(k,\omega_r)+i\omega_i\frac{\partial \epsilon_r}{\partial\omega}\bigg|_{\omega=\omega_r}-\omega_i\frac{\partial \epsilon_i}{\partial\omega}\bigg|_{\omega=\omega_r}\] 
-impongo che siano nulle sia la parte reale che la parte immaginaria (per trovare il modo normale). Dalla parte immaginaria ottengo \[\epsilon_i=-\omega_i\frac{\partial\epsilon_r}{\partial \omega}\bigg|_{\omega_r}\implies \epsilon_i\sim\omega_i\] 
+
+\[\boxed{\ \epsilon(k,\omega)\ =\ 1\,-\,\frac{\omega_e^2}{k^2}\int\frac{\partial_ug(u)}{(u-\dfrac{\omega}{k})}du\ }\] 
+
+Ricordiamoci sempre che stiamo facendo la trasformata di Fourier cercando il modo che sopravvive più a lungo che corrisponde ad un \textit{polo lontano} con $|\omega_i|\ll|\omega_r|$, praticamente stiamo dicendo che il damping c'è ma poco. 
+
+Per contestualizzare bene quello che stavamo facendo prima il polo c'era lo stesso ma era in una zona dove il damping non avviene per come è popolata la distribuzione. 
+
+Sviluppiamo il nostro dielettrico attorno a $\omega_r$, proprio considerando $|\omega_i|\ll|\omega_r|$: 
+
+\[\epsilon(k,\omega)\ \simeq\ \epsilon_r(k,\omega_r)\, +\, i\epsilon_i(k,\omega_r)\, +\, i\omega_i\frac{\partial \epsilon_r}{\partial\omega}\bigg|_{\omega=\omega_r}\, -\, \cancelto{\text{ordine successivo}}{\omega_i\frac{\partial \epsilon_i}{\partial\omega}\bigg|_{\omega=\omega_r}}\ \overset{!}{=}\ 0\ \ .\] 
+
+Si impone che siano nulle sia la parte reale che la parte immaginaria (per trovare il modo normale). 
+
+Dalla parte immaginaria ottengo 
+
+\[\epsilon_i=-\omega_i\frac{\partial\epsilon_r}{\partial \omega}\bigg|_{\omega_r}\implies \epsilon_i\sim\omega_i\] 
 Dalla parte reale emerge che il termine di derivata va come $\sim \omega_i^2$ e di conseguenza lo posso trascurare, cos' come $\epsilon_r$. In generale la parte reale è zero, a meno di correzioni del second'ordine, che non ci interessano. 
 \[\omega_i=\dfrac{-\epsilon_i}{\dfrac{\partial \epsilon_r}{\partial \omega}}\] 
-comunque a questo punto abbiamo un integrale complesso da risolvere  con il metodone2. Abbiamo un polo molto vicino all'asse dei reali e noi ci giriamo attorno, poi facciamo il giro circolare con $|\omega|\to\infty$ che fa zero.
-\\Bisogna utilizzare la     formula di PLEMELJ
-\[\lim_{\epsilon\to0}\frac{1}{x\pm i\epsilon}=\mathcal P\frac{1}{x}\mp i\pi\delta(x)\] 
-\[\frac{1}{u-a}=\mathcal{P}\bigg(\frac{1}{u-a}\bigg)+i\pi\delta(u-a)\] 
-\[\mathcal{P}\bigg(\frac{1}{u-a}\bigg)\equiv \lim_{\epsilon\to 0}\bigg[\int_{-\infty}^{a-\epsilon}\frac{f(u)}{u-a}du+\int^{\infty}_{a+\epsilon}\frac{f(u)}{u-a}du\bigg]\] Questo integrale ha la proprietà che le due divrgenze  sono uguali ma opposte e quindi si annullano a vicenda. in questo caso non è la distribuzione vuota ad ammazzare l'integrale ma è questa sottigliezza matematica, però l'effetto finale  è lo stesso, è come se non avessi elettroni nel polo.\\Questo mi permette di andare avanti nel calcolo come nel caso precedente assumendo che $v_f^2\gg v_{th}^2$ (ovvero $v_f>v_{th}$) e trovare un risultato completamente analogo 
-\[\epsilon_r=1-\frac{\omega_e^2}{\omega^2}-\frac{3k^2v_{th}^2\omega_e^2}{\omega^4}\] Questo è un caso un pochino borderline \textit{"fa venire mal di pancia"} perché non siamo nelle condizioni più favorevoli per avere il damping e la risonanza avviene con "pochi" elettroni. Purtroppo il calcolo dell'integrale in maniera analitica al di fuori di questa assunzione è molto complicato, e non solo... in un regime di forte smorzamento di landau ($\omega/k\sim v_{th}$) non vale la linearizzazione assunta inizialmente e quindi va tutto il conto a ramengo.
-\\Nonostante ciò va detto che l'integrazione numerica di Vlasov porta a risultati sorprendentemente coerenti (nell'ordine del percento)
-\\Ora se faccio la derivata (calcolata in $\omega=\omega_r$) trovo due termini, uno dei quali è trascurabile in quanto $v_f^2\gg v_{th}^2$. 
-\[\frac{\partial \epsilon_r}{\partial\omega}\bigg|_{\omega=\omega_r}=-2\frac{\omega_e^2}{\omega_r^3}-\cancelto{0}{\frac{12k^2v_{th}^2\omega_e^2}{\omega_r^5}}\]  
-e a questo punto posso ricucire insieme tutti quanti i pezzi e trovare la parte immaginaria della frequenza, che poi sarebbe il coefficiente di smorzamento. \\Bisogna gestire correttamente la $\delta$ che mi fa calcolare la funzione di distribuzione in $u=\omega_r/k$. 
-\[\boxed{\omega_i=\dfrac{-\epsilon_i}{\partial _\omega\epsilon_r}=\frac{\pi\omega_e^3}{2k^2}\partial_ug(u)\bigg|_{u=\omega_r/k}}\]  
+
+Abbiamo un polo molto vicino all'asse dei reali e noi ci giriamo attorno, poi facciamo il giro circolare con $|\omega|\to\infty$ che fa zero.
+
+Bisogna utilizzare la formula di PLEMELJ
+
+\[\lim_{\epsilon\to0}\,\frac{1}{x\pm i\epsilon}\ =\ \mathcal P\,\frac{1}{x}\ \mp\ i\pi\,\delta(x)\]
+ 
+\[\frac{1}{u-a}\ =\ \mathcal{P}\,\bigg(\frac{1}{u-a}\bigg)\,+\,i\pi\,\delta(u-a)\] 
+
+\[\mathcal{P}\,\bigg(\frac{1}{u-a}\bigg)\ \equiv\  \lim_{\epsilon\to 0}\, \bigg[\,\int_{-\infty}^{a-\epsilon}\frac{f(u)}{u-a}du\, +\, \int^{\infty}_{a+\epsilon}\frac{f(u)}{u-a}du\,\bigg]\]
+
+Questo integrale ha la proprietà che le due divergenze  sono uguali ma opposte e quindi si annullano a vicenda. Come se non avessi elettroni nel polo.
+
+Questo mi permette di andare avanti nel calcolo come nel caso precedente assumendo che $v_f^2\gg v_{th}^2$ (ovvero $v_f>v_{th}$) e trovare un risultato completamente analogo 
+
+\[\epsilon_r=1-\frac{\omega_e^2}{\omega^2}-\frac{3k^2v_{th}^2\omega_e^2}{\omega^4}\]
+
+Questo è un caso un pochino borderline (\textit{"fa venire mal di pancia"}, concordo) perché non siamo nelle condizioni più favorevoli per avere il damping e la risonanza avviene con "pochi" elettroni. 
+
+Purtroppo il calcolo dell'integrale in maniera analitica al di fuori di questa assunzione è molto complicato, e non solo... in un regime di forte smorzamento di landau ($\omega/k\sim v_{th}$) non vale la linearizzazione assunta inizialmente e quindi bisogna procedere con l'integrazione numerica di Vlasov porta a risultati sorprendentemente coerenti (nell'ordine del percento)
+
+Ora se faccio la derivata (calcolata in $\omega=\omega_r$) trovo due termini, uno dei quali è trascurabile in quanto $v_f^2\gg v_{th}^2$. 
+
+\[\frac{\partial \epsilon_r}{\partial\omega}\bigg|_{\omega=\omega_r}\ =\ -2\,\frac{\omega_e^2}{\omega_r^3}\, -\, \cancelto{0}{\frac{12k^2v_{th}^2\omega_e^2}{\omega_r^5}}\]  
+
+e a questo punto posso ricucire insieme tutti quanti i pezzi e trovare la parte immaginaria della frequenza, che poi sarebbe il \underline{coefficiente di smorzamento}. 
+
+Bisogna gestire correttamente la $\delta$ che mi fa calcolare la funzione di distribuzione in $u=\omega_r/k$. 
+
+\[\boxed{\ \omega_i\ =\ \dfrac{-\epsilon_i}{\partial _\omega\epsilon_r}\ =\ \frac{\pi\,\omega_e^3}{2\,k^2}\,\partial_ug(u)\bigg|_{u=\omega_r/k}\ }\]  
+
+
+
+%
+%
+%
 \subsection{Soluzione con distribuzione generica}
 \[\boxed{\omega_i=\dfrac{-\epsilon_i}{\partial _\omega\epsilon_r}=\frac{\pi\omega_e^3}{2k^2}\partial_ug(u)\bigg|_{u=\omega_r/k}}\]   
 Questa è la parte immaginaria della frequenza ottenuta con la FT, se teniamo presente che stavamo cercando una soluzione con $e^{-i(\omega_r+i\omega_i) t}$ si vede che la parte immaginaria costtistuisce uno smorzamento (o un'amplificazione) esponenziale $\sim e^{\omega_it}$.\\In particolare ci piace molto il fatto che $\omega_i\propto \partial_ug(u)$ sicché quando $g(u)$ è decrescente si ha lo smorzamento, quando $g(u)$ cresce si ha LD$^{-1}$ mentre non succede niente di niente se la distribuzione è piatta. Questo intuitivamente ci piace anche se pensiamo al fenomeno dell'intrappolamento anche se cade l'ipotesi della linearizzazione.  
