@@ -381,7 +381,7 @@ Per ciascuna specie vale
 
 \paragraph{LD emerge dal framework cinetico: riprendiamo l'eq. di Vlasov.}
 
-\[\frac{\partial}{\partial_t}f_a\ +\\vec v\cdot \vec\nabla_{\vec x}\, f_a\ +\ \frac{q_a}{m_a}\,\vec E\cdot \vec \nabla_{\vec v}\,f_a\ =\ 0\ \ .\] 
+\[\frac{\partial}{\partial_t}f_a\ +\ \vec v\cdot \vec\nabla_{\vec x}\, f_a\ +\ \frac{q_a}{m_a}\,\vec E\cdot \vec \nabla_{\vec v}\,f_a\ =\ 0\ \ .\] 
 
 Per descrivere il damping di Landau, è necessario utilizzare l'\underline{equazione di Vlasov}, che governa l'evoluzione della funzione di distribuzione $f(\vec{x}, \vec{v}, t)$ nello spazio delle fasi. L'equazione di Vlasov è particolarmente adatta perché:
 
@@ -398,13 +398,12 @@ Per descrivere il damping di Landau, è necessario utilizzare l'\underline{equaz
 \end{figure}
 
 
-Le isolinee sono più dense nelle regioni dello spazio delle fasi dove il gradiente di $f$ è maggiore. Se si forma un \underline{vortice} attorno a $v_f$, le isolinee si avvolgono, e si osserva un \underline{cambio di segno della velocità} nel sistema di riferimento dell'onda (fenomeno noto come \underline{trapping}).
+Le isolinee sono più dense nelle regioni dello spazio delle fasi dove il gradiente di $f$ è maggiore. Se si forma un \underline{vortice} attorno a $v_f$, le isolinee si avvolgono, e si osserva un \underline{cambio di segno della velocità} nel sistema di riferimento dell'onda (fenomeno noto come \underline{trapping}, che discutiamo in seguito).
 
 Quando linearizzo i primi termini: possiamo cancellare l'ordine zero $\frac{\partial f_{a,0}}{\partial t} + \vec v\cdot \vec\nabla_{\vec x} f_{a,0}$ per l'eq. di continuità.
 
-Per il termine 
-
-Per quanto riguarda il termine $\vec E\cdot \vec \nabla_{\vec v}f_a$, che linearizziamo in $\frac{q_a}{m_a} (\vec E_0 + \vec E_1)\vec \nabla_{\vec v} (f_{s,0}+f_{s,1})$, le cose sono più delicate; è vero che all'istante iniziale $\displaystyle\frac{\partial f_{a0}}{\partial v}\gg\frac{\partial f_{a1}}{\partial v}$ ma i gradienti $\partial_v$ evolvono nel tempo e può arrivare un momento in cui la nostra linearizzazione non vale più e in gradienti evolvono in maniera da avere 
+Per quanto riguarda il termine $\vec E\cdot \vec \nabla_{\vec v}f_a$, che linearizziamo in $\frac{q_a}{m_a} (\vec E_0 + \vec E_1)\vec \nabla_{\vec v} (f_{s,0}+f_{s,1})$, le cose sono più delicate:
+è vero che all'istante iniziale $\displaystyle\frac{\partial f_{a0}}{\partial v}\gg\frac{\partial f_{a1}}{\partial v}$ ma i gradienti $\partial_v$ evolvono nel tempo e può arrivare un momento in cui la nostra linearizzazione non vale più e in gradienti evolvono in maniera da avere 
 $\displaystyle\frac{\partial f_{a0}}{\partial v}\simeq\frac{\partial f_{a1}}{\partial v}$ .
 
 Questo può avvenire dopo un certo \underline{tempo di intrappolamento} $\tau_t$.
@@ -459,16 +458,21 @@ L'equazione di Poisson ($ikE_1=4\pi e (n_i - n_e)$) linearizzata è:
 -(ik)^2\, \phi_1\ =\ 4\pi e \int (f_{i,1} - f_{e,1})\, d\vec{v}.
 \]
 La soluzione del sistema di equazioni è:
-\[
-k^2\, \phi_1\ =\ -4\pi e\, \sum_a \frac{q_a}{m_a} \int \frac{(\vec{k} \cdot \nabla_v) f_{0a}}{(\omega - \vec{k} \cdot \vec{v})}\, d\vec{v} \,
-\phi_k\ \ ,
-\]
+
+\begin{equation}
+	\label{LD soluzione}
+	k^2\, \phi_1\ =\ -4\pi e\, \sum_a \frac{q_a}{m_a} \int \frac{(\vec{k} \cdot \nabla_v) f_{0a}}{(\omega - \vec{k} \cdot \vec{v})}\, d\vec{v} \
+	\phi_1\ \ ,
+\end{equation}
 
 da cui si ottiene la \textbf{relazione di dispersione}:
 
-\[
-\boxed{\, k^2\ =\ -4\pi e\, \sum_a \frac{q_a}{m_a}\, \int \frac{(\vec{k} \cdot \nabla_v) f_{0a}}{(\omega - \vec{k} \cdot \vec{v})}\, d\vec{v}\ \ .}
-\]
+\begin{equation}
+	\label{LD dispersion 1}
+	\boxed{\, k^2\ =\ -4\pi e\, \sum_a \frac{q_a}{m_a}\, \int \frac{(\vec{k} \cdot \nabla_v) f_{0a}}{(\omega - \vec{k} \cdot \vec{v})}\, d\vec{v}\ \ .}
+\end{equation}
+
+
 
 %
 
@@ -486,14 +490,19 @@ Se l'onda di plasma si propaga in direzione \(x\), possiamo integrare la distrib
 g(u)\, =\, \frac{f(u)}{n_0}\ ; \qquad \int f(u) du\, =\, n_0\ \to\ \int g(u) du\, =\, 1\ \ .
 \]
 
-Si ottiene quindi:
+Si ottiene quindi, partendo da eq.\ref{LD soluzione} :
+
 \[
 \phi_k\ =\ -\frac{\omega_e^2}{k^2}\, \int \frac{(\vec{k} \cdot \nabla_v)\, f_{0e}}{(\omega - \vec{k} \cdot \vec{v})}\, d\vec{v} \, \phi_k\ \ \ ,
 \]
-che porta alla relazione di dispersione:
-\[
-\boxed{\,1 \ +\ \frac{\omega_e^2}{k^2}\, \int\, \frac{\partial_u\, g(u)}{\left(\frac{\omega}{k}\, -\, u\right)} du\ =\ 0}\ \ \ .
-\]
+
+che porta eq.\ref{LD dispersion 1} alla relazione di dispersione:
+
+\begin{equation}
+	\label{LD dispersion 2}
+	\boxed{\,1 \ +\ \frac{\omega_e^2}{k^2}\, \int\, \frac{\partial_u\, g(u)}{\left(\frac{\omega}{k}\, -\, u\right)} du\ =\ 0}\ \ \ .
+\end{equation}
+
 
 
 
@@ -585,11 +594,11 @@ Ora uso il fatto che la distribuzione è pari per cancellare il termine dispari 
 
 \[1\ -\ \frac{\omega_e^2}{k^2} \int \frac{\partial_ug(u)}{(\frac{\omega}{k}-u)}\,du\ \ =\ \ 1\ -\  \int_{-\infty}^{+\infty} g(u)\, \frac{\omega_e^2}{k^2} \, \bigg[\frac{k^2}{\omega^2}\,+\,\cancel{\frac{2uk^3}{\omega^3}}\,+\,\frac{3u^2k^4}{\omega^4}\bigg]\, du \]  
 
-Uso il fatto che la sitribuzione è normalizzata ad 1 e anche che vale che (dovrei dimostrarlo)
+Uso il fatto che la sitribuzione è normalizzata ad 1 e anche che vale che $\int g(u)\, u\,d\vec v$ .
 
 \[\int\, g(u)\,du\,=\,1\ \ ,\qquad \int g(u)\,u^2\,du\ =\ v_{th}^2\] 
 
-Troviamo la relazione di dispersione: 
+Dopo eq.\ref{LD dispersion 1}, \ref{LD dispersion 2} , troviamo la relazione di dispersione: 
 
 \[\boxed{\,1\ -\ \frac{\omega_e^2}{\omega^2}\ -\ \frac{3k^2v^2_{th}\omega_e^2}{\omega^4}\ =\ 0}\ \ .\]
 
@@ -600,11 +609,11 @@ Ricordiamoci sempre che  $\dfrac{v_{th}^2 k^2}{\omega_e^2}\ll1\iff v_f\gg v_{th}
 Questa equazione ha due soluzioni ma solamente una è fisica (quella con il segno +).
  
 Questo risultato è molto importante perché analogo nel caso con damping:
-\[\boxed{\omega_+^2=\omega_e^2+3k^2v_{th}^2}\ \ ,\]
+\[\boxed{\ \omega_+^2\ =\ \omega_e^2\, +\, 3 k^2 v_{th}^2\ }\ \ ,\]
 
 è il caso di confrontare questo risultato con la relazione di dispersione ottenuta con le equazioni fluide chiuse con una politropica 
 \[\omega^2=\omega_e+\gamma k^2 v_{th}^2\]
-il professore ci dice che ci sono alcune cose che è bene notare \begin{enumerate}
+Ci sono alcune cose che è bene notare \begin{enumerate}
 	\item L'idea di utilizzare una chiusura politropica non è poi così folle. 
 	\item molti dicono che questo $\gamma=3$ era previsto perché è il coefficiente tipico per un gas monoatomico... Califano invece dice che è soltanto una coincidenza senza un particolare significato profondo.
 	\item  alla maggior parte degli stimoli, I plasmi reagiscono in prima approssimazione alla frequenza di plasma indipendentemente da $k$. 

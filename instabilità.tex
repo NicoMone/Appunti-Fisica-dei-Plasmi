@@ -1,32 +1,35 @@
 \chapter{Instabilità e riconnessione}
 
-\begin{teorema}{di connessione (conservazione del flusso)}{}
+\begin{teorema}{ connessione (conservazione del flusso)}{}
 	
 	\begin{multicols}{2}
 	Per capire cosa vuol dire che le linee di campo non si rompono e perché, prendiamo due elementi di fluido infinitamente vicini, $d\vec l$, dopo un tempo dt ciascun punto si muove con la velocità del fluido, $\vec x \rightarrow \vec x + \vec u(\vec x)dt$. 
+	
+	\[\begin{aligned}
+		&d\vec l+d(\delta\vec l)=d\vec l+ \left[ (\vec u+d\vec u)-\vec u \right] dt \ =\ d\vec l+d\vec udt\\
+		&\implies \quad
+		d(\delta\vec l)=d\vec udt
+	\end{aligned}\] 
+
 	\begin{figure}[H]
 		\centering
 		\includegraphics[width=5cm]{immagini/flusso3.jpg}
 	\end{figure}
 	
-	\end{multicols}
+	\end{multicols} 
 	
-	\[d\vec l+d(\delta\vec l)=d\vec l+ \left[ (\vec u+d\vec u)-\vec u \right] dt \ =\ d\vec l+d\vec udt
-	\implies
-	d(\delta\vec l)=d\vec udt\]  
-	
-	$d\vec u$ è l'incremento del campo di velicità in direzione $d\vec l$
+	$d\vec u$ è l'incremento del campo di velicità in direzione $d\vec l$, quindi possiamo esprimerlo come:
 	
 	\[d\vec u=(d\vec l\cdot \vec \nabla)\vec u\] 
 	
 	\[d\vec l+\delta (d\vec l)=d\vec l+ \left[ \vec u(\vec x+d\vec x)-\vec u (\vec x)\right] dt \ =\ d\vec l+(d\vec l\cdot \nabla)\, \vec u\, dt \] 
 	
 	Capiamo quindi che la variazione nel tempo della distanza fra i due elementi che si muovono è descritto da $\frac{d(\delta\vec l)}{dt}=(\delta \vec l\cdot\vec \nabla)\vec u$. Nota che se $d\vec l$ è lungo una linea di campo allora $d\vec l \times \vec B = 0$, noi ci chiediamo se partendo solo dalle equazioni dell'elettromagnetismo possiamo provare che queste linee di campo non si spezzino.
-	Quindi vogliamo calcolare: 
+	Quindi, vogliamo calcolare: 
 	
 	\[\frac{d}{dt}(\delta\vec l\times\vec B)\ =\ \frac{d\delta\vec l}{dt}\times \vec B\,+\,\delta\vec l\times\frac{d\vec B}{dt}\]
 	
-	Consideriamo la legge di faraday e la legge di Ohm ideale:
+	Consideriamo la legge di Faraday e la legge di Ohm ideale:
 	
 	\[ \frac{\partial\vec B}{\partial t}\ =\ -\nabla \times \vec E
 	\quad \qquad \quad 
@@ -34,7 +37,7 @@
 	
 	\[\Rightarrow\qquad \frac{\partial\vec B}{\partial t}\ =\ \vec \nabla\times(\vec u\times\vec B)\]
 	
-	Seguiamo $\vec B$ attraverso una linea di campo facendo la derivata materiale, questo ci servirà subito l'evoluzione delle linee di campo. Per semplificare l'espressione ci ricordiamo (insomma)  un'identità vettoriale:
+	Seguiamo $\vec B$ attraverso una linea di campo facendo la derivata materiale, questo ci servirà subito l'evoluzione delle linee di campo. Per semplificare l'espressione ci ricordiamo un'identità vettoriale:
 	
 	\[\frac{D\vec B}{Dt}=\frac{\partial\vec B}{\partial t}+(\vec u\cdot \vec \nabla)\cdot \vec B=(*)\]
 	
@@ -83,13 +86,11 @@
 		\end{figure}
 	\end{multicols}
 	
-	Usando il teorema di Leibnitz per integrare su domini mobili scomponiamo la derivata del flusso in un primo termine, variazione locale di flusso dovuta al cambiamento di B nel tempo, ed un secondo termine invece rappresenta il cambiamento dovuto al fatto che $\mathcal{C}$ :
+	Usando il teorema di Leibnitz per integrare su domini mobili scomponiamo la derivata del flusso in un primo termine, variazione locale di flusso dovuta al cambiamento di B nel tempo, ed un secondo termine invece rappresenta il cambiamento dovuto al fatto che $\mathcal{C}$ si muove:
 	
 	\[\frac{d}{dt}\int_{S(t)}\vec B(\vec r,t)\cdot d\vec S
 	\ =\
-	\int_{S(t)}\frac{\partial \vec B}{\partial t}\cdot d\vec S+\oint_{\mathcal{C}(t)}\vec B\cdot (\vec u\times d\vec l)\] 
-	
-	Il primo termine del termine al membro destro è la variazione locale di flusso dovuta al cambiamento di B nel tempo, il secondo termine invece rappresenta il cambiamento dovuto al fatto che $\mathcal{C}$ si è mosso: 
+	\int_{S(t)}\frac{\partial \vec B}{\partial t}\cdot d\vec S\, +\, \oint_{\mathcal{C}(t)}\vec B\cdot (\,\vec u\times d\vec l\,)\] 
 	
 	Usiamo il fatto che $\vec B\cdot (\vec u\times d\vec l)=-\vec u\times \vec B\cdot d\vec l$ ed il teorema di Stokes.
 	
@@ -345,27 +346,35 @@ Se riesco a capire che $\rho_0\sim\frac{\tilde B^2}{c_a^2}$ sono a cavallo.
 %
 %%
 %%%%
-\subsection{equazioni MHD incomprimibile}
+\subsection{equazioni MHD incomprimibili (incomprensibili)}
  
 \begin{enumerate}
 	\item \[\gamma\,(\phi''-k^2\phi)\ =\ ik\,B_0\,(\psi''-k^2\psi)\,-\,ikB_0\,\psi\]
 	\item \[\gamma\psi\,-\,ik\,B_0\phi\ =\ S^{-1}\,(\psi''-k^2\psi)\] 
-	è da qui che emerge l'equazione differenziale del quart'ordine. Il termine alla derivata quarta è effettivamente quello legato al numero di Reynolds magnetico, $S^{-1}$ è un numero piccolissimo e sono necessari grandi gradienti per farlo uscire fuori. Queste equazioni presentano una singolarità ed è in quel punto che comincia a contare il termine del quart'ordine. Quando la velocità di fase dell'onda di alfven matcha la velocità del suono locale ovvero quando $\frac{\omega}{k}\sim c_a(x_0)$ in $x_0$ c'è la singolrità. Avere questa singolarità non necessariamente porta ad una riconnessione, è infatti questo il caso anche per le oscillazioni di kelvinhelmoltz  in cui le onde fanno risonanza con la disomogeneità e dissipano l'energia, però se il campo magnetico passa da zero e fa un'inversione "si inverte", posso avere la riconnsessone. in questo caso l'energia  viene liberata dal campo medio che cambiando configurazione passa ad uno stato di minore energia. \\
+	è da qui che emerge l'equazione differenziale del quart'ordine. Il termine alla derivata quarta è effettivamente quello legato al \underline{numero di Reynolds magnetico}, $S^{-1}$ è un numero piccolissimo e sono necessari grandi gradienti per farlo uscire fuori.
 	
-	DOMANDA:
+	Queste equazioni presentano una singolarità ed è in quel punto che comincia a contare il termine del quart'ordine. 
 	
-	Ma nel caso di KelvinHelmoltz avviene un cambiamento di Topologia?  
+	Quando la velocità di fase dell'onda di Alfvén matcha la velocità del suono locale, ovvero quando $\frac{\omega}{k}\sim c_a(x_0)$ in $x_0$ c'è la singolrità. 
+	Avere questa singolarità non necessariamente porta ad una riconnessione, è infatti questo il caso anche per le oscillazioni di kelvinhelmoltz  in cui le onde fanno risonanza con la disomogeneità e dissipano l'energia, però se il campo magnetico passa da zero e fa un'inversione "si inverte", posso avere la riconnessione. In questo caso l'energia  viene liberata dal campo medio che cambiando configurazione passa ad uno stato di minore energia. 
 \end{enumerate}
 
 %
 %
-\subsection{ipotesi e time ordering}  
+\subsubsection{ipotesi e time ordering}  
 \begin{itemize}
 	\item H1: assumo che esistano due regioni con diversi regimi \begin{itemize}
 		\item REGIONE IDEALE \\ in cui il termine resistivo non conta e in questa zona i gradienti sono 
+		
 		\[\partial_x\sim\frac{1}{L}\sim k\sim\delta_y\]
-		e considerando che stiamo considerando le grandezze normalizzate possiamo dire che le derivate nelle due direzioni sono dello stesso ordine \[\delta_x\sim\delta_y\sim1\]
-		\item REGIONE RESISTIVA : \[\partial _x\sim\frac{1}{\delta},\hspace{1cm}\delta\ll L\]
+		
+		e considerando che stiamo considerando le grandezze normalizzate possiamo dire che le derivate nelle due direzioni sono dello stesso ordine 
+		
+		\[\delta_x\sim\delta_y\sim1\]
+		
+		\item REGIONE RESISTIVA : 
+		
+		\[\partial _x\sim\frac{1}{\delta},\hspace{1cm}\delta\ll L\]
 		
 	\end{itemize}
 	\item H2: Ordering dei tempi \[1\ll\frac{1}{\gamma\tau_a}\ll S\] da ora in poi scriviamo solamente $\gamma$ condiserandolo un fattore adimensionale.  
@@ -376,40 +385,225 @@ Queste due ipotesi mi permettono di semplificare il sistema di equazioni,
 
 %
 %
-\subsubsection{zona ideale}  
+\subsubsection{come procedere per la zona ideale}  
 
 Qui l'equazione $(2)$ ha il termine in $S$ che non conta nulla e possiamo dire invece che  
-\[\gamma\psi\sim ikB_0\phi\] da cui concludiamo che per quanto riguarda gli ordini/andamenti \[\gamma\psi\sim\phi\]
-Questo permette di passare all'equazione $(1)$ in cui possiamo considerare che $\gamma\phi\sim\gamma^2\psi$, a questo punto trascuriamo il primo termine. 
-\[(\psi''-k^2\psi)=\psi\] Definiamo un valore  che quantifica quanto la derivata è fottuta. è una misura di quanto varia la discontinuità  a seconda della lunghezza d'onda.
-\[\Delta '=\frac{d}{dx}\ln\psi\bigg|_{0^-}^{0^+}=\frac{\psi'(0^+)-\psi'(0^-)}{\psi(0)}\]  Quando $\Delta'$ è negativo il sistema è stabile, quando $\Delta'$ è positivo, è possibile che il sistema vada verso un'instabilità.
+
+\[\gamma\psi\sim ikB_0\phi\] 
+
+da cui concludiamo che per quanto riguarda gli ordini/andamenti 
+
+\[\gamma\psi\sim\phi\]
+
+Questo permette di passare all'equazione $(1)$ in cui possiamo considerare che $\gamma\phi\sim\gamma^2\psi$, a questo punto trascuriamo il primo termine.
+ 
+\[(\psi''-k^2\psi)=\psi\] 
+
+Definiamo un valore misura di quanto varia la discontinuità  a seconda della lunghezza d'onda.
+
+\[\Delta '\ =\ \frac{d}{dx}\,\ln\psi\,\bigg|_{0^-}^{0^+}\ =\ \frac{\psi'(0^+)-\psi'(0^-)}{\psi(0)}\]  
+
+Quando $\Delta'$ è negativo il sistema è stabile, quando $\Delta'$ è positivo, è possibile che il sistema vada verso un'instabilità.
 
 %
 %
-\subsubsection{zona resistiva} 
-abbiamo un'ordering spaziale del tipo \[\frac{\partial}{\partial_x}\sim\frac{1}{\delta}\gg\frac{\partial}{\partial_y}\sim k\]
+\subsubsection{come procedere per la zona resistiva} 
+
+Abbiamo un'ordering spaziale del tipo 
+
+\[\frac{\partial}{\partial_x}\sim\frac{1}{\delta}\gg\frac{\partial}{\partial_y}\sim k\]
+
 Questo ordering implica che in questo caso le dreivate rispetto a x sono molto maggiori delle derivate rispetto a y. Poi dobbiamo anche imporre che quando $\frac{x}{\delta}\ll1$ la soluzione nella zona interna resistiva si agganci a quella della zona ideale esterna.
-\[\phi''\gg k^2\phi\hspace{1cm}\psi''\gg k^2\psi\] Riprendiamo le equazioni normalizzate 
+
+\[\phi''\gg k^2\phi\hspace{1cm}\psi''\gg k^2\psi\] 
+
+Riprendiamo le equazioni normalizzate 
+
 \[\begin{cases}
 	\gamma(\phi''-k^2\phi)=ikB_0(\psi''-k^2\psi)-ikB_0''\psi\\
 	\gamma\psi-ikB_0\phi=S^{-1}(\psi''-k^2\psi)
-\end{cases}\] siccome nella prima equazione membro a membro si ha solamente confronti tra termini si ordine 1 ($kB_0''\psi$ è di ordine 1) e temini di ordine $\frac{1}{\delta^2}$, si può eliminare direttamente ogni termine che non abbia la derivata seconda. nella seconda equazione invece è possibile fare  questa considerazione solamente nella parte a dx.
+\end{cases}\] 
+
+siccome nella prima equazione membro a membro si ha solamente confronti tra termini si ordine 1 ($kB_0''\psi$ è di ordine 1) e temini di ordine $\frac{1}{\delta^2}$, si può eliminare direttamente ogni termine che non abbia la derivata seconda. nella seconda equazione invece è possibile fare  questa considerazione solamente nella parte a dx.
+
 \[\begin{cases}
 	\gamma\phi''=ikB_0\psi''\\\gamma\psi-ikB_0\phi=S^{-1}\psi''
-\end{cases}\] ora dobbiamo procedere a cercare l'ordinamento di questi termini in termini di $\gamma, S, \Delta'  $ e $\delta$. \\Inanzitutto definiamo con una funzione di Guess il campo magnetico nella regione resistiva, che ricordiamo essere sottilissima , spessa $\delta$. \[B_0(x)=\tilde Bx\sim\tilde B\delta\]
-\[\psi-\frac{ik\tilde B}{\gamma}x\phi=\frac{S^{-1}}{ik\tilde Bx}\phi''\] nella regione interna vale la funzione $\psi_{int}$ di cui abbiamo definito il rapporto incrementale della derivata logaritmica essere $\Delta'$. Con un passaggio algebrico si scrive la differenza al numeratore come integrale definito  della derivata 
-\[\Delta'=\frac{1}{\psi_{int}(0)}\int_{-\delta}^{\delta}\frac{d^2}{dx^2}\psi_{int}dx\] l'integrale è dell'ordine di $\psi''\delta$
-\[\implies\psi''\sim \frac{\Delta'}{\delta \psi(0)}\] Ora devo fare il bilanciamento dei termini, e controlliamo prima i termini con la $\phi$.         \\Ricordiamoci che $k$ e $\tilde B$ sono di ordine 1.  $x $ è ordine $\delta$
+\end{cases}\] 
+
+ora dobbiamo procedere a cercare l'ordinamento di questi termini in termini di $\gamma, S, \Delta'  $ e $\delta$. \\Inanzitutto definiamo con una funzione di Guess il campo magnetico nella regione resistiva, che ricordiamo essere sottilissima , spessa $\delta$. 
+
+\[B_0(x)=\tilde Bx\sim\tilde B\delta\]
+\[\psi-\frac{ik\tilde B}{\gamma}x\phi=\frac{S^{-1}}{ik\tilde Bx}\phi''\] 
+
+nella regione interna vale la funzione $\psi_{int}$ di cui abbiamo definito il rapporto incrementale della derivata logaritmica essere $\Delta'$. Con un passaggio algebrico si scrive la differenza al numeratore come integrale definito  della derivata 
+
+\[\Delta'=\frac{1}{\psi_{int}(0)}\int_{-\delta}^{\delta}\frac{d^2}{dx^2}\psi_{int}dx\] 
+
+l'integrale è dell'ordine di $\psi''\delta$
+
+\[\implies\psi''\sim \frac{\Delta'}{\delta \psi(0)}\] 
+
+Ora devo fare il bilanciamento dei termini, e controlliamo prima i termini con la $\phi$.         
+
+Ricordiamoci che $k$ e $\tilde B$ sono di ordine 1.  $x $ è ordine $\delta$
+
 \[\phi''\sim\frac{\phi}{\delta^2}\sim\frac{(k\tilde B \delta)^2}{\gamma}S\phi\implies\gamma\sim\delta^4 S\] 
 
 
 
-
-
 \subsection{caso particolare con soluzione analitica}
-Nella regione ideale quindi come equazione differenziale abbiamo \[B_0(\psi''-k^2\psi)=B_0''\psi\] esiste una possibilità che permette di trovare una soluzione analitica: 
-imponendo che \[B_0(x)=\tanh(x) \] si trova 
-\[\psi_\pm=e^{\mp kx}[1\pm\frac{\tanh(x)}{k}]\] la notazione è un pochino buffa e ci dice che la funzione è definita a tratti, con un pezzo che vale per le x negative e un pezzo che vale per le x positive. Questa funzione è continua in tutto il dominio (in particolare esiste finito il valore $\psi(0)=1$ $\forall k$ ma ha un punto angoloso in zero pertanto la derivata diverge in 0, con un asintoto che va in su e un asintoto che va in giù. \[ \psi'_\pm=\mp k\psi_\pm\pm\frac{e^{\mp kx}}{k}\cosh^2(x)\]
-Definiamo un valore  che quantifica quanto la derivata è fottuta. è una misura di quanto varia la discontinuità  a seconda della lunghezza d'onda.
-\[\Delta '=\frac{d}{dx}\ln\psi\bigg|_{0^-}^{0^+}=\frac{\psi'(0^+)-\psi'(0^-)}{\psi(0)}\] \[\Delta'=-k+\frac{1}{k}-(+k-\frac{1}{k})=2(\frac{1}{k}-k)\] Quando $\Delta'$ è negativo il sistema è stabile, quando $\Delta'$ è positivo, è possibile che il sistema vada verso un'instabilità. non ho capito cosa ha detto il professore a rigurado dell'$\Delta'$ poco negativo che evolve molto lentamente. \\in ogni caso $\Delta'<0\iff k>\frac{1}{k}\iff k $ grandi, ovvero piccole $\lambda$. 
+
+Nella regione ideale quindi come equazione differenziale abbiamo 
+
+\[B_0\, (\psi''-k^2\psi)\ =\ B_0''\, \psi\] 
+
+esiste una possibilità che permette di trovare una soluzione analitica: 
+imponendo che 
+
+\[B_0(x)\ =\ \tanh(x) \] 
+
+si trova 
+
+\[\psi_\pm\ =\ e^{\mp kx}\, \left[\, 1\, \pm\, \frac{\tanh(x)}{k}\, \right] \] 
+
+Ci dice che la funzione è definita a tratti, con un pezzo che vale per le x negative e un pezzo che vale per le x positive. Questa funzione è continua in tutto il dominio (in particolare esiste finito il valore $\psi(0)=1$ $\forall k$ ma ha un punto angoloso in zero pertanto la derivata diverge in 0, con un asintoto che va in su e un asintoto che va in giù. 
+
+\[ \psi'_\pm\ =\ \mp\, k\psi_\pm\ \pm\ \frac{e^{\mp kx}}{k}\, \cosh^2(x)\]
+
+\begin{multicols}{2}
+	\begin{figure}[H]
+		\centering
+		\includegraphics[width=7cm]{immagini/Mfield.png}
+	\end{figure}
+	
+	\begin{figure}[H]
+		\centering
+		\includegraphics[width=7cm]{immagini/psi.png}
+	\end{figure}
+\end{multicols}
+
+Di nuovo calcoliamo $\Delta '$:
+
+\[\Delta '=\frac{d}{dx}\ln\psi\bigg|_{0^-}^{0^+}=\frac{\psi'(0^+)-\psi'(0^-)}{\psi(0)}\] 
+
+\[\Delta'\ =\
+\frac{-k+\frac{1}{k}-(+k-\frac{1}{k})}{1}\ =\ 2\, \left(\frac{1}{k}-k\right)\] 
+
+Quando $\Delta'$ è negativo il sistema è stabile, quando $\Delta'$ è positivo, è possibile che il sistema vada verso un'instabilità.
+
+$\Delta'<0\iff k>\frac{1}{k}\iff k $ grandi, ovvero piccole $\lambda$. 
+
+
+%
+\subsubsection{Ordering constant-$\psi$}
+
+Nella regione interna ho variazioni molto forti:
+
+\[ \frac{\partial}{\partial x}\ \approx \frac{1}{\delta}\ \gg\ \frac{\partial}{\partial y}\ \approx\ \frac{1}{L}\qquad (\equiv k) \]
+
+Assumo che l'equilibrio nella regione interna vari linearmente: $B_0(x)\sim \tilde{B} x \sim B\delta$, con $\bar B = \text{cost.}$.
+
+Nell'equazione (1), $\phi ''\gg k^2 \phi$; $\psi \gg k^2 \psi$, $kB_0^{''} \psi$.
+
+Di conseguenza $\boxed{\gamma \phi^{''} = ik\tilde{B}\delta \psi^{''}}$ .
+
+L'equazione (2) diventa: $\boxed{\gamma \psi - i k\tilde{B} \delta \phi = \frac{\eta \gamma}{k \tilde{B} \delta} \phi^{''}}$ .
+
+Nella parte interna la soluzione deve raccordarsi a quella esterna per $x/\delta \ll 1$
+
+\[ \frac{1}{\psi (0)}\, \underset{\sim \delta \psi ''\sim \psi/\delta}{ \int \frac{d^2\psi_{int} (x) }{dx^2}\, dx}\ =\ \delta '
+\qquad \Rightarrow \qquad
+\psi ''\ \sim \frac{\Delta '}{\delta}\, \psi (0)\]
+
+Assumo $\psi_{int} (x)\simeq \psi(0)$ (\emph{constant $psi$ approximation}, valida se $\delta ' >0$ ma 'non troppo') e vediamo se esiste una soluzione.
+
+Si riprenda l'ultima equazione evidenziata da un box, se chiamiamo i termini a), b) e c): 
+
+bilanciamo i termini a) e b) con $\gamma \sim \delta^4 / \tilde{\eta}$, così che insieme a $\psi '' \sim (\Delta '/ \delta) \psi$ e le equazioni precedenti si possa avere $\phi '' \sim (k\tilde{B} \Delta '/\gamma)\psi$.
+
+Bilanciando a) con c) e utilizzando le forme appena ottenute:
+
+\[\frac{k\tilde{B} \Delta '}{\gamma}\ \sim\ \frac{k\tilde{B} \delta}{\eta} \quad \Rightarrow \quad \gamma\ \sim\ \frac{\tilde{eta}\Delta '}{\delta}\].
+
+Con queste forme di $\gamma$ giungiamo a dire che $\gamma \sim S$.
+
+%
+\subsubsection{Ordering constant-$\psi$}
+\[\zeta\ =\ \int^t_0 u_x dt'\ =\ \int^t_0 \frac{\partial \phi}{\partial y} dt'\ =\ ik\int^t_0 \phi dt' \approx ik \tau_\gamma \phi\qquad \text{con} \tau_\gamma =1/\gamma\]
+
+In definitiva $i\phi\approx \frac{\gamma}{k} \zeta$, ovvero $k\phi\approx -i\gamma \zeta$.
+
+Le equazioni (1) e (2) diventano:
+
+\[\begin{cases}
+	\gamma^2 \zeta ''\ =\ -k^2 \tilde{B} \delta \psi ''\\
+	\gamma \left(\psi(0) - \tilde{B}\delta\zeta\right)\ =\ S^{-1} \psi ''
+\end{cases}\]
+
+Dalle prime simulazioni numeriche + teoria, Furth et al, con $Delta '$ piccolo notarono che $\psi \approx \text{cost.}.$
+Di conseguenza vennero fatte le ipotesi; $\psi '\approx \delta^0$; $\psi ''\approx 1/\delta$ .
+
+Dalla seconda equazione nel sistema, per bilanciare il membro sinistro si deve avere $\zeta\approx 1/\delta$.
+
+Pongo $\epsilon = S^{-1}$ , $\delta =\epsilon^\alpha$ , $\gamma =\epsilon^\beta$ :
+
+\[\begin{cases}
+	\epsilon^{2\beta} \epsilon^{-\alpha} \epsilon^{-2\alpha}\approx \epsilon^{\alpha}\epsilon^{-\alpha}\quad \Rightarrow\quad 2\beta -3\alpha =0\\
+	\epsilon^\beta \epsilon^0\ \approx\ \epsilon\epsilon^{-\alpha}\quad \Rightarrow\quad \beta= 1-\alpha 
+\end{cases}\]
+
+Ricavo $2-2\alpha - 3\alpha = 0 \rightarrow \alpha=2/5$, mentre per $\beta=1-2/5\rightarrow\beta=3/5$.
+
+In definitiva $\gamma \approx S^{-3/5}$ e $\delta \approx S^{-2/5}$ .
+
+ 
+
+%
+\subsubsection{Ordering resistivo}
+
+Per $\Delta '$ 'grande' si assume:
+
+\[ \psi\ \sim\ \delta^o\ ;\qquad \psi '\sim \frac{1}{\delta}\ \ ,\]
+
+per il resto è uguale a constant-$\psi$.
+
+Si ottiene, quindi:
+
+\[\epsilon^{2\beta}\epsilon^{3\alpha}\ \sim\ \epsilon^{\alpha} \epsilon^{-2\alpha} 
+\qquad \Rightarrow \qquad 2\beta \ =\ 2 \alpha\]
+
+\[\epsilon^{\beta}\epsilon^o \ \sim\ \epsilon \epsilon^{-2\alpha}
+\qquad \Rightarrow \qquad \beta \ =\ 1 - 2 \alpha\]
+
+Ricavo $\beta = \alpha \ \Rightarrow\ 3\alpha = 1\ \Rightarrow\ \alpha = \beta = \frac{1}{3}$.
+
+In definitiva: $\gamma \sim S^{-1/3}$ e $\delta \sim S^{-1/3}$ .
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

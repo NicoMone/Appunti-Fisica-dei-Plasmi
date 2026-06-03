@@ -71,18 +71,21 @@
 \contentsline {subsubsection}{Condizioni per studiare la riconnessione:}{54}{subsubsection*.36}%
 \contentsline {subsection}{\numberline {6.2.1}equazione di faraday}{55}{subsection.6.2.1}%
 \contentsline {subsection}{\numberline {6.2.2}equazione del moto }{56}{subsection.6.2.2}%
-\contentsline {subsection}{\numberline {6.2.3}equazioni MHD incomprimibile}{57}{subsection.6.2.3}%
-\contentsline {subsection}{\numberline {6.2.4}ipotesi e time ordering}{57}{subsection.6.2.4}%
-\contentsline {subsubsection}{zona ideale}{57}{subsubsection*.37}%
-\contentsline {subsubsection}{zona resistiva}{58}{subsubsection*.38}%
-\contentsline {subsection}{\numberline {6.2.5}caso particolare con soluzione analitica}{59}{subsection.6.2.5}%
+\contentsline {subsection}{\numberline {6.2.3}equazioni MHD incomprimibili (incomprensibili)}{57}{subsection.6.2.3}%
+\contentsline {subsubsection}{ipotesi e time ordering}{57}{subsubsection*.37}%
+\contentsline {subsubsection}{come procedere per la zona ideale}{57}{subsubsection*.38}%
+\contentsline {subsubsection}{come procedere per la zona resistiva}{58}{subsubsection*.39}%
+\contentsline {subsection}{\numberline {6.2.4}caso particolare con soluzione analitica}{59}{subsection.6.2.4}%
+\contentsline {subsubsection}{Ordering constant-$\psi $}{59}{subsubsection*.42}%
+\contentsline {subsubsection}{Ordering constant-$\psi $}{60}{subsubsection*.43}%
+\contentsline {subsubsection}{Ordering resistivo}{60}{subsubsection*.44}%
 \contentsline {chapter}{\numberline {7}Equilibrio MHD}{61}{chapter.7}%
 \contentsline {subsection}{\numberline {7.0.1}equazione della dinamica all'equilibrio}{61}{subsection.7.0.1}%
 \contentsline {subsection}{\numberline {7.0.2}Equazione di Faraday}{61}{subsection.7.0.2}%
 \contentsline {section}{\numberline {7.1}Equilibrio force-free}{62}{section.7.1}%
 \contentsline {section}{\numberline {7.2}Equilibri MHD}{62}{section.7.2}%
-\contentsline {subsubsection}{In coordinate cilindriche...}{63}{subsubsection*.40}%
-\contentsline {subsubsection}{Come costruire un campo force-free}{63}{subsubsection*.41}%
+\contentsline {subsubsection}{In coordinate cilindriche...}{63}{subsubsection*.46}%
+\contentsline {subsubsection}{Come costruire un campo force-free}{63}{subsubsection*.47}%
 \contentsline {section}{\numberline {7.3}Condizione di Ferraro}{63}{section.7.3}%
 \contentsline {subsection}{\numberline {7.3.1}campo puramente toroidale}{64}{subsection.7.3.1}%
 \contentsline {section}{\numberline {7.4}Equazione di Grad-Shafranov}{64}{section.7.4}%
