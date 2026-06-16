@@ -1,0 +1,130 @@
+\documentclass[10pt, aspectratio=169]{beamer} % Formato 16:9 (modificabile in 4:3 con aspectratio=43)
+\usetheme{Madrid} % Tema grafico (altri: Berlin, Copenhagen, Singapore, etc.)
+\usecolortheme{default} % Schema colori (altri: dolphin, seahorse, etc.)
+\usefonttheme{professionalfonts} % Font professionali
+
+% Pacchetti utili
+\usepackage[utf8]{inputenc} % Supporto caratteri speciali
+\usepackage[italian]{babel} % Lingua italiana
+\usepackage{graphicx} % Per inserire immagini
+\usepackage{caption} % Didascalie immagini
+\usepackage{subcaption} % Sottotitoli immagini
+\usepackage{amsmath} % Formule matematiche
+\usepackage{hyperref} % Link cliccabili
+\usepackage{multimedia} % Per video/audio (opzionale)
+\usepackage{appendixnumberbeamer} % Numerazione slide in appendice
+
+% Impostazioni personalizzate
+\title[Titolo breve]{Confinamento dei plasmi}
+\subtitle{MHD ideale, $\theta$-pinch, $z$-pinch }
+\author[AUTORE]{Nicolò Mone}
+\institute[ISTITUTO]{Mone Inc. \\ \smallskip \texttt{email@esempio.it}}
+\date{\today} % Oppure data manuale: 13 Giugno 2026
+
+% Logo (opzionale, sostituisci con il percorso del tuo file)
+\titlegraphic{\includegraphics[height=1.5cm]{logo.png}}
+
+% Numerazione slide
+\setbeamertemplate{footline}[page number]
+\setbeamercolor{page number in head/foot}{fg=black}
+
+\begin{document}
+	
+	% --- SLIDE DI TITOLO ---
+	\begin{frame}[plain]
+		\titlepage
+	\end{frame}
+	
+	% --- SLIDE INDICE ---
+	\begin{frame}{Indice}
+		\tableofcontents[pausesections]
+	\end{frame}
+	
+	% --- SEZIONE 1: INTRODUZIONE ---
+	\section{Introduzione}
+	\begin{frame}{Titolo Slide 1}
+		\begin{block}{Testo principale}
+			Qui puoi scrivere il testo principale della slide.
+			\begin{itemize}
+				\item Punto 1
+				\item Punto 2
+				\item Punto 3
+			\end{itemize}
+		\end{block}
+		\begin{alertblock}{Nota importante}
+			Testo evidenziato per messaggi chiave.
+		\end{alertblock}
+	\end{frame}
+	
+	% --- SLIDE CON IMMAGINE ---
+	\begin{frame}{Titolo Slide con Immagine}
+		\begin{columns}
+			\column{0.5\textwidth}
+			\begin{itemize}
+				\item Testo a sinistra
+				\item Spiegazione immagine
+			\end{itemize}
+			
+			\column{0.5\textwidth}
+			\begin{figure}
+				\includegraphics[width=\textwidth]{esempio.png} % Sostituisci con il nome del file
+				\caption{Didascalia immagine}
+				\label{fig:esempio}
+			\end{figure}
+		\end{columns}
+	\end{frame}
+	
+	% --- SLIDE CON FORMULA ---
+	\begin{frame}{Titolo Slide con Formula}
+		Equazione di esempio:
+		\[
+		E = mc^2
+		\]
+		Oppure in linea: \( F = ma \).
+		
+		\begin{exampleblock}{Esempio}
+			Testo di esempio con formula:
+			\[
+			\int_{a}^{b} f(x) \, dx = F(b) - F(a)
+			\]
+		\end{exampleblock}
+	\end{frame}
+	
+	% --- SEZIONE 2: CONTENUTI ---
+	\section{Contenuti Principali}
+	\begin{frame}{Titolo Slide 2}
+		\begin{columns}
+			\column{0.6\textwidth}
+			\begin{itemize}
+				\item Contenuto 1
+				\item Contenuto 2
+			\end{itemize}
+			
+			\column{0.4\textwidth}
+			\begin{figure}
+				\includegraphics[width=\textwidth]{grafico.png}
+				\caption{Grafico di esempio}
+			\end{figure}
+		\end{columns}
+	\end{frame}
+	
+	% --- SLIDE DI CHiusura ---
+	\section{Conclusione}
+	\begin{frame}{Conclusione}
+		\begin{center}
+			{\Large Grazie per l'attenzione!} \\
+			\vspace{0.5cm}
+			\textbf{Domande?}
+		\end{center}
+	\end{frame}
+	
+	% --- SLIDE FINALI (opzionale) ---
+	\begin{frame}[plain]
+		\begin{center}
+			{\Huge Fine} \\
+			\vspace{1cm}
+			\includegraphics[height=2cm]{logo.png}
+		\end{center}
+	\end{frame}
+	
+\end{document}

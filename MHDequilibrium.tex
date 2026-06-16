@@ -28,8 +28,10 @@ Anzi, l'equazione di Faraday in questo caso si riduce ad un'equazione di diffusi
 
 \subsection{equazione della dinamica all'equilibrio}
 
+Prendiamo l'eq. del moto e poniamo le condizioni di stazionarietà introdotte:
+
 \[\vec \nabla P\ =\ \frac{1 }{4\pi}\,[(\vec\nabla\times\vec B)\times\vec B ]\] 
-All'equilibrio le superfici isobare seguono le linee di campo magnetico e della corrente. 
+All'equilibrio le linee di campo magnetico e della corrente giacciono su delle supoerfici isobare, perché il gradiente della pressione equivale a un prodotto vettoriale proprio fra il campo vettoriale della corrente e quello del campo magnetico (questo non dice nulla tuttavia sull'orientazione reciproca dei due campi vettoriali). 
 
 \[
 	\nabla P\ =\ \frac{\vec j \times \vec b}{c} 
@@ -56,9 +58,12 @@ Assume la forma di un'equazione di diffusione (derivata temporale del campo prop
 
 \section{Equilibrio force-free}
 \fboxrule=1pt
-In un \underline{equilibrio \emph{force-free}}, dove non vi sono forze, dovrebbero valere $\boxed{\left(\vec \nabla \times \vec B \right)\times \vec B =0}$  e  $\boxed{\vec j\times \vec B =0}$.
+In un \underline{equilibrio "\emph{force-free}"}, dove non vi sono forze, si annulla il gradiente di pressione e deve valere $\boxed{\left(\vec \nabla \times \vec B \right)\times \vec B =0}$ (  $\boxed{\vec j\times \vec B =0}$ ).
 
-Se $\left(\vec \nabla \times \vec B \right)\times \vec B =0$ allora i vettori dovrebbero essere paralleli e questo comporta che $\left(\vec \nabla \times \vec B \right)=\alpha \vec B$ per un certo $\alpha$. $\Rightarrow\ \nabla^2 \vec B + \alpha^2 \vec B =0$.
+Se $\left(\vec \nabla \times \vec B \right)\times \vec B =0$ allora i vettori dovrebbero essere paralleli e questo comporta che per un certo $\alpha$ siano proporzionali $\left(\vec \nabla \times \vec B \right)=\alpha \vec B$. 
+
+\[\Rightarrow\ \qquad \nabla^2 \vec B + \alpha^2 \vec B \ =\ 0\ \ .\]
+
 
 \begin{itemize}
 	\item $\vec \nabla\cdot \left(\vec \nabla\times \vec B\right)\ =\ \nabla \cdot \left(\alpha \vec B\right)\ =\ \alpha \vec B\cdot \vec B\, +\, \alpha\left(\vec B\cdot \vec \nabla \right)\ =\ 0$ , questo ci porta a dire che $\alpha$ è costante lungo le linee di campo magnetico:  
@@ -140,7 +145,7 @@ Facendo le derivate in modo opportuno si arriverebbe a delle componenti del camp
 
 \[\bar \nabla \times [(\bar \nabla \times \bar B)\times \bar B]\ =\ 0\]
 
-Caso poloidale puro: $bar B = \bar \nabla \times \bar A$, $\bar B = (B_r,\,0,\,B_z)$.
+Caso poloidale puro: $\bar B = \bar \nabla \times \bar A$, $\bar B = (B_r,\,0,\,B_z)$.
 
 \[\bar B\, =\, \left(-\frac{\partial A_\theta}{\partial z},\, \frac{\partial A_r}{\partial z}-\frac{\partial A_z}{\partial r},\, \frac{1}{r}\frac{\partial}{\partial r} (rA_\theta)\right)\ =\ \left(-\frac{1}{r} \partial_z (rA_\theta),\, 0,\, \frac{1}{r}\partial_r (rA_\theta)\right)\]
 
