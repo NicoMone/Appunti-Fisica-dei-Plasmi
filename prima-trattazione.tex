@@ -304,7 +304,7 @@ Da dalle condizioni in cui ci troviamo ora ci rendiamo conto manchi una chiusura
 %
 \vspace{0.4cm}
 \subsubsection{Chiusura Plasma freddo} 
-Nell'ipotesi di plasma freddo la risposta termica è molto minore della risposta dielettrica, cioè dobbiamo trascurare il contributo della pressione nell' dell'equazione della dinamica $\nabla P\sim0$.
+Nell'ipotesi di plasma freddo la risposta termica è molto minore della risposta dielettrica, cioè dobbiamo trascurare il contributo della pressione nell'equazione della dinamica $\nabla P\sim0$.
 
 Ripartiamo ancora dal nostro sistema in trasformata sviluppando con onde piane, $\sim e^{i(kx-\omega t)}$: 
 \[\begin{cases}
@@ -321,7 +321,7 @@ La relazione di dispersione trovata è fondamentale, è la \underline{'frequenza
 
 Nel limite $k\rightarrow 0$ la \underline{'frequenza di Langmuir'} 
 
-Si faccia attenzione al fatto che questa relazione è dispersiva, non è che se non compare $k$ nell'espressione di $\omega$ allora non c'è dispersione, perchè non c'è dispersione quando $\omega/k=cost$. è vero, però che in questo caso la \textbf{velocità di gruppo} è nulla, $\boxed{v_g\equiv \frac{d\omega}{d k}}=0$.
+Si faccia attenzione al fatto che questa relazione è dispersiva, non è che se non compare $k$ nell'espressione di $\omega$ allora non c'è dispersione, perchè non c'è dispersione quando $\omega/k=cost$. è vero, però che in questo caso la \underline{velocità di gruppo} è nulla, $\boxed{v_g\equiv \frac{d\omega}{d k}}=0$.
 
 Il plasma reagisce alla stessa frequenza indipendentemente dalla lunghezza d'onda. 
 
@@ -329,38 +329,40 @@ Il plasma reagisce alla stessa frequenza indipendentemente dalla lunghezza d'ond
 \subsubsection{Confronto tra ipotesi e risultati, verifica a posteriori del regime di plasma freddo} 
 Per ora abbiamo ipotizzato di poter trascurare il gradiente di pressione, ora per ogni specie $a$ immaginiamo ci sia un comportamento  $P_a=n_aT_a$ come in un gas perfetto ($k_B =1$, in tutto il corso si lavora in unità naturali), che linearizzato diventerebbe $\boxed{\delta P=T_0\delta n}$ (non ho $\delta T$ perché non ho collisioni).
 
-Nel ricavare la frequenza di plasma abbiamo supposto che la \textbf{velocità termica degli elettroni} $v_{th, e}$ fosse trascurabile rispetto alla \textbf{velocità di fase} 
+Nel ricavare la frequenza di plasma abbiamo supposto che la \underline{velocità termica degli elettroni} $v_{th, e}$ fosse trascurabile rispetto alla \underline{velocità di fase} 
 $\boxed{c_\phi \equiv \displaystyle\frac{\omega}{k}\gg v_{th}}$, vediamo bene il perché:
 l'equazione di moto - reinserita la pressione come appena ipotizzata - diventa ora: 
-\[-i\omega m_en_0\delta u\ =\ iken_0\delta \phi\, -\, ikT_{0,e} \delta n_e\]
+
+\[-i\omega m_en_0\delta u\ =\ iken_0\delta \phi\, -\, ik\,\color{blue}T_{0,e} \delta n_e\color{black}\ .\]
+
 Allora confrontando i termini in un rapporto, vediamo che il termine di pressione è trascurabile nel caso in cui $\boxed{c_\phi\gg v_{th}}$ (è quindi una condizione dell'ipotesi di \underline{plasma freddo}), definita $\boxed{v_{th, e}^2\equiv T_{0, e}/m_e}$ la \underline{velocità termica elettronica}:
 
-\[\frac{\omega\, m_e\,n_0\,\delta u}{k\,\delta P}\ \sim\ \frac{\omega^2}{k^2}\, \frac{m_e}{T_{0,e}}\ \sim\ \frac{\omega^2}{k^2}\, \frac{1}{v^2_{th,e}}\ \sim\ \frac{c^2_{\phi}}{v^2_{th,e}}\] 
+\[\frac{\omega\, m_e\,n_0\,\delta u}{k\,\delta P}\ \sim\ \frac{\omega^2}{k^2}\, \frac{m_e}{T_{0,e}}\ \sim\ \frac{\omega^2}{k^2}\, \frac{1}{v^2_{th,e}}\ \sim\ \frac{c^2_{\phi}}{v^2_{th,e}}\ .\] 
 
 \vspace{0.3cm}
 Introduciamo anche la \underline{lunghezza d'onda caratteristica} $\lambda\sim 1/k$ e confrontiamo $\dfrac{\omega^2}{k^2}$ con $v_{th,e}$:
 
-\[\frac{4\pi n_0 e^2}{m_e}\lambda^2\ \sim\ v_{th,e}\] 
+\[\frac{4\pi n_0 e^2}{m_e}\lambda^2\ \sim\ v_{th,e}\ ,\] 
 
-\[\lambda^2\ >\ \frac{v_{th,e}^2}{\omega_p^2}\ \equiv\ \frac{T}{4\pi n_0e^2}\] 
+\[\lambda^2\ >\ \frac{v_{th,e}^2}{\omega_p^2}\ \equiv\ \frac{T}{4\pi n_0e^2}\ .\] 
 
 $\omega_p$ è la frequenza di plasma e dovrebbe avere anche il contributo degli ioni che comunque è migliaia di volte minore quindi per noi, per il momento, la frequenza di plasma è direttamente $\omega_{p,e}$. 
 
 Se la lunghezza d'onda la posso confrontare con quella caratteristica sono tranquillo che la mia approssimazione di plasma freddo sia valida. 
 
-L'espressione a membro destro dell'ultima disuguaglianza è definita come lunghezza caratteristica, è detta \textbf{lunghezza di Debye}, $\frac{T}{4\pi n_0e^2}\equiv \lambda_D$. Nello spazio può venire misurata. 
+L'espressione a membro destro dell'ultima disuguaglianza è definita come lunghezza caratteristica, è detta \underline{lunghezza di Debye}, $\frac{T}{4\pi n_0e^2}\equiv \lambda_D$. Nello spazio può venire misurata. 
 
 Generalmente nel regime di plasma freddo tra $\lambda$ e $\lambda_D$ passano svariati ordini di grandezza, solamente quando cominciano a diventare confrontabili vediamo un cambio di comportamento, lo vediamo con la correzione che segue (chiusura politropica).
 
 %
 %
 \subsubsection{Chiusura politropica} 
-Abbiamo già introdotto in questo capitolo l'idea di usare $P_e=cn_e^\gamma$ (espressa in precedenza anche come $P=c\rho^\gamma$) come chiusura alle nostre equazioni, ora torniamo a farlo per ricavare la correzione termica alla relazione di dispersione ricavata per il plasma freddo:
-\[\frac{\partial P_e}{\partial x}\ =\ \gamma cn_e^{\gamma-1}\frac{\partial n_e}{\partial x}\ =\ \gamma \frac{P_e}{n_e}\frac{\partial n_e}{\partial x}\] 
+Abbiamo già introdotto in questo capitolo l'idea di usare $P_e=cn_e^\gamma$ (espressa in precedenza anche come $P=c\rho^\gamma$ o $\frac{d(P\rho^{-\gamma})}{dt}=0$) come chiusura alle nostre equazioni, ora torniamo a farlo per ricavare la correzione termica alla relazione di dispersione ricavata per il plasma freddo:
+\[\frac{\partial P_e}{\partial x}\ =\ \gamma cn_e^{\gamma-1}\frac{\partial n_e}{\partial x}\ =\ \gamma \frac{P_e}{n_e}\frac{\partial n_e}{\partial x}\ .\] 
 
-Linearizzando ed imponendo ancora una volta $P=n_{0,e}T_e$
+Linearizzando ed imponendo ancora una volta $P=n_{0,e}T_e$ :
 
-\[\frac{\partial \delta P_e}{\partial x}\ =\ \gamma \frac{P_{0,e}}{n_{0,e}}\frac{\partial\delta n_e}{\partial x}\ =\ \gamma T \frac{\partial \delta n_e}{\partial x}\]  
+\[\frac{\partial \delta P_e}{\partial x}\ =\ \gamma \frac{P_{0,e}}{n_{0,e}}\frac{\partial\delta n_e}{\partial x}\ =\ \gamma T \frac{\partial \delta n_e}{\partial x}\ .\]  
 
 Così abbiamo la chiusura voluta, da unire all'equazione di continuità linearizzata a quella del moto e Poisson, tutte ancora una volta in trasformata di Fourier:
 
@@ -380,16 +382,18 @@ Il $\delta P$ serve per poter utilizzare l'equazione completa della dinamica, in
 \[\omega^2  = \frac{4\pi e^2n_0}{m_e} +k^2 \gamma \frac{T_{0,e}}{m_e}\]
 
 Riconosciamo le definizioni date precedentemente e troviamo la nostra relazione di dispersione, chiamata in letteratura anche \underline{Bohm-Gross dispersion relation}:
-\
+
 \begin{equation}
-	\boxed{\omega^2=\omega^2_p+\gamma k^2v_{th,e}}
+	\boxed{\ \omega^2=\omega^2_p+\gamma k^2v_{th,e}\ }
 \end{equation}
-\[\omega=\omega_p^2\left(1+\gamma\frac{k^2v_{th,e}}{\omega_p^2}\right)=\omega_p^2\left(1+\gamma k^2\lambda_D^2\right)\] 
+
+\[\omega\ =\ \omega_p^2\, \left(1+\gamma\frac{k^2v_{th,e}}{\omega_p^2}\right)
+\ =\ \omega_p^2\,\left(1+\gamma k^2\lambda_D^2\right)\] 
 
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=9cm]{immagini/langmuir.jpeg}
-	\caption{Non vi sono onde di Langmuir per $\omega < \omega_P$.\\ Per grandi lunghezze d'onda (bassi k) o basse temperature si osservano le oscillazioni di plasma, o di Langmuir, causate da una velocità di fase $\omega/k$ che può essere arbitrariamente grande ma con una velocità di gruppo $\partial \omega/\partial k$ che va a zero, non vi è propagazione.\\ Per piccole lunghezze d'onda sia la velocità di fase che di gruppo convergono a $\sqrt{3}v_{th,e}$ e l'onda di plasma si propaga come un'onda sonora.}
+	\caption{Rappresentazione approssimativa della dispensione $\frac{\omega}{omega_P}=(1+\gamma k^2 \lambda_D^2)$. Non vi sono onde di Langmuir per $\omega < \omega_P$.\\ Per grandi lunghezze d'onda (bassi k) o basse temperature si osservano le oscillazioni di plasma, o di Langmuir, causate da una velocità di fase $\omega/k$ che può essere arbitrariamente grande ma con una velocità di gruppo $\partial \omega/\partial k$ che va a zero, non vi è propagazione.\\ Per piccole lunghezze d'onda sia la velocità di fase che di gruppo convergono a $\sqrt{3}v_{th,e}$ e l'onda di plasma si propaga come un'onda sonora.}
 	\label{Langmuir dispersion}
 \end{figure}
 
@@ -406,7 +410,7 @@ In un plasma la condizione di potenziale debole, $e\phi\ll T$ (con $K_B=1$ in un
 
 \[n_i\ \simeq\ n_0\left(1+\frac{e\phi}{T}\right)\ , \, \quad \quad \quad n_e\ \simeq\  n_0\left(1-\frac{e\phi}{T}\right)\ \ .\]
 
-Inseriamo queste densità delle due specie in Poisson per avere un'equazione dalla quale definiamo la \textbf{lunghezza di Debye} $\lambda_D = \sqrt{\displaystyle\frac{T}{8\pi e^2 n_0}}$ :
+Inseriamo queste densità delle due specie in Poisson per avere un'equazione dalla quale definiamo la \underline{lunghezza di Debye} $\lambda_D = \sqrt{\displaystyle\frac{T}{8\pi e^2 n_0}}$ :
 
 \[ \nabla^2 \phi\ =\ -4\pi e (n_i - n_e)\ =\ -4\pi\, e\,n_0 \left[ \cancel{1} - \frac{e\phi}{T}- (\cancel{1} + \frac{e\phi}{T}) \right]
 \]
@@ -483,7 +487,7 @@ Sappiamo poi da una identità che $\vec k\times(\vec k\times \vec E) = (\vec k\c
 
 \begin{equation}
 	\label{dispersione longitudinale}
-	k^2\vec E\ =\ \frac{\omega^2}{c^2} \,\left(1-\frac{\omega^2_P}{\omega^2} \right)\, \vec E\quad \quad \Rightarrow \quad \quad \boxed{\ \omega^2\ =\  k^2 c^2\,+\, \omega^2_P \ }
+	-\cancelto{=0}{(\vec k\cdot \vec E)\vec k}+k^2\vec E\ =\ \frac{\omega^2}{c^2} \,\left(1-\frac{\omega^2_P}{\omega^2} \right)\, \vec E\quad \quad \Rightarrow \quad \quad \boxed{\ \omega^2\ =\  k^2 c^2\,+\, \omega^2_P \ }
 \end{equation}
 
 Questa è la \underline{relazione di dispersione} per un'\underline{onda elettromagnetica trasversa} che si propaga in un plasma freddo, omogeneo e non magnetizzato.

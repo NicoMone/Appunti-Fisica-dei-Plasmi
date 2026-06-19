@@ -2,9 +2,9 @@
 
 Assumendo che si trovi una chiusura, come l'incomprimibilità o una politropica, il nostro sistema di equazioni fluide a cui ci siamo ricondotti nel capitolo precedente vanno ancora accoppiate alle equazioni dell'elettrodinamica.
 
-Finora abbiamo trovato le equazioni di bilancio del numero di particelle (equazione di continuità), equazione della quantità di moto (o impulso) ed equazione dell'energia per le varie specie che compongono il plasma, ma nel caso più semplice di due fluidi (ioni + elettroni) possiamo fare alcune definizioni per ricondurci ad una descrizione a un fluido, la \textbf{magnetoidrodinamica} (\text{MHD} da \emph{Magneto-Hydro-Dynamics}); descrizione che spazia su molti ordini di grandezza ma perdendo alcuni aspetti cinetici. 
+Finora abbiamo trovato le equazioni di bilancio del numero di particelle (equazione di continuità), equazione della quantità di moto (o impulso) ed equazione dell'energia per le varie specie che compongono il plasma, ma nel caso più semplice di due fluidi (ioni + elettroni) possiamo fare alcune definizioni per ricondurci ad una descrizione a un fluido, la \underline{magnetoidrodinamica} (\text{MHD} da \emph{Magneto-Hydro-Dynamics}); descrizione che spazia su molti ordini di grandezza ma perdendo alcuni aspetti cinetici. 
 
-Questa teoria è valida in condizioni come 
+Questa teoria è valida alle seguenti condizioni:
 \begin{itemize}
 	\item il moto è fortemente collettivo $\iff$ molte particelle in un volume di Debye ($n\, \lambda_D^2 \gg 1$);
 	\item collisioni abbastana frequenti da mantenere il sistema in equilibrio locale;
@@ -29,7 +29,7 @@ Si nota che per la densità di massa il contributo è dato principalmente dagli 
 
 \subsection{Equazione di continuità ad un fluido}
 
-Ricordiamo che l'equazione di continuità per una singola specie è $\frac{\partial n_\alpha}{\partial t} = -\vec \nabla\cdot (n_\alpha \vec u_\alpha)$. 
+Ricordiamo che l'equazione di continuità per una singola specie è $\frac{\partial n_\alpha}{\partial t} = -\vec \nabla\cdot (n_\alpha \vec u_\alpha)$, nel framework della teoria a due fluidi che abbiamo sviluppato. 
 
 Partiamo da quest'ultima, moltiplicandola per $m_\alpha$ e facciamo una somma sulle specie per ottenere una nuova equazione di continuità a singolo fluido:
 
@@ -39,7 +39,9 @@ Partiamo da quest'ultima, moltiplicandola per $m_\alpha$ e facciamo una somma su
 	\boxed{\ \frac{\partial\rho}{\partial t} + \vec \nabla \cdot (\rho \vec u) = 0\ }
 \end{equation}
 
-In modo del tutto simile potremmo definire l'equazione di continuità di carica:
+Abbiamo ottenuto l'\underline{equazione di continuità ad un fluido}.
+
+In modo del tutto simile potremmo definire l'\underline{equazione di continuità di carica}:
 \begin{equation}\label{continuità di carica a un fluido}
 	\boxed{\ \frac{\partial\rho_c}{\partial t} + \vec \nabla \cdot \vec J = 0\ }
 \end{equation}
