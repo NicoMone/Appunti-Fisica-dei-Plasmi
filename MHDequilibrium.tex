@@ -1,4 +1,8 @@
-\chapter{Equilibrio MHD}  
+\chapter{Equilibrio MHD} 
+
+\epigraph{
+	Riferimenti: cap. 5 di \emph{Fisica dei plasmi} di Pucella-Segre
+}{}
 
 \fboxrule=1.5pt
 \begin{empheq}[box=\fcolorbox{blue}{white}]{align}
@@ -26,11 +30,15 @@ Quel che non è vero, invece è che $\partial_t \vec B=0$!. Il campo magnetico n
 
 Anzi, l'equazione di Faraday in questo caso si riduce ad un'equazione di diffusione  del campo magnetico, è una sorta di dissipazione di cui abbiamo bisogno, anche nei metodi numerici: serve una dissipazione altrimenti il codice esplode accumulando energia magnetica alla più piccola scala che viene risolta dal codice . 
 
-\subsection{equazione della dinamica all'equilibrio}
+
+%
+%
+\subsubsection{equazione della dinamica all'equilibrio}
 
 Prendiamo l'eq. del moto e poniamo le condizioni di stazionarietà introdotte:
 
-\[\vec \nabla P\ =\ \frac{1 }{4\pi}\,[(\vec\nabla\times\vec B)\times\vec B ]\] 
+\[\vec \nabla P\ =\ \frac{1}{c}\, \vec J\times\vec B\ =\ \frac{1 }{4\pi}\,[(\vec\nabla\times\vec B)\times\vec B ]\] 
+
 All'equilibrio le linee di campo magnetico e della corrente giacciono su delle supoerfici isobare, perché il gradiente della pressione equivale a un prodotto vettoriale proprio fra il campo vettoriale della corrente e quello del campo magnetico (questo non dice nulla tuttavia sull'orientazione reciproca dei due campi vettoriali). 
 
 \[
@@ -44,45 +52,66 @@ All'equilibrio le linee di campo magnetico e della corrente giacciono su delle s
 
 Poiché la forza di Lorentz è sempre perpendicolare sia a $\vec j$ che a $\vec B$, anche il gradiente di pressione deve essere perpendicolare a entrambi.
 
-
-\subsection{Equazione di Faraday} 
-Assume la forma di un'equazione di diffusione (derivata temporale del campo proporzionale al laplaciano), con una resistività $\eta$.
-
-\[\frac{\partial \vec B}{\partial t}\ =\ \eta\,\frac{c^2}{4\pi}\,\nabla^2\vec B\] 
-
 \[\left(\vec \nabla \times \vec B \right)\times \vec B\ =\ 
 -\,\frac{1}{2}\nabla B^2\, +\, \underset{(\vec B\cdot \vec \nabla)\,\vec B}{\underbrace{\vec\nabla : \left(\frac{\overset{\text{tensore}}{\vec B \vec B}}{2}\right)}} 
 \qquad \Rightarrow \qquad
 \vec \nabla \left(P\,+\, \frac{B^2}{8\pi}\right)\ =\ \nabla : \left(\frac{\vec B \vec B}{2}\right)
 \]
 
+%
+%
+\subsubsection{Equazione di Faraday} 
+Assume la forma di un'equazione di diffusione (derivata temporale del campo proporzionale al laplaciano), con una resistività $\eta$.
+
+\[\frac{\partial \vec B}{\partial t}\ =\ \eta\,\frac{c^2}{4\pi}\,\nabla^2\vec B\] 
+
+
+
+
+%
+%
+%
 \section{Equilibrio force-free}
 \fboxrule=1pt
-In un \underline{equilibrio "\emph{force-free}"}, dove non vi sono forze, si annulla il gradiente di pressione e deve valere $\boxed{\left(\vec \nabla \times \vec B \right)\times \vec B =0}$ (  $\boxed{\vec j\times \vec B =0}$ ).
 
-Se $\left(\vec \nabla \times \vec B \right)\times \vec B =0$ allora i vettori dovrebbero essere paralleli e questo comporta che per un certo $\alpha$ siano proporzionali $\left(\vec \nabla \times \vec B \right)=\alpha \vec B$. 
+In un \underline{equilibrio "\emph{force-free}"}, dove non vi sono forze, si annulla il gradiente di pressione e deve valere 
 
-\[\Rightarrow\ \qquad \nabla^2 \vec B + \alpha^2 \vec B \ =\ 0\ \ .\]
+\begin{equation}
+\boxed{\left(\vec \nabla \times \vec B \right)\times \vec B =0}\ \ .
+\end{equation}
+
+Data questa condizione sulla struttura del campo, i vettori dovrebbero essere paralleli ($\vec \nabla \times \vec B \parallel\alpha \vec B$) e questo comporta che per un certo $\alpha$ siano proporzionali $\left(\vec \nabla \times \vec B \right)=\alpha \vec B$. Applichiamo il rotore a quest'ultima:
 
 
 \begin{itemize}
-	\item $\vec \nabla\cdot \left(\vec \nabla\times \vec B\right)\ =\ \nabla \cdot \left(\alpha \vec B\right)\ =\ \alpha \vec B\cdot \vec B\, +\, \alpha\left(\vec B\cdot \vec \nabla \right)\ =\ 0$ , questo ci porta a dire che $\alpha$ è costante lungo le linee di campo magnetico:  
+	\item Calcoliamo la divergenza della relazione \[\vec \nabla\cdot \left(\vec \nabla\times \vec B\right)\ =\ \nabla \cdot \left(\alpha \vec B\right)\ =\ \alpha \vec B\cdot \vec B\, +\, \alpha\left(\vec B\cdot \vec \nabla \right)\ =\ 0\ ,\] 
+	questo ci porta a dire che $\alpha$ è costante lungo le linee di forza:  
 	\[\Rightarrow \qquad \nabla_\parallel \alpha\ =\ 0\ \ .\] 
-	\item $\left(\vec \nabla \times \vec B \right)\times \vec B=-\nabla^2 B = \frac{4\pi}{\eta c^2} \frac{\partial \vec B}{\partial t}$ , ma è anche uguale a:
+	\item Calcoliamone invece il rotore \[\vec \nabla \times \left(\vec \nabla \times \vec B \right)\ =\ \vec\nabla (\vec\nabla\cdot\vec B) - \nabla^2 \vec B\ =\ -\, \frac{4\pi\sigma}{c^2}\frac{\partial \vec B}{\partial t}\ ,\] 
+	ma è anche uguale a:
 	\[\vec \nabla \times (\alpha \vec B)\ =\ \alpha \vec \nabla\times \vec B\, +\, \vec \nabla\alpha \times \vec B\ =\ \alpha^2 \vec B\, +\, \vec \nabla\alpha \times \vec B \]
 	stavolta capiamo come 
 	\[ \Rightarrow\quad \left[\, \frac{4\pi}{c^2}\,\frac{1}{\eta}\,\frac{\partial }{\partial t}\ +\ \alpha^2\right]\ \vec B\ =\ \vec B\times \vec \nabla\alpha \]
 	Se $\alpha$ è costante nello spazio questo implica che $\frac{\partial \vec B}{\partial t} = -\alpha^2\frac{\eta c^2}{4\pi}\vec B$, che è una diffusione con tempo caratteristico l'inverso del coefficiente di $\vec B$.
 \end{itemize}
 
+Nei casi di interesse si suppone che $\alpha$ sia costante sia nello spazio che nel tempo.
+
+Rimescolando le identità vettoriali che abbiamo espanso poco sopra troviamo, nel caso $\alpha = \text{cst.}$, 
+
+l'\underline{equazione d'onda vettoriale} :
+
+\begin{equation} \label{EOV}
+	\Rightarrow\ \qquad \nabla^2 \vec B + \alpha^2 \vec B \ =\ 0\ \ .
+\end{equation}
+
 %
 %
 %
 \section{Equilibri MHD}
 
-\[\text{Force-Free:}\qquad \bar\nabla^2 \bar B\ +\ \alpha^2 \bar B\ =\ 0\]
-
-Partiamo da un campo scalare $\phi$:  $\bar\nabla^2 \phi + \alpha^2 \phi\, =\, 0$
+Partiamo dall'equazione d'onda vettoriale per trovare un insieme di soluzioni a questo problema semplificato.
+Per trovare un insieme completo di soluzioni conviene considerare il corrispondente scalare:  $\bar\nabla^2 \phi + \alpha^2 \phi\, =\, 0$.
 
 Chiamiamo $\bar L, \bar S,\bar T$ le soluzioni a quest'equazione (la prima irrotazionale, le altre solenoidali) con:
 
@@ -94,29 +123,50 @@ Chiamiamo $\bar L, \bar S,\bar T$ le soluzioni a quest'equazione (la prima irrot
 \boxed{ \bar S\ \equiv\ \frac{1}{\alpha}\, \bar \nabla \times \bar T }
 \] 
 
+$\bar L$ è irrotazionale quindi $\bar \nabla \times L = 0$, mentre per $\bar T$ ed $\bar S$ che sono solenoidali vale $\bar\nabla \cdot\bar T = \bar \nabla \cdot \bar S = 0$ che non vale per $\bar \nabla \cdot L \neq 0$.
+
+Vediamo come queste siano soluzioni di eq.\ref{EOV}:
+
+\begin{itemize}
+	\item $\bar \nabla^2 L + \alpha^2 L\, =\, \nabla^2(\nabla \phi)+\alpha^2\nabla \phi\, =\, \nabla\underset{=0}{\underbrace{(\nabla^2 \phi + \alpha^2 \phi)}}=0$ , quindi $\bar L$ è soluzione;
+	\item $\bar \nabla^2 \bar T + \alpha^2 \bar T\, =\, \nabla^2 [\bar \nabla \times (\phi \hat e)]+\alpha^2 \nabla \times (\phi \hat e)\,=\, \bar \nabla \times [\underset{=0}{\underbrace{\nabla^2 \phi + \alpha^2 \phi}}\hat e]\, =\, 0$ , anche $\bar T$ è soluzione, quindi lo è anche $\bar S$ perché inserendola nella condizione ci porterebbe al rotore di questa equazione appena sviluppata, anch'esso nullo.
+\end{itemize}
+
+Possiamo notare una simmetria fra le soluzioni $\bar T$ ed $\bar S$.
+
 \[\bar \nabla \times \bar S\ =\ \frac{1}{\alpha}\bar \nabla \times (\bar \nabla \times \bar T)\ =\ \frac{1}{\alpha}\cancel{\bar \nabla (\bar \nabla\cdot  \bar T)}-\frac{1}{\alpha}\nabla^2 \bar T\ =\ \alpha \bar T\]
+
+\[ 0\ =\ \vec \nabla^2 \bar T + \alpha^2 \bar T\ =\ \vec \nabla (\vec \nabla \cdot \bar T) - \vec \nabla \times (\vec \nabla \times \bar T) + \alpha^2 \bar T \]
 
 \[\Rightarrow \quad \quad 
 \begin{cases}
-	\bar T\ =\ \bar \nabla \times \bar S\\
+	\bar T\ =\ \frac{1}{\alpha} \bar \nabla \times \bar S\\
 	\bar S\ =\ \frac{1}{\alpha} \bar \nabla \times \bar T
 \end{cases}\]
 
-\begin{itemize}
-	\item $\bar \nabla^2 L + \alpha^2 L\, =\, \nabla^2(\nabla \phi)+\alpha^2\nabla \phi\, =\, \nabla\underset{=0}{\underbrace{(\nabla^2 \phi + \alpha^2 \phi)}}=0$, quindi $\bar L$ è soluzione;
-	\item $\bar \nabla^2 \bar T + \alpha^2 \bar T\, =\, \nabla^2 [\bar \nabla \times (\phi \hat e)]+\alpha^2 \nabla \times (\phi \hat e)\,=\, \bar \nabla \times [\underset{=0}{\underbrace{\nabla^2 \phi + \alpha^2 \phi}}\hat e]\, =\, 0$, anche $\bar T$ è soluzione, quindi lo è anche $\bar S$.
-\end{itemize}
 
-\subsubsection{In coordinate cilindriche...}
-\[\bar \nabla \times \bar a\, =\, [\cancel{\frac{1}{r}\frac{\partial a_z}{\partial \theta}}-\frac{\partial a_\theta}{\partial z},\, \frac{\partial a_r}{\partial z}-\frac{\partial a_z}{\partial r},\,\frac{1}{r}\frac{\partial (r a_\theta)}{\partial r}-\cancel{\frac{1}{r}\frac{\partial a_r}{\partial \theta}}]\]
+%
+%
+%
+\subsubsection{Configurazione a simmetria rotazionale}
 
-Mettiamoci in condizione assi-simmetrica ($\partial_\theta = 0$): $\phi\equiv\phi(r,z)$:
+Nel caso di nostro interesse lavoriamo in simmetria rotazionale, ci poniamo quindi immaginando che il nostro plasma ruoti su se stesso ed usiamo le coordinate $(r,\theta, z)$, nelle quali:
 
-\[\bar T\ =\ \bar \nabla \times (\phi \hat e_z)\ =\ -\frac{\partial \phi}{\partial r}\hat e_\theta\qquad \text{è toroidale}\]
+\[\bar \nabla \times \bar F\, =\, \frac{1}{r}
+\begin{vmatrix} 
+	\hat r & r\hat \theta & \hat z \\ 
+	\partial_r & \partial_\theta & \partial_z\\
+	F_r & r F_\theta & F_z
+\end{vmatrix}\ =\ 
+\left[\cancelto{\text{in condizioni di assi-simmetria}}{\frac{1}{r}\frac{\partial F_z}{\partial \theta}}-\frac{\partial F_\theta}{\partial z},\, \frac{\partial F_r}{\partial z}-\frac{\partial F_z}{\partial r},\,\frac{1}{r}\frac{\partial (r F_\theta)}{\partial r}-\cancel{\frac{1}{r}\frac{\partial F_r}{\partial \theta}}\right] \]
 
-\[\bar S\ =\ \frac{1}{\alpha}\bar \nabla \times T \ =\ \frac{1}{\alpha} \left[ \frac{\partial^2}{\partial r\partial z} \phi \hat e_z - \frac{1}{r}\frac{\partial}{\partial r}(r\frac{\partial \phi}{\partial r})\hat e_\theta\right]\qquad \text{è poloidale}\]
+Mettiamoci in condizione assi-simmetrica, cioè poniamo $\partial_\theta\phi = 0$ : $\phi\equiv\phi(r,z)$:
 
-Né $\bar T$ né $\bar S$ sono soluzioni di $\bar \nabla \times \bar B = \alpha \bar B$, ma $(\bar T+\bar S)$ lo è.
+\[\bar T\ =\ \bar \nabla \times (\phi \hat e_z)\ =\ -\frac{\partial \phi}{\partial r}\hat e_\theta\qquad \text{è toroidale  }: \bar T = (0,T_\theta, 0) \]
+
+\[\bar S\ =\ \frac{1}{\alpha}\bar \nabla \times T \ =\ \frac{1}{\alpha} \left[ \frac{\partial^2}{\partial r\partial z} \phi \hat e_z - \frac{1}{r}\frac{\partial}{\partial r}(r\frac{\partial \phi}{\partial r})\hat e_\theta\right]\qquad \text{è poloidale  }: \bar T = (S_r,0, S_z)\]
+
+Né $\bar T$ né $\bar S$ sono soluzioni di $\bar \nabla \times \bar B = \alpha \bar B$, ma $(\bar T+\bar S)$ è invece un campo force-free:
 
 \[\bar \nabla \times (\bar T + \bar S)\ =\ \alpha \bar S + \alpha \bar T\ =\ \alpha\, (\bar T + \bar S)\]
 
@@ -124,6 +174,8 @@ Né $\bar T$ né $\bar S$ sono soluzioni di $\bar \nabla \times \bar B = \alpha 
 
 Allora $(\bar T + \bar S)$ è un campo force-free
 
+
+%
 %
 %
 \subsubsection{Come costruire un campo force-free}
@@ -136,42 +188,56 @@ Una possibile soluzione di $\nabla^2 \phi + \alpha^2 \phi =0$ è $\phi=A\cos(\al
 
 Quindi: $\bar T +\bar S = \frac{\partial}{\partial x} \phi \hat e_y -\frac{1}{\alpha} \frac{\partial^2}{\partial x^2} \phi \hat e_z$.
 
-Facendo le derivate in modo opportuno si arriverebbe a delle componenti del campo $B_y=A\sin(\alpha x)$ e $B_z = A\cos(\alpha x)$.
+Facendo le derivate in modo opportuno (cfr. cap. 5.2 Pucella-Segre) si arriverebbe a delle componenti del campo $B_y=A\sin(\alpha x)$ e $B_z = A\cos(\alpha x)$.
 
 %
 %
 %
 \section{Condizione di Ferraro}
 
-\[\bar \nabla \times [(\bar \nabla \times \bar B)\times \bar B]\ =\ 0\]
+La \underline{condizione di Ferraro} nasce come condizione per verificare se una configurazione magnetica è in equilibrio, deriva dall'equazione del moto, facendone il rotore il termine gradiente di pressione si annulla e se il termine gravitazionale può essere ignorato ci si riduce a:
 
-Caso poloidale puro: $\bar B = \bar \nabla \times \bar A$, $\bar B = (B_r,\,0,\,B_z)$.
+\begin{equation} \label{Ferraro}
+\bar \nabla \times [(\bar \nabla \times \bar B)\times \bar B]\ =\ 0
+\end{equation}
 
-\[\bar B\, =\, \left(-\frac{\partial A_\theta}{\partial z},\, \frac{\partial A_r}{\partial z}-\frac{\partial A_z}{\partial r},\, \frac{1}{r}\frac{\partial}{\partial r} (rA_\theta)\right)\ =\ \left(-\frac{1}{r} \partial_z (rA_\theta),\, 0,\, \frac{1}{r}\partial_r (rA_\theta)\right)\]
+%
+%
+\vspace{0.5cm}
+\paragraph{Campo poloidale puro:}
+$\bar B = (B_r,\,0,\,B_z)$.
 
-Dato che vogliamo $B_\theta = 0$ allora $A_r=A_z=0$.
+Assumiamo che vi sia simmetria di rotazione $\partial_\theta = 0$ e sappiamo che $\vec \nabla \cdot \vec B = 0$ e possiamo esprimerlo in termini di un potenziale vettore $\bar B = \bar \nabla \times \bar A$.
 
-Se si definisce la \underline{funzione di flusso} $\psi(r,z)=rA_\theta (r,z)$ :
+\[\bar B\, =\, \left(-\frac{\partial A_\theta}{\partial z},\ \frac{\partial A_r}{\partial z}-\frac{\partial A_z}{\partial r},\ \frac{1}{r}\frac{\partial}{\partial r} (rA_\theta)\right)\ =\ \left(-\frac{1}{r} \partial_z (rA_\theta),\ 0,\ \frac{1}{r}\partial_r (rA_\theta)\right)\]
+
+Dato che vogliamo $B_\theta = 0$ allora $A_r=A_z=0$ e rimane $\vec A = (0, A_\theta(r,z), 0)$.
+
+Se si definisce la \underline{funzione di flusso} $\bar B = \bar \nabla \times \bar A$, $\boxed{\psi(r,z)=rA_\theta (r,z)}$ :
 
 \[\bar B\ =\ \left(-\frac{1}{r} \frac{\partial \psi}{\partial z},\, 0,\, \frac{1}{r}\frac{\partial \psi}{\partial r}\right)\]
+
+Abbiamo quindi il nostro campo magnetico puramente poloidale, espresso tramite la funzione di flusso $\psi$, andiamo a calcolare la condizione di Ferraro in questa configuazione: 
 
 \[\bar \nabla \times \bar B\ =\ \left(0,\, -\partial_z (\frac{1}{r} \partial_z \psi)-\partial_r (\frac{1}{r}\partial_r \psi),\, 0\right)\]
 
 \[(\bar \nabla \times \bar B)\times \bar B  
 \ =\ \left(\left[-\partial_z(\frac{1}{r}\partial_z \psi)-\partial_r (\frac{1}{r}\partial_r \psi)\right]\frac{1}{r}\partial_r \psi,\, 0,\, \left[-\partial_z (\frac{1}{r} \partial_z \psi)-\partial_r (\frac{1}{r}\partial_r \psi \right] \partial_z\psi\right)\]
 
-Andiamo a definire una quantità che semplifichi l'espressione sopra per poterne fare il rotore, definiamo $\boxed{\Delta^{*2} \psi \equiv r\partial_r (\frac{1}{r}\partial_r \psi) + \partial^2_{zz}\psi}$, in modo che:
+Andiamo a definire una quantità che semplifichi l'espressione sopra per poterne fare il rotore, definiamo $\boxed{\Delta^{*2} \psi \equiv r\partial_r \left(\frac{1}{r}\partial_r \psi\right) + \partial^2_{zz}\psi}$, in modo che:
 
 \[(\bar \nabla \times \bar B)\times \bar B  
-\ =\ \left(-\frac{1}{r^2}\partial_r \psi \Delta^{*2}\psi,\ 0,\ -\frac{1}{r^2} \partial_z \Delta^{*2} \psi\right)\]
+\ =\ \left(-\frac{1}{r^2}\,\partial_r \psi \,\Delta^{*2}\psi,\ 0,\ -\frac{1}{r^2}\, \partial_z \psi\,\Delta^{*2} \psi\right)\]
 
 \[\bar \nabla \times \left[(\bar \nabla \times \bar B)\times \bar B\right]\ =\ \left(0,\ -\partial_z (\partial_r \psi \frac{1}{r^2}\Delta^{*2} \psi)+\partial_r (\partial_z \psi \frac{1}{r^2}\Delta^{*2} \psi),\ 0\right)\]
 
-Dobbiamo risolvere un'equazione del tipo $0=-\partial_z (\partial_z \psi \frac{1}{r^2}\Delta^{*2} \psi)+\partial_r (\partial_z \psi \frac{1}{r^2}\Delta^{*2} \psi)$ per avere la condizione di Ferraro evidenziata all'inizio ($\iff\ \frac{\partial f}{\partial x} \frac{\partial g}{\partial y} - \frac{\partial f}{\partial y} \frac{\partial g}{\partial x}=0$ per $f=\psi$ e $g=\frac{1}{r^2}\Delta^{*2} \psi$).
+La condizione di Ferraro si riduce così alla condizioen scalare $0=-\partial_z (\partial_z \psi \frac{1}{r^2}\Delta^{*2} \psi)+\partial_r (\partial_z \psi \frac{1}{r^2}\Delta^{*2} \psi)$ ($\iff\ \frac{\partial f}{\partial x} \frac{\partial g}{\partial y} - \frac{\partial f}{\partial y} \frac{\partial g}{\partial x}=0$ per $f=\psi$ e $g=\frac{1}{r^2}\Delta^{*2} \psi$).
 
 Definiamo $F(\psi)$ dall'\underline{equazione di Grad-Shafranov semplificata} (senza $\nabla P$):
 
 \[\boxed{\ \Delta^{*2} \psi\ =\ r^2\, F(\psi)\ }\ \ .\]
+
+Questa rappresenta l'equazione fondamentale per gli equilibri MHD assisimmetrici, cioè aventi una simmetria di rotazione.
 
 
 %
@@ -184,49 +250,59 @@ Consideriamo un campo puramente toroidale $\vec B = (0, B_\theta, 0)$, dotato di
 Applichiamo la condizione di Ferraro $\bar \nabla \times [(\bar \nabla \times \bar B)\times \bar B]\ =\ 0$:
 
 \[
-\bar \nabla \times [(\bar \nabla \times \bar B)\times \bar B]\ =\ [0,\ \frac{\partial}{\partial z}\left(\frac{B_\theta}{r}\frac{\partial (rB_\theta)}{\partial r}\right)\, +\, \frac{\partial}{\partial r}\left(B_\theta \frac{\partial B_\theta}{\partial z}\right),\ 0]
+\bar \nabla \times [(\bar \nabla \times \bar B)\times \bar B]\ =\ 
+[0,\ -\frac{\partial}{\partial z}\left(\frac{B_\theta}{r}\frac{\partial (rB_\theta)}{\partial r}\right)\, +\, \frac{\partial}{\partial r}\left(B_\theta \frac{\partial B_\theta}{\partial z}\right),\ 0]
 \]
 
 \[
-\frac{\partial}{\partial z}\left(\frac{B_\theta}{r}\frac{\partial (rB_\theta)}{\partial r}\right)\, +\, \frac{\partial}{\partial r}\left(B_\theta \frac{\partial B_\theta}{\partial z}\right)\ =\ 0
+-\frac{\partial}{\partial z}\left(\frac{B_\theta}{r}\frac{\partial (rB_\theta)}{\partial r}\right)\, +\, \frac{\partial}{\partial r}\left(B_\theta \frac{\partial B_\theta}{\partial z}\right)\ =\ 0
 \]
 
-Completando i calcoli si osserva che non è possibile ottenere un equilibrio MHD.
+Completando i calcoli si osserva che non è possibile ottenere un equilibrio MHD, questo perché la condizione si riduce a $\frac{1}{r} \frac{\partial B_\theta}{\partial z} = 0$, che sarebbe soddisfatta solo se $r\rightarrow\infty$, cioè il toro abbia grandezza infinita, oppure se si annullasse la derivata ma ciò vorrebbe dire che le correnti di plasma non modificano il campo toroidale del vuoto.
 
 
 %
-%%
+%
+%
 \section{Equazione di Grad-Shafranov}
 
 Consideriamo l'equazione del moto MHD all'equilibrio in assenza di campo gravitazionale: 
 
 \[\vec \nabla P = \frac{1}{4\pi}\, (\vec \nabla \times \vec B)\times \vec B\ \ .\] 
 
-In componenti:
+\[\vec \nabla \times \vec B \ =\
+\left[-\frac{\partial B_\theta}{\partial z},\, -\frac{\partial}{\partial z}\left(\frac{1}{r}\frac{\partial \psi}{\partial z}\right)-\frac{\partial}{\partial r}\left(\frac{1}{r}\frac{\partial \psi}{\partial r}\right) ,\, \frac{1}{r}\frac{\partial (r B_\theta)}{\partial r}\right]\ =\ 
+\left[-\frac{\partial B_\theta}{\partial z},\, -\frac{1}{r}\Delta^2 \psi,\, \frac{1}{r}\frac{\partial (r B_\theta)}{\partial r}\right]\]
+
+\[(\vec \nabla \times \vec B) \times \vec B\ =\ 
+\left[-\frac{1}{r^2}\frac{\partial \psi}{\partial r}\Delta^2 \psi-\frac{B_\theta}{r}\frac{\partial (r B_\theta)}{\partial r},\,
+-\frac{1}{r^2}\frac{\partial \psi}{\partial z}\frac{\partial (r B_\theta)}{\partial r}+ \frac{1}{r}\frac{\partial \psi}{\partial r} \frac{\partial B_\theta}{\partial z},\, -B_\theta \frac{\partial B_\theta}{\partial z}-\frac{1}{r^2}\frac{\partial \psi}{\partial z}\Delta^2 \psi\right]\]
+
+In componenti la prima equazione equivale al sistema:
 
 \[\begin{cases}
-\hat r:\quad 4\pi \frac{\partial p}{\partial r}\, +\, B_\theta\frac{1}{r} \frac{\partial}{\partial r} (rB_\theta)\, +\, \frac{1}{r^2} \frac{\partial \psi}{\partial r} \vec \nabla^2 \psi\ =\ 0\\
-\hat \theta:\quad \frac{1}{r^2} \frac{\partial \psi}{\partial r} \frac{\partial}{\partial z} (rB_\theta)\, -\, \frac{1}{r^2} \frac{\partial \psi}{\partial z}\frac{\partial}{\partial r} (rB_\theta)\ =\ 0\\
-\hat z:\quad 4\pi \frac{\partial p}{\partial z}\, +\, B_\theta \frac{\partial B_\theta}{\partial z}\, +\, \frac{1}{r^2}\frac{\partial \psi}{\partial z} \vec \nabla^2 \psi\ =\ 0\ \ .
+\hat r:\quad 4\pi \displaystyle\frac{\partial p}{\partial r}\, +\, B_\theta\frac{1}{r} \frac{\partial}{\partial r} (rB_\theta)\, +\, \frac{1}{r^2} \frac{\partial \psi}{\partial r} \Delta^2 \psi\ =\ 0\\
+\hat \theta:\quad \displaystyle\frac{1}{r^2} \frac{\partial \psi}{\partial r} \frac{\partial}{\partial z} (rB_\theta)\, -\, \frac{1}{r^2} \frac{\partial \psi}{\partial z}\frac{\partial}{\partial r} (rB_\theta)\ =\ 0\\
+\hat z:\quad 4\pi \displaystyle\frac{\partial p}{\partial z}\, +\, B_\theta \frac{\partial B_\theta}{\partial z}\, +\, \frac{1}{r^2}\frac{\partial \psi}{\partial z} \Delta \psi\ =\ 0\ \ .
 \end{cases}\]
 
 Definendo la funzione $F(\psi)=rB_\theta$ e sostituendo nelle espressioni:
 \[\begin{cases}
-	\hat r:\quad 4\pi \frac{\partial p}{\partial r}\, +\, \frac{1}{r^2} F(\psi) \frac{\partial F(\psi)}{\partial r} \, +\, \frac{1}{r^2} \frac{\partial \psi}{\partial r} \vec \nabla^2 \psi\ =\ 0\\
-	\hat z:\quad 4\pi \frac{\partial p}{\partial z}\, +\, \frac{1}{r^2} F(\psi) \frac{\partial F(\psi)}{\partial z} \, +\, \frac{1}{r^2} \frac{\partial \psi}{\partial z} \vec \nabla^2 \psi\ =\ 0\ \ .
+	\hat r:\quad 4\pi \frac{\partial p}{\partial r}\, +\, \frac{1}{r^2} F(\psi) \frac{\partial F(\psi)}{\partial r} \, +\, \frac{1}{r^2} \frac{\partial \psi}{\partial r} \Delta^2 \psi\ =\ 0\\
+	\hat z:\quad 4\pi \frac{\partial p}{\partial z}\, +\, \frac{1}{r^2} F(\psi) \frac{\partial F(\psi)}{\partial z} \, +\, \frac{1}{r^2} \frac{\partial \psi}{\partial z} \Delta^2 \psi\ =\ 0\ \ .
 \end{cases}\]
 
 Dicendo che $F'(\psi)=\frac{\partial F(\psi)}{d\psi}$, riscriviamo:
 
 \[\begin{cases}
-	\hat r:\quad 4\pi \frac{\partial p}{\partial r}\, +\, \frac{\partial \psi}{\partial r}\left[ \frac{1}{r^2} F(\psi) F'(\psi) \, +\, \frac{1}{r^2}\vec \nabla^2 \psi\right]\ =\ 0\\
-	\hat z:\quad 4\pi \frac{\partial p}{\partial z}\, +\, \frac{\partial \psi}{\partial z}\left[ \frac{1}{r^2} F(\psi) F'(\psi) \, +\, \frac{1}{r^2}\vec \nabla^2 \psi\right]\ =\ 0\ \ .
+	\hat r:\quad 4\pi \frac{\partial p}{\partial r}\, +\, \frac{\partial \psi}{\partial r}\left[ \frac{1}{r^2} f(\psi) f'(\psi) \, +\, \frac{1}{r^2} \Delta^2 \psi\right]\ =\ 0\\
+	\hat z:\quad 4\pi \frac{\partial p}{\partial z}\, +\, \frac{\partial \psi}{\partial z}\left[ \frac{1}{r^2} f(\psi) f'(\psi) \, +\, \frac{1}{r^2} \Delta^2 \psi\right]\ =\ 0\ \ .
 \end{cases}\]
 
 Moltiplicando la prima per $\partial_z \psi$ e la seconda per $\partial_r \psi$ troviamo una condizione di annullamento di uno jacobiano:
 
 \[
-4\pi \left[\frac{\partial p}{\partial r}\frac{\partial \psi}{\partial z}\, -\,\frac{\partial p}{\partial z}\frac{\partial \psi}{\partial r} \right]\ =\ J(\dots)\ =\ 0
+4\pi \left[\frac{\partial p}{\partial r}\frac{\partial \psi}{\partial z}\, -\,\frac{\partial p}{\partial z}\frac{\partial \psi}{\partial r} \right]\ =\ J(\frac{4\pi p,\psi}{r,z})\ =\ 0
 \]
 
 Definendo una funzione $g(\psi)=4\pi p$ vediamo che le superfici a pressione costante equivalgono alle superifici con flusso costante, si vede poi che si ricava l'equazione detta di \underline{Grad-Shafranov}:

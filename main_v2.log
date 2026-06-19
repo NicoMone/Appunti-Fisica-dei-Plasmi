@@ -1,4 +1,4 @@
-This is LuaHBTeX, Version 1.22.0 (TeX Live 2025/Debian)  (format=lualatex 2026.5.22)  3 JUN 2026 22:09
+This is LuaHBTeX, Version 1.22.0 (TeX Live 2025/Debian)  (format=lualatex 2026.5.22)  19 JUN 2026 14:50
  restricted system commands enabled.
 **main_v2.tex
 (./main_v2.tex
@@ -1198,6 +1198,17 @@ LaTeX Info: Redefining \addtolength on input line 87.
 (/usr/share/texlive/texmf-dist/tex/latex/listings/lstlang1.sty
 File: lstlang1.sty 2025/11/14 1.11b listings language file
 )
+(/usr/share/texlive/texmf-dist/tex/latex/epigraph/epigraph.sty
+Package: epigraph 2020/01/02 v1.5e typesetting epigraphs
+
+(/usr/share/texlive/texmf-dist/tex/latex/nextpage/nextpage.sty
+Package: nextpage 2009/09/03 v1.1a additional page commands
+)
+\beforeepigraphskip=\skip81
+\afterepigraphskip=\skip82
+\epigraphwidth=\skip83
+\epigraphrule=\skip84
+)
 (/usr/share/texlive/texmf-dist/tex/latex/l3backend/l3backend-luatex.def
 File: l3backend-luatex.def 2025-10-09 L3 backend support: PDF output (LuaTeX)
 \l__color_backend_stack_int=\count404
@@ -1205,26 +1216,26 @@ Inserting `l3color' in `luaotfload.parse_color'.)
 (./main_v2.aux)
 \openout1 = main_v2.aux
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 157.
-LaTeX Font Info:    ... okay on input line 157.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 157.
-LaTeX Font Info:    ... okay on input line 157.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 157.
-LaTeX Font Info:    ... okay on input line 157.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 157.
-LaTeX Font Info:    ... okay on input line 157.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 157.
-LaTeX Font Info:    ... okay on input line 157.
-LaTeX Font Info:    Checking defaults for TU/lmr/m/n on input line 157.
-LaTeX Font Info:    ... okay on input line 157.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 157.
-LaTeX Font Info:    ... okay on input line 157.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 157.
-LaTeX Font Info:    ... okay on input line 157.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 157.
-LaTeX Font Info:    ... okay on input line 157.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 157.
-LaTeX Font Info:    ... okay on input line 157.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 165.
+LaTeX Font Info:    ... okay on input line 165.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 165.
+LaTeX Font Info:    ... okay on input line 165.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 165.
+LaTeX Font Info:    ... okay on input line 165.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 165.
+LaTeX Font Info:    ... okay on input line 165.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 165.
+LaTeX Font Info:    ... okay on input line 165.
+LaTeX Font Info:    Checking defaults for TU/lmr/m/n on input line 165.
+LaTeX Font Info:    ... okay on input line 165.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 165.
+LaTeX Font Info:    ... okay on input line 165.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 165.
+LaTeX Font Info:    ... okay on input line 165.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 165.
+LaTeX Font Info:    ... okay on input line 165.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 165.
+LaTeX Font Info:    ... okay on input line 165.
 
 (/usr/share/texlive/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
@@ -1249,8 +1260,8 @@ File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
 e
 ))
 \c@lstlisting=\count411
-LaTeX Info: Redefining \it@ocap on input line 157.
-LaTeX Info: Redefining \it@ccap on input line 157.
+LaTeX Info: Redefining \it@ocap on input line 165.
+LaTeX Info: Redefining \it@ccap on input line 165.
 
 *geometry* driver: auto-detecting
 *geometry* detected driver: luatex
@@ -1287,24 +1298,24 @@ LaTeX Info: Redefining \it@ccap on input line 157.
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
 Package translations Info: no dictionary file `translations-basic-dictionary-it
-alian.trsl' found. on input line 157.
+alian.trsl' found. on input line 165.
 Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: hyperref package is loaded.
 Package caption Info: End \AtBeginDocument code.
-Package hyperref Info: Link coloring ON on input line 157.
+Package hyperref Info: Link coloring ON on input line 165.
 (./main_v2.out) (./main_v2.out)
 \@outlinefile=\write5
 
 \openout5 = main_v2.out
-<immagini/copertina.pdf, id=304, 1156.32pt x 766.36313pt>
+<immagini/copertina.pdf, id=296, 1156.32pt x 766.36313pt>
 File: immagini/copertina.pdf Graphic file (type pdf)
 <use immagini/copertina.pdf>
-Package luatex.def Info: immagini/copertina.pdf  used on input line 162.
+Package luatex.def Info: immagini/copertina.pdf  used on input line 170.
 (luatex.def)             Requested size: 284.52756pt x 188.57332pt.
 
 
 LaTeX Font Warning: Font shape `T1/lmr/bx/sc' undefined
-(Font)              using `T1/lmr/bx/n' instead on input line 167.
+(Font)              using `T1/lmr/bx/n' instead on input line 175.
 
 [1
 
@@ -1339,7 +1350,7 @@ Missing character: There is no ’ (U+2019) in font ec-lmr10!
 Package hyperref Warning: Difference (2) between bookmark levels is greater 
 (hyperref)                than one, level fixed on input line 21.
 
-<immagini/T-rho.jpg, id=400, 259.0208pt x 276.9284pt>
+<immagini/T-rho.jpg, id=390, 259.0208pt x 276.9284pt>
 File: immagini/T-rho.jpg Graphic file (type jpg)
 <use immagini/T-rho.jpg>
 Package luatex.def Info: immagini/T-rho.jpg  used on input line 33.
@@ -1350,7 +1361,7 @@ Package luatex.def Info: immagini/T-rho.jpg  used on input line 33.
 Missing character: There is no ’ (U+2019) in font ec-lmr10!
 ]) (./prima-trattazione.tex [6<./immagini/T-rho.jpg>]
 Capitolo 2.
-<immagini/A-23.png, id=417, 565.11125pt x 420.57124pt>
+<immagini/A-23.png, id=407, 565.11125pt x 420.57124pt>
 File: immagini/A-23.png Graphic file (type png)
 <use immagini/A-23.png>
 Package luatex.def Info: immagini/A-23.png  used on input line 11.
@@ -1361,35 +1372,32 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
  [7
 
 <./immagini/A-23.png>] [8] [9]
-Missing character: There is no ’ (U+2019) in font ec-lmr10!
-Missing character: There is no ’ (U+2019) in font ec-lmr10!
-[10
-Missing character: There is no ’ (U+2019) in font ec-lmr10!
-] [11] [12]
-Overfull \hbox (15.17957pt too wide) detected at line 288
-[] \OT1/cmr/m/n/10 = \OMS/cmsy/m/n/10 ^^@[]\OML/cmm/m/it/10    \OMS/cmsy/m/n/1
-0 )   []  )  []
+Overfull \hbox (40.48694pt too wide) in paragraph at lines 125--126
+[]\T1/lmr/m/n/10 do-ve $[]$ è la $[]$, $\OML/cmm/m/it/10 k$ \T1/lmr/m/n/10 la 
+$[]$ ($\OT1/cmr/m/n/10 [\OML/cmm/m/it/10 K\OT1/cmr/m/n/10 ] = \OML/cmm/m/it/10 
+W=m \OMS/cmsy/m/n/10  \OML/cmm/m/it/10 K$\T1/lmr/m/n/10 ) e $\OML/cmm/m/it/10 
+c[]$ \T1/lmr/m/n/10 la $[]$
  []
 
-[13] [14]
-<immagini/langmuir.jpeg, id=465, 1284.8pt x 864.22874pt>
+[10] [11] [12] [13] [14]
+<immagini/langmuir.jpeg, id=457, 1284.8pt x 864.22874pt>
 File: immagini/langmuir.jpeg Graphic file (type jpg)
 <use immagini/langmuir.jpeg>
-Package luatex.def Info: immagini/langmuir.jpeg  used on input line 380.
+Package luatex.def Info: immagini/langmuir.jpeg  used on input line 391.
 (luatex.def)             Requested size: 256.0748pt x 172.24927pt.
  [15<./immagini/langmuir.jpeg>] [16]
-Overfull \hbox (27.75813pt too wide) in paragraph at lines 465--466
+Overfull \hbox (27.75813pt too wide) in paragraph at lines 476--477
 []\T1/lmr/m/n/10 Rein-se-ria-mo que-sta for-ma di $[]$ nel-l'e-qua-zio-ne di Max
 well-Ampère in-sie-me al-la de-fi-ni-zio-ne di $[]$
  []
 
-<immagini/HF-EM-wave.png, id=482, 803.0pt x 523.9575pt>
+<immagini/HF-EM-wave.png, id=473, 803.0pt x 523.9575pt>
 File: immagini/HF-EM-wave.png Graphic file (type png)
 <use immagini/HF-EM-wave.png>
-Package luatex.def Info: immagini/HF-EM-wave.png  used on input line 482.
+Package luatex.def Info: immagini/HF-EM-wave.png  used on input line 493.
 (luatex.def)             Requested size: 227.62204pt x 148.52194pt.
 
-Overfull \hbox (2.28574pt too wide) in paragraph at lines 492--494
+Overfull \hbox (2.28574pt too wide) in paragraph at lines 503--505
 \T1/lmr/m/n/10 que-sto vuol di-re che k è com-ples-so ($\OML/cmm/m/it/10 k \OM
 S/cmsy/m/n/10  \OML/cmm/m/it/10 i ![]=c$\T1/lmr/m/n/10 ). Que-sto co-sa im-pli-
 ca? $[]\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 i\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 i[]
@@ -1398,10 +1406,10 @@ OML/cmm/m/it/10 ![]x=c\OT1/cmr/m/n/10 )$\T1/lmr/m/n/10 ,
  []
 
 [17<./immagini/HF-EM-wave.png>]
-<immagini/scales.jpg, id=491, 99.4917pt x 47.2164pt>
+<immagini/scales.jpg, id=481, 99.4917pt x 47.2164pt>
 File: immagini/scales.jpg Graphic file (type jpg)
 <use immagini/scales.jpg>
-Package luatex.def Info: immagini/scales.jpg  used on input line 546.
+Package luatex.def Info: immagini/scales.jpg  used on input line 557.
 (luatex.def)             Requested size: 284.52756pt x 135.06015pt.
  [18] [19<./immagini/scales.jpg>] [20]
 Underfull \vbox (badness 7099) has occurred while \output is active []
@@ -1434,7 +1442,7 @@ Capitolo 5.
 [37
 
 ] [38] [39]
-<immagini/riferimento.jpeg, id=661, 1093.08376pt x 959.585pt>
+<immagini/riferimento.jpeg, id=651, 1093.08376pt x 959.585pt>
 File: immagini/riferimento.jpeg Graphic file (type jpg)
 <use immagini/riferimento.jpeg>
 Package luatex.def Info: immagini/riferimento.jpeg  used on input line 205.
@@ -1445,13 +1453,13 @@ Overfull \hbox (36.00543pt too wide) in paragraph at lines 308--309
 le al mo-do di Al-fvén ma com-pri-mi-bi-le, $[]$. 
  []
 
-<immagini/LD.png, id=674, 740.7675pt x 410.53375pt>
+<immagini/LD.png, id=664, 740.7675pt x 410.53375pt>
 File: immagini/LD.png Graphic file (type png)
 <use immagini/LD.png>
 Package luatex.def Info: immagini/LD.png  used on input line 351.
 (luatex.def)             Requested size: 170.71652pt x 94.6087pt.
 [42]
-<immagini/LDvisualized.png, id=682, 898.35625pt x 671.50874pt>
+<immagini/LDvisualized.png, id=672, 898.35625pt x 671.50874pt>
 File: immagini/LDvisualized.png Graphic file (type png)
 <use immagini/LDvisualized.png>
 Package luatex.def Info: immagini/LDvisualized.png  used on input line 395.
@@ -1464,7 +1472,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 559--560
 
 [46] [47] [48] [49]) (./instabilità.tex [50]
 Capitolo 6.
-<immagini/flusso3.jpg, id=745, 1284.8pt x 883.3pt>
+<immagini/flusso3.jpg, id=735, 1284.8pt x 883.3pt>
 File: immagini/flusso3.jpg Graphic file (type jpg)
 <use immagini/flusso3.jpg>
 Package luatex.def Info: immagini/flusso3.jpg  used on input line 16.
@@ -1472,12 +1480,12 @@ Package luatex.def Info: immagini/flusso3.jpg  used on input line 16.
 [51
 
 <./immagini/flusso3.jpg>]
-<immagini/flusso1.jpg, id=752, 1201.48875pt x 1003.75pt>
+<immagini/flusso1.jpg, id=742, 1201.48875pt x 1003.75pt>
 File: immagini/flusso1.jpg Graphic file (type jpg)
 <use immagini/flusso1.jpg>
 Package luatex.def Info: immagini/flusso1.jpg  used on input line 80.
 (luatex.def)             Requested size: 113.81102pt x 95.06624pt.
-<immagini/flusso2.jpg, id=753, 1077.02374pt x 1003.75pt>
+<immagini/flusso2.jpg, id=743, 1077.02374pt x 1003.75pt>
 File: immagini/flusso2.jpg Graphic file (type jpg)
 <use immagini/flusso2.jpg>
 Package luatex.def Info: immagini/flusso2.jpg  used on input line 85.
@@ -1486,7 +1494,7 @@ Package luatex.def Info: immagini/flusso2.jpg  used on input line 85.
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [52<./immagini/flusso1.jpg><./immagini/flusso2.jpg>]
-<immagini/KH.jpg, id=760, 1284.8pt x 767.86874pt>
+<immagini/KH.jpg, id=750, 1284.8pt x 767.86874pt>
 File: immagini/KH.jpg Graphic file (type jpg)
 <use immagini/KH.jpg>
 Package luatex.def Info: immagini/KH.jpg  used on input line 118.
@@ -1497,12 +1505,12 @@ Underfull \hbox (badness 10000) in paragraph at lines 244--245
  []
 
 [55] [56] [57] [58]
-<immagini/Mfield.png, id=792, 821.0675pt x 489.83pt>
+<immagini/Mfield.png, id=782, 821.0675pt x 489.83pt>
 File: immagini/Mfield.png Graphic file (type png)
 <use immagini/Mfield.png>
 Package luatex.def Info: immagini/Mfield.png  used on input line 476.
 (luatex.def)             Requested size: 199.16928pt x 118.81726pt.
-<immagini/psi.png, id=793, 1013.7875pt x 733.74126pt>
+<immagini/psi.png, id=783, 1013.7875pt x 733.74126pt>
 File: immagini/psi.png Graphic file (type png)
 <use immagini/psi.png>
 Package luatex.def Info: immagini/psi.png  used on input line 481.
@@ -1510,13 +1518,11 @@ Package luatex.def Info: immagini/psi.png  used on input line 481.
  [59<./immagini/Mfield.png><./immagini/psi.png>])
 (./MHDequilibrium.tex [60]
 Capitolo 7.
-
-Package hyperref Warning: Difference (2) between bookmark levels is greater 
-(hyperref)                than one, level fixed on input line 29.
-
 [61
 
-] [62] [63]) (./drifts.tex [64]
+] [62] [63] [64]) (./drifts.tex [65] [66
+
+]
 Capitolo 8.
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
@@ -1530,13 +1536,11 @@ Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 (hyperref)                removing `math shift' on input line 32.
 
-[65
-
-]) [66]
+[67]) [68]
 Capitolo 9.
-[67
+[69
 
-] [68] [69] (./main_v2.aux)
+] [70] [71] (./main_v2.aux)
  ***********
 LaTeX2e <2025-11-01>
 L3 programming layer <2026-01-19>
@@ -1546,20 +1550,20 @@ L3 programming layer <2026-01-19>
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
 Package rerunfilecheck Info: File `main_v2.out' has not changed.
-(rerunfilecheck)             Checksum: CBF1D332FD846D25216405ACA67CF982;13084.
+(rerunfilecheck)             Checksum: 39D5273E186DB512A5D4F2DCD67CCE09;12647.
 )
 
 Here is how much of LuaTeX's memory you used:
- 37388 strings out of 476076
+ 37510 strings out of 476076
  125129,1373583 words of node,token memory allocated
- 4520 words of node memory still in use:
-   32 hlist, 2 vlist, 14 rule, 2 glue, 4 kern, 12 sub_mlist, 1 glyph, 1114 attri
-bute, 71 glue_spec, 594 attribute_list, 2 write, 24 pdf_literal, 24 pdf_colorsta
+ 4576 words of node memory still in use:
+   32 hlist, 2 vlist, 14 rule, 2 glue, 4 kern, 12 sub_mlist, 1 glyph, 1126 attri
+bute, 75 glue_spec, 600 attribute_list, 2 write, 24 pdf_literal, 24 pdf_colorsta
 ck nodes
-   avail lists: 1:3,2:1714,3:799,4:338,5:879,6:133,7:8813,8:111,9:2430,10:32,11:
-1231
- 58647 multiletter control sequences out of 65536+600000
- 73 fonts using 4678871 bytes
+   avail lists: 1:3,2:1690,3:799,4:338,5:1051,6:133,7:8813,8:111,9:2430,10:32,11
+:1231
+ 58753 multiletter control sequences out of 65536+600000
+ 93 fonts using 5923575 bytes
  98i,25n,113p,983b,1424s stack positions out of 10000i,1000n,20000p,200000b,200000s
 {/usr/share/texmf/fonts/enc/dvips/lm/lm-ec.enc}{/usr/share/texmf/fonts/enc/dvips
 /lm/lm-ts1.enc}</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmb
@@ -1579,14 +1583,15 @@ usr/share/texmf/fonts/type1/public/lm/lmbx10.pfb></usr/share/texmf/fonts/type1/p
 ublic/lm/lmbx12.pfb></usr/share/texmf/fonts/type1/public/lm/lmcsc10.pfb></usr/sh
 are/texmf/fonts/type1/public/lm/lmr10.pfb></usr/share/texmf/fonts/type1/public/l
 m/lmr12.pfb></usr/share/texmf/fonts/type1/public/lm/lmr5.pfb></usr/share/texmf/f
-onts/type1/public/lm/lmr7.pfb></usr/share/texmf/fonts/type1/public/lm/lmri10.pfb
-></usr/share/texmf/fonts/type1/public/lm/lmro10.pfb></usr/share/texlive/texmf-di
-st/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/share/texlive/texmf-dist
-/fonts/type1/public/amsfonts/symbols/msbm7.pfb>
-Output written on main_v2.pdf (69 pages, 2273925 bytes).
+onts/type1/public/lm/lmr7.pfb></usr/share/texmf/fonts/type1/public/lm/lmr9.pfb><
+/usr/share/texmf/fonts/type1/public/lm/lmri10.pfb></usr/share/texmf/fonts/type1/
+public/lm/lmri9.pfb></usr/share/texmf/fonts/type1/public/lm/lmro10.pfb></usr/sha
+re/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/share
+/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm7.pfb>
+Output written on main_v2.pdf (71 pages, 2319287 bytes).
 
-PDF statistics: 956 PDF objects out of 1000 (max. 8388607)
- 805 compressed objects within 9 object streams
- 246 named destinations out of 1000 (max. 131072)
- 776 words of extra memory for PDF output out of 10000 (max. 100000000)
+PDF statistics: 971 PDF objects out of 1000 (max. 8388607)
+ 816 compressed objects within 9 object streams
+ 252 named destinations out of 1000 (max. 131072)
+ 760 words of extra memory for PDF output out of 10000 (max. 100000000)
 

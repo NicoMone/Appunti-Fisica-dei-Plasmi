@@ -12,7 +12,7 @@
 	\end{multicols}
 	Le grandezze definite per il cubetto (grandezze termodinamiche) diventano campi continui: ad esempio $\rho(\vec x)$, $p(\vec x)$, ... 
 	
-	Il cubetto $\Delta V$, detto \textit{elemento fluido}, ha la caratteristica che il tempo con cui una molecola ne fuoriesce è molto maggiore del tempo caratteristico di evoluzione del sistema (dato l'altissimo numero di collisioni/ rateo di collisioni).
+	Il cubetto $\Delta V$, detto \textit{elemento fluido}, ha la caratteristica che il tempo con cui una molecola ne fuoriesce è molto maggiore del tempo caratteristico di evoluzione del sistema (dato l'altissimo numero di collisioni/rateo di collisioni nei fluidi).
 	
 	La descrizione è sensata per un fluido in cui $\displaystyle\frac{\nu_c}{\omega_D}\rightarrow +\infty$ perché le particelle collidono così spesso da rimanere all'interno dell'elemento mentre esso si muove, permettendoci di trattare l'e.f. come una "super-particella" di massa $mn\Delta V$ e velocità $\vec{u}$. 
 	
@@ -37,13 +37,13 @@ Andiamo a definire nelle prossime sezioni le equazioni che saranno il pilastro d
 
 \section{Equazione di continuità}
 Prima equazione della fluidodinamica, anche detta equazione di continuità della massa, è valida trascurando gli effetti di ricombinazione e ionizzazione che alterano il numero di ioni/elettroni nella popolazione, si ricava facilmente con un approccio euleriano e usando il teorema della divergenza: 
-\[\int_A\rho\vec v \hspace{1mm} \,d\vec A\ =\ -\,\frac{\partial}{\partial t}\int_V\rho dV\ \ \ \ \ \ \Rightarrow\ \ \ \ \ \
+\[\underset{\text{flusso di massa}}{\underbrace{\int_A\rho\vec v\hspace{1mm} \,d\vec A}} \ =\ -\, \underset{\text{variazione densità nel volume}}{\underbrace{\frac{\partial}{\partial t}\int_V\,\rho\, dV}}\ \ \ \ \ \ \Rightarrow\ \ \ \ \ \
 \int_V\vec\nabla(\rho \vec v)\,dV\ =\ -\,\int_V\frac{\partial\rho}{\partial t} dV\]
 
 \begin{equation}
 	\label{fluid-continuità}
 	\Rightarrow \ \ \ \ \ \boxed{ \ 
-		\frac{d\rho}{dt}\, +\, \vec{\nabla} \cdot (\rho \vec u)\ =\ 0\  }\ \ \ \  ,
+		\frac{\partial\rho}{\partial t}\, +\, \vec{\nabla} \cdot (\rho \vec u)\ =\ 0\  }\ \ \ \  ,
 \end{equation}
 
 
@@ -51,7 +51,7 @@ dove $\displaystyle \frac{\partial \rho}{\partial t}$ è la variazione locale de
 
 Riconosciamo, sviluppando $\vec{\nabla} \cdot (\rho \vec u) = (\vec{u}\cdot\vec\nabla)\rho + \rho \vec\nabla\cdot\vec{u}$, che due termini possono essere accorpati per riscrivere la formula usando una derivata materiale:
 
-\[ \Big(\frac{d\rho}{dt}\, +\, (\vec{u}\cdot\vec\nabla)\rho\Big)\, +\, \rho \vec\nabla\cdot\vec{u}\ =\ \frac{D}{Dt}\rho\, +\, \rho\vec\nabla\cdot\vec{u}\ =\ 0\ \ \ \ . \]
+\[ \left(\frac{\partial \rho}{\partial t}\, +\, (\vec{u}\cdot\vec\nabla)\rho \right)\, +\, \rho \vec\nabla\cdot\vec{u}\ =\ \frac{D\,\rho}{Dt}\, +\, \rho\vec\nabla\cdot\vec{u}\ =\ 0\ \ \ \ . \]
 
 Interpretazione: un volumetto di fluido può cambiare densità solo comprimendosi o espandendosi. 
 Nel limite di incomprimibilità si impone $\vec\nabla\cdot\vec{u}=0$ e rimane solamente $\frac{D\rho}{Dt}=0$; questo limine è utile quando si studiano fenomeni senza compressione (es. onde trasversali EM, onde di Alfvén), fenomeni longitudinali come le onde magnetosonore, invece, prevedono compressione e richiedono di non imporre la incomprimibilità.
@@ -119,25 +119,29 @@ Per chiudere il sistema in termodinamica si assume spesso isotropia ($P\propto T
 Controintuitivamente, molte collisioni riducono la diffusione termica (es. gas perfetto). 
 
 Consideriamo un volumetto V, all'istante t=0 avrà una certa energia interna e flusso di calore dati da:
-\[ U\ =\ \rho\, c_v\, T \ \ \ \ ,\]
-\[ \vec{q} = -k \ \vec\nabla T\ \ \ \ ,\]
-dove $\vec{q}$ è la densità di corrente termica e $k$ la conducibilità. 
+\[ \text{energia interna specifica: }\quad U\ =\ \rho\, c_v\, T \ \ \ \ ,\]
+\[ \text{trasporto di calore: }\quad \vec{q} = -k \ \vec\nabla T\ \ \ \ ,\]
+
+dove $\vec{q}$ è la \underline{densità di corrente termica}, $k$ la \underline{conducibilità} ($[K]=W/m*K$) e $c_v$ la \underline{calore specifico a volume costante} ($[c_v]=J/kg*K$)
 
 L'energia interna varia a seconda: dello scambio di calore, della compressione o dal calore generato internamente:
 \[
-\frac{\partial}{\partial t}\int U \, dV = -\int (\vec q \cdot \hat n)\, dS \ \ \ \ .
+\underset{\text{variazione di energia interna}}{\underbrace{\frac{\partial}{\partial t}\int U \, dV}}\ =\ -\, \underset{\text{flusso di calore}}{\underbrace{\int (\vec q \cdot \hat n)\, dS}} \ \ \ \ .
 \]
 Applicando il teorema della divergenza:
 \[\int_{\partial V} (\vec q \cdot \hat n)\, dS\ =\ \int \vec\nabla \cdot \vec q\, dV \quad \quad \Rightarrow \quad\quad \frac{\partial U}{\partial t}\ =\ -\vec\nabla \cdot \vec q = -k\, \nabla^2 T \ \ \ \ .\]
 
-Se non c’è flusso di massa $\Rightarrow d\rho/dt = 0$, quindi:
+Se non c'è flusso di massa $\Rightarrow d\rho/dt = 0$, quindi:
 \[
 \frac{\partial U}{\partial t}\ =\ \rho\, c_v\, \frac{dT}{dt} 
 \quad\quad \Rightarrow \quad\quad 
 \frac{dT}{dt}\ =\ -D\, \nabla^2\, T \ \ \ ,
 \]
 
-avendo definito la \underline{diffusività} $\boxed{D = k\, /\, \rho\, c_v}$, che ha dimensioni $[D]=m^2 s^{-1}$ quindi dimensionalmente è tale che $D/L\, \sim\, 1/\tau$, cioè:
+avendo definito la \underline{diffusività} $\boxed{D = k\, /\, \rho\, c_v}$, che ha dimensioni $[D]=m^2 s^{-1}$.
+
+Quindi, dimensionalmente è tale che $D/L\, \sim\, 1/\tau$, cioè:
+
 \[
 D\ \sim \ \lambda_{mfp}^2\, \nu_c\ =\ \frac{v_{th}^2}{\nu_c}\ \ \ \ ,
 \]
@@ -171,7 +175,7 @@ Quest'equazione descrive l'evoluzione della vorticità.
 %
 %
 %
-\section{Regime a due fluidi} 
+\section{Regime a due fluidi} \label{sezione su due fluidi, lineariz. e onde di plasma}
 
 Abbiamo introdotto alcune quantità e ragionamenti dalla fluidodinamica, fin'ora non abbiamo però sviluppato un vero modello ad un fluido, per come abbiamo svolto tutto fin'ora sarebbe più opportuno riconoscere che vi siano \underline{due fluidi}, uno per ciascuna specie (il modello a singolo fluido sarà la MHD).
 
@@ -229,9 +233,9 @@ Definita $c_s^2 = \gamma \displaystyle \frac{P_0}{\rho_0}$ la \textbf{velocità 
 
 Abbiamo costruito quindi un modellino fluido in una dimensione costituito dalle equazioni appena presentate ed evidenziate:
 \[ \begin{cases}
-	\displaystyle\frac{\partial }{\partial t} (\delta \rho)\ =\ \rho_0\, \displaystyle\frac{\partial}{\partial x} (\delta u)\ ,\\ \\
-	\displaystyle\frac{\partial }{\partial t} (\delta u)\ =\ - \displaystyle\frac{1}{\rho_0}\,\frac{\partial}{\partial x} (\delta P)\ ,\\ \\
-	\delta P\, =\, c_s^2\, \delta \rho
+	\displaystyle\frac{\partial }{\partial t} (\delta \rho)\ =\ \rho_0\, \displaystyle\frac{\partial}{\partial x} (\delta u)\qquad \text{eq. di continuità linearizzata}\ ,\\ \\
+	\displaystyle\frac{\partial }{\partial t} (\delta u)\ =\ - \displaystyle\frac{1}{\rho_0}\,\frac{\partial}{\partial x} (\delta P)\qquad \text{eq. del moto linearizzata}\ ,\\ \\
+	\delta P\, =\, c_s^2\, \delta \rho\qquad \text{politropica linearizzata}
 \end{cases} \]
 
 Inseriamo la terza equazione nella seconda come fatto poco sopra per ottenere l'equazione del moto linearizzata e la deriviamo per $\partial_x$, mentre si deriva l'eq. di continuità nel tempo $\partial_t$ , si vede comparire in entrambe il termine $\displaystyle \frac{\partial^2 u}{\partial x \partial t}$, che isoliamo per ottenere l'uguaglianza:
@@ -268,30 +272,35 @@ Conclusione: l'onda sonora in un gas è non dissipativa, con relazione di disper
 \subsection{Onde di plasma} 
 Abbiamo capito quindi che le onde nei plasmi sono la principale reazione collettiva, tipicamente sono la risposta ad un eventuale sbilanciamento di carica.
 
-Ad esempio, per capirne la natura, studiamo il caso semlice in cui sono gli elettroni a muoversi e oscillare mentre gli ioni rimangono fermi (vista la differenza di massa di un fattore $\sim2000$). In principio potremmo usare le equazioni fluide costruite nei paragrafi precedenti separatamente per le due specie, ma ci soffermiamo solo sugli elettroni.
+Per capirne la natura, studiamo il caso semplice in cui sono gli elettroni a muoversi e oscillare mentre gli ioni rimangono fermi (vista la differenza di massa di un fattore $\sim2000$). In principio potremmo usare le equazioni fluide costruite nei paragrafi precedenti separatamente per le due specie, ma ci soffermiamo solo sugli elettroni.
 
-Continuiamo ad ampliare questo nostro modello che per ora somiglia solo lontanamente ad un plasma. Linearizziamo anche le densità numeriche di elettroni e ioni $n_{e/i} = \displaystyle\frac{N_{e,i}}{V} = n_{0,\ e/i} + \delta n_{e/i}$ (tendenzialmente $n_e\sim n_i$) e consideriamo gli ioni come immobili e per gli elettroni $\vec u_e = \vec u_0 + \vec{\delta u}$ con $\langle \vec u_0 \rangle = 0$, questa volta vogliamo studiare il comportamento aggiungendo un campo $\vec E = \vec E_0 + \vec{\delta E}$ con $\vec B_0 = 0$:
+Linearizziamo anche le densità numeriche di elettroni e ioni $n_{e/i} = \displaystyle\frac{N_{e,i}}{V} = n_{0,\ e/i} + \delta n_{e/i}$ ($n_e\sim n_i$) e consideriamo gli ioni come immobili, mentre per gli elettroni $\vec u_e = \vec u_0 + \vec{\delta u}$ con $\langle \vec u_0 \rangle = 0$.
 
-\[\vec E=-\vec \nabla \phi
-\quad \quad \Rightarrow \quad \quad
+Questa volta vogliamo studiare il comportamento aggiungendo un campo $\vec E = \vec E_0 + \vec{\delta E}$ con $\vec B_0 = 0$ e per il campo elettrico usiamo assieme l'equazione di Poisson espressa come $\vec \nabla \cdot \vec E = 4\pi(n_{0, i}-n_{0, e}-\delta n_e)$ e la ben nota $\vec E = -\vec \nabla \phi$:
+
+\[
 \begin{cases}
-	\displaystyle\frac{\partial}{\partial t}(\delta n_e)+n_0\frac{\partial}{\partial x}(\delta u)\ =\ 0\ ,\\
-	m_e n_{0, e} \displaystyle\frac{\partial }{\partial t}(\delta u)\ =\ - \frac{\partial }{\partial x}(\delta P)+e n_0 \frac{\partial}{\partial x}(\delta\phi)\ ,\\
-	\displaystyle\frac{\partial ^2}{\partial x^2}(\delta\phi)\ =\ 4\pi e\delta n_e\ .
+	\displaystyle\frac{\partial}{\partial t}(\delta n_e)\ +\ n_0\frac{\partial}{\partial x}(\delta u)\ =\ 0\ ,\\
+	m_e\, n_{0, e}\, \displaystyle\frac{\partial }{\partial t}(\delta u)\ =\ -\, \frac{\partial }{\partial x}(\delta P)\ +\ e\, n_0\, \frac{\partial}{\partial x}(\delta\phi)\ ,\\
+	\displaystyle\frac{\partial ^2}{\partial x^2}(\delta\phi)\ =\ 4\pi e\,\delta n_e\ .
 \end{cases}
 \quad  \Rightarrow \quad 
 \begin{cases}
-	-i\omega\delta n_e + i k n_{0, e}\delta u_e = 0\, \\
-	-i\omega m_e n_{0, e} \delta u=ik e n_{0, e} \phi\\
-	-k^2 \delta \phi = 4\pi e \delta n_e
+	-\, i\omega\,\delta n_e\ +\ i k\, n_{0, e}\,\delta u_e\ =\ 0\ , \\
+	-\, i\omega\, m_e\, n_{0, e}\, \delta u\ =\ ik\, e n_{0, e}\, \delta \phi\, -\, ik\,\delta P\ , \\
+	-\,k^2\, \delta \phi\ =\ 4\pi e\, \delta n_e\ .
 \end{cases}
 \] 
 
-Come scritto nel sistema l'equazione di Poisson viene espressa in funzione della densità di elettroni e ioni partendo da $\vec \nabla \cdot \vec E = 4\pi(n_{0, i}-n_{0, e}-\delta n_e)$. Da dalle condizioni in cui ci troviamo ora ci rendiamo conto manchi una chiusura, come fare?
+Da dalle condizioni in cui ci troviamo ora ci rendiamo conto manchi una chiusura, perché abbiamo come incognite $\delta n_e,\, \delta u,\, \delta P,\, \delta \phi$ ma solamente 3 equazioni nel sistema, come fare?
 \begin{enumerate}
-	\item \underline{Politropica}: come se fosse un gas, siamo nel modello fluido quindi insomma non è così folle
+	\item \underline{Politropica}: lega fra loro pressione e densità, come se fosse un gas, dopotutto siamo in un modello fluido.
 	\item \underline{Plasma freddo}: Considerare la risposta dielettrica dominante rispetto alla risposta termica. Significa considerare $c_\phi\gg v_{th,e}$. Nei regimi elettromagnetici ci sono onde ad alta frequenza e la risposta termica è troppo lenta., cioè la dinamica è dominata dalla risposta dovuta al termine del campo elettrico e non da quello della pressione
 \end{enumerate} 
+
+
+%
+%
 %
 \vspace{0.4cm}
 \subsubsection{Chiusura Plasma freddo} 
@@ -300,11 +309,13 @@ Nell'ipotesi di plasma freddo la risposta termica è molto minore della risposta
 Ripartiamo ancora dal nostro sistema in trasformata sviluppando con onde piane, $\sim e^{i(kx-\omega t)}$: 
 \[\begin{cases}
 	\text{dalla continuità: }-i\omega\delta n_e+ikn_0\delta u=0\ ,\\
-	\text{da Eulero: }-i\omega m_en_0\delta u= \cancelto{\sim 0}{ik\delta P} + iken_0\delta \phi\ , \\
-	\text{da Poisson: }-k^2\delta \phi =4\pi e\delta n_e\ .
+	\text{da Eulero: }-i\omega m_en_0\delta u= \cancelto{\sim 0}{-ik\,\delta P}\ +\ ik\,en_0\delta \phi\ , \\
+	\text{da Poisson: }-k^2\delta \phi\ =\ 4\pi e\,\delta n_e\ .
 \end{cases}
 \quad \quad \Rightarrow \quad \quad \boxed{\omega^2=\frac{4\pi e^2 n_{0, e}}{m_e} \equiv  \omega^2_{p,e}}
 \]
+
+\emph{[Si è isolato il termine $\delta u$ nelle prime due equazioni del sistema e nella seconda si è inserita una forma di $\delta \phi$ trovata dalla terza, così da avere $\delta u=\frac{\omega}{kn_0}=\frac{ke}{m_e \omega}\frac{4\pi e}{k^2}\delta n_e$, da qui la relazione trovata segue immediatamente]}.
 
 La relazione di dispersione trovata è fondamentale, è la \underline{'frequenza di plasma elettronica'} e definisce la frequenza di oscillazione tipica degli elettroni in risposta a variazioni locali del campo. 
 

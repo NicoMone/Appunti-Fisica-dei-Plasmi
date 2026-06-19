@@ -80,19 +80,20 @@
 \contentsline {subsubsection}{Ordering constant-$\psi $}{60}{subsubsection*.43}%
 \contentsline {subsubsection}{Ordering resistivo}{60}{subsubsection*.44}%
 \contentsline {chapter}{\numberline {7}Equilibrio MHD}{61}{chapter.7}%
-\contentsline {subsection}{\numberline {7.0.1}equazione della dinamica all'equilibrio}{61}{subsection.7.0.1}%
-\contentsline {subsection}{\numberline {7.0.2}Equazione di Faraday}{61}{subsection.7.0.2}%
+\contentsline {subsubsection}{equazione della dinamica all'equilibrio}{61}{subsubsection*.46}%
+\contentsline {subsubsection}{Equazione di Faraday}{62}{subsubsection*.47}%
 \contentsline {section}{\numberline {7.1}Equilibrio force-free}{62}{section.7.1}%
-\contentsline {section}{\numberline {7.2}Equilibri MHD}{62}{section.7.2}%
-\contentsline {subsubsection}{In coordinate cilindriche...}{63}{subsubsection*.46}%
-\contentsline {subsubsection}{Come costruire un campo force-free}{63}{subsubsection*.47}%
-\contentsline {section}{\numberline {7.3}Condizione di Ferraro}{63}{section.7.3}%
-\contentsline {subsection}{\numberline {7.3.1}campo puramente toroidale}{64}{subsection.7.3.1}%
-\contentsline {section}{\numberline {7.4}Equazione di Grad-Shafranov}{64}{section.7.4}%
-\contentsline {chapter}{\numberline {8}Drift - descrizione a singola particella}{65}{chapter.8}%
-\contentsline {section}{\numberline {8.1}Drift $\nabla B$}{65}{section.8.1}%
-\contentsline {chapter}{\numberline {9}Seminario sui plasmi spaziali}{67}{chapter.9}%
-\contentsline {section}{\numberline {9.1}Seminario sulla propulsione spaziale}{68}{section.9.1}%
-\contentsline {subsection}{\numberline {9.1.1}La "Rocket Equation"}{68}{subsection.9.1.1}%
-\contentsline {subsection}{\numberline {9.1.2}I diversi tipi di propulsione}{68}{subsection.9.1.2}%
-\contentsline {subsection}{\numberline {9.1.3}Fondamenti di accelerazione al plasma}{69}{subsection.9.1.3}%
+\contentsline {section}{\numberline {7.2}Equilibri MHD}{63}{section.7.2}%
+\contentsline {subsubsection}{Configurazione a simmetria rotazionale}{63}{subsubsection*.48}%
+\contentsline {subsubsection}{Come costruire un campo force-free}{64}{subsubsection*.49}%
+\contentsline {section}{\numberline {7.3}Condizione di Ferraro}{64}{section.7.3}%
+\contentsline {paragraph}{Campo poloidale puro:}{64}{paragraph*.50}%
+\contentsline {subsection}{\numberline {7.3.1}campo puramente toroidale}{65}{subsection.7.3.1}%
+\contentsline {section}{\numberline {7.4}Equazione di Grad-Shafranov}{65}{section.7.4}%
+\contentsline {chapter}{\numberline {8}Drift - descrizione a singola particella}{67}{chapter.8}%
+\contentsline {section}{\numberline {8.1}Drift $\nabla B$}{67}{section.8.1}%
+\contentsline {chapter}{\numberline {9}Seminario sui plasmi spaziali}{69}{chapter.9}%
+\contentsline {section}{\numberline {9.1}Seminario sulla propulsione spaziale}{70}{section.9.1}%
+\contentsline {subsection}{\numberline {9.1.1}La "Rocket Equation"}{70}{subsection.9.1.1}%
+\contentsline {subsection}{\numberline {9.1.2}I diversi tipi di propulsione}{70}{subsection.9.1.2}%
+\contentsline {subsection}{\numberline {9.1.3}Fondamenti di accelerazione al plasma}{71}{subsection.9.1.3}%
