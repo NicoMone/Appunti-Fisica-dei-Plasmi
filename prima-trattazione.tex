@@ -122,7 +122,7 @@ Consideriamo un volumetto V, all'istante t=0 avrà una certa energia interna e f
 \[ \text{energia interna specifica: }\quad U\ =\ \rho\, c_v\, T \ \ \ \ ,\]
 \[ \text{trasporto di calore: }\quad \vec{q} = -k \ \vec\nabla T\ \ \ \ ,\]
 
-dove $\vec{q}$ è la \underline{densità di corrente termica}, $k$ la \underline{conducibilità} ($[K]=W/m*K$) e $c_v$ la \underline{calore specifico a volume costante} ($[c_v]=J/kg*K$)
+dove $\vec{q}$ è la \underline{densità di corrente termica}, $k$ la \underline{conducibilità} ($[K]=W/(m\,K\,)$) e $c_v$ la \underline{calore specifico a volume costante} ($[c_v]=J/(Kg\,K\,)$)
 
 L'energia interna varia a seconda: dello scambio di calore, della compressione o dal calore generato internamente:
 \[
@@ -131,7 +131,7 @@ L'energia interna varia a seconda: dello scambio di calore, della compressione o
 Applicando il teorema della divergenza:
 \[\int_{\partial V} (\vec q \cdot \hat n)\, dS\ =\ \int \vec\nabla \cdot \vec q\, dV \quad \quad \Rightarrow \quad\quad \frac{\partial U}{\partial t}\ =\ -\vec\nabla \cdot \vec q = -k\, \nabla^2 T \ \ \ \ .\]
 
-Se non c'è flusso di massa $\Rightarrow d\rho/dt = 0$, quindi:
+Se non c'è flusso di massa ($d\rho/dt = 0$), possiamo inserire la definizione del vettore del trasporto di calore per avere un'equazione della diffusione del campo scalare della temperatura:
 \[
 \frac{\partial U}{\partial t}\ =\ \rho\, c_v\, \frac{dT}{dt} 
 \quad\quad \Rightarrow \quad\quad 
@@ -233,9 +233,9 @@ Definita $c_s^2 = \gamma \displaystyle \frac{P_0}{\rho_0}$ la \textbf{velocità 
 
 Abbiamo costruito quindi un modellino fluido in una dimensione costituito dalle equazioni appena presentate ed evidenziate:
 \[ \begin{cases}
-	\displaystyle\frac{\partial }{\partial t} (\delta \rho)\ =\ \rho_0\, \displaystyle\frac{\partial}{\partial x} (\delta u)\qquad \text{eq. di continuità linearizzata}\ ,\\ \\
+	\displaystyle\frac{\partial }{\partial t} (\delta \rho)\ =\ \rho_0\, \displaystyle\frac{\partial}{\partial x} (\delta u)\qquad \quad\text{eq. di continuità linearizzata}\ ,\\ \\
 	\displaystyle\frac{\partial }{\partial t} (\delta u)\ =\ - \displaystyle\frac{1}{\rho_0}\,\frac{\partial}{\partial x} (\delta P)\qquad \text{eq. del moto linearizzata}\ ,\\ \\
-	\delta P\, =\, c_s^2\, \delta \rho\qquad \text{politropica linearizzata}
+	\delta P\, =\, c_s^2\, \delta \rho\qquad \qquad\qquad \text{eq. politropica linearizzata}\ .
 \end{cases} \]
 
 Inseriamo la terza equazione nella seconda come fatto poco sopra per ottenere l'equazione del moto linearizzata e la deriviamo per $\partial_x$, mentre si deriva l'eq. di continuità nel tempo $\partial_t$ , si vede comparire in entrambe il termine $\displaystyle \frac{\partial^2 u}{\partial x \partial t}$, che isoliamo per ottenere l'uguaglianza:
@@ -393,7 +393,7 @@ Riconosciamo le definizioni date precedentemente e troviamo la nostra relazione 
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=9cm]{immagini/langmuir.jpeg}
-	\caption{Rappresentazione approssimativa della dispensione $\frac{\omega}{omega_P}=(1+\gamma k^2 \lambda_D^2)$. Non vi sono onde di Langmuir per $\omega < \omega_P$.\\ Per grandi lunghezze d'onda (bassi k) o basse temperature si osservano le oscillazioni di plasma, o di Langmuir, causate da una velocità di fase $\omega/k$ che può essere arbitrariamente grande ma con una velocità di gruppo $\partial \omega/\partial k$ che va a zero, non vi è propagazione.\\ Per piccole lunghezze d'onda sia la velocità di fase che di gruppo convergono a $\sqrt{3}v_{th,e}$ e l'onda di plasma si propaga come un'onda sonora.}
+	\caption{Rappresentazione approssimativa della dispensione $\omega/\omega_P=(1+\gamma k^2 \lambda_D^2)$. Non vi sono onde di Langmuir per $\omega < \omega_P$.\\ Per grandi lunghezze d'onda (bassi k) o basse temperature si osservano le oscillazioni di plasma, o di Langmuir, causate da una velocità di fase $\omega/k$ che può essere arbitrariamente grande ma con una velocità di gruppo $\partial \omega/\partial k$ che va a zero, non vi è propagazione.\\ Per piccole lunghezze d'onda sia la velocità di fase che di gruppo convergono a $\sqrt{3}v_{th,e}$ e l'onda di plasma si propaga come un'onda sonora.}
 	\label{Langmuir dispersion}
 \end{figure}
 
@@ -404,7 +404,7 @@ Riconosciamo le definizioni date precedentemente e troviamo la nostra relazione 
 \section{Schermatura di Debye} 
 Supponiamo di avere una entrambe le specie ad equilibrio termico, che cioè seguano una distribuzione di Boltzmann rispetto all'energia $\propto e^{-E/T}$, quindi dato che $E=q\phi(x)$:
 
-\[n_i=n_0e^{+e\phi/T}\ ,\, \quad \quad \quad n_e=n_0e^{-e\phi/T}\ \ .\] 
+\[n_i\ =\ n_0\, e^{+e\phi/T}\ \ ,\, \quad \quad \quad n_e\ =\ n_0\, e^{-e\phi/T}\ \ .\] 
 
 In un plasma la condizione di potenziale debole, $e\phi\ll T$ (con $K_B=1$ in unità nat.), ci porta ad espandere: 
 
@@ -425,7 +425,7 @@ Definiamo la nuova incognita $u=r\phi$ (e quindi $\phi = u/r$) e calcoliamo sepa
 \[\frac{d\phi}{dr}\ =\ \frac{d}{dr}\frac{u}{r}\ =\  -\frac{u}{r^2} + \frac{u'}{r}\ \, \quad \quad \&
 \quad \quad \frac{d^2\phi}{dr^2} \ =\ \frac{d^2}{dr^2}\frac{u}{r}\ =\ \frac{2u}{r}-\frac{2u'}{r^2} + \frac{u''}{r}\ \ .\]
 
-Usando queste due forme rispetto ad $u$ per le derivate possiamo riscrivere il laplaciano e tutta l'ee.\ref{Poisson} per avere:
+Usando queste due forme rispetto ad $u$ per le derivate possiamo riscrivere il laplaciano e tutta l'eq.\ref{Poisson} per avere:
 
 \[\nabla^2 \phi\ =\ \frac{d^2\phi}{dr^2} + \frac{2}{r} \frac{d\phi}{dr}\ =\ \cancel{\frac{2u}{r^3}} - \cancel{\frac{2u'}{r^2}} + \frac{u''}{r} + \frac{2}{r} \left[ -\cancel{\frac{u}{r^2}} + \cancel{\frac{u'}{r} }  \right] \ =\ \frac{1}{\lambda^2_D} \frac{u}{r}\ \ , \]
 
@@ -487,7 +487,7 @@ Sappiamo poi da una identità che $\vec k\times(\vec k\times \vec E) = (\vec k\c
 
 \begin{equation}
 	\label{dispersione longitudinale}
-	-\cancelto{=0}{(\vec k\cdot \vec E)\vec k}+k^2\vec E\ =\ \frac{\omega^2}{c^2} \,\left(1-\frac{\omega^2_P}{\omega^2} \right)\, \vec E\quad \quad \Rightarrow \quad \quad \boxed{\ \omega^2\ =\  k^2 c^2\,+\, \omega^2_P \ }
+	-\cancelto{=0}{(\vec k\cdot \vec E)\vec k}\,+\,k^2\vec E\ =\ \frac{\omega^2}{c^2} \,\left(1-\frac{\omega^2_P}{\omega^2} \right)\, \vec E\quad \quad \Rightarrow \quad \quad \boxed{\ \omega^2\ =\  k^2 c^2\,+\, \omega^2_P \ }
 \end{equation}
 
 Questa è la \underline{relazione di dispersione} per un'\underline{onda elettromagnetica trasversa} che si propaga in un plasma freddo, omogeneo e non magnetizzato.
@@ -584,7 +584,7 @@ Come calcolare il numero di particelle cariche $N_D$ contenute nella sfera?
 
 \[ N_D\ =\ n\,\lambda_D^3\ =\ n\,\left(\sqrt{\frac{k_B\, T^3}{n\, e^2}}\right)^3\ =\ \frac{(k_B T)^{3/2}}{(4\pi e^2)^{3/2}\, n^{1/2}}\]
 
-Una prima stima del numero di cariche contenute nella sfera di Debye è $n\, \lambda_D^3$ e - notando che $n\, \lambda_D^3=(T\, /\, V)^{3/2}\ll 1$ - si trova che un plasma rispetta la condizione: $\boxed{N_D\sim n \, \lambda_D^3\gg 1}$.
+Una prima stima del numero di cariche contenute nella sfera di Debye è $n\, \lambda_D^3$ e - notando la dipendenza $n\, \lambda_D^3 \approx (T\, /\, V)^{3/2}\ll 1$ - si trova che un plasma rispetta la condizione: $\boxed{N_D\sim n \, \lambda_D^3\gg 1}$.
 
 Si definisce \textbf{parametro di plasma} la grandezza:
 
@@ -603,9 +603,11 @@ Invece, prendendo $\ \lambda_D\ \sim\ \sqrt{\displaystyle\frac{T}{e^2 \, n_0}}\ 
 
 %
 %
-\section{Teoremi fondanti nella fisica dei plasmi} 
+\vspace{0.5cm}
+\section{Introduzione a teoremi fondamentali nella fisica dei plasmi} 
 
-Introduciamo qui alcuni risultati decisamente importanti per la fisica dei plasmi:
+Introduciamo qui alcuni risultati decisamente importanti per la fisica dei plasmi che verranno richiamati e ridiscussi durante il corso:
+
 \begin{itemize}
 	\item \textbf{Teorema di Alfvén}: secondo il \href{https://it.wikipedia.org/wiki/Teorema_di_Alfv%C3%A9n}{teorema di Alfvén} (anche 'legge del congelamento'), in un fluido conduttore con resistività nulla (MHD ideale), le linee di campo 'restano congelate' in un dato volume del fluido, in altri termini il flusso magnetico attraverso ogni superficie S delimitata da un contorno chiuso $C$ in moto in maniera solidale col flusso è costante;
 	\item \textbf{Teorema di connessione:} sempre in MHD ideale, se due elementi di plasma ($\vec x_1$, $\vec x_2$) sono inizialmente collegati da una linea di campo magnetico ($d\vec l$), allora rimangono collegati per sempre. Per dirla formalmente: se in $t=0$ si ha che $d\vec l\times \vec B=0$ allora $\forall \, \, t$ successivi valgono sia $\frac{D}{Dt}(d\vec l\times \vec B)=0$ che $d\vec l\times \vec B=0$.

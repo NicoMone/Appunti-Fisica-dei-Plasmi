@@ -22,20 +22,20 @@
 	
 	\[d\vec u=(d\vec l\cdot \vec \nabla)\vec u\] 
 	
-	\[d\vec l+\delta (d\vec l)=d\vec l+ \left[ \vec u(\vec x+d\vec x)-\vec u (\vec x)\right] dt \ =\ d\vec l+(d\vec l\cdot \nabla)\, \vec u\, dt \] 
+	\[d\vec l\,+\,\delta (d\vec l)\ =\ d\vec l+ \overset{d\vec u}{\overbrace{\left[ \vec u(\vec x+d\vec x)-\vec u (\vec x)\right]}}\, dt \ =\ d\vec l\,+\,(d\vec l\cdot \nabla)\, \vec u\, dt \] 
 	
 	Capiamo quindi che la variazione nel tempo della distanza fra i due elementi che si muovono è descritto da $\frac{d(\delta\vec l)}{dt}=(\delta \vec l\cdot\vec \nabla)\vec u$. Nota che se $d\vec l$ è lungo una linea di campo allora $d\vec l \times \vec B = 0$, noi ci chiediamo se partendo solo dalle equazioni dell'elettromagnetismo possiamo provare che queste linee di campo non si spezzino.
 	Quindi, vogliamo calcolare: 
 	
-	\[\frac{d}{dt}(\delta\vec l\times\vec B)\ =\ \frac{d\delta\vec l}{dt}\times \vec B\,+\,\delta\vec l\times\frac{d\vec B}{dt}\]
+	\[\frac{d}{dt}(\delta\vec l\times\vec B)\ =\ \underset{(d\vec l\cdot \vec \nabla)\vec u}{\underbrace{\frac{d\delta\vec l}{dt}}}\times \vec B\,+\,\delta\vec l\times\frac{d\vec B}{dt}\]
 	
 	Consideriamo la legge di Faraday e la legge di Ohm ideale:
 	
 	\[ \frac{\partial\vec B}{\partial t}\ =\ -\nabla \times \vec E
-	\quad \qquad \quad 
-	\vec E\ =\ -\,\frac{\vec u \times \vec B}{c} \]
-	
-	\[\Rightarrow\qquad \frac{\partial\vec B}{\partial t}\ =\ \vec \nabla\times(\vec u\times\vec B)\]
+	\quad \text{con} \quad 
+	\vec E\ =\ -\,\frac{\vec u \times \vec B}{c} 
+	\quad \quad 
+	\Rightarrow\qquad \frac{\partial\vec B}{\partial t}\ =\ \vec \nabla\times(\vec u\times\vec B)\]
 	
 	Seguiamo $\vec B$ attraverso una linea di campo facendo la derivata materiale, questo ci servirà subito l'evoluzione delle linee di campo. Per semplificare l'espressione ci ricordiamo un'identità vettoriale:
 	
@@ -111,7 +111,12 @@
 
 
 %
+%
+%
+\vspace{0.5cm}
 \section{Instabilità di Kelvin-Helmholtz}
+
+Nell'instabilità di Kelvin-Helmholtz (cfr. con fluidodinamica) la differenza di velocità in due fluidi posti uno sull'altro con differenti densità, produce una forza di taglio e porta alla creazione di vortici caratteristici di questa instabilità.
 
 \begin{figure}[H]
 	\centering
@@ -120,37 +125,80 @@
 
 \[\begin{cases}
 	\vec \nabla \cdot \vec u\ =\ 0\\
-	\rho_0 \frac{\partial \vec v}{\partial t}\, +\, (\vec v\cdot \vec \nabla )\, \vec v\ =\ -\nabla P\, +\, \rho_0 \vec g
+	\rho_0 \frac{\partial \vec v}{\partial t}\, +\, (\vec v\cdot \vec \nabla )\, \vec v\ =\ -\, \vec\nabla P\, +\, \rho_0 \vec g
 \end{cases}\]
 
-Prendiamo il rotore dell'equazione con $\vec \nabla \times \vec v = \vec \omega$
+Prendiamo il rotore dell'equazione, con $\vec \nabla \times \vec v = \vec \omega$
 
-\[ \rho_0 \frac{\partial \vec v}{\partial t}\, +\, \nabla \left(\frac{v^2}{2}\right) - \vec v \times \vec \omega\ =\ 0\]
+\[ \rho_0 \frac{\partial (\vec \nabla\times \vec v)}{\partial t}\, +\,  \underset{(\vec v\cdot \vec \nabla) \vec \omega - (\vec \omega \cdot \vec \nabla)\vec v}{\underbrace{\vec \nabla\times((\vec v\cdot \vec \nabla)\vec v)}}\ =\ \vec \nabla\times(\vec \nabla P + \rho_0 \vec g)\ =\ 0\]
 
 \[ \rho_0 \frac{\partial \vec \omega}{\partial t}\ =\ \vec \nabla\times \left(\vec v\times \vec \omega\right) \]
 
 Prendiamo solo la parte solenoidale di $\vec v$ mentre la parte rotazionale non contribuisce $\iff \vec v =\vec \nabla \phi \iff \vec \omega = 0$.
 
-Cerchiamo le soluzioni dell'equazione imponendo $\vec v = \vec \nabla \phi$:
+Cerchiamo le soluzioni dell'equazione imponendo che la velocità sia esprimibile secondo un potenziale $\vec v = \vec \nabla \phi$:
 
-\[\phi\ =\ \begin{cases} \phi_1\ ,\quad z<0\\ \phi_2\ ,\quad z>0 \end{cases}\]
+\[\phi\ =\ \begin{cases} 
+	\phi_1\ =\ A_1\, e^{i(kx-\omega t)}\,e^{kz}\ \  ,\quad z<0\\ 
+	\phi_2\ =\ A_2\, e^{i(kx-\omega t)}\,e^{-kz}\ \ ,\quad z>0 
+\end{cases}\]
 
-Parametrizzando la superficie di scorrimento come $\xi (x,y,t)$ e consideranzo che per $z\to \pm \infty$ la velocità $\vec u\to 0$
+Parametrizzando la superficie di scorrimento come $\xi (x,y,t)=\xi_0 e^{i(kx-\omega t)}$, funzione che descrive l'interfaccia perturbata e consideriamo che per $z\to \pm \infty$ la velocità $\vec u\to 0$.
 
-\[\vec u_2\ =\ \frac{D \xi}{D t}\ =\ \frac{\partial \xi}{\partial t} + \frac{\partial \xi}{\partial x}\frac{\partial x}{\partial t} + \cancelto{\text{secondo ordine}}{\frac{\partial \xi}{\partial y}\frac{\partial y}{\partial t}}\]
+\[\vec v_{z,\, i}\ =\ \frac{D \xi}{D t}\ =\ \frac{\partial \xi}{\partial t} + \frac{\partial \xi}{\partial x}\frac{\partial x}{\partial t} + \cancelto{\text{non considerato}}{\frac{\partial \xi}{\partial y}\frac{\partial y}{\partial t}}\ =\ \frac{\partial \xi}{\partial t} + u_i \frac{\partial x}{\partial t}\]
 
-Ora facendo i calcoli che si farebbero per l'instabilità di Kelvin-Helmholtz in fluidodinamica si giunge a:
+La velocità lungo $\hat x$ dovrà tenere conto della velocità media dello scorrimento oltre che della perturbazione quindi per le due velocità scriveremmo:
 
-\[
-\gamma\ =\ -\frac{im(\rho_1 u_1+\rho_2 u_2)}{\rho_1 + \rho_2}\, \pm \, \left[m^2\rho_1 \rho_2\frac{(u_1 - u_2)^2}{(\rho_1 + \rho_2)^2}\, -\, ky\frac{\rho_1 - \rho_2}{\rho_1 + \rho_2}\right]^{1/2}
+\[\begin{cases} 
+	v_1\ =\ u_1 \hat x + \vec \nabla \phi\ =\  (u_1 + ikA_1 e^{i(kx-\omega t)e^{kz}}\,;\ 0\,;\ kA_1 e^{i(kx-\omega t)}e^{kz} )\\ 
+	v_2\ =\ u_2 \hat x + \vec \nabla \phi\ =\ (u_2 + ikA_2 e^{i(kx-\omega t)e^{kz}}\,;\ 0\,;\ -kA_2 e^{i(kx-\omega t)}e^{kz})
+\end{cases}\]
+
+Troviamo le ampiezze:
+
+\[\begin{cases} 
+	v_{z,\, 1}\ =\ kA_1 e^{i(kx-\omega t)e^{kz}}\ =\ \frac{D\xi}{Dt}\ =\ i(ku_1-\omega)\xi_0 e^{i(kx-\omega t)}\\ 
+	v_{z,\, 2}\ =\-kA_2 e^{i(kx-\omega t)e^{-kz}}\ =\ \frac{D\xi}{Dt}\ =\ i(ku_2-\omega)\xi_0 e^{i(kx-\omega t)}
+\end{cases}
+\qquad \quad
+A_{1,\, 2}\ =\ \pm i \frac{k u_{1,\, 2}-\omega}{k} \xi_0
 \]
 
-Vediamo due casi particolari:
+
+Imponiamo ora una condizione grazie alla pressione lungo z, usando che $\vec v_z =\partial_z \phi$ si può ricavare $P_j=\rho_j (\frac{\partial \phi}{\partial t} + u_j \vec \nabla \phi)-\rho_j \vec g z$, da cui eguagliando $P_1=P_2$ all'interfaccia $z=\xi$:
+
+\[P_1=\rho_1 \left(\frac{\partial \phi_1}{\partial t} + u_1 \vec \nabla \phi_1\right)-\rho_1 \vec g \xi\ =\ \rho_2 \left(\frac{\partial \phi_2}{\partial t} + u_2 \vec \nabla \phi_2\right)-\rho_2 \vec g \xi = P_2\]
+
+\[\begin{aligned}
+i\omega\, i\frac{ku_1-\omega}{k}\, &\cancel{\xi_0 \,e^{i(kx-\omega t)}e^{k\xi}}\ -\ \rho_1 u_1\, (ik)\, \frac{ku_1-\omega}{k}\, \cancel{\xi_0 \,e^{i(kx-\omega t)}\,e^{k\xi}}\ -\ \rho_1 \vec g \cancel{\xi}\quad =\\ 
+&-\rho_2\, (-i\omega)\, \left(-i\frac{ku_2-\omega}{k} \right)\, \cancel{\xi_0\, e^{i(kx-\omega t)}e^{k\xi}}\, -\, \rho_2 u_2\, (ik)\, \left(-i\frac{ku_2-\omega}{k}\right)\, \cancel{\xi_0\, e^{i(kx-\omega t)}e^{k\xi}}\ -\ \rho_2 \vec g \cancel{\xi}
+\end{aligned}\]
+
+\[
+i\,\rho_1\, (\omega - ku_1)\, \left(\frac{ku_1-\omega}{k}\right)-\rho_1 g \ =\ i\, \rho_2\, (\omega - ku_2)\, \left(-i \frac{ku_2-\omega}{k}\right)-\rho_2 g
+\]
+
+\[\rho_1 (\omega - ku_1)^2\, +\, \rho_2 (\omega -ku_2)^2 - kg(\rho_2 - \rho_1)\ =\ 0
+\]
+
+\[(\rho_1 + \rho_2)\omega^2\, -\, 2k\,(\rho_1 u_1 + \rho_2 u_2)\omega\, +\, (\rho_1 u_1^2 + \rho_2 u_2^2)k^2 - kg(\rho_2 - \rho_1)\ =\ 0\]
+
+Risolvendo per $\omega$, prometto che esce:
+
+\[\omega\ =\ k\frac{\rho_1 u_1+ \rho_2 u_2}{\rho_1 + \rho_2} \pm \sqrt{-k^2\, \rho_1 \rho_2\, \left(\frac{u_1 - u_2}{\rho_1 + \rho_2}\right)^2 \, +\, kg\frac{\rho_1 - \rho_2}{\rho_1 + \rho_2}}\]
+
+Moltiplichiamo $\omega$ per l'unità immaginaria così da ottenere il \underline{tasso di crescita} $\gamma=-i\gamma$:
+
+\[
+\gamma\ =\ -\,ik\frac{\rho_1 u_1+\rho_2 u_2}{\rho_1 + \rho_2}\ \pm \ \left[k^2\rho_1 \rho_2\, \left(\frac{u_1 - u_2}{\rho_1 + \rho_2}\right)^2\, -\, kg\frac{\rho_1 - \rho_2}{\rho_1 + \rho_2}\right]^{1/2}
+\]
+
+\paragraph{Casi limite}
 \begin{itemize}
 	\item Se $\rho_1=\rho_2=\rho$ si ha un K-H "puro":
-	\[ \gamma\ =\ -\,i\,m\, \frac{u_1 + u_2}{2}\, \pm \, m\left[ \frac{(u_1 - u_2)^2}{4} \right]^{1/2} \]
+	\[ \gamma\ =\ -\,i\,k\, \frac{u_1 + u_2}{2}\, \pm \, k\left[ \frac{\rho}{2}(u_1 - u_2)^2 \right]^{1/2} \]
 	\item Se $u_1 = u_2 = u$:	
-	\[\gamma\ =\ i\, \left[mu\, \pm\, \left( k y\frac{\rho_1 - \rho_2}{\rho_1 + \rho_2}\right)^{1/2}\right]\]
+	\[\gamma\ =\ -iku\, \pm\, \left( k g\frac{\rho_1 - \rho_2}{\rho_1 + \rho_2}\right)^{1/2}\]
 \end{itemize}
 
 

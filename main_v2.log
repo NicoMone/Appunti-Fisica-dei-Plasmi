@@ -1,4 +1,4 @@
-This is LuaHBTeX, Version 1.22.0 (TeX Live 2025/Debian)  (format=lualatex 2026.5.22)  19 JUN 2026 22:11
+This is LuaHBTeX, Version 1.22.0 (TeX Live 2025/Debian)  (format=lualatex 2026.5.22)  25 JUN 2026 17:59
  restricted system commands enabled.
 **main_v2.tex
 (./main_v2.tex
@@ -1372,11 +1372,11 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
  [7
 
 <./immagini/A-23.png>] [8] [9]
-Overfull \hbox (40.48694pt too wide) in paragraph at lines 125--126
+Overfull \hbox (46.59798pt too wide) in paragraph at lines 125--126
 []\T1/lmr/m/n/10 do-ve $[]$ è la $[]$, $\OML/cmm/m/it/10 k$ \T1/lmr/m/n/10 la 
 $[]$ ($\OT1/cmr/m/n/10 [\OML/cmm/m/it/10 K\OT1/cmr/m/n/10 ] = \OML/cmm/m/it/10 
-W=m \OMS/cmsy/m/n/10  \OML/cmm/m/it/10 K$\T1/lmr/m/n/10 ) e $\OML/cmm/m/it/10 
-c[]$ \T1/lmr/m/n/10 la $[]$
+W=\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 m K \OT1/cmr/m/n/10 )$\T1/lmr/m/n/10 ) e $\
+OML/cmm/m/it/10 c[]$ \T1/lmr/m/n/10 la $[]$
  []
 
 [10] [11] [12] [13] [14]
@@ -1420,12 +1420,12 @@ Capitolo 3.
 [23
 
 ]
-Overfull \hbox (25.34091pt too wide) detected at line 58
+Overfull \hbox (25.34091pt too wide) detected at line 66
 []
  []
 
 
-Overfull \hbox (6.21783pt too wide) detected at line 76
+Overfull \hbox (6.21783pt too wide) detected at line 85
 [] [] \OMS/cmsy/m/n/10  []\OT1/cmr/m/n/10 ([]\OML/cmm/m/it/10 ; []\OT1/cmr/m/n
 /10 )\OML/cmm/m/it/10 F\OT1/cmr/m/n/10 ([]\OML/cmm/m/it/10 ; []\OT1/cmr/m/n/10 
 )\OML/cmm/m/it/10 dx[]dv[]  \OT1/cmr/m/n/10 +  [] [] \OMS/cmsy/m/n/10  [] [] \
@@ -1442,50 +1442,57 @@ Capitolo 5.
 [37
 
 ] [38] [39]
-<immagini/riferimento.jpeg, id=652, 1093.08376pt x 959.585pt>
+<immagini/riferimento.jpeg, id=651, 1093.08376pt x 959.585pt>
 File: immagini/riferimento.jpeg Graphic file (type jpg)
 <use immagini/riferimento.jpeg>
-Package luatex.def Info: immagini/riferimento.jpeg  used on input line 205.
+Package luatex.def Info: immagini/riferimento.jpeg  used on input line 208.
 (luatex.def)             Requested size: 133.57458pt x 117.25368pt.
- [40<./immagini/riferimento.jpeg>] [41]
-Overfull \hbox (36.00543pt too wide) in paragraph at lines 308--309
+
+Overfull \vbox (9.14226pt too high) has occurred while \output is active []
+
+
+[40<./immagini/riferimento.jpeg>] [41]
+Overfull \hbox (36.00543pt too wide) in paragraph at lines 311--312
 []\T1/lmr/m/n/10 La scel-ta del se-gno + por-ta ad una ma-gne-to-so-ni-ca si-mi-
 le al mo-do di Al-fvén ma com-pri-mi-bi-le, $[]$. 
  []
 
-<immagini/LD.png, id=665, 740.7675pt x 410.53375pt>
+[42]
+<immagini/LD.png, id=671, 740.7675pt x 410.53375pt>
 File: immagini/LD.png Graphic file (type png)
 <use immagini/LD.png>
-Package luatex.def Info: immagini/LD.png  used on input line 351.
+Package luatex.def Info: immagini/LD.png  used on input line 354.
 (luatex.def)             Requested size: 170.71652pt x 94.6087pt.
-[42]
-<immagini/LDvisualized.png, id=673, 898.35625pt x 671.50874pt>
+<immagini/LDvisualized.png, id=672, 898.35625pt x 671.50874pt>
 File: immagini/LDvisualized.png Graphic file (type png)
 <use immagini/LDvisualized.png>
-Package luatex.def Info: immagini/LDvisualized.png  used on input line 395.
+Package luatex.def Info: immagini/LDvisualized.png  used on input line 398.
 (luatex.def)             Requested size: 199.16928pt x 148.86972pt.
  [43<./immagini/LD.png>] [44<./immagini/LDvisualized.png>] [45]
-Underfull \hbox (badness 10000) in paragraph at lines 559--560
+Underfull \hbox (badness 10000) in paragraph at lines 556--557
 []\T1/lmr/m/n/10 La par-te prin-ci-pa-le se-con-do Cau-chy si cal-co-la co-me $
 [] [] \OT1/cmr/m/n/10 =
  []
 
 [46] [47] [48] [49]) (./instabilità.tex [50]
 Capitolo 6.
-<immagini/flusso3.jpg, id=735, 1284.8pt x 883.3pt>
+<immagini/flusso3.jpg, id=731, 1284.8pt x 883.3pt>
 File: immagini/flusso3.jpg Graphic file (type jpg)
 <use immagini/flusso3.jpg>
 Package luatex.def Info: immagini/flusso3.jpg  used on input line 16.
 (luatex.def)             Requested size: 142.26378pt x 97.79677pt.
-[51
+
+Underfull \vbox (badness 5954) has occurred while \output is active []
+
+ [51
 
 <./immagini/flusso3.jpg>]
-<immagini/flusso1.jpg, id=742, 1201.48875pt x 1003.75pt>
+<immagini/flusso1.jpg, id=738, 1201.48875pt x 1003.75pt>
 File: immagini/flusso1.jpg Graphic file (type jpg)
 <use immagini/flusso1.jpg>
 Package luatex.def Info: immagini/flusso1.jpg  used on input line 80.
 (luatex.def)             Requested size: 113.81102pt x 95.06624pt.
-<immagini/flusso2.jpg, id=743, 1077.02374pt x 1003.75pt>
+<immagini/flusso2.jpg, id=739, 1077.02374pt x 1003.75pt>
 File: immagini/flusso2.jpg Graphic file (type jpg)
 <use immagini/flusso2.jpg>
 Package luatex.def Info: immagini/flusso2.jpg  used on input line 85.
@@ -1494,33 +1501,38 @@ Package luatex.def Info: immagini/flusso2.jpg  used on input line 85.
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [52<./immagini/flusso1.jpg><./immagini/flusso2.jpg>]
-<immagini/KH.jpg, id=750, 1284.8pt x 767.86874pt>
+<immagini/KH.jpg, id=746, 1284.8pt x 767.86874pt>
 File: immagini/KH.jpg Graphic file (type jpg)
 <use immagini/KH.jpg>
-Package luatex.def Info: immagini/KH.jpg  used on input line 118.
+Package luatex.def Info: immagini/KH.jpg  used on input line 123.
 (luatex.def)             Requested size: 364.19667pt x 217.66147pt.
- [53<./immagini/KH.jpg>] [54]
-Underfull \hbox (badness 10000) in paragraph at lines 244--245
+ [53<./immagini/KH.jpg>]
+Overfull \hbox (2.53178pt too wide) detected at line 175
+[][]
+ []
+
+[54] [55]
+Underfull \hbox (badness 10000) in paragraph at lines 292--293
 
  []
 
-[55] [56] [57] [58]
-<immagini/Mfield.png, id=782, 821.0675pt x 489.83pt>
+[56] [57] [58] [59]
+<immagini/Mfield.png, id=783, 821.0675pt x 489.83pt>
 File: immagini/Mfield.png Graphic file (type png)
 <use immagini/Mfield.png>
-Package luatex.def Info: immagini/Mfield.png  used on input line 476.
+Package luatex.def Info: immagini/Mfield.png  used on input line 524.
 (luatex.def)             Requested size: 199.16928pt x 118.81726pt.
-<immagini/psi.png, id=783, 1013.7875pt x 733.74126pt>
+<immagini/psi.png, id=784, 1013.7875pt x 733.74126pt>
 File: immagini/psi.png Graphic file (type png)
 <use immagini/psi.png>
-Package luatex.def Info: immagini/psi.png  used on input line 481.
+Package luatex.def Info: immagini/psi.png  used on input line 529.
 (luatex.def)             Requested size: 199.16928pt x 144.14818pt.
- [59<./immagini/Mfield.png><./immagini/psi.png>])
-(./MHDequilibrium.tex [60]
-Capitolo 7.
-[61
+ [60<./immagini/Mfield.png><./immagini/psi.png>])
+(./MHDequilibrium.tex [61] [62
 
-] [62] [63] [64]) (./drifts.tex [65] [66
+]
+Capitolo 7.
+[63] [64] [65] [66]) (./drifts.tex [67] [68
 
 ]
 Capitolo 8.
@@ -1536,11 +1548,11 @@ Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 (hyperref)                removing `math shift' on input line 32.
 
-[67]) [68]
+[69]) [70]
 Capitolo 9.
-[69
+[71
 
-] [70] [71] (./main_v2.aux)
+] [72] [73] (./main_v2.aux)
  ***********
 LaTeX2e <2025-11-01>
 L3 programming layer <2026-01-19>
@@ -1550,21 +1562,21 @@ L3 programming layer <2026-01-19>
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
 Package rerunfilecheck Info: File `main_v2.out' has not changed.
-(rerunfilecheck)             Checksum: 39D5273E186DB512A5D4F2DCD67CCE09;12647.
+(rerunfilecheck)             Checksum: 50A6E659D3EC9F176904E2B97D2FA8B0;12748.
 )
 
 Here is how much of LuaTeX's memory you used:
  37509 strings out of 476076
  125129,1373583 words of node,token memory allocated
- 4576 words of node memory still in use:
-   32 hlist, 2 vlist, 14 rule, 2 glue, 4 kern, 12 sub_mlist, 1 glyph, 1126 attri
-bute, 75 glue_spec, 600 attribute_list, 2 write, 24 pdf_literal, 24 pdf_colorsta
+ 4630 words of node memory still in use:
+   32 hlist, 2 vlist, 14 rule, 2 glue, 4 kern, 12 sub_mlist, 1 glyph, 1144 attri
+bute, 75 glue_spec, 609 attribute_list, 2 write, 24 pdf_literal, 24 pdf_colorsta
 ck nodes
-   avail lists: 1:3,2:1690,3:811,4:338,5:1051,6:133,7:9429,8:111,9:2430,10:32,11
+   avail lists: 1:3,2:1729,3:811,4:338,5:1051,6:133,7:9377,8:111,9:2343,10:32,11
 :1231
- 58752 multiletter control sequences out of 65536+600000
+ 58754 multiletter control sequences out of 65536+600000
  93 fonts using 5923575 bytes
- 98i,25n,113p,983b,1424s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 98i,35n,113p,983b,1424s stack positions out of 10000i,1000n,20000p,200000b,200000s
 {/usr/share/texmf/fonts/enc/dvips/lm/lm-ec.enc}{/usr/share/texmf/fonts/enc/dvips
 /lm/lm-ts1.enc}</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmb
 x10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb
@@ -1588,10 +1600,10 @@ onts/type1/public/lm/lmr7.pfb></usr/share/texmf/fonts/type1/public/lm/lmr9.pfb><
 public/lm/lmri9.pfb></usr/share/texmf/fonts/type1/public/lm/lmro10.pfb></usr/sha
 re/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/share
 /texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm7.pfb>
-Output written on main_v2.pdf (71 pages, 2320069 bytes).
+Output written on main_v2.pdf (73 pages, 2330560 bytes).
 
-PDF statistics: 971 PDF objects out of 1000 (max. 8388607)
- 816 compressed objects within 9 object streams
- 252 named destinations out of 1000 (max. 131072)
+PDF statistics: 976 PDF objects out of 1000 (max. 8388607)
+ 819 compressed objects within 9 object streams
+ 250 named destinations out of 1000 (max. 131072)
  760 words of extra memory for PDF output out of 10000 (max. 100000000)
 

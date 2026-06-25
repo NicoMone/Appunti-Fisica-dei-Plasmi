@@ -10,10 +10,12 @@ Come prima cosa si introduce la \underline{funzione di distribuzione},
 
 \[F(\vec{x_1}, ...,\vec{x_n}, \vec{v_1}, ...,\vec{v_n}, t)\ \   ,\]
 
-tale che $F(\vec{x}, \vec{v}, t)\, dx\, dv$ sia il numero di particelle contenuto in un volumetto $dx$ con velocità nell'intervallo $dv$.
+tale che $F(\vec{x}, \vec{v}, t)\, dx\, dv$ sia il numero di particelle contenuto in un volumetto $dx$ con velocità nell'intervallo $dv$ (cioè $\int F(\vec x, \vec v, t) d\vec x d\vec v = N$).
 
 Questa funzione di distribuzione può essere ridotta ('marginalizzata') alla s-esima particella: 
+
 \[ F^{(s)}(\vec{x}_{1}, ...,\vec{x_s}, \vec{v}_{1}, ...,\vec{x_s}, t) \ =\ \int F\ d\vec{x}_{s+1} ...d\vec{x_n} d\vec{v}_{s+1} ...d\vec{v_n}\]
+
 Nel limite puramente non collisionale, $g\ll 1$, ci si limita al calcolo di $F^{(1)}(\vec{x_1}, \vec{v_1}, t)$ se invece ci fosse una seconda carica vicina dovremmo scrivere:
 
 \[ F^{(2)}(\vec{x_1}, \vec{x_2}, \vec{v_1}, \vec{v_2})\ =\ F^{(1)}(\vec{x_1}, \vec{v_1})\ F^{(1)}(\vec{x_2}, \vec{v_2}) \ \left[ 1-\color{blue}{P_{12}(\vec{x_1}, \vec{x_2}, \vec{v_1}, \vec{v_2})}\right]\ \ \ \ ,\]
@@ -45,20 +47,27 @@ e quindi scala come la temperatura.
 	
 \end{teorema}
 
+%
+%
+%
 \vspace{0.5cm}
 \section{L'equazione di Vlasov}
+
 Dal teorema di Liouville in eq.(\ref{Liouville}) si giunge all'equazioni più nota della fisica dei plasmi, l'equazione di Vlasov, integrando su tutte le particelle da 2 ad N vediamo che il primo termine di eq.(\ref{Liouville}) è legato alla $F^{(1)}$:
-\[ \int\ \frac{\partial F^{(n)}}{\partial t}\ dx_1 ...dx_n dv_1 ...dv_n\ =\ \frac{\partial}{\partial t }\ \left( \int F^{(n)}\ dx_2 ...dx_n dv_2 ...dv_n\right)\ =\ \frac{\partial F^{(1)}}{\partial t}\]
+
+\[ \int\ \frac{\partial F^{(n)}}{\partial t}\ dx_2 ...dx_n dv_2 ...dv_n\ =\ \frac{\partial}{\partial t }\ \left( \int F^{(n)}\ dx_2 ...dx_n dv_2 ...dv_n\right)\ =\ \frac{\partial F^{(1)}}{\partial t}\]
 
 Mentre per il secondo e terzo termine di eq.(\ref{Liouville}):
+
 \[\begin{split} 
 \int\sum^N_{i} \vec v_1 \cdot \frac{\partial F^{(n)}}{\partial \vec x_1} dx_2 ...dx_n dv_2 ...dv_n\ 
 &=\ \int v_1 \cdot \frac{\partial F^{(n)}}{\partial \vec x_1 } dx_2 ...dx_n dv_2 ...dv_n + \cancel{\int \sum^N_{i=2} \vec v_i \cdot \frac{\partial F^{(n)}}{\partial \vec x_i} dx_2 ...dx_n dv_2 ...dv_n} \ =\\ 
 &= \vec v_1 \cdot \frac{\partial}{\partial \vec x_1} \int F^{(n)} dx_2 ...dx_n dv_2 ...dv_n \ =\ \vec v_1 \cdot \frac{\partial F^{(1)}}{\partial \vec x_1}\ \ \ \ ,
 \end{split}\]
 
-\[\begin{split} \sum^N_{i} \int \vec a_i \cdot \frac{\partial F^{(n)}}{\partial \vec v_i} dx_2 ...dx_n dv_2 ...dv_n\ &=\ \int \vec a_1 \cdot \frac{\partial F^{(n)}}{\partial \vec v_1 } dx_2 ...dv_n + \vec a_1\cdot \frac{\partial}{\partial \vec v_1} \int F^{(n)} dx_2 ... dv_n\ +\ ... \\
-	&\ \ \ \ \ \ \ \ ...\ +\ \sum^N_{i=2}\int \vec a_i \cdot \frac{\partial F^{(n)}}{\partial \vec v_i} dx_2 ...dv_n \ \ =\ \ \vec a_1 \cdot \frac{\partial F^{(1)}}{\partial \vec v_1} \ \ \ \ .
+\[\begin{split} \int \sum^N_{i}\vec a_i \cdot \frac{\partial F^{(n)}}{\partial \vec v_i} dx_2 ...dx_n dv_2 ...dv_n\ 
+&=\ \vec a_1\cdot \frac{\partial}{\partial \vec v_1} \int F^{(n)} dx_2 ... dv_n\ +\ ... \\
+&\ \ \ \ \ \ \ \ ...\ +\ \underset{\vec a_i F^{(n)} - \int \frac{\partial \vec a_i}{\partial\vec v_i} F^(n)dx_2\dots dx_n dv_2\dots dv_n }{\underbrace{\sum^N_{i=2}\cancel{\int \vec a_i \cdot \frac{\partial F^{(n)}}{\partial \vec v_i} dx_2 ...dv_n}}} \ \ =\ \ \vec a_1 \cdot \frac{\partial F^{(1)}}{\partial \vec v_1} \ \ \ \ .
 \end{split}\]
 
 

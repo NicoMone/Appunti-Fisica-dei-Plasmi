@@ -10,7 +10,7 @@ Ora andremo prima a vedere delle ultime onde ricavate in regime a due fluidi, pe
 \section{Onde ion-acustic}
 
 
-Onde elettrostatiche di tipo acustico/sonoro, ovviamente si possono ricavare da vlasov ma noi non lo facciamo, le ricaviamo con il modello a due fluidi, che va dall'MHD alle onde di plasma. 
+Onde elettrostatiche di tipo acustico/sonoro, si possono ricavare da vlasov ma noi non lo facciamo, le ricaviamo con il modello a due fluidi. 
 
 Se partissimo direttamente dall'MHD non troveremmo le onde di plasma (e il landau damping), ma noi invece le troveremo (questa parte è un po' poco chiara, si fa facilmente confusione fra tutti questi tipi di onde in diversi regimi, ma vediamo come rimettere il tutto in ordine).
 
@@ -112,9 +112,10 @@ v_{0I}^2=\frac{\gamma_IP_{0I}}{m_In_{0I}}=\frac{\gamma_IT_{I}}{m_I}
 \qquad\qquad
 \frac{\lambda^2_{De}}{\lambda^2_{DI}}=\frac{T_e}{T_I}\] 
 
-RELAZIONE DI DISPERSIONE DELLE ONDE ION-ACOUSTIC: $\boxed{\frac{\omega^2_\text{IA}}{k^2}\ =\ v_{0I}^2\ \frac{k^2\,+\,\frac{1}{\lambda_\text{De}^2}\,+\,\frac{1}{\lambda_\text{DI}^2}}{k^2\,+\,\frac{1}{\lambda_\text{De}^2}}}$.
+Otteniamo infine la \underline{relazione di dispersione delle onde Ion-Acoustic}: 
+\[\boxed{\frac{\omega^2_\text{IA}}{k^2}\ =\ v_{0I}^2\ \frac{k^2\,+\,\frac{1}{\lambda_\text{De}^2}\,+\,\frac{1}{\lambda_\text{DI}^2}}{k^2\,+\,\frac{1}{\lambda_\text{De}^2}}}\ .\]
 
-\paragraph{Regimi: } Riconosciamo 3 regimi a seconda dell'ordinamento della lunghezza d'onda, andiamo quindi a vedere come $k$ si confronta alle inverse delle lunghezze di Debye inverse. 
+\subsubsection{Regimi } Riconosciamo 3 regimi a seconda dell'ordinamento della lunghezza d'onda, andiamo quindi a vedere come $k$ si confronta alle inverse delle lunghezze di Debye inverse. 
 
 \begin{enumerate}
 	\item il \underline{caso classico} è quello per cui $k^2\,\ll\, \lambda_{\text{D, e}}^{-2},\,\, \lambda_{\text{D, I}}^{-2}$ :
@@ -123,10 +124,12 @@ RELAZIONE DI DISPERSIONE DELLE ONDE ION-ACOUSTIC: $\boxed{\frac{\omega^2_\text{I
 	
 	Questa relazione non ci dice in che maniera sono ordinate le $\lambda_D$ e di conseguenza le $T$. in linea di principio è possibile che siano qualsiasi.  
 	
-	\item  Oscillazioni di plasma degli ioni
+	\item  Oscillazioni di plasma degli ioni:
 	
 	\[k^2\gg\frac{1}{\lambda_{D,e}^2}\iff\lambda^2\ll\lambda_{D,e}^2\ \ ,
 	\qquad \quad k^2\ll\frac{1}{\lambda_{DI}^2}\iff\lambda^2\gg\lambda_{DI}^2\] 
+	
+	Data la prima disuguaglianza, il $k^2$ della relazione di dispersione può essere non considerato al denominatore, ma vista la seconda disuguaglianza anche quello al numeratore può essere ignorato:
 	
 	\[\lambda_{De}^2\ll\lambda^2\ll\lambda_{DI}^2
 	\ \ \implies \ \ 
@@ -136,14 +139,14 @@ RELAZIONE DI DISPERSIONE DELLE ONDE ION-ACOUSTIC: $\boxed{\frac{\omega^2_\text{I
 	
 	\[\boxed{\frac{\omega^2}{k^2}\ =\ \frac{\gamma_I}{m_I}\, (T_e+T_I)}\] 
 	
-	Questa può essere vista come una sorta di velocità del suono, infatti queste sono le tipiche onde ionacustic. Si vede che l'inerzia è data dagli ioni nel senso che compare $m_I$ mentre la risposta termica è data da entrambi, anche se quando $T_I\sim T_e$ tipicamente avviene il Damping di Landau e l'onda non si propaga (a meno che non si faccia una forzatura). 
-	Le onde che sopravvivono sono quelle, invece, con $T_e\gg T_i$ [\textit{"Se poi ho un forzaggio sono fuori dal regime lineare perché cambio la funzione di distribuaione e cambia anche la risposta dielettrica"}, boh] 
+	Questa può essere vista come una sorta di velocità del suono, infatti queste sono le tipiche onde "ion-acustic". Si vede che l'inerzia è data dagli ioni nel senso che compare $m_I$ mentre la risposta termica è data da entrambi, anche se quando $T_I\sim T_e$ tipicamente avviene il Damping di Landau e l'onda non si propaga (a meno che non si faccia una forzatura). 
+	Le onde che sopravvivono sono quelle con $T_e\gg T_i$.
 	
 	\item \[k^2\gg\frac{1}{\lambda_{De}^2}\iff\lambda^2\ll\lambda_{De}^2,\quad k^2\gg\frac{1}{\lambda_{DI}^2}\iff\lambda^2\ll\lambda_{DI}^2\]  Questo caso è praticamente insensato perchè siamo al di sotto delle lunghezze di Debye e praticamente non possiamo nemmeno dire di avere a che fare con un plasma. In questo caso la soluzione ha come relazione di dispersione una relazione analoga alle onde di plasma, ma per gli ioni. 
 	\[\omega^2\ =\ \omega_{pI}^2\ +\ k^2\,v_{0I}^2\] 
 \end{enumerate} 
 
-Alla fine della fiera quando si parla di onde Ion-Acoustic si parla del caso uno e tendenzialmente con $T_e\gg T_i$. 
+Alla fine, quando si parla di onde Ion-Acoustic, si parla del caso uno e tendenzialmente con $T_e\gg T_i$. 
 
 Nel caso delle onde Ion-Acoustic si ha $v_f\gg v_{th,I}$ (e quindi gli ioni hanno una risposta adiabatica) mentre $v_f\ll v_{th,e}$ (e quindi gli elettroni hanno una risposta isoterma). 
 
@@ -339,7 +342,7 @@ Ora ci concentriamo su un fenomeno fondamentale della fisica dei plasmi: l'\unde
 
 Questo meccanismo descrive come le onde di plasma possono \underline{perdere energia} (o, in alcuni casi, guadagnarla, cfr. inverse landau damping) a causa dell'interazione con le particelle del plasma, senza che avvenga \underline{termalizzazione} o produzione di calore. È un esempio di \underline{smorzamento non dissipativo}, che si distingue nettamente da fenomeni come la resistività o la viscosità.
 
-\paragraph{Condizioni per il Damping di Landau}
+\subsubsection{Condizioni per il Damping di Landau}
 \begin{itemize}
 	\item \emph{Distribuzione delle particelle:}
 	Il damping di Landau si verifica quando la funzione di distribuzione delle velocità $f(v)$ delle particelle presenta una \underline{monotonicità locale}. Tipicamente, ci si concentra sul caso in cui $f(v)$ è \underline{monotona decrescente} (se $f(v)$ è monotona crescente, si osserva il fenomeno opposto, noto come \underline{inverso del damping di Landau}, $LD^{-1}$).
@@ -356,7 +359,7 @@ Questo meccanismo descrive come le onde di plasma possono \underline{perdere ene
 	In media, se ci sono \underline{più particelle con $v < v_f$} rispetto a quelle con $v > v_f$, l'onda \underline{perde energia} (damping). Al contrario, se $f(v)$ è monotona crescente, l'onda \underline{guadagna energia} (inverso del damping, $LD^{-1}$).
 \end{itemize}
 
-\paragraph{Plasma Magnetizzato vs. Non Magnetizzato}
+\subsubsection{Plasma Magnetizzato vs. Non Magnetizzato}
 \begin{itemize}
 	\item \underline{Plasma magnetizzato:}
 	In presenza di un campo magnetico, le onde possono propagarsi liberamente lungo la direzione del campo, e il damping di Landau \underline{non avviene}.
@@ -379,7 +382,7 @@ dove $f_{a0}(\vec{v})$ dipende esclusivamente dalla velocità e la distribuzione
 Per ciascuna specie vale 
 
 
-\paragraph{LD emerge dal framework cinetico: riprendiamo l'eq. di Vlasov.}
+\subsubsection{LD emerge dal framework cinetico: riprendiamo l'eq. di Vlasov.}
 
 \[\frac{\partial}{\partial_t}f_a\ +\ \vec v\cdot \vec\nabla_{\vec x}\, f_a\ +\ \frac{q_a}{m_a}\,\vec E\cdot \vec \nabla_{\vec v}\,f_a\ =\ 0\ \ .\] 
 
@@ -417,7 +420,7 @@ Useremo anche l'equazione di Poisson:
 Questa equazione è già linearizzata perchè $\vec E=\vec E_1$ e $n_{0e}=n_{0I}$.
 \[-\nabla^2\phi=4\pi e(n_I-n_e)\]
 
-\paragraph{Caratteristiche Fondamentali del Damping di Landau}
+\subsubsection{Caratteristiche Fondamentali del Damping di Landau}
 Il damping di Landau è spesso chiamato "smorzamento", ma non è un fenomeno dissipativo. Ecco le sue proprietà chiave:
 \begin{itemize}
 	\item \textit{Smorzamento $\neq$ dissipazione};
@@ -427,15 +430,9 @@ Il damping di Landau è spesso chiamato "smorzamento", ma non è un fenomeno dis
 	\item \underline{L'energia può essere recuperata}: anche se non al 100\%, il trasferimento è potenzialmente reversibile.
 \end{itemize}
 
-\paragraph{Obiettivo del Capitolo}
-In questo capitolo, esploreremo:
-\begin{enumerate}
-	\item Come il damping di Landau emerge dall'equazione di Vlasov;
-	\item Le condizioni per cui il damping è rilevante (ad esempio, $v_f \sim v_{th}$, dove $v_{th}$ è la velocità termica);
-	\item Le implicazioni fisiche e le applicazioni del damping di Landau nei plasmi reali.
-\end{enumerate}
 
-%%
+%
+%
 %
 \subsection{Equazioni di partenza}
 
@@ -575,13 +572,11 @@ Matematicamente questo significa che in corrispondenza della singolarità,
 
 \[\dfrac{\omega}{k}\,-\,u\ =\ 0\ \ ,\] 
 
-che porterebbe ad una divergenza, si ha una soppressione maggiore al numeratore e al netto di tutto il numeratore è uno zero più zero del denominatore e alla fine della fiera l'integrale non ha divergenze. 
+che porterebbe ad una divergenza. Rimane da risolvere l'integrale:
 
-Rimane da risolvere l'integrale:
+\[\int\, \frac{\partial_u\, g(u)}{(\frac{\omega}{k}-u)}\, du\]  
 
-\[\int\, \frac{\partial_u\, g(u)}{(\frac{\omega}{k}-u)}\, \partial_u\]  
-
-integro per parti e quando devo valutare il prodotto  tra le primitive ai bordi del dominio posso mettere tutto a zero, non ho particelle con velocità infinita! 
+integro per parti e quando devo valutare il prodotto  tra le primitive ai bordi del dominio posso mettere tutto a zero (non ho particelle con velocità infinita!). 
 
 \[\int\frac{\partial_u\,g(u)}{(\frac{\omega}{k}-u)}\,du\ \, =\, \ \cancelto{0}{\frac{g(u)}{(\frac{\omega}{k}-u)^2}\bigg|_{-\infty}^{+\infty}}\ -\ \int \frac{g(u)}{(\frac{\omega}{k}-u)^2}du \]
 
@@ -594,7 +589,7 @@ Ora uso il fatto che la distribuzione è pari per cancellare il termine dispari 
 
 \[1\ -\ \frac{\omega_e^2}{k^2} \int \frac{\partial_ug(u)}{(\frac{\omega}{k}-u)}\,du\ \ =\ \ 1\ -\  \int_{-\infty}^{+\infty} g(u)\, \frac{\omega_e^2}{k^2} \, \bigg[\frac{k^2}{\omega^2}\,+\,\cancel{\frac{2uk^3}{\omega^3}}\,+\,\frac{3u^2k^4}{\omega^4}\bigg]\, du \]  
 
-Uso il fatto che la sitribuzione è normalizzata ad 1 e anche che vale che $\int g(u)\, u\,d\vec v$ .
+Uso il fatto che la sitribuzione è normalizzata ad 1 ($\int g(u)du=1$) e anche che valgono $\int g(u)\, u\,d\vec v=0$ e $\int g(u)\, u\,d\vec v=v^2_{th}$.
 
 \[\int\, g(u)\,du\,=\,1\ \ ,\qquad \int g(u)\,u^2\,du\ =\ v_{th}^2\] 
 
@@ -658,11 +653,11 @@ Bisogna utilizzare la formula di PLEMELJ
 
 Questo integrale ha la proprietà che le due divergenze  sono uguali ma opposte e quindi si annullano a vicenda. Come se non avessi elettroni nel polo.
 
-Questo mi permette di andare avanti nel calcolo come nel caso precedente assumendo che $v_f^2\gg v_{th}^2$ (ovvero $v_f>v_{th}$) e trovare un risultato completamente analogo 
+Questo mi permette di andare avanti nel calcolo come nel caso precedente assumendo che $v_f^2\gg v_{th}^2$ e trovare un risultato completamente analogo 
 
-\[\epsilon_r=1-\frac{\omega_e^2}{\omega^2}-\frac{3k^2v_{th}^2\omega_e^2}{\omega^4}\]
+\[\epsilon_r\ =\ 1\, -\, \frac{\omega_e^2}{\omega^2}\, -\, \frac{3k^2v_{th}^2\omega_e^2}{\omega^4}\]
 
-Questo è un caso un pochino borderline (\textit{"fa venire mal di pancia"}, concordo) perché non siamo nelle condizioni più favorevoli per avere il damping e la risonanza avviene con "pochi" elettroni. 
+Questo è un caso un pochino borderline perché non siamo nelle condizioni più favorevoli per avere il damping e la risonanza avviene con "pochi" elettroni. 
 
 Purtroppo il calcolo dell'integrale in maniera analitica al di fuori di questa assunzione è molto complicato, e non solo... in un regime di forte smorzamento di landau ($\omega/k\sim v_{th}$) non vale la linearizzazione assunta inizialmente e quindi bisogna procedere con l'integrazione numerica di Vlasov porta a risultati sorprendentemente coerenti (nell'ordine del percento)
 
@@ -684,6 +679,10 @@ Bisogna gestire correttamente la $\delta$ che mi fa calcolare la funzione di dis
 \subsection{Soluzione con distribuzione generica}
 \[\boxed{\omega_i=\dfrac{-\epsilon_i}{\partial _\omega\epsilon_r}=\frac{\pi\omega_e^3}{2k^2}\partial_ug(u)\bigg|_{u=\omega_r/k}}\]   
 Questa è la parte immaginaria della frequenza ottenuta con la FT, se teniamo presente che stavamo cercando una soluzione con $e^{-i(\omega_r+i\omega_i) t}$ si vede che la parte immaginaria costtistuisce uno smorzamento (o un'amplificazione) esponenziale $\sim e^{\omega_it}$.\\In particolare ci piace molto il fatto che $\omega_i\propto \partial_ug(u)$ sicché quando $g(u)$ è decrescente si ha lo smorzamento, quando $g(u)$ cresce si ha LD$^{-1}$ mentre non succede niente di niente se la distribuzione è piatta. Questo intuitivamente ci piace anche se pensiamo al fenomeno dell'intrappolamento anche se cade l'ipotesi della linearizzazione.  
+
+%
+%
+%
 \subsection{Soluzione con maxwelliana} 
 \textit{"Non ho bisogno di una maxwelliana per avere Damping, ma ho bisogno di una maxwelliana per fare il conto"}  scansoequivoci la maxweliana è siffatta:
 \[f=\frac{n_0}{\sqrt{(2\pi)^3}v_{th}^3}e^{-\dfrac{v_x^2+v_y^2+v_z^2}{2v_{th}^2}}\]
