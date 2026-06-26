@@ -204,8 +204,8 @@ La \underline{condizione di Ferraro} nasce come condizione per verificare se una
 %
 %
 \vspace{0.5cm}
-\paragraph{Campo poloidale puro:}
-$\bar B = (B_r,\,0,\,B_z)$.
+\subsubsection{Campo puramente poloidale}
+\[\bar B = (B_r,\,0,\,B_z)\]
 
 Assumiamo che vi sia simmetria di rotazione $\partial_\theta = 0$ e sappiamo che $\vec \nabla \cdot \vec B = 0$ e possiamo esprimerlo in termini di un potenziale vettore $\bar B = \bar \nabla \times \bar A$.
 
@@ -235,7 +235,10 @@ La condizione di Ferraro si riduce così alla condizioen scalare $0=-\partial_z 
 
 Definiamo $F(\psi)$ dall'\underline{equazione di Grad-Shafranov semplificata} (senza $\nabla P$):
 
-\[\boxed{\ \Delta^{*2} \psi\ =\ r^2\, F(\psi)\ }\ \ .\]
+\begin{equation}
+\label{Grad-Shafranov sempl}
+\boxed{\ \Delta^{*2} \psi\ =\ r^2\, F(\psi)\ }\ \ .
+\end{equation}
 
 Questa rappresenta l'equazione fondamentale per gli equilibri MHD assisimmetrici, cioè aventi una simmetria di rotazione.
 
@@ -270,6 +273,10 @@ Consideriamo l'equazione del moto MHD all'equilibrio in assenza di campo gravita
 
 \[\vec \nabla P = \frac{1}{4\pi}\, (\vec \nabla \times \vec B)\times \vec B\ \ .\] 
 
+Calcoliamo quindi gradiente e rotori in condizione di assisimmetria ($\partial_\theta =0$):
+
+\[\vec \nabla P\ =\ (\frac{\partial p}{\partial r};\,0;\,\frac{\partial p}{\partial z})\]
+
 \[\vec \nabla \times \vec B \ =\
 \left[-\frac{\partial B_\theta}{\partial z},\, -\frac{\partial}{\partial z}\left(\frac{1}{r}\frac{\partial \psi}{\partial z}\right)-\frac{\partial}{\partial r}\left(\frac{1}{r}\frac{\partial \psi}{\partial r}\right) ,\, \frac{1}{r}\frac{\partial (r B_\theta)}{\partial r}\right]\ =\ 
 \left[-\frac{\partial B_\theta}{\partial z},\, -\frac{1}{r}\Delta^2 \psi,\, \frac{1}{r}\frac{\partial (r B_\theta)}{\partial r}\right]\]
@@ -286,13 +293,13 @@ In componenti la prima equazione equivale al sistema:
 \hat z:\quad 4\pi \displaystyle\frac{\partial p}{\partial z}\, +\, B_\theta \frac{\partial B_\theta}{\partial z}\, +\, \frac{1}{r^2}\frac{\partial \psi}{\partial z} \Delta \psi\ =\ 0\ \ .
 \end{cases}\]
 
-Definendo la funzione $F(\psi)=rB_\theta$ e sostituendo nelle espressioni:
+Definendo la funzione $\boxed{f(\psi)=rB_\theta}$ e sostituendo nelle espressioni:
 \[\begin{cases}
-	\hat r:\quad 4\pi \frac{\partial p}{\partial r}\, +\, \frac{1}{r^2} F(\psi) \frac{\partial F(\psi)}{\partial r} \, +\, \frac{1}{r^2} \frac{\partial \psi}{\partial r} \Delta^2 \psi\ =\ 0\\
-	\hat z:\quad 4\pi \frac{\partial p}{\partial z}\, +\, \frac{1}{r^2} F(\psi) \frac{\partial F(\psi)}{\partial z} \, +\, \frac{1}{r^2} \frac{\partial \psi}{\partial z} \Delta^2 \psi\ =\ 0\ \ .
+	\hat r:\quad 4\pi \frac{\partial p}{\partial r}\, +\, \frac{1}{r^2} f(\psi) \frac{\partial f(\psi)}{\partial r} \, +\, \frac{1}{r^2} \frac{\partial \psi}{\partial r} \Delta^2 \psi\ =\ 0\\
+	\hat z:\quad 4\pi \frac{\partial p}{\partial z}\, +\, \frac{1}{r^2} f(\psi) \frac{\partial f(\psi)}{\partial z} \, +\, \frac{1}{r^2} \frac{\partial \psi}{\partial z} \Delta^2 \psi\ =\ 0\ \ .
 \end{cases}\]
 
-Dicendo che $F'(\psi)=\frac{\partial F(\psi)}{d\psi}$, riscriviamo:
+Dicendo che $f'(\psi)=\frac{\partial f(\psi)}{d\psi}$, riscriviamo:
 
 \[\begin{cases}
 	\hat r:\quad 4\pi \frac{\partial p}{\partial r}\, +\, \frac{\partial \psi}{\partial r}\left[ \frac{1}{r^2} f(\psi) f'(\psi) \, +\, \frac{1}{r^2} \Delta^2 \psi\right]\ =\ 0\\
@@ -302,12 +309,19 @@ Dicendo che $F'(\psi)=\frac{\partial F(\psi)}{d\psi}$, riscriviamo:
 Moltiplicando la prima per $\partial_z \psi$ e la seconda per $\partial_r \psi$ troviamo una condizione di annullamento di uno jacobiano:
 
 \[
-4\pi \left[\frac{\partial p}{\partial r}\frac{\partial \psi}{\partial z}\, -\,\frac{\partial p}{\partial z}\frac{\partial \psi}{\partial r} \right]\ =\ J(\frac{4\pi p,\psi}{r,z})\ =\ 0
+4\pi \left[\frac{\partial p}{\partial r}\frac{\partial \psi}{\partial z}\, -\,\frac{\partial p}{\partial z}\frac{\partial \psi}{\partial r} \right]
+\ =\ J \left(\frac{4\pi p,\psi}{r,z} \right)\ =\ 0
 \]
 
-Definendo una funzione $g(\psi)=4\pi p$ vediamo che le superfici a pressione costante equivalgono alle superifici con flusso costante, si vede poi che si ricava l'equazione detta di \underline{Grad-Shafranov}:
+Definendo una funzione $\boxed{g(\psi)=4\pi p}$ (da cui $p=g(\psi)/4\pi$) vediamo che le superfici a pressione costante equivalgono alle superifici con flusso costante, si vede poi che si ricava l'equazione detta di \underline{Grad-Shafranov}:
 
 \begin{equation}
 	\label{Grad-Shafranov}
-	\boxed{\ \nabla^2 \psi\, +\, F(\psi)F'(\psi)\, +\, r^2 g'(\psi)\ =\ 0\ }
+	\boxed{\ \nabla^2 \psi\, +\, f(\psi)f'(\psi)\, +\, r^2 g'(\psi)\ =\ 0\ }
 \end{equation}
+
+L'equazione di Grad-Shafranov rappresenta l'equazione fondamentale per equilibri assisimmetrici, cioè aventi simmetria di rotazione.
+
+Per ogni scelta di $f(\psi)=rB_\theta$ e $g(\psi)=4\pi p$, risolvendo eq.\ref{Grad-Shafranov} si trova una funzione di flusso $\psi(r,z)$ che, tramite la relazione $\bar B\ =\ \left(-\frac{1}{r} \frac{\partial \psi}{\partial z},\, 0,\, \frac{1}{r}\frac{\partial \psi}{\partial r}\right)$ già presentata, fornisce una possibile configurazione magnetica di equilibrio.
+
+\textbf{N.B.:} l'equazione di Grad-Shafranov semplificata in eq.\ref{Grad-Shafranov sempl} è un caso particolare di eq.\ref{Grad-Shafranov} che corrisponde alla scelta $f(\psi)=0$

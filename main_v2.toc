@@ -86,7 +86,7 @@
 \contentsline {subsubsection}{Configurazione a simmetria rotazionale}{65}{subsubsection*.47}%
 \contentsline {subsubsection}{Come costruire un campo force-free}{66}{subsubsection*.48}%
 \contentsline {section}{\numberline {7.3}Condizione di Ferraro}{66}{section.7.3}%
-\contentsline {paragraph}{Campo poloidale puro:}{66}{paragraph*.49}%
+\contentsline {subsubsection}{Campo puramente poloidale}{66}{subsubsection*.49}%
 \contentsline {subsection}{\numberline {7.3.1}campo puramente toroidale}{67}{subsection.7.3.1}%
 \contentsline {section}{\numberline {7.4}Equazione di Grad-Shafranov}{67}{section.7.4}%
 \contentsline {chapter}{\numberline {8}Drift - descrizione a singola particella}{69}{chapter.8}%
