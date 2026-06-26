@@ -4,11 +4,87 @@
 	Riferimenti: cap. 9-10-11 di \emph{Fisica dei plasmi} di Pucella-Segre
 }{}
 
-Abbiamo già visto nel secondo capitolo come trattare delle onde acustiche in un plasma, che abbiamo calcolato avere relazione di dispersione $\boxed{\omega=k\, c_s}$.
+Ricordiamo dei risultati già ottenuti per poi sviluppare una descrizione delle onde di plasma aggiornata alle nuove descrizioni che abbiamo sviluppato negli ultimi capitoli (teoria cinetica e magnetoidrodinamica).
 
-In seguito abbiamo preso il sistema di equazioni 'fluide', ancora considerando ioni ed elettroni come fluidi differenti e - nell'ipotesi che gli ioni fossero fissi e che fosse presente un campo a muovere gli elettroni - abbiamo calcolato la reazione collettiva degli elettroni, applicando una chiusura di plasma freddo ($v_g=d\omega/dk=0$, e frequenza di plasma elettronica $\boxed{\omega^2\,=\,\omega^2_{p,\,e}\, =\, 4\pi e^2 n_{0,\, e}/m_e}\,$ ) ed una politropica (trovando così la correzione $\omega^2\,=\,\omega_{p,\,e}^2\, (1\, +\, \gamma\, k^2 \lambda_D^2)$).
+\subsection{Onde acustiche}
 
-Ora andremo prima a vedere delle ultime onde ricavate in regime a due fluidi, per poi studiare invece questi fenomeni di propagazione nel modello MHD.
+Abbiamo già visto nel capitolo 2 come, partendo dalle equazioni fluide linearizzate abbiamo visto come una perturbazione di pressione o densità genera un'onda di pressione che si propaga con velocità $c_s$ ($\sqrt{\gamma P_0 /\rho_0}$):
+
+\[ \begin{cases}
+	\displaystyle\frac{\partial }{\partial t} (\delta \rho)\ =\ \rho_0\, \displaystyle\frac{\partial}{\partial x} (\delta u)\qquad \quad\text{eq. di continuità linearizzata}\ ,\\ \\
+	\displaystyle\frac{\partial }{\partial t} (\delta u)\ =\ - \displaystyle\frac{1}{\rho_0}\,\frac{\partial}{\partial x} (\delta P)\qquad \text{eq. del moto linearizzata}\ ,\\ \\
+	\delta P\, =\, c_s^2\, \delta \rho\qquad \qquad\qquad \text{eq. politropica linearizzata}\ .
+\end{cases} 
+\quad \implies \quad 
+\frac{\partial^2}{\partial t^2} (\delta \rho)\ =\ c_s^2\ \frac{\partial^2}{\partial x^2} (\delta \rho)\]
+
+Assumendo come soluzioni delle onde piane per pressioni e velocità ($\delta \rho (x, t) = \hat \rho e^{i(kx-\omega t)}$ e $\delta u (x, t) = \hat u e^{i(kx-\omega t)}$) e facendo una trasformata di Fourier ($\partial_x\rightarrow ik$, $\partial_t\rightarrow -i\omega$) si è trovata la relazione di dispersione:
+\begin{equation}
+	\label{acoustic wave}
+	\omega^2\ =\ k^2\, c_s^2
+\end{equation}
+
+
+%
+%
+%
+\subsection{Onde di plasma}
+Sempre nel capitolo 2 partendo dalle equazioni fluide in trasformata di Fourier, questa volta considerando il termine di forza dovuta al campo, ci siamo chiesti come si propagasse una fluttuazione non di sola pressione, considerando gli ioni come fissi perché si presuppone che gli elettroni rispondano alle fluttuazioni del campo su scale di tempo ben più corte. 
+
+Abbiamo aggiunto anche l'equazione di Poisson unita a $\vec E=\vec \nabla \phi$:
+
+\[\begin{cases}
+	-\, i\omega\,\delta n_e\ +\ i k\, n_{0, e}\,\delta u_e\ =\ 0\ , \\
+	-\, i\omega\, m_e\, n_{0, e}\, \delta u\ =\ ik\, e n_{0, e}\, \delta \phi\, -\, ik\,\delta P\ , \\
+	-\,k^2\, \delta \phi\ =\ 4\pi e\, \delta n_e\ .
+\end{cases}\]
+
+Da qui avevamo notato la presenza di 4 incognite per sole 3 equazioni, abbiamo risolto il problema in due modi:
+\begin{itemize}
+	\item Chiusura plasma freddo: non consideriamo il termine di pressione ($\delta P\sim 0$) e troviamo così una relazione di dispersione che definisce la frequenza di plasma elettronica 
+	\begin{equation}
+		\label{onde di plasma freddo}
+		\omega^2\ =\ \frac{4\pi\, e^2\, n_{0, e}}{m_e} \ \equiv\  \omega^2_{p,e}\ \ ;
+	\end{equation}
+	\item Chiusura politropica: andiamo ad usare come per le onde acustiche l'ipotesi che il plasma segua una politropica, da cui $\delta P=\gamma T_{0,e}\delta n_e $, così che si trovi la relazione di dispersione
+	\[\omega^2=\omega^2_p+\gamma k^2v_{th,e}\ \ .\]
+\end{itemize}
+
+%
+%
+\subsubsection{Onda elettromagnetica che investe un plasma}
+
+\epigraph{
+	Riferimenti: cap. 5 del Krall, sezione "\emph{cold-plasma, unmagnetised, linear response}"
+}{}
+
+Come ultimo tipo di onde già descritto nel capitolo 2, ci siamo chiesti come reagisse il plasma ad un'onda elettromagnetica che lo investe, per farlo abbiamo usato l'equazione del moto fluida con termine di forza elettrica non considerando il campo magnetico (plasma non magnetizzato, $\vec B=0$) e considerando il plasma freddo ($\vec \nabla P\sim 0$). 
+
+A questa equazione abbiamo unito le equazioni di Maxwell:
+
+\[\begin{cases}
+	n_\alpha \frac{\partial \delta u_\alpha}{\partial t}\ =\ \frac{n_\alpha}{m_\alpha}\, q_\alpha\, \vec E\ ,\\
+	\vec \nabla \times \vec B \ =\ \frac{1}{c}\frac{\partial \vec E}{\partial t} + \frac{4\pi}{c}\vec j\ ,\\
+	\vec \nabla \times \vec E = \frac{1}{c}\frac{\partial \vec B}{\partial t}\ .
+\end{cases}\]
+
+Anche qui si fa una trasformata di Fourier e si usa la prima equazione per trovare un'espressione di $\delta \vec u_\alpha$ da usare nella corrente $\vec j = \sum_\alpha q_\alpha n_{0,\alpha}\delta \vec u_\alpha$, così che:
+
+\[\begin{cases}
+	\vec j\ =\ -\frac{i}{\omega}\,  \sum_\alpha \frac{q^2_\alpha n_{0,\alpha} }{m_\alpha}\,\vec E\ ,\\
+	i\vec k \times \vec B \ =\ -\frac{i\omega}{c}\,\vec E\, +\, \frac{4\pi}{c}\,\vec j\ ,\\
+	\vec B\ =\ \frac{c}{\omega}\vec k\times \vec E\ .
+\end{cases}\]
+
+Per risolvere il sistema si inseriscono le espressioni di $\vec B,\, \vec j$ della prima e terza equazione nella seconda equazione e si usa la definizione di frequenza di plasma $\omega_P^2=\omega^2_{P,e}+\omega^2_{P,i}\sim\omega^2_{P,e}$ (dove $\omega_P,e$ era stata già definita come frequenza di plasma elettronica $\equiv \sqrt{4\pi n_{0,\alpha} q^2_\alpha / m_\alpha}$ )
+
+Da qui abbiamo osservato la possibilità di dividere il risultato per la propagazione nel caso $\vec k\perp \vec E$ e quella nel caso $\vec k\parallel \vec E$, questo perché k è in una direzione e il campo può essere scomposto in una componente parallela ed una trasversa, con l'aiuto della relazione $-(\vec k\cdot \vec E)\vec k+k^2\vec E = \frac{\omega^2}{c^2} \left(1-\frac{\omega^2_P}{\omega^2}\right)\vec E$ abbiamo trovato:
+\begin{itemize}
+	\item Per il caso di onda elettromagnetica trasversa, $\vec k\perp \vec E$, si ha la relazione di dispersione
+	\[\omega^2\ =\ \omega_P^2\, +\, k^2\,c^2\ \ ;\]
+	\item Per il caso di onda elettromagnetica con propagazione parallela al campo, $\vec k\parallel \vec E$, si ha relazione di dispersione simile al caso di onde di plasma freddo
+	\[\omega^2\ =\ \omega^2_P\]
+\end{itemize}
 
 
 \section{Onde ion-acustic}

@@ -224,7 +224,9 @@ Prendiamo invece dall'equazione del moto, trascurando le collisioni ed il termin
 
 \[\Rightarrow \ \ \ \ \boxed{\ \frac{\partial}{\partial t} (\delta u)\ =\ -\ \frac{1}{\rho_0}\frac{\partial}{\partial x}\delta P\ }\]
 
-\vspace{0.5cm}
+%
+%
+\subsection{Onda acustica}
 Per chiudere il sistema di equazioni utilizziamo l'\textbf{equazione di stato politropica}: $\boxed{P = c\rho^\gamma}$, così che usando $\nabla (\delta P)=c\gamma \rho_0^{\gamma-1}\nabla (\delta \rho)$ (derivante dallo sviluppo binomiale) si possa esprimere il termine destro come $\displaystyle \frac{\partial \delta P}{\partial x} = \gamma \frac{P_0}{\rho_0} \frac{\partial (\delta \rho)}{\partial x}$ .
 
 Definita $c_s^2 = \gamma \displaystyle \frac{P_0}{\rho_0}$ la \textbf{velocità del suono}, possiamo ottenere infine l'\underline{equazione del moto linearizzata}: 
@@ -239,13 +241,11 @@ Abbiamo costruito quindi un modellino fluido in una dimensione costituito dalle 
 \end{cases} \]
 
 Inseriamo la terza equazione nella seconda come fatto poco sopra per ottenere l'equazione del moto linearizzata e la deriviamo per $\partial_x$, mentre si deriva l'eq. di continuità nel tempo $\partial_t$ , si vede comparire in entrambe il termine $\displaystyle \frac{\partial^2 u}{\partial x \partial t}$, che isoliamo per ottenere l'uguaglianza:
+
 \[ \frac{\partial^2}{\partial t^2} (\delta \rho)\ =\ c_s^2\ \frac{\partial^2}{\partial x^2} (\delta \rho)\]
+
 Il risultato ci consola, perché vuol dire che le perturbazioni di pressione all'interno del plasma così modellizzato si propagano come un'onda di velocità caratteristica $c_s$. Fornita una piccola perturbazione di densità o pressione, la loro variazione genera un gradiente che accelera il fluido secondo l'equazione del moto, il fluido muovendosi modifica ancora la densità/pressione e così via, creando un'oscillazione autopropagante, un'onda di pressione.
 
-
-%
-%
-\subsection{Onda acustica}
 
 Poniamo che le soluzioni siano del tipo onda piana armonica per pressione e velocità: $\delta \rho (x, t) = \hat \rho e^{i(kx-\omega t)}$ e $\delta u (x, t) = \hat u e^{i(kx-\omega t)}$.  
 
@@ -387,7 +387,7 @@ Riconosciamo le definizioni date precedentemente e troviamo la nostra relazione 
 	\boxed{\ \omega^2=\omega^2_p+\gamma k^2v_{th,e}\ }
 \end{equation}
 
-\[\omega\ =\ \omega_p^2\, \left(1+\gamma\frac{k^2v_{th,e}}{\omega_p^2}\right)
+\[\omega^2\ =\ \omega_p^2\, \left(1+\gamma\frac{k^2v_{th,e}}{\omega_p^2}\right)
 \ =\ \omega_p^2\,\left(1+\gamma k^2\lambda_D^2\right)\] 
 
 \begin{figure}[H]
@@ -495,7 +495,7 @@ Questa è la \underline{relazione di dispersione} per un'\underline{onda elettro
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=8cm]{immagini/HF-EM-wave.png}
-	\caption{Relazione di dispersione di onda e.m. trasversa ($\vec k \parallel \vec E$)}
+	\caption{Relazione di dispersione di onda e.m. trasversa ($\vec k \perp \vec E$)}
 	\label{HF-EM wave dispersion - unmagnetized}
 \end{figure}
 
