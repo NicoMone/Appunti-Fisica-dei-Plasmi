@@ -1,4 +1,4 @@
-This is LuaHBTeX, Version 1.22.0 (TeX Live 2025/Debian)  (format=lualatex 2026.5.22)  28 JUN 2026 16:38
+This is LuaHBTeX, Version 1.22.0 (TeX Live 2025/Debian)  (format=lualatex 2026.5.22)  28 JUN 2026 18:21
  restricted system commands enabled.
 **main_v2.tex
 (./main_v2.tex
@@ -1458,7 +1458,7 @@ File: immagini/riferimento.jpeg Graphic file (type jpg)
 Package luatex.def Info: immagini/riferimento.jpeg  used on input line 336.
 (luatex.def)             Requested size: 273.14923pt x 239.79317pt.
  [42<./immagini/dispersioneionacoustic.jpg>] [43<./immagini/riferimento.jpeg>]
-Overfull \hbox (36.00543pt too wide) in paragraph at lines 439--440
+Overfull \hbox (36.00543pt too wide) in paragraph at lines 441--442
 []\T1/lmr/m/n/10 La scel-ta del se-gno + por-ta ad una ma-gne-to-so-ni-ca si-mi-
 le al mo-do di Al-fvén ma com-pri-mi-bi-le, $[]$. 
  []
@@ -1467,16 +1467,16 @@ le al mo-do di Al-fvén ma com-pri-mi-bi-le, $[]$.
 <immagini/LD.png, id=700, 740.7675pt x 410.53375pt>
 File: immagini/LD.png Graphic file (type png)
 <use immagini/LD.png>
-Package luatex.def Info: immagini/LD.png  used on input line 482.
+Package luatex.def Info: immagini/LD.png  used on input line 484.
 (luatex.def)             Requested size: 170.71652pt x 94.6087pt.
  [45<./immagini/LD.png>]
 <immagini/LDvisualized.png, id=709, 898.35625pt x 671.50874pt>
 File: immagini/LDvisualized.png Graphic file (type png)
 <use immagini/LDvisualized.png>
-Package luatex.def Info: immagini/LDvisualized.png  used on input line 526.
+Package luatex.def Info: immagini/LDvisualized.png  used on input line 528.
 (luatex.def)             Requested size: 199.16928pt x 148.86972pt.
  [46<./immagini/LDvisualized.png>] [47]
-Underfull \hbox (badness 10000) in paragraph at lines 684--685
+Underfull \hbox (badness 10000) in paragraph at lines 686--687
 []\T1/lmr/m/n/10 La par-te prin-ci-pa-le se-con-do Cau-chy si cal-co-la co-me $
 [] [] \OT1/cmr/m/n/10 =
  []
@@ -1607,7 +1607,7 @@ onts/type1/public/lm/lmr9.pfb></usr/share/texmf/fonts/type1/public/lm/lmri10.pfb
 /public/lm/lmro10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts
 /symbols/msbm10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/s
 ymbols/msbm7.pfb>
-Output written on main_v2.pdf (75 pages, 2414583 bytes).
+Output written on main_v2.pdf (75 pages, 2414942 bytes).
 
 PDF statistics: 1006 PDF objects out of 1200 (max. 8388607)
  847 compressed objects within 9 object streams
