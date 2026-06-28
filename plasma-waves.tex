@@ -4,7 +4,7 @@
 	Riferimenti: cap. 9-10-11 di \emph{Fisica dei plasmi} di Pucella-Segre
 }{}
 
-Ricordiamo dei risultati già ottenuti per poi sviluppare una descrizione delle onde di plasma aggiornata alle nuove descrizioni che abbiamo sviluppato negli ultimi capitoli (teoria cinetica e magnetoidrodinamica).
+Ricordiamo dei risultati già ottenuti per poi sviluppare una descrizione delle onde di plasma aggiornata alle nuove teorie che abbiamo sviluppato negli ultimi capitoli (teoria cinetica e magnetoidrodinamica).
 
 \subsection{Onde acustiche}
 
@@ -90,54 +90,72 @@ Da qui abbiamo osservato la possibilità di dividere il risultato per la propaga
 \section{Onde ion-acustic}
 
 
-Onde elettrostatiche di tipo acustico/sonoro, si possono ricavare da vlasov ma noi non lo facciamo, le ricaviamo con il modello a due fluidi. 
+Onde elettrostatiche di tipo acustico/sonoro, si possono ricavare da vlasov ma noi non lo facciamo, le ricaviamo con il modello a due fluidi (cfr. sezione 10.6 Pucella-Segre, "\emph{Onde elettrostatiche in plasmi caldi, senza $B_0$}", con un procedimento del tutto uguale a quello che seguiremo di seguito si possono trovare le stesse onde di plasma che abbiamo già studiato e riassunto qui, per queste cfr. sezione 10.5 "\emph{Onde in un plasma freddo, senza $B_0$}"). 
 
-Se partissimo direttamente dall'MHD non troveremmo le onde di plasma (e il landau damping), ma noi invece le troveremo (questa parte è un po' poco chiara, si fa facilmente confusione fra tutti questi tipi di onde in diversi regimi, ma vediamo come rimettere il tutto in ordine).
+Se partissimo direttamente dall'MHD (cfr. capitolo 9 Pucella-Segre) non troveremmo le onde di plasma (e il landau damping), ma noi invece le troveremo (questa parte è un po' poco chiara, si fa facilmente confusione fra tutti questi tipi di onde in diversi regimi, ma vediamo come rimettere il tutto in ordine).
 
-Abbiamo un plasma non magnetizzato:
+  
+
+\paragraph{Equazioni di base e ipotesi: } 
+
+Consideriamo le grandezze all'equilibrio con perturbazioni di piccola grandezza:
+
+\[n_\alpha=n_{0\alpha}+n_{1\alpha}\hspace{1cm}P_\alpha=P_{0\alpha}+P_{1\alpha}\hspace{1cm}\text{con }\alpha=I,e\]
+
+Vogliamo studiare un plasma non magnetizzato, per le grandezze di equilibrio poniamo le ipotesi:
 
 \[\vec E_0=0 \implies \vec E=\vec E_1\ ;\qquad
 \vec B_0=0\implies \vec B=\vec b\ ; \qquad
 \vec u_0=0\implies \vec u=\vec u_1\] 
 
-il termine $\vec u_1\times\vec b$ è del second'ordine ed è pertanto per noi nullo, significa che la nostra onda è polarizzata longitudinalmente e non abbiamo onde elettromagnetiche che avrebbero bisogno del campo magnetico,
+Abbiamo detto che ricaveremo queste onde partendo dal modello a due fluidi quindi riportiamo le equazioni introdotte nel capitolo 2 (continuità, moto, politropica):
 
-\[\vec E\parallel\vec u\parallel\vec k\]
+\[
+\begin{cases}
+	\frac{\partial n_\alpha}{\partial t}\, +\, \vec \nabla \cdot (n_\alpha \vec u_\alpha)\ =\ 0\ \ ,\\
+	m_\alpha n_\alpha \left(\frac{\partial \vec u_\alpha}{\partial t + \vec u_\alpha \cdot \vec \nabla \vec u_\alpha }\right)\ =\ -\vec \nabla P_\alpha\, +\, n_\alpha q_\alpha\,\left(\vec E + \frac{1}{c}\vec u_\alpha \times \vec B\right)\ \ ,\\
+	\frac{D}{Dt} \left(P_\alpha n_\alpha^{-\gamma_\alpha}\right)\ =\ 0\ \ .	
+\end{cases}
+\]
 
-La velocità di fase dell'onda ion-acustic è molto minore delle velocità termiche elettroniche in gioco: 
-
-\[v_{th,I}\ll v_f \ll v_{th,e} \] 
-
-i tempi scale sono tali da avere una risposta inerziale (adiabatica) da parte degli ioni e una risposta termica (isoterma) da parte degli elettroni. questo implica che devo usare due politropiche diverse per le due specie.   
-
-\paragraph{Equazioni di base: } 
-\[n_\alpha=n_{0\alpha}+n_{1\alpha}\hspace{1cm}P_\alpha=P_{0\alpha}+P_{1\alpha}\hspace{1cm}\alpha=I,e\]
+Andiamo a linearizzare come già fatto precedentemente ma per la politropica in particolare osserviamo che il termine $\vec u_1\cdot \vec \nabla$ della derivata materiale è di ordine successivo per cui rimane $\frac{\partial p_\alpha}{\partial t} n_\alpha^{-\gamma_\alpha} + p_\alpha\frac{\partial (n_\alpha^{-\gamma_\alpha)}}{\partial t} = 0$:
 
 \[\begin{aligned}
 	\text{equazione di continuità linearizzata}\qquad \qquad  
 	& \partial_tn_{1\alpha }+\nabla\cdot(n_{0\alpha}\vec u_{1\alpha})=0\\ 
 	\text{equazione del moto linearizzata} \qquad \qquad
-	& m_\alpha\, n_{0\alpha}\,\partial_t\vec u_{1\alpha}\ =\ -\nabla P_{1\alpha}\,+\,n_{0\alpha}q_{\alpha}\,(\vec E+\cancelto{0}{\frac{\vec u_{1\alpha}\times\vec b}{c}})\\
+	& m_\alpha\, n_{0\alpha}\,\partial_t\vec u_{1\alpha}\ =\ -\nabla P_{1\alpha}\,+\,n_{0\alpha}q_{\alpha}\,(\vec E+\cancelto{\sim 0}{\frac{\vec u_{1\alpha}\times\vec b}{c}})\\
 	\text{chiusura politropica linearizzata} \qquad \qquad
 	& P_{1\alpha}\ =\ \gamma_\alpha\frac{P_{0\alpha}}{n_{0\alpha}}n_{1\alpha}\ \underset{\begin{cases} P=nT\\ v_{th}^2=T/m \end{cases}}{=}\ \gamma_\alpha\,  v^2_{th}\, m_\alpha\,n_{1\alpha}
 \end{aligned}\]
 
+il termine $\vec u_1\times\vec b$ è del second'ordine ed è pertanto per noi nullo, significa che per la nostra onda che è polarizzata longitudinalmente $\vec k\parallel \vec E$, la seconda equazione ci conduce alla condizione:
 
-\paragraph{soluzione onda piana e relazione di dispersione: } 
-Cerco una soluzione ad onda piana $\sim e^{i(\vec k\cdot\vec r-\omega t)}$, trovo un sistema di equazioni che se risolte mi danno la relazione di dispersione.  
+\[\vec E_1\ \parallel\ \vec u_1\ \parallel\ \vec k\ \ \ .\]
+
+La velocità di fase dell'onda ion-acustic è molto minore delle velocità termiche elettroniche in gioco: 
+
+\[v_{th,I}\ll v_f \ll v_{th,e} \] 
+
+i tempi scale sono tali da avere una risposta inerziale (adiabatica) da parte degli ioni e una risposta termica (isoterma) da parte degli elettroni. questo implica che devo usare due politropiche diverse per le due specie. 
 
 Risulta utile definire una sorta di "\underline{velocità del suono per la specifica specie}"
 
 \[\boxed{ v^2_{0\alpha}=\frac{\gamma_\alpha P_{0\alpha}}{m_\alpha n_{0\alpha}} }\] 
 
-Facciamo una trasformata di Fourier e togliamo i segni di vettore perché il nostro problema adesso è unidimensionale:
+
+
+\paragraph{soluzione onda piana e relazione di dispersione: } 
+Cerco una soluzione ad onda piana $\sim e^{i(\vec k\cdot\vec r-\omega t)}$, trovo un sistema di equazioni che se risolte mi danno la relazione di dispersione.  
+
+Facciamo una trasformata di Fourier e togliamo i segni di vettore perché il nostro problema diventa unidimensionale grazie alla condizione di parallelismo fra campo elettrico, vettore d'onda e velocità di propagazione:
 
 \[\begin{cases}
 	-i\omega\,n_{1\alpha}\,+\,ik\,n_{0\alpha}u_\alpha\ =\ 0
 	\\
 	i\,\omega m\,_\alpha n_{0\,\alpha}\,u_\alpha\ =\ -iP_{1\alpha}k\,+\, n_{0\alpha}q_{\alpha}\, E
 	\\
-	P_{1\alpha}\ =\ \gamma_\alpha\, \frac{P_{0\alpha}}{n_{0\alpha}}\, n_{1\alpha}    
+	P_{1\alpha}\ =\ \gamma_\alpha P_{0\alpha}\, \frac{n_{1\alpha} }{n_{0\alpha}}\,    
 \end{cases} \quad \implies \quad u_\alpha\ =\ \frac{iq_\alpha}{m_\alpha}\,\frac{\omega}{\omega^2-k^2v_{0\alpha}^2}\, E\] 
 
 Adesso che abbiamo le velocità possiamo ricavare la corrente totale moltiplicando ogni equazione per $n_\alpha q_\alpha$ e sommando sulle $\alpha$:
@@ -152,8 +170,10 @@ Abbiamo quindi un'espressione per la \underline{suscettività elettrica} $\sigma
 
 \begin{equation}
 	\label{permittività}
-	\epsilon=1+\frac{4\pi i}{\omega}\sigma
+	\epsilon\ =\ 1+\frac{4\pi i}{\omega}\sigma\ =\ 1\,-\,\sum_\alpha \frac{ \omega^2_{P,\, \alpha} }{ \omega^2-k^2v^2_{0,\alpha} } \ \ . 
 \end{equation}
+
+Per un plasma costituito da elettroni ed un solo tipo di ioni abbiamo quindi:
 
 \[\epsilon\ =\ 1\, - \, \frac{\omega_{pI}^2}{\omega^2-k^2v_{0I}^2}\, -\, \frac{\omega_{pe}^2}{\omega^2-k^2v_{0e}^2}\] 
 
@@ -176,7 +196,7 @@ Per procedere più agevolmente prendiamo $\omega^4-A\omega^2+C=0$ poniamo $\omeg
 \quad \implies \qquad 
 \begin{cases}
 	\omega_{th}^2\ \simeq\ A\ \simeq\ k^2v_{0e}^2+\omega_{pe}^2\\
-	\omega^2_{IA}\ \simeq\ \frac{AB}{4}\ =\ \frac{C}{A}\ =\ \frac{k^4 v^2_{0,\,e} v^2_{0,\,I} + k^2(\omega^2_{p,\,I}v^2_{0,\,e}+\omega^2_{p,\,e}v^2_{0,\,I})}{k^2(v^2_{0,\,e}+v^2_{0,\,I})+ \omega^2_{p,\,e} + \omega^2_{p,\,I}}
+	\omega^2_{IA}\ \simeq\ \frac{AB}{4}\ =\ \frac{C}{A}\ =\ \frac{ k^2(\omega^2_{p,\,I}v^2_{0,\,e}+\omega^2_{p,\,e}v^2_{0,\,I} + k^2 v^2_{0,\,e} v^2_{0,\,I} )}{k^2(v^2_{0,\,e}+v^2_{0,\,I})+ \omega^2_{p,\,e} + \omega^2_{p,\,I}}
 \end{cases}
 \]
 
@@ -193,48 +213,76 @@ v_{0I}^2=\frac{\gamma_IP_{0I}}{m_In_{0I}}=\frac{\gamma_IT_{I}}{m_I}
 \frac{\lambda^2_{De}}{\lambda^2_{DI}}=\frac{T_e}{T_I}\] 
 
 Otteniamo infine la \underline{relazione di dispersione delle onde Ion-Acoustic}: 
-\[\boxed{\frac{\omega^2_\text{IA}}{k^2}\ =\ v_{0I}^2\ \frac{k^2\,+\,\frac{1}{\lambda_\text{De}^2}\,+\,\frac{1}{\lambda_\text{DI}^2}}{k^2\,+\,\frac{1}{\lambda_\text{De}^2}}}\ .\]
+
+\begin{equation} \label{ionoacustiche}
+	\boxed{\frac{\omega^2_\text{IA}}{k^2}\ =\ v_{0I}^2\ \frac{k^2\,+\, \displaystyle\frac{1}{\gamma_e \lambda_\text{De}^2}\,+\,\frac{1}{\gamma_I \lambda_\text{DI}^2}}{k^2\,+\,\displaystyle\frac{1}{\gamma_e \lambda_\text{De}^2}}}\ \ \  .
+\end{equation}
+
 
 \subsubsection{Regimi } Riconosciamo 3 regimi a seconda dell'ordinamento della lunghezza d'onda, andiamo quindi a vedere come $k$ si confronta alle inverse delle lunghezze di Debye inverse. 
 
 \begin{enumerate}
-	\item il \underline{caso classico} è quello per cui $k^2\,\ll\, \lambda_{\text{D, e}}^{-2},\,\, \lambda_{\text{D, I}}^{-2}$ :
+	\item il \underline{caso classico} è quello per cui $k^2\,\ll\, \lambda_{\text{D, e}}^{-2}\,\ll\, \lambda_{\text{D, I}}^{-2}$ :
 	
 	\[k^2\ll\frac{1}{\lambda_{\text{D, e}}^2}\iff\lambda^2\gg\lambda_{\text{D, e}}^2,\qquad\qquad k^2\ll\frac{1}{\lambda_{\text{D, I}}^2}\iff\lambda^2\gg\lambda_{\text{D, I}}^2\] 
 	
-	Questa relazione non ci dice in che maniera sono ordinate le $\lambda_D$ e di conseguenza le $T$. in linea di principio è possibile che siano qualsiasi.  
+	Questa relazione non ci dice in che maniera sono ordinate le $\lambda_D$ e di conseguenza le $T$. in linea di principio è possibile che siano qualsiasi.
 	
-	\item  Oscillazioni di plasma degli ioni:
+	Nella relazione di eq. \ref{ionoacustiche} possiamo trascurare $k^2$ al denominatore, ma anche al numeratore visto che conta molto meno di $1/\lambda^2_{D,e}$. Per questo rimane la seguente relazione che semplifichiamo osservando che $\frac{\gamma_e \lambda^2_{D,e}}{\gamma_I \lambda^2_{D,I}} = \frac{m_e v^2_{0,e}}{m_I v^2_{0,I}}$:
+	
+	\[\begin{aligned}
+		\frac{\omega^2}{k^2}\ &=\ v^2_{0,I}\, \left[\frac{(\gamma_e \lambda^2_{D,e})^{-1} + (\gamma_I \lambda^2_{D,I})^{-1}}{(\gamma_e \lambda^2_{D,e})^{-1}}\right]\ =\ v^2_{0,I}\, \left[1\, +\, \frac{(\gamma_I \lambda^2_{D,I})^{-1}}{(\gamma_e \lambda^2_{D,e})^{-1}}\right]\ =\\
+		&=\ v^2_{0,I}\, \left[1\, +\, \frac{m_e v^2_{0,e}}{m_I v^2_{0,I}} \right]\ =\ v^2_{0,e} \frac{m_e}{m_I} + v^2_{0,I}\ \simeq\ c^2_s
+	\end{aligned}\] 
+	
+	Usando la definizione di velocità ionico-acustica
+	
+	\[c^2_s\ =\ \gamma\frac{P_0}{\rho_0}\ =\ \frac{\gamma_e T_e n_{0,e} + \gamma_I T_I n_{0,I}}{m_e n_{0,e} + m_I n_{0,I}}\ \simeq\ v^2_{0,e} \frac{m_e}{m_I} + v^2_{0,I}\]
+	
+	%
+	%
+	\item  Abbiamo poi il caso delle \underline{oscillazioni di plasma ioniche}:
 	
 	\[k^2\gg\frac{1}{\lambda_{D,e}^2}\iff\lambda^2\ll\lambda_{D,e}^2\ \ ,
 	\qquad \quad k^2\ll\frac{1}{\lambda_{DI}^2}\iff\lambda^2\gg\lambda_{DI}^2\] 
 	
-	Data la prima disuguaglianza, il $k^2$ della relazione di dispersione può essere non considerato al denominatore, ma vista la seconda disuguaglianza anche quello al numeratore può essere ignorato:
+	Data la prima disuguaglianza, il $k^2$ della relazione di dispersione può essere non considerato al numeratore di eq.\ref{ionoacustiche}, così come il termine $1/\lambda^2_{D,e}$ rispetto a $1/\lambda^2_{D,e}$. Al denominatore invece domina $k^2$ per cui rimane:
 	
-	\[\lambda_{De}^2\ll\lambda^2\ll\lambda_{DI}^2
-	\ \ \implies \ \ 
-	T_I\gg T_e\]   
+	\[ \frac{\omega^2}{k^2}\ =\ \frac{v^2{0,I}}{k^2 \gamma_I \lambda^2_{D,I} }\ =\ \frac{\omega^2_{P,I}}{k^2}\ \ . \] 
 	
-	\[\frac{\omega^2}{k^2}\ =\ v_{0I}^2\,\left(1+\frac{\lambda_{De}^2}{\lambda_{DI}^2}\right)\ =\ \frac{\gamma_I}{m_I}\, T_I\, \left(\frac{T_e+T_I}{T_I}\right)\]
+	Torna la definizione di frequenza di plasma ionica $\omega^2_{P,I}=\frac{4\pi\, e^2\, n_{0, I}}{m_I}$, usata insieme a $v^2_{0\alpha}=\frac{\gamma_\alpha P_{0\alpha}}{m_\alpha n_{0\alpha}}$ ed a $\gamma^2_{D,\alpha}\sim \frac{v^2_{0,\alpha}}{\omega^2_{P,\alpha}}$
 	
-	\[\boxed{\frac{\omega^2}{k^2}\ =\ \frac{\gamma_I}{m_I}\, (T_e+T_I)}\] 
 	
-	Questa può essere vista come una sorta di velocità del suono, infatti queste sono le tipiche onde "ion-acustic". Si vede che l'inerzia è data dagli ioni nel senso che compare $m_I$ mentre la risposta termica è data da entrambi, anche se quando $T_I\sim T_e$ tipicamente avviene il Damping di Landau e l'onda non si propaga (a meno che non si faccia una forzatura). 
-	Le onde che sopravvivono sono quelle con $T_e\gg T_i$.
-	
+	%
+	%
 	\item \[k^2\gg\frac{1}{\lambda_{De}^2}\iff\lambda^2\ll\lambda_{De}^2,\quad k^2\gg\frac{1}{\lambda_{DI}^2}\iff\lambda^2\ll\lambda_{DI}^2\]  Questo caso è praticamente insensato perchè siamo al di sotto delle lunghezze di Debye e praticamente non possiamo nemmeno dire di avere a che fare con un plasma. In questo caso la soluzione ha come relazione di dispersione una relazione analoga alle onde di plasma, ma per gli ioni. 
-	\[\omega^2\ =\ \omega_{pI}^2\ +\ k^2\,v_{0I}^2\] 
+	\[\omega^2\ =\ k^2 v^2_{0,I}\, \left(1\, +\, \frac{1}{k^2 \gamma_I \lambda^2_{D,I}}\right)
+	\ =\ \omega_{pI}^2\ +\ k^2\,v_{0I}^2\] 
+	
+	In particolare considerando $k^2\gg \lambda^{-2}_{D,I}$ rimane solamente $\omega^2=k^2 v^2_{0,I}$.
 \end{enumerate} 
 
+\begin{multicols}{2}
 Alla fine, quando si parla di onde Ion-Acoustic, si parla del caso uno e tendenzialmente con $T_e\gg T_i$. 
 
 Nel caso delle onde Ion-Acoustic si ha $v_f\gg v_{th,I}$ (e quindi gli ioni hanno una risposta adiabatica) mentre $v_f\ll v_{th,e}$ (e quindi gli elettroni hanno una risposta isoterma). 
 
 Nel caso invece in cui $T_I\sim T_e $ siamo nelle condizioni in cui tendenzialmente l'onda non sopravvive perché avviene il Damping di Landau. Se l'onda viene sforzata con un intervento esterno la distribuzione si appiattisce finché non smette di avvenire il damping.
 
+\begin{figure}[H]
+	\centering
+	\label{ionoacustiche dispersione}
+	\includegraphics[width=7.5cm]{immagini/dispersioneionacoustic.jpg}
+	\caption{Raffigurazione delle relazioni di dispersione trovate, in particolare in basso si osservano le onde ion-acoustic con i 3 regimi discussi.}
+\end{figure}
+
+\end{multicols}
+
+
 %
 %
 %
+\vspace{0.5cm}
 \section{Onde magnetoidrodinamiche}
 
 Passiamo a studiare onde che emergono dalla trattazione magnetoidrodinamica.
@@ -273,7 +321,7 @@ Proseguiamo i calcoli in trasformata di Fourier:
 \end{cases}
 \]
 
-\begin{multicols}{2}
+
 	Facciamo caso di passare da un sistema di riferimento $(\hat x, \hat y, \hat z)$ che stavamo usando ad un sistema $(\hat k, \hat y, \hat{\bar z})$ come da fig.(\ref{fig:sist di rif}).
 	
 	Calcoliamo ora il triplo prodotto della seconda equazione nel sistema: 
@@ -289,7 +337,7 @@ Proseguiamo i calcoli in trasformata di Fourier:
 		\caption{cambio di sistema di riferimento $(\hat x, \hat y, \hat z) \ \ \rightarrow \ \ (\hat k, \hat y, \hat{\bar z})$}
 		\label{fig:sist di rif}
 	\end{figure}
-\end{multicols}
+
 
 \[  B_0\hat e_z\times (\vec k\times \vec b) \ =\ \begin{vmatrix} 
 	\hat x & \hat y & \hat z \\ 
