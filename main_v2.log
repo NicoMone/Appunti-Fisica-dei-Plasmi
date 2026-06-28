@@ -1,4 +1,4 @@
-This is LuaHBTeX, Version 1.22.0 (TeX Live 2025/Debian)  (format=lualatex 2026.5.22)  28 JUN 2026 16:09
+This is LuaHBTeX, Version 1.22.0 (TeX Live 2025/Debian)  (format=lualatex 2026.5.22)  28 JUN 2026 16:38
  restricted system commands enabled.
 **main_v2.tex
 (./main_v2.tex
@@ -1607,7 +1607,7 @@ onts/type1/public/lm/lmr9.pfb></usr/share/texmf/fonts/type1/public/lm/lmri10.pfb
 /public/lm/lmro10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts
 /symbols/msbm10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/s
 ymbols/msbm7.pfb>
-Output written on main_v2.pdf (75 pages, 2414400 bytes).
+Output written on main_v2.pdf (75 pages, 2414583 bytes).
 
 PDF statistics: 1006 PDF objects out of 1200 (max. 8388607)
  847 compressed objects within 9 object streams
