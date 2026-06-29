@@ -9,17 +9,17 @@
 \contentsline {section}{\numberline {2.4}Evoluzione dell'elemento fluido}{9}{section.2.4}%
 \contentsline {section}{\numberline {2.5}Collisioni e diffusione del calore}{10}{section.2.5}%
 \contentsline {subsection}{\numberline {2.5.1}Entropia}{10}{subsection.2.5.1}%
-\contentsline {subsection}{\numberline {2.5.2}Entalpia}{10}{subsection.2.5.2}%
+\contentsline {subsection}{\numberline {2.5.2}Entalpia}{11}{subsection.2.5.2}%
 \contentsline {section}{\numberline {2.6}Regime a due fluidi}{11}{section.2.6}%
 \contentsline {subsection}{\numberline {2.6.1}Linearizzazione delle equazioni}{11}{subsection.2.6.1}%
-\contentsline {subsubsection}{Ancora sulla linearizzazione: il comportamento ondulatorio}{11}{subsubsection*.4}%
+\contentsline {subsubsection}{Ancora sulla linearizzazione: il comportamento ondulatorio}{12}{subsubsection*.4}%
 \contentsline {subsection}{\numberline {2.6.2}Onda acustica}{12}{subsection.2.6.2}%
 \contentsline {subsection}{\numberline {2.6.3}Onde di plasma}{13}{subsection.2.6.3}%
-\contentsline {subsubsection}{Chiusura Plasma freddo}{13}{subsubsection*.5}%
+\contentsline {subsubsection}{Chiusura Plasma freddo}{14}{subsubsection*.5}%
 \contentsline {subsubsection}{Confronto tra ipotesi e risultati, verifica a posteriori del regime di plasma freddo}{14}{subsubsection*.6}%
-\contentsline {subsubsection}{Chiusura politropica}{14}{subsubsection*.7}%
-\contentsline {section}{\numberline {2.7}Schermatura di Debye}{15}{section.2.7}%
-\contentsline {section}{\numberline {2.8}Onda e.m. che investe un plasma}{16}{section.2.8}%
+\contentsline {subsubsection}{Chiusura politropica}{15}{subsubsection*.7}%
+\contentsline {section}{\numberline {2.7}Schermatura di Debye}{16}{section.2.7}%
+\contentsline {section}{\numberline {2.8}Onda e.m. che investe un plasma}{17}{section.2.8}%
 \contentsline {section}{\numberline {2.9}Parametro di plasma}{19}{section.2.9}%
 \contentsline {section}{\numberline {2.10}Introduzione a teoremi fondamentali nella fisica dei plasmi}{20}{section.2.10}%
 \contentsline {chapter}{\numberline {3}Teoria cinetica ed una teoria a due fluidi}{23}{chapter.3}%

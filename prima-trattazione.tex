@@ -76,6 +76,10 @@ sfruttando il punto di vista lagrangiano seguo l'elemento che accelera. Otteniam
 
 Aggiungiamo un termine $\vec f$ perché ci aspettiamo che per i plasmi ci siano anche forze elettromagnetiche che in questa prima forma puramente fluidodinamica non esplicitiamo (cfr. equazioni di Eulero).
 
+%
+%
+%
+\vspace{0.5cm}
 \section{Equazione di stato}
 Noi vorremmo risolvere il sistema di equazioni che stiamo costruendo per 5 variabili ($\vec u$, p, $\rho$), quindi, le quattro equazioni appena introdotte non bastano, il sistema necessità di una chiusura, qui interviene l'equazione di stato della pressione in funzione della densità:
 \begin{equation}
@@ -182,6 +186,7 @@ Quest'equazione descrive l'\underline{evoluzione della vorticità}.
 %
 %
 %
+\vspace{0.5cm}
 \section{Regime a due fluidi} \label{sezione su due fluidi, lineariz. e onde di plasma}
 
 Abbiamo introdotto alcune quantità e ragionamenti dalla fluidodinamica, fin'ora non abbiamo però sviluppato un vero modello ad un fluido, per come abbiamo svolto tutto fin'ora sarebbe più opportuno riconoscere che vi siano \underline{due fluidi}, uno per ciascuna specie (il modello a singolo fluido sarà la MHD).
@@ -225,7 +230,7 @@ il termine all'ordine zero è banalmente nullo, d'altro canto il termine di ordi
 
 \vspace{0.5cm}
 
-Prendiamo invece dall'equazione del moto, trascurando le collisioni ed il termine gravitazionale, andiamo a linearizzare l'equazione tenendo i termini di ordine più basso, ponendo $\vec u_0 = 0$ e la sua derivata $\partial_t u_0 = 0$ per poi sottrarre la forma di equilibrio $\rho_0 D_t u_0 = -\vec \nabla P_0$:
+Prendiamo invece dall'equazione del moto, trascurando le collisioni ed il termine gravitazionale, andiamo a linearizzare l'equazione tenendo i termini di ordine più basso, ponendo $\vec u_0 = 0$ e la sua derivata $\partial_t u_0 = 0$ :
 
 \[ (\rho_0 + \delta \rho ) \left[ \frac{\partial}{\partial t}(\cancel{u_0}+\delta u) + [(\cancel{u_0} + \delta u)\cdot \vec \nabla] (u_0 + \delta u) \right] \ =\ -\ \vec \nabla \left( P_0 + \delta P \right)\]
 
@@ -269,7 +274,7 @@ Segue la relazione di dispersione:
 \boxed{\omega^2 = k^2 c_s^2}
 \]
 
-Conclusione: l'onda sonora in un gas è non dissipativa, con relazione di dispersione costante (ogni armonica si propaga alla stessa velocità). 
+Conclusione: l'onda sonora in un gas è non dispersivo, con relazione di dispersione costante (ogni armonica si propaga alla stessa velocità, ovvero $\omega / k =$ costante). 
 
 È possibile quindi anche una shockwave, al contrario di un sasso in acqua. Nei plasmi, invece, esistono molti regimi con relazioni di dispersione differenti a seconda di frequenze e scale di lunghezza caratteristiche.
 
@@ -347,11 +352,11 @@ Allora confrontando i termini in un rapporto, vediamo che il termine di pression
 \[\frac{\omega\, m_e\,n_0\,\delta u}{k\,\delta P}\ \sim\ \frac{\omega^2}{k^2}\, \frac{m_e}{T_{0,e}}\ \sim\ \frac{\omega^2}{k^2}\, \frac{1}{v^2_{th,e}}\ \sim\ \frac{c^2_{\phi}}{v^2_{th,e}}\ .\] 
 
 \vspace{0.3cm}
-Introduciamo anche la \underline{lunghezza d'onda caratteristica} $\lambda\sim 1/k$ e confrontiamo $\dfrac{\omega^2}{k^2}$ con $v_{th,e}$:
+Introduciamo anche la \underline{lunghezza d'onda caratteristica} $\lambda\sim 1/k$ e confrontiamo $\dfrac{\omega^2}{k^2}$ con $v_{th,e}^2$:
 
-\[\frac{4\pi n_0 e^2}{m_e}\lambda^2\ \sim\ v_{th,e}\ ,\] 
+\[\dfrac{\omega^2}{k^2}\ =\ \frac{4\pi n_0 e^2}{m_e}\lambda^2\ \sim\ v_{th,e}^2\ \ ,\] 
 
-\[\lambda^2\ >\ \frac{v_{th,e}^2}{\omega_p^2}\ \equiv\ \frac{T}{4\pi n_0e^2}\ .\] 
+\[\lambda^2\ >\ \frac{v_{th,e}^2}{\omega_p^2}\ =\ \frac{T}{4\pi n_0e^2}\ \equiv \lambda_D\ \ .\] 
 
 $\omega_p$ è la frequenza di plasma e dovrebbe avere anche il contributo degli ioni che comunque è migliaia di volte minore quindi per noi, per il momento, la frequenza di plasma è direttamente $\omega_{p,e}$. 
 
@@ -383,7 +388,7 @@ Così abbiamo la chiusura voluta, da unire all'equazione di continuità lineariz
 Dopo aver inserito la politropica nell'equazione del moto abbiamo: $-i\omega m_en_0\delta u= iken_0\delta \phi\ - ik T_{0,e} \delta n_e$
 
 Il $\delta P$ serve per poter utilizzare l'equazione completa della dinamica, in questo caso non siamo più in regime di plasma freddo e la risposta termica comincia ad avere un ruolo. Inseriamo nell'equazione del moto linearizzata le forme di $\delta \phi$ e $\delta u$ ricavate dalle altre equazioni
-
+\begin{multicols}{2}
 \[\cancel{-}i\omega m_e\cancel{n_0} \left(\frac{\omega}{\cancel{n_0} k}\cancel{\delta n}\right) = i\cancel{k}en_0\left( \cancel{-}\displaystyle\frac{4\pi e}{k^{\cancel{2}}}\cancel{\delta n}\ \right) \cancel{-} ik \gamma T_{0,e} \cancel{\delta n} \]
 
 \[\omega^2  = \frac{4\pi e^2n_0}{m_e} +k^2 \gamma \frac{T_{0,e}}{m_e}\]
@@ -403,7 +408,7 @@ Riconosciamo le definizioni date precedentemente e troviamo la nostra relazione 
 	\caption{Rappresentazione approssimativa della dispensione $\omega/\omega_P=(1+\gamma k^2 \lambda_D^2)$. Non vi sono onde di Langmuir per $\omega < \omega_P$.\\ Per grandi lunghezze d'onda (bassi k) o basse temperature si osservano le oscillazioni di plasma, o di Langmuir, causate da una velocità di fase $\omega/k$ che può essere arbitrariamente grande ma con una velocità di gruppo $\partial \omega/\partial k$ che va a zero, non vi è propagazione.\\ Per piccole lunghezze d'onda sia la velocità di fase che di gruppo convergono a $\sqrt{3}v_{th,e}$ e l'onda di plasma si propaga come un'onda sonora.}
 	\label{Langmuir dispersion}
 \end{figure}
-
+\end{multicols}
 
 %
 %
@@ -464,7 +469,7 @@ Per il momento abbiamo cercato di trattare il plasma come un fluido, non siamo r
 
 Dato che il plasma è fatto di particelle cariche ci chiediamo ora come reagisca all'essere investito da un'onda elettromagnetica. Abbiamo già visto che il plasma è globalmente neutro ed anche come non vi siano campi globali auto-generati nel plasma, in quanto l'effetto di una carica viene schermato dopo una lunghezza di Debye, però vogliamo capire come il plasma reagisca ad un campo che arriva dall'esterno (capitolo 5 Krall, cold-plasma, unmagnetised, linear response).
 
-Partiamo dall'equazione del moto fluida per le due specie ma poniamo $\vec B_0=0$ (plasma non magnetizzato) così che nella forza elettromagnetica rimanga solo il termine di campo elettrico, inoltre non consideriamo $\nabla p_\alpha = 0$ per vedere un primo risultato in plasma freddo ed ignoriamo il termine collettivo:
+Partiamo dall'equazione del moto fluida per le due specie ma poniamo $\vec B_0=0$ (plasma non magnetizzato) così che nella forza elettromagnetica rimanga solo il termine di campo elettrico, inoltre non consideriamo $\nabla p_\alpha = 0$ per vedere un primo risultato in plasma freddo ed ignoriamo il termine convettivo:
 
 \[ n_\alpha \frac{\partial\, \delta u_\alpha}{\partial t}\ =\ \frac{n_\alpha}{m_\alpha}\, q_\alpha\, \vec E\]
 
@@ -517,7 +522,7 @@ Notiamo comportamenti interessanti dell'onda e.m. trasversa nei due limiti:
 \end{itemize}
 
 Si nota che nel caso di onda con \underline{ $\vec k\parallel \vec E$ } invece la relazione di dispersione di riduce ad 
-\[\omega^2\,=\,\omega_P^2\]
+\[\boxed{\, \omega^2\  =\ \omega_P^2\, }\]
 come nelle onde di plasma con chiusura plasma freddo.
 
 
@@ -527,13 +532,13 @@ come nelle onde di plasma con chiusura plasma freddo.
 \begin{approfondimento}{velocità di gruppo e di fase}
 	Ci chiediamo quanto valga la \underline{velocità di fase} $\boxed{\ v_f \equiv\, \omega\,/\,k\ }$ per venire a scoprire che sia sempre maggiore della velocità della luce $>\, c$:
 	
-	\[ \frac{\omega}{k}\ =\ \frac{\sqrt{k^2\omega^2 + \omega^2_P}}{k}\ =\ \sqrt{1+\frac{\omega_P^2}{k^2 c^2}} \, \, c\ \ .\]
+	\[ \frac{\omega}{k}\ =\ \frac{\sqrt{k^2\omega^2 + \omega^2_P}}{k}\ =\ \sqrt{1+\frac{\omega_P^2}{k^2 c^2}} \, \, c\ >\ c\ \ .\]
 	
 	Se invece ci chiediamo quale sia la \underline{velocità di gruppo} $\boxed{\ v_g \equiv\, \partial\omega\,/\,\partial k\ }$ :
 	
 	\[ 2\, \omega\, \frac{\partial\,\omega}{\partial\, k}\ =\ 2\, k\, c^2
 	\quad \quad \Rightarrow \quad \quad 
-	\frac{\partial\,\omega}{\partial\, k}\ =\ \frac{kc^2}{\sqrt{k^2c^2 + \omega_P^2 }}\ =\  \frac{c}{\sqrt{1 + \omega_P^2/k^2\,c^2 }}\, >\, c\ \ .\]
+	\frac{\partial\,\omega}{\partial\, k}\ =\ \frac{kc^2}{\sqrt{k^2c^2 + \omega_P^2 }}\ =\  \frac{c}{\sqrt{1 + \omega_P^2/k^2\,c^2 }}\, <\, c\ \ .\]
 	
 \end{approfondimento}
 
@@ -673,11 +678,13 @@ ovvero  è nullo il campo elettrico nel sistema di riferimento dell'elemento flu
 	
 	La resistività fa capire come in tempi molto più brevi del tempo diffusivo cambia la topologia del campo. 
 	
-	Flusso magnetico: su una superficie chiusa fa zero, in generale è 
-	\[\int_S\vec B\cdot d\vec S=\phi\] 
 \end{teorema}
 
 \begin{teorema}{Alfvén}{}
+	Flusso magnetico: su una superficie chiusa fa zero, in generale è 
+	
+	\[\int_S\vec B\cdot d\vec S=\phi\] 
+	
 	Finché siamo in MHD ideale vale che:
 	\[ \boxed{\ \frac{d\phi}{dt}\ =\ 0\ }\]  
 	
@@ -691,9 +698,9 @@ ovvero  è nullo il campo elettrico nel sistema di riferimento dell'elemento flu
 	
 	\[\frac{d\Phi}{dt} = \frac{d}{dt}\int_{S(t)}\vec B(\vec r,t)\cdot d\vec S=\int_{S(t)}\bigg(\frac{\partial}{\partial t}\vec B-\nabla\times(\vec u\times \vec B)\bigg)d\vec S\]  
 	
-	in MHD ideale è valida la legge di Ohm ideale $\frac{\partial\vec B}{\partial t}=\vec \nabla\times(\vec u\times\vec B)$ e quindi 
+	in MHD ideale è valida la legge di Ohm ideale $\frac{\partial\vec B}{\partial t}=\vec \nabla\times(\vec u\times\vec B)$ discussa nel teorema precedente e quindi: 
 	
-	\[\frac{\partial}{\partial t}\vec B-\nabla\times(\vec u\times \vec B)=0\implies\int_{S(t)}\bigg(\frac{\partial}{\partial t}\vec B-\nabla\times(\vec u\times \vec B)\bigg)d\vec S=0\]  
+	\[\frac{\partial}{\partial t}\vec B-\nabla\times(\vec u\times \vec B)=0\implies\int_{S(t)}\bigg(\frac{\partial}{\partial t}\vec B-\nabla\times(\vec u\times \vec B)\bigg)d\vec S\ =\ 0\ \ .\]  
 	
-	ed abbiamo così dimostrato il teorema per cui $\boxed{\frac{d\Phi}{dt} = 0}$ .
+	Abbiamo così dimostrato il teorema per cui $\boxed{\frac{d\Phi}{dt} = 0}$ .
 \end{teorema}
