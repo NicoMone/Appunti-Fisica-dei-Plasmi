@@ -110,7 +110,7 @@ Poiché  $\displaystyle\frac{\partial \vec x}{\partial t} = \frac{\partial \vec 
 A proposito di questi due approcci: torniamo a $\frac{D}{Dt}n+ (\vec u\cdot\vec \nabla)n=0$, la derivata lagrangiana della densità ci fa vedere che seguendo l'elemento fluido l'unica cosa che può far variare la densità è una compressione (o rarefacimento) del mio fluido. \\Fare la derivata euleriana equivale alla derivata lagrangiana a meno di un termine correttivo che tiene conto della direzione in cui va il mio fluido. 
 \medskip
 
-Per chiudere il sistema in termodinamica si assume spesso isotropia ($P\propto T$)  (tensore degli stress diagonale). Nei plasmi l'isotropia non vale, perché i campi magnetici introducono direzioni privilegiate: parallela al campo (particelle libere) e ortogonale (particelle bloccate). Nonostante la mancanza di equazione di stato, isotropia e collisioni, la MHD (magnetoidrodinamica) funziona in molte condizioni.
+Per chiudere il sistema in fluidodinamica si assume spesso isotropia ($P\propto T$)  (tensore degli stress diagonale). Nei plasmi l'isotropia non vale, perché i campi magnetici introducono direzioni privilegiate: parallela al campo (particelle libere) e ortogonale (particelle bloccate). Nonostante la mancanza di equazione di stato, isotropia e collisioni, la MHD (magnetoidrodinamica) funziona in molte condizioni.
 \\IN particolare nei plasmi si ha anisotropia per la pressione $P_{\parallel\vec B}\neq P_{\perp\vec B}$, i satelliti nel plasma spaziale misurano una distribuzione maxwelliana solamente sul piano $\perp \vec B$.
 
 
@@ -140,14 +140,17 @@ Se non c'è flusso di massa ($d\rho/dt = 0$), possiamo inserire la definizione d
 
 avendo definito la \underline{diffusività} $\boxed{D = k\, /\, \rho\, c_v}$, che ha dimensioni $[D]=m^2 s^{-1}$.
 
-Quindi, dimensionalmente è tale che $D/L\, \sim\, 1/\tau$, cioè:
+Quindi, dimensionalmente è tale che $D/L^2\, \sim\, 1/\tau$, cioè:
 
 \[
 D\ \sim \ \lambda_{mfp}^2\, \nu_c\ =\ \frac{v_{th}^2}{\nu_c}\ \ \ \ ,
 \]
 
 dove $\boxed{v_{th}\sim\lambda_{mfp}\ \nu_c}$ è la \underline{velocità termica}, $\lambda_{mfp}$ il \underline{libero cammino medio} e $\nu_c$ la \underline{frequenza collisionale}.  
-\[\nu_c\to\infty\implies D\to 0\]
+
+Così abbiamo grazie alla grandezza fissata della velocità termica, trovato una stima che ci restituisce una relazione di inversa proporzionalità fra diffusività e frequenza collisionale:
+
+\[\nu_c\to\infty\quad \implies\quad  D\to 0\]
 
 Molte collisioni $\Rightarrow$ diffusione lenta di energia $\implies $ comportamento adiabatico $\implies $ ho una relazione tra densità e pressione (equazione di stato politropica). Non confondere collisioni (viscosità) e trasporto di calore.  
 
@@ -159,17 +162,21 @@ Nei plasmi, se la frequenza collisionale va all'infinito, $\nu_c\rightarrow \inf
 \subsection{Entalpia} 
 Riprendiamo la definizione di Entalpia $W$dalla termodinamica, le collisioni nei fluidi ci impongono entropia costante nell'elemento fluido (consideriamo $V$ il volume specifico). \\Il giochino adesso è esprimere l'equazione del moto fluida eq.\ref{fluid-eq-moto} (trascurando il campo gravitazionale e altre forze) in termini dell'entalpia:
 \[dW\,=\,T\cancelto{0}{dS}\,+\,VdP\,=\,VdP\quad \implies\quad \rho\, \vec \nabla\, W\,=\,\vec \nabla\, P\] 
-\[\partial _t\vec u\,+\,(\vec u\, \cdot\,\vec \nabla)\vec u\ =\-\vec \nabla\, W\]
+\[\partial _t\vec u\,+\,(\vec u\, \cdot\,\vec \nabla)\vec u\ =\ -\vec \nabla\, W\]
 
 \begin{approfondimento}{vorticità}
 	Definiamo la vorticità come il rotore del campo di velocità \[\vec w=\vec \nabla\times\vec u \hspace{1cm}w_i=\epsilon_{ijk}\partial_ju_k\] Le linee di campo della vorticità sono dette linee di vorticità. Le linee di vorticità possono essere trasportate e spiegazzate ma non possono venire spezzate e riconnesse. (non bisogna confondere le linee di vorticità con le streamline che sono le linee tangenti al campo di velocità punto per punto) 
 \end{approfondimento}
 
-Facendo il rotore dell'equazione dinamica espressa in termini dell'entalpia possiamo trovare la vorticità. Allo stesso tempo possiamo utilizzare una formula del calcolo vettoriale per scrivere la derivata materiale come un rotore più un gradiente. Usiamo anche che per campo scalare $\phi $ (come $W$ e come $|u|^2$) vale $\nabla\times\nabla\phi=0$. 
+\[\vec u \times \vec \nabla \times \vec u\ =\ \frac{1}{2} \vec \nabla u^2 \, +\, (\vec u \cdot \vec \nabla)\vec u\]
 
-\[\frac{\partial \vec w}{\partial t} =-\nabla \times \left[ \vec u\times \vec w \right]\]
+Facendo il rotore dell'equazione dinamica espressa in termini dell'entalpia possiamo trovare la vorticità. Allo stesso tempo possiamo utilizzare una formula del calcolo vettoriale (qui riportata) per scrivere la derivata materiale come un rotore più un gradiente. Usiamo anche che per campo scalare $\phi $ (come $W$ e come $|u|^2$) vale $\nabla\times\nabla\phi=0$. 
 
-Quest'equazione descrive l'evoluzione della vorticità.
+\[\vec \nabla \times [\partial_t \vec u]\, +\, \vec \nabla \times [\vec u\times (\vec \nabla \times \vec u)]\ =\ \vec \nabla \times \left[\vec \nabla \left(\frac{u^2}{2} + W\right)\right]\ =\ 0\ \ ,\]
+
+\[\boxed{\, \frac{\partial \vec w}{\partial t} =-\nabla \times \left[ \vec u\times \vec w \right]\, }\ \ .\]
+
+Quest'equazione descrive l'\underline{evoluzione della vorticità}.
 
 
 %

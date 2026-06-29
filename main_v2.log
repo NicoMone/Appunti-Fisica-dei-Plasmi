@@ -1,4 +1,4 @@
-This is LuaHBTeX, Version 1.22.0 (TeX Live 2025/Debian)  (format=lualatex 2026.5.22)  28 JUN 2026 18:21
+This is LuaHBTeX, Version 1.22.0 (TeX Live 2025/Debian)  (format=lualatex 2026.5.22)  29 JUN 2026 17:57
  restricted system commands enabled.
 **main_v2.tex
 (./main_v2.tex
@@ -1383,10 +1383,10 @@ OML/cmm/m/it/10 c[]$ \T1/lmr/m/n/10 la $[]$
 <immagini/langmuir.jpeg, id=468, 1284.8pt x 864.22874pt>
 File: immagini/langmuir.jpeg Graphic file (type jpg)
 <use immagini/langmuir.jpeg>
-Package luatex.def Info: immagini/langmuir.jpeg  used on input line 395.
+Package luatex.def Info: immagini/langmuir.jpeg  used on input line 402.
 (luatex.def)             Requested size: 256.0748pt x 172.24927pt.
  [15<./immagini/langmuir.jpeg>] [16]
-Overfull \hbox (27.75813pt too wide) in paragraph at lines 480--481
+Overfull \hbox (27.75813pt too wide) in paragraph at lines 487--488
 []\T1/lmr/m/n/10 Rein-se-ria-mo que-sta for-ma di $[]$ nel-l'e-qua-zio-ne di Max
 well-Ampère in-sie-me al-la de-fi-ni-zio-ne di $[]$
  []
@@ -1394,10 +1394,10 @@ well-Ampère in-sie-me al-la de-fi-ni-zio-ne di $[]$
 <immagini/HF-EM-wave.png, id=484, 803.0pt x 523.9575pt>
 File: immagini/HF-EM-wave.png Graphic file (type png)
 <use immagini/HF-EM-wave.png>
-Package luatex.def Info: immagini/HF-EM-wave.png  used on input line 497.
+Package luatex.def Info: immagini/HF-EM-wave.png  used on input line 504.
 (luatex.def)             Requested size: 227.62204pt x 148.52194pt.
-
-Overfull \hbox (2.28574pt too wide) in paragraph at lines 507--509
+[17<./immagini/HF-EM-wave.png>]
+Overfull \hbox (2.28574pt too wide) in paragraph at lines 514--516
 \T1/lmr/m/n/10 que-sto vuol di-re che k è com-ples-so ($\OML/cmm/m/it/10 k \OM
 S/cmsy/m/n/10  \OML/cmm/m/it/10 i ![]=c$\T1/lmr/m/n/10 ). Que-sto co-sa im-pli-
 ca? $[]\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 i\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 i[]
@@ -1405,13 +1405,12 @@ ca? $[]\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 i\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 i[]
 OML/cmm/m/it/10 ![]x=c\OT1/cmr/m/n/10 )$\T1/lmr/m/n/10 ,
  []
 
-[17<./immagini/HF-EM-wave.png>]
 <immagini/scales.jpg, id=493, 99.4917pt x 47.2164pt>
 File: immagini/scales.jpg Graphic file (type jpg)
 <use immagini/scales.jpg>
-Package luatex.def Info: immagini/scales.jpg  used on input line 561.
+Package luatex.def Info: immagini/scales.jpg  used on input line 568.
 (luatex.def)             Requested size: 284.52756pt x 135.06015pt.
- [18] [19<./immagini/scales.jpg>] [20]
+[18] [19<./immagini/scales.jpg>] [20]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [21])
@@ -1573,15 +1572,15 @@ Package rerunfilecheck Info: File `main_v2.out' has not changed.
 )
 
 Here is how much of LuaTeX's memory you used:
- 37537 strings out of 476076
+ 37535 strings out of 476076
  125129,1373583 words of node,token memory allocated
- 4726 words of node memory still in use:
-   32 hlist, 2 vlist, 14 rule, 2 glue, 4 kern, 12 sub_mlist, 1 glyph, 1176 attri
-bute, 75 glue_spec, 625 attribute_list, 2 write, 24 pdf_literal, 24 pdf_colorsta
+ 4738 words of node memory still in use:
+   32 hlist, 2 vlist, 14 rule, 2 glue, 4 kern, 12 sub_mlist, 1 glyph, 1180 attri
+bute, 75 glue_spec, 627 attribute_list, 2 write, 24 pdf_literal, 24 pdf_colorsta
 ck nodes
-   avail lists: 1:3,2:1720,3:804,4:340,5:1074,6:134,7:9710,8:111,9:2131,10:32,11
+   avail lists: 1:3,2:1720,3:811,4:340,5:1074,6:134,7:9710,8:111,9:2131,10:32,11
 :1231
- 58769 multiletter control sequences out of 65536+600000
+ 58767 multiletter control sequences out of 65536+600000
  93 fonts using 5923575 bytes
  98i,35n,113p,983b,1424s stack positions out of 10000i,1000n,20000p,200000b,200000s
 {/usr/share/texmf/fonts/enc/dvips/lm/lm-ec.enc}{/usr/share/texmf/fonts/enc/dvips
@@ -1607,7 +1606,7 @@ onts/type1/public/lm/lmr9.pfb></usr/share/texmf/fonts/type1/public/lm/lmri10.pfb
 /public/lm/lmro10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts
 /symbols/msbm10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/s
 ymbols/msbm7.pfb>
-Output written on main_v2.pdf (75 pages, 2414942 bytes).
+Output written on main_v2.pdf (75 pages, 2415884 bytes).
 
 PDF statistics: 1006 PDF objects out of 1200 (max. 8388607)
  847 compressed objects within 9 object streams
