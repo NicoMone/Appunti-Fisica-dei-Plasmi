@@ -61,18 +61,19 @@ Mentre per il secondo e terzo termine di eq.(\ref{Liouville}):
 
 \[\begin{split} 
 \int\sum^N_{i} \vec v_1 \cdot \frac{\partial F^{(n)}}{\partial \vec x_1} dx_2 ...dx_n dv_2 ...dv_n\ 
-&=\ \int v_1 \cdot \frac{\partial F^{(n)}}{\partial \vec x_1 } dx_2 ...dx_n dv_2 ...dv_n + \cancel{\int \sum^N_{i=2} \vec v_i \cdot \frac{\partial F^{(n)}}{\partial \vec x_i} dx_2 ...dx_n dv_2 ...dv_n} \ =\\ 
+&=\ \int v_1 \cdot \frac{\partial F^{(n)}}{\partial \vec x_1 } dx_2 ...dx_n dv_2 ...dv_n + 
+\overset{\text{per }i=2\ \ \ \int [\int \vec v_2 \cdot(\cancel{\int \frac{\partial f^{(n)}}{\partial x_2}dx_2)}dv_2]d\Gamma_{3...n}}{\overbrace{\cancel{\int \sum^N_{i=2} \vec v_i \cdot \frac{\partial F^{(n)}}{\partial \vec x_i} dx_2 ...dx_n dv_2 ...dv_n}}} \ =\\ 
 &= \vec v_1 \cdot \frac{\partial}{\partial \vec x_1} \int F^{(n)} dx_2 ...dx_n dv_2 ...dv_n \ =\ \vec v_1 \cdot \frac{\partial F^{(1)}}{\partial \vec x_1}\ \ \ \ ,
 \end{split}\]
 
 \[\begin{split} \int \sum^N_{i}\vec a_i \cdot \frac{\partial F^{(n)}}{\partial \vec v_i} dx_2 ...dx_n dv_2 ...dv_n\ 
 &=\ \vec a_1\cdot \frac{\partial}{\partial \vec v_1} \int F^{(n)} dx_2 ... dv_n\ +\ ... \\
-&\ \ \ \ \ \ \ \ ...\ +\ \underset{\vec a_i F^{(n)} - \int \frac{\partial \vec a_i}{\partial\vec v_i} F^(n)dx_2\dots dx_n dv_2\dots dv_n }{\underbrace{\sum^N_{i=2}\cancel{\int \vec a_i \cdot \frac{\partial F^{(n)}}{\partial \vec v_i} dx_2 ...dv_n}}} \ \ =\ \ \vec a_1 \cdot \frac{\partial F^{(1)}}{\partial \vec v_1} \ \ \ \ .
+&\ \ \ \ \ \ \ \ ...\ +\ \underset{\vec a_i F^{(n)}|_.^. - \int \frac{\partial \vec a_i}{\partial\vec v_i} F^{(n)}dx_2\dots dx_n dv_2\dots dv_n }{\underbrace{\sum^N_{i=2}\cancel{\int \vec a_i \cdot \frac{\partial F^{(n)} }{\partial \vec v_i} dx_2 ...dv_n}}} \ 
+\ =\ \ \vec a_1 \cdot \frac{\partial F^{(1)}}{\partial \vec v_1} \ \ \ \ .
 \end{split}\]
 
 
-
-Per esplicitarla $\vec a_i\, =\, \frac{q}{m}(\vec E\,+\, \vec v_i\cdot \vec B\, /\, c )$, si arriva così, nel limite in cui è possibile ignorare lo scattering di particelle, all'equazione cardine della descrizione statistica dei plasmi, l'\underline{equazione di Vlasov}:
+Esplicitiamo l'accelerazione $\vec a_i\, =\, \frac{q}{m}(\vec E\,+\, \vec v_i\cdot \vec B\, /\, c )$, si arriva così, nel limite in cui è possibile ignorare lo scattering di particelle, all'equazione cardine della descrizione statistica dei plasmi, l'\underline{equazione di Vlasov}:
 
 \begin{equation}\label{VLASOV}
 	\boxed{\ \frac{\partial F^{(1)}_\alpha}{\partial t}\ +\ \vec v_1 \cdot \frac{\partial F^{(1)}_\alpha}{\partial \vec x_1}\ +\ \frac{q_\alpha}{m_\alpha}\left( \vec E + \frac{\vec v \times \vec B}{c}\right)\cdot\frac{\partial F^{(1)}_\alpha}{\partial \vec v_1}\ =\ 0\ }
@@ -123,23 +124,26 @@ Rimettendo assieme questi 3 membri si ottiene dunque infine l'\underline{equazio
 \[\int \vec v_\alpha \vec v_\alpha \cdot \frac{\partial f_\alpha}{\partial \vec x_\alpha} \, d\vec v_\alpha\ =\ \frac{\partial}{\partial \vec x_\alpha}\, \int \vec v_\alpha \vec v_\alpha f_\alpha d\vec v_\alpha\ =\ \frac{\partial}{\partial \vec x_\alpha}\, \left( <\vec v_\alpha \vec v_\alpha> n_\alpha \right)\ .
 \]
 
-Così infine da Vlasov si arriva alla forma:
+Così infine da Vlasov si arriva all'\underline{equazione del moto} :
 
-\[ \frac{\partial (n_\alpha \vec u_\alpha)}{\partial t}\ +\ n_\alpha\, \nabla <\vec v \vec v>_\alpha\ -\ n_\alpha \frac{q_\alpha}{m_\alpha} \left(\vec E + \frac{\vec u_\alpha \times \vec B}{c}\right)\ =\ 0 \]
+\begin{equation} 
+	\label{moto 1}
+	\boxed{\frac{\partial (n_\alpha \vec u_\alpha)}{\partial t}\ +\ n_\alpha\, \nabla <\vec v \vec v>_\alpha\ -\ n_\alpha \frac{q_\alpha}{m_\alpha} \left(\vec E + \frac{\vec u_\alpha \times \vec B}{c}\right)\ =\ 0 } 
+\end{equation}
 
-Per il calcolo di $<\vec v \vec v>_\alpha$ è utile scomporre la velocità in $\vec v = \vec u + \vec w$ (cfr. prox sezione di approfondimento) con $\vec u = <\vec v>$ velocità media mentre $\vec w$ è la velocità della singola particella oltre la media $\vec u$ e che verifica $<\vec w>=0$.
+Per il calcolo di $<\vec v \vec v>_\alpha$ è utile scomporre la velocità in $\vec v = \vec u + \vec w$, dove $\vec u = <\vec v>$ è la velocità media mentre $\vec w$ è la velocità ('peculiare') della singola particella che si discosta dalla media, che verifica $<\vec w>=0$.
 
 \[\langle\,\vec v \vec v\,\rangle_\alpha\ =\ \langle(\vec u + \vec w)(\vec u + \vec w)\rangle_\alpha\ =\ \bar u _\alpha \bar u_\alpha\, +\, \cancel{u_\alpha \langle \vec w_\alpha\rangle}\, +\, \cancel{\langle w_\alpha \rangle \vec v_\alpha}\, +\, \langle \vec w_\alpha \vec w_\alpha \rangle\]
 così che:
 
 \begin{equation}\label{moto}
-	\boxed{\ \frac{\partial (n_\alpha \vec u_\alpha)}{\partial t}\, +\,  \nabla\cdot \left[n_\alpha \left( \bar u _\alpha \bar u_\alpha\, +\, \langle \vec w_\alpha \vec w_\alpha \rangle \right) \right]\, -\, n_\alpha\frac{q_\alpha}{m_\alpha} \left(\vec E + \frac{\vec u_\alpha \times \vec B}{c}\right)\ =\ 0\ }
+	 \frac{\partial (n_\alpha \vec u_\alpha)}{\partial t}\, +\,  \nabla\cdot \left[n_\alpha \left( \bar u _\alpha \bar u_\alpha\, +\, \langle \vec w_\alpha \vec w_\alpha \rangle \right) \right]\, -\, n_\alpha\frac{q_\alpha}{m_\alpha} \left(\vec E + \frac{\vec u_\alpha \times \vec B}{c}\right)\ =\ 0\ \ .
 \end{equation}
 
-Quest'ultima trovata è - di fatto - un'\underline{equazione del moto}.
+Quest'ultima trovata è - di fatto - un'altra forma dell'equazione del moto in eq.\ref{moto}, ma ci permetterà ora di introdurre il tensore di pressione.
 
 \vspace{0.5cm}
-\begin{approfondimento}{Definizioni a margine}
+\begin{approfondimento}{Definizioni}
 	La velocità introdotta sopra $\boxed{\vec w = \vec v - \vec u}\ \ (= \vec v - \langle \vec v \rangle)$ è detta \underline{velocità peculiare}.
 	Possiamo definire anche un \underline{tensore di pressione:}
 	\[\mathbf{P}\ =\ m\int\, (\vec v - \vec u)\,(\vec v - \vec u)\, f(\vec x, \vec v, t)\, d\vec v\ =\ m \,n_\alpha\, \langle \vec w \vec w\rangle\ \ \ \ ,\]
@@ -174,13 +178,14 @@ Ripetiamo un processo simile a quello del paragrafo precedente per trovare l'equ
 
 \[ \int \frac{q}{2} v^2 \left( \vec E + \frac{\vec v \times \vec B}{c}\right) \frac{\partial f}{\partial v} d\vec v\ =\ \frac{q}{2} \int v^2 \vec D \frac{\partial f}{\partial v} d\vec v\ =\ - \color{blue}{nq\vec u} \color{black}{\cdot \vec E \ =\ -} \color{blue}{\vec J} \color{black}{\cdot \vec E} \]
 
-Come si vede evidenziato in blu abbiamo definito tre grandezze: nel primo termine si è definita una sorta di energia media (più un'\underline{energia cinetica collettiva locale}) $\boxed{\varepsilon = \displaystyle\int \frac{1}{2} m v^2 f d\vec v=\frac{1}{2}mn\langle v^2\rangle}$; nel secondo termine si è definito il \underline{flusso di energia convettiva} $\boxed{\vec Q= \frac{1}{2}m\int v^2 \vec v f d\vec v = \frac{1}{2}mn\langle v^2 \vec v\rangle}$; nel terzo termine invece riincontriamo una definizione di \underline{corrente di particelle}.
+Come si vede evidenziato in blu abbiamo definito tre grandezze: nel primo termine si è definita una sorta di energia media (più un'\underline{energia cinetica collettiva locale}) $\boxed{\varepsilon = \displaystyle\int \frac{1}{2} m v^2 f d\vec v=\frac{1}{2}mn\langle v^2\rangle}$; nel secondo termine si è definito il \underline{flusso di energia convettiva} $\boxed{\vec Q= \frac{1}{2}m\int v^2 \vec v f d\vec v = \frac{1}{2}mn\langle v^2 \vec v\rangle}$; nel terzo termine invece riincontriamo una definizione di \underline{corrente di particelle} ($\vec J=nq\vec u$).
 
+\vspace{0.5cm}
 Mettendo assieme questi risultati otteniamo un'equazione per il bilancio di energia:
 
 
 \begin{equation}
-	\boxed{\ \frac{\partial \varepsilon}{\partial t}\ =\ -\vec \nabla\cdot \vec Q + \vec E\cdot\vec J\ }
+	\boxed{\ \frac{\partial \varepsilon}{\partial t}\ =\ -\vec \nabla\cdot \vec Q +\vec J \cdot \vec E\ }
 \end{equation}
 
 \vspace{0.3cm}
