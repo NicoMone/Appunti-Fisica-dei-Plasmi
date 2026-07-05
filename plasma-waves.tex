@@ -113,7 +113,7 @@ Abbiamo detto che ricaveremo queste onde partendo dal modello a due fluidi quind
 \[
 \begin{cases}
 	\frac{\partial n_\alpha}{\partial t}\, +\, \vec \nabla \cdot (n_\alpha \vec u_\alpha)\ =\ 0\ \ ,\\
-	m_\alpha n_\alpha \left(\frac{\partial \vec u_\alpha}{\partial t + \vec u_\alpha \cdot \vec \nabla \vec u_\alpha }\right)\ =\ -\vec \nabla P_\alpha\, +\, n_\alpha q_\alpha\,\left(\vec E + \frac{1}{c}\vec u_\alpha \times \vec B\right)\ \ ,\\
+	m_\alpha n_\alpha \left(\frac{\partial \vec u_\alpha}{\partial t} + \vec u_\alpha \cdot \vec \nabla \vec u_\alpha \right)\ =\ -\vec \nabla P_\alpha\, +\, n_\alpha q_\alpha\,\left(\vec E + \frac{1}{c}\vec u_\alpha \times \vec B\right)\ \ ,\\
 	\frac{D}{Dt} \left(P_\alpha n_\alpha^{-\gamma_\alpha}\right)\ =\ 0\ \ .	
 \end{cases}
 \]
@@ -753,7 +753,7 @@ Ci sono alcune cose che è bene notare \begin{enumerate}
 
 Ripartiamo dalla nostra relazione del dielettrico, se $\epsilon(k,\omega)=0$ allora abbiamo un modo normale, in generale abbiamo
 
-\[\boxed{\ \epsilon(k,\omega)\ =\ 1\,-\,\frac{\omega_e^2}{k^2}\int\frac{\partial_ug(u)}{(u-\dfrac{\omega}{k})}du\ }\] 
+\[\boxed{\ \epsilon(k,\omega)\ =\ 1\,-\,\frac{\omega_e^2}{k^2}\int\frac{\partial_ug(u)}{(u-\dfrac{\omega}{k})}du\ =\ 0\ }\ \ \ .\] 
 
 Ricordiamoci sempre che stiamo facendo la trasformata di Fourier cercando il modo che sopravvive più a lungo che corrisponde ad un \textit{polo lontano} con $|\omega_i|\ll|\omega_r|$, praticamente stiamo dicendo che il damping c'è ma poco. 
 
@@ -761,7 +761,7 @@ Per contestualizzare bene quello che stavamo facendo prima il polo c'era lo stes
 
 Sviluppiamo il nostro dielettrico attorno a $\omega_r$, proprio considerando $|\omega_i|\ll|\omega_r|$: 
 
-\[\epsilon(k,\omega)\ \simeq\ \epsilon_r(k,\omega_r)\, +\, i\epsilon_i(k,\omega_r)\, +\, i\omega_i\frac{\partial \epsilon_r}{\partial\omega}\bigg|_{\omega=\omega_r}\, -\, \cancelto{\text{ordine successivo}}{\omega_i\frac{\partial \epsilon_i}{\partial\omega}\bigg|_{\omega=\omega_r}}\ \overset{!}{=}\ 0\ \ .\] 
+\[\epsilon(k,\omega_r+i\omega_i)\ \ \simeq\ \ \epsilon_r(k,\omega_r)\, +\, i\epsilon_i(k,\omega_r)\, +\, i\omega_i\frac{\partial \epsilon_r}{\partial\omega}\bigg|_{\omega=\omega_r}\, -\, \cancelto{\text{ordine successivo}}{\omega_i\frac{\partial \epsilon_i}{\partial\omega}\bigg|_{\omega=\omega_r}}\ \overset{!}{=}\ 0\ \ .\] 
 
 Si impone che siano nulle sia la parte reale che la parte immaginaria (per trovare il modo normale). 
 
