@@ -10,7 +10,7 @@
 	& \frac{\partial \rho}{\partial t} + \vec\nabla \cdot (\rho \vec u) = 0 \\
 	\text{eq.\ del moto:} \qquad
 	& \rho\!\left( \frac{\partial \vec u}{\partial t} + (\vec u \cdot \vec\nabla)\vec u \right)
-	= -\vec\nabla p + \frac{1}{4\pi}(\vec\nabla \times \vec B)\times \vec B \\
+	= -\vec\nabla P + \frac{1}{4\pi}(\vec\nabla \times \vec B)\times \vec B \\
 	\text{Faraday-Maxwell:} \qquad
 	& \frac{\partial \vec B}{\partial t}
 	= \vec\nabla \times (\vec u \times \vec B) \\
@@ -37,9 +37,12 @@ Anzi, l'equazione di Faraday in questo caso si riduce ad un'equazione di diffusi
 
 Prendiamo l'eq. del moto e poniamo le condizioni di stazionarietà introdotte:
 
-\[\vec \nabla P\ =\ \frac{1}{c}\, \vec J\times\vec B\ =\ \frac{1 }{4\pi}\,[(\vec\nabla\times\vec B)\times\vec B ]\] 
+\[0\ =\ -\vec \nabla P\, +\, \frac{1}{c}\, \vec J\times\vec B
+\quad \implies \quad 
+\boxed{\ \vec \nabla P\ =\ \frac{1 }{4\pi}\,[(\vec\nabla\times\vec B)\times\vec B ]\ }\] 
 
 All'equilibrio le linee di campo magnetico e della corrente giacciono su delle supoerfici isobare, perché il gradiente della pressione equivale a un prodotto vettoriale proprio fra il campo vettoriale della corrente e quello del campo magnetico (questo non dice nulla tuttavia sull'orientazione reciproca dei due campi vettoriali). 
+
 
 \[
 	\nabla P\ =\ \frac{\vec j \times \vec b}{c} 
@@ -52,20 +55,31 @@ All'equilibrio le linee di campo magnetico e della corrente giacciono su delle s
 
 Poiché la forza di Lorentz è sempre perpendicolare sia a $\vec j$ che a $\vec B$, anche il gradiente di pressione deve essere perpendicolare a entrambi.
 
-\[\left(\vec \nabla \times \vec B \right)\times \vec B\ =\ 
--\,\frac{1}{2}\nabla B^2\, +\, \underset{(\vec B\cdot \vec \nabla)\,\vec B}{\underbrace{\vec\nabla : \left(\frac{\overset{\text{tensore}}{\vec B \vec B}}{2}\right)}} 
-\qquad \Rightarrow \qquad
-\vec \nabla \left(P\,+\, \frac{B^2}{8\pi}\right)\ =\ \nabla : \left(\frac{\vec B \vec B}{2}\right)
-\]
+
 
 %
 %
 \subsubsection{Equazione di Faraday} 
 Assume la forma di un'equazione di diffusione (derivata temporale del campo proporzionale al laplaciano), con una resistività $\eta$.
 
-\[\frac{\partial \vec B}{\partial t}\ =\ \eta\,\frac{c^2}{4\pi}\,\nabla^2\vec B\] 
+Sostituendo $\vec E$ dall'equazione di Ohm resistiva in Farady si ottiene:
+
+\[\text{se } \vec E\ =\ \frac{\vec u \times \vec B}{c}\, +\, \eta \vec j
+\quad \implies \quad
+\frac{\partial \vec B}{\partial t}\ =\ -c\, \vec \nabla \times \vec E\ =\ \vec \nabla \times \vec u\times \vec B\, -\, c\eta \vec \nabla \times\vec j\]
+
+Usando invece la legge di Ampère:
+
+\[\vec \nabla\times \vec j\ =\ \frac{c}{4\pi} \vec \nabla \times  (\vec \nabla \times \vec B)\ =\ \frac{c}{4\pi}\, (\vec \nabla (\vec \nabla\cdot \vec B) - \vec \nabla^2 B)\]
 
 
+\[\boxed{\ \frac{\partial \vec B}{\partial t}\ =\ \vec \nabla \times (\vec u\times \vec B)\, -\, \eta\,\frac{c^2}{4\pi}\,\nabla^2\vec B\ } \] 
+
+\[\left(\vec \nabla \times \vec B \right)\times \vec B\ =\ 
+-\,\frac{1}{2}\nabla B^2\, +\, \underset{(\vec B\cdot \vec \nabla)\,\vec B}{\underbrace{\vec\nabla : \left(\frac{\overset{\text{tensore}}{\vec B \vec B}}{2}\right)}} 
+\qquad \Rightarrow \qquad
+\vec \nabla \left(P\,+\, \frac{B^2}{8\pi}\right)\ =\ \nabla : \left(\frac{\vec B \vec B}{2}\right)
+\]
 
 
 %
@@ -231,7 +245,8 @@ Andiamo a definire una quantità che semplifichi l'espressione sopra per poterne
 
 \[\bar \nabla \times \left[(\bar \nabla \times \bar B)\times \bar B\right]\ =\ \left(0,\ -\partial_z (\partial_r \psi \frac{1}{r^2}\Delta^{*2} \psi)+\partial_r (\partial_z \psi \frac{1}{r^2}\Delta^{*2} \psi),\ 0\right)\]
 
-La condizione di Ferraro si riduce così alla condizioen scalare $0=-\partial_z (\partial_z \psi \frac{1}{r^2}\Delta^{*2} \psi)+\partial_r (\partial_z \psi \frac{1}{r^2}\Delta^{*2} \psi)$ ($\iff\ \frac{\partial f}{\partial x} \frac{\partial g}{\partial y} - \frac{\partial f}{\partial y} \frac{\partial g}{\partial x}=0$ per $f=\psi$ e $g=\frac{1}{r^2}\Delta^{*2} \psi$).
+La condizione di Ferraro si riduce così alla condizione scalare \[-\partial_z (\partial_r \psi \frac{1}{r^2}\Delta^{*2} \psi)+\partial_r (\partial_z \psi \frac{1}{r^2}\Delta^{*2} \psi)\ \overset{!}{=}\ 0
+\quad \left(\iff\ \frac{\partial f}{\partial x} \frac{\partial g}{\partial y} - \frac{\partial f}{\partial y} \frac{\partial g}{\partial x}=0,\ \  \text{per } f=\psi \text{ e } g=\frac{1}{r^2}\Delta^{*2} \psi \right)\ \ .\]
 
 Definiamo $F(\psi)$ dall'\underline{equazione di Grad-Shafranov semplificata} (senza $\nabla P$):
 
