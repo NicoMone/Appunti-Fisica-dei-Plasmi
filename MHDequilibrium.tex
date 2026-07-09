@@ -248,7 +248,7 @@ Andiamo a definire una quantità che semplifichi l'espressione sopra per poterne
 La condizione di Ferraro si riduce così alla condizione scalare \[-\partial_z (\partial_r \psi \frac{1}{r^2}\Delta^{*2} \psi)+\partial_r (\partial_z \psi \frac{1}{r^2}\Delta^{*2} \psi)\ \overset{!}{=}\ 0
 \quad \left(\iff\ \frac{\partial f}{\partial x} \frac{\partial g}{\partial y} - \frac{\partial f}{\partial y} \frac{\partial g}{\partial x}=0,\ \  \text{per } f=\psi \text{ e } g=\frac{1}{r^2}\Delta^{*2} \psi \right)\ \ .\]
 
-Definiamo $F(\psi)$ dall'\underline{equazione di Grad-Shafranov semplificata} (senza $\nabla P$):
+Definiamo una certa funzione $F(\psi)$ perché per annullare lo jacobiano $g$ dev'essere funzione di $f$ e si arriva infine all'\underline{equazione di Grad-Shafranov semplificata} (senza $\nabla P$):
 
 \begin{equation}
 \label{Grad-Shafranov sempl}
@@ -269,7 +269,7 @@ Applichiamo la condizione di Ferraro $\bar \nabla \times [(\bar \nabla \times \b
 
 \[
 \bar \nabla \times [(\bar \nabla \times \bar B)\times \bar B]\ =\ 
-[0,\ -\frac{\partial}{\partial z}\left(\frac{B_\theta}{r}\frac{\partial (rB_\theta)}{\partial r}\right)\, +\, \frac{\partial}{\partial r}\left(B_\theta \frac{\partial B_\theta}{\partial z}\right),\ 0]
+[\,0,\ -\frac{\partial}{\partial z}\left(\frac{B_\theta}{r}\frac{\partial (rB_\theta)}{\partial r}\right)\, +\, \frac{\partial}{\partial r}\left(B_\theta \frac{\partial B_\theta}{\partial z}\right),\ 0\, ]
 \]
 
 \[
@@ -286,15 +286,15 @@ Completando i calcoli si osserva che non è possibile ottenere un equilibrio MHD
 
 Consideriamo l'equazione del moto MHD all'equilibrio in assenza di campo gravitazionale: 
 
-\[\vec \nabla P = \frac{1}{4\pi}\, (\vec \nabla \times \vec B)\times \vec B\ \ .\] 
+\[\vec \nabla P\ =\ \frac{1}{4\pi}\, (\vec \nabla \times \vec B)\times \vec B\ \ .\] 
 
 Calcoliamo quindi gradiente e rotori in condizione di assisimmetria ($\partial_\theta =0$):
 
-\[\vec \nabla P\ =\ (\frac{\partial p}{\partial r};\,0;\,\frac{\partial p}{\partial z})\]
+\[\vec \nabla P\ =\ \left(\,\frac{\partial p}{\partial r};\ 0;\ \frac{\partial p}{\partial z}\, \right) \]
 
 \[\vec \nabla \times \vec B \ =\
-\left[-\frac{\partial B_\theta}{\partial z},\, -\frac{\partial}{\partial z}\left(\frac{1}{r}\frac{\partial \psi}{\partial z}\right)-\frac{\partial}{\partial r}\left(\frac{1}{r}\frac{\partial \psi}{\partial r}\right) ,\, \frac{1}{r}\frac{\partial (r B_\theta)}{\partial r}\right]\ =\ 
-\left[-\frac{\partial B_\theta}{\partial z},\, -\frac{1}{r}\Delta^2 \psi,\, \frac{1}{r}\frac{\partial (r B_\theta)}{\partial r}\right]\]
+\left[-\frac{\partial B_\theta}{\partial z},\ -\frac{\partial}{\partial z}\left(\frac{1}{r}\frac{\partial \psi}{\partial z}\right)-\frac{\partial}{\partial r}\left(\frac{1}{r}\frac{\partial \psi}{\partial r}\right) ,\ \frac{1}{r}\frac{\partial (r B_\theta)}{\partial r}\right]\ =\ 
+\left[-\frac{\partial B_\theta}{\partial z},\ -\frac{1}{r}\Delta^2 \psi,\ \frac{1}{r}\frac{\partial (r B_\theta)}{\partial r}\right]\]
 
 \[(\vec \nabla \times \vec B) \times \vec B\ =\ 
 \left[-\frac{1}{r^2}\frac{\partial \psi}{\partial r}\Delta^2 \psi-\frac{B_\theta}{r}\frac{\partial (r B_\theta)}{\partial r},\,
@@ -338,5 +338,7 @@ Definendo una funzione $\boxed{g(\psi)=4\pi p}$ (da cui $p=g(\psi)/4\pi$) vediam
 L'equazione di Grad-Shafranov rappresenta l'equazione fondamentale per equilibri assisimmetrici, cioè aventi simmetria di rotazione.
 
 Per ogni scelta di $f(\psi)=rB_\theta$ e $g(\psi)=4\pi p$, risolvendo eq.\ref{Grad-Shafranov} si trova una funzione di flusso $\psi(r,z)$ che, tramite la relazione $\bar B\ =\ \left(-\frac{1}{r} \frac{\partial \psi}{\partial z},\, 0,\, \frac{1}{r}\frac{\partial \psi}{\partial r}\right)$ già presentata, fornisce una possibile configurazione magnetica di equilibrio.
+
+\vspace{0.5cm}
 
 \textbf{N.B.:} l'equazione di Grad-Shafranov semplificata in eq.\ref{Grad-Shafranov sempl} è un caso particolare di eq.\ref{Grad-Shafranov} che corrisponde alla scelta $f(\psi)=0$

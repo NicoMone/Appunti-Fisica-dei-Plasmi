@@ -56,7 +56,7 @@
 \contentsline {subsubsection}{osserviamo i vari limiti}{46}{subsubsection*.24}%
 \contentsline {section}{\numberline {5.3}Damping di Landau}{47}{section.5.3}%
 \contentsline {subsubsection}{Condizioni per il Damping di Landau}{47}{subsubsection*.25}%
-\contentsline {subsubsection}{Plasma Magnetizzato vs. Non Magnetizzato}{47}{subsubsection*.27}%
+\contentsline {subsubsection}{Plasma Magnetizzato vs. Non Magnetizzato}{48}{subsubsection*.27}%
 \contentsline {subsubsection}{LD emerge dal framework cinetico: riprendiamo l'eq. di Vlasov.}{48}{subsubsection*.28}%
 \contentsline {subsubsection}{Caratteristiche Fondamentali del Damping di Landau}{49}{subsubsection*.30}%
 \contentsline {subsection}{\numberline {5.3.1}Equazioni di partenza}{49}{subsection.5.3.1}%

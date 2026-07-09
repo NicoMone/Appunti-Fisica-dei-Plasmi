@@ -331,8 +331,6 @@ Ripartiamo ancora dal nostro sistema in trasformata sviluppando con onde piane, 
 
 La relazione di dispersione trovata è fondamentale, è la \underline{'frequenza di plasma elettronica'} e definisce la frequenza di oscillazione tipica degli elettroni in risposta a variazioni locali del campo. 
 
-Nel limite $k\rightarrow 0$ la \underline{'frequenza di Langmuir'} 
-
 Si faccia attenzione al fatto che questa relazione è dispersiva, non è che se non compare $k$ nell'espressione di $\omega$ allora non c'è dispersione, perchè non c'è dispersione quando $\omega/k=cost$. è vero, però che in questo caso la \underline{velocità di gruppo} è nulla, $\boxed{v_g\equiv \frac{d\omega}{d k}}=0$.
 
 Il plasma reagisce alla stessa frequenza indipendentemente dalla lunghezza d'onda. 
@@ -479,7 +477,7 @@ Ancora una volta si assumono onde piane così che il passaggio in Fourier sia im
 
 Prima di trasformare con Fourier anche le condizioni date dall'equazione di Maxwell-Ampère riportiamo la definizione di corrente di plasma e vi inseriamo l'espressione della variazione di velocità per avere una forma della risposta lineare del plasma:
 
-\[ \vec j\ =\ \sum_\alpha q_\alpha n_{0,\,\alpha}\delta \vec u\alpha\ =\ \sum  q_\alpha n_{0,\,\alpha}\left( \frac{q_\alpha}{m_\alpha (-i\omega)}\bar E\right)\ =\ -\frac{i}{\omega}\sum_\alpha \frac{ q^2_\alpha n_{0,\,\alpha}}{m_\alpha} \vec E \]
+\[ \vec j\ =\ \sum_\alpha q_\alpha n_{0,\,\alpha}\delta \vec u\alpha\ =\ \sum  q_\alpha n_{0,\,\alpha}\left( \frac{q_\alpha}{m_\alpha (-i\omega)}\bar E\right)\ =\ \frac{i}{\omega}\sum_\alpha \frac{ q^2_\alpha n_{0,\,\alpha}}{m_\alpha} \vec E \]
 
 \[\vec\nabla\times\vec B\ =\ \frac{1}{c}\frac{\partial \bar E}{\partial t} \,+\, \frac{4\pi}{c}\vec j\quad \quad\Rightarrow \quad\quad \quad i\vec k \times \vec B\, =\, -\frac{i\omega}{c}\vec E\, +\,\frac{4\pi}{c}\,\frac{i}{\omega}\sum_\alpha \frac{n_{0,\,\alpha} q_{0,\,\alpha}^2}{m_\alpha}\, \vec E\]
 

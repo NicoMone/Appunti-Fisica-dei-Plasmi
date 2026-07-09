@@ -291,7 +291,7 @@ Le onde in MHD si dividono in tre gruppi, due magnetosoniche e poi le onde di Al
 
 \subsection{Onde di Alfvén}
 
-Le \textbf{onde di Alfvén} sono onde \underline{non dispersive}, inoltre non sono \underline{compressive} ($\vec \nabla \cdot \vec u\, =\, 0$), quindi l'energia che trasportano può essere portata più lontano rispetto ad onde compressive.
+Le \textbf{onde di Alfvén} sono onde \underline{non dispersive}, inoltre non sono \underline{compressive} ($\vec k \cdot \vec u\, =\, 0$), quindi l'energia che trasportano può essere portata più lontano rispetto ad onde compressive.
 
 Ancora una volta linearizziamo $\rho,\ p,\ \vec u\ $, usiamo un pedice 0 per le quantità ad equilibrio ($\rho_0,\ p_0,\ \vec u_0\ $) ed un pedice 1 per le fluttuazioni ($\rho_1,\ p_1,\ \vec u_1\ $). 
 
@@ -300,7 +300,7 @@ Vale $\vec\nabla\cdot \vec B=0=\frac{\partial b}{\partial z}$ quindi il nostro s
 
 \[\begin{cases}
 	\displaystyle \frac{\partial \rho_1}{\partial t} + \rho_0\,\vec \nabla\cdot \vec u\ =\ 0\\
-	\displaystyle \rho_0 \frac{\partial \vec u}{\partial t}\ =\ -\vec \nabla p_1 + \frac{1}{4\pi}B_0 \hat e_z\times (\vec \nabla\times\vec b)\\
+	\displaystyle \rho_0 \frac{\partial \vec u}{\partial t}\ =\ -\vec \nabla P_1 - \frac{1}{4\pi}B_0 \hat e_z\times (\vec \nabla\times\vec b)\\
 	\displaystyle \frac{\partial \vec b}{\partial t}\ =\ \vec \nabla \times (\vec u \times B_0\hat e_z)\\
 	\vec \nabla p_1\ =\ c_s^2\ \vec \nabla \rho_1
 \end{cases}\]
@@ -310,7 +310,7 @@ Proseguiamo i calcoli in trasformata di Fourier:
 \[
 \begin{cases}
 	\displaystyle \frac{\partial \rho_1}{\partial t} + \rho_0\,\vec \nabla\cdot \vec u\ =\ 0\\
-	\displaystyle \rho_0 \frac{\partial \vec u}{\partial t}\ =\ -c_s^2\ \vec \nabla \rho_1 + \frac{1}{4\pi}B_0 \hat e_z\times (\vec \nabla\times\vec b)\\
+	\displaystyle \rho_0 \frac{\partial \vec u}{\partial t}\ =\ -c_s^2\ \vec \nabla \rho_1 - \frac{1}{4\pi}B_0 \hat e_z\times (\vec \nabla\times\vec b)\\
 	\displaystyle \frac{\partial \vec b}{\partial t}\ =\ \vec \nabla \times (\vec u\times  B_0 \hat e_z)
 \end{cases}
 \quad \quad \Rightarrow \quad \quad 
@@ -331,15 +331,43 @@ Proseguiamo i calcoli in trasformata di Fourier:
 		b_k & b_y & b_{\bar z}
 	\end{vmatrix} \ =\ -k b_{\bar z} \hat y\, +\, k b_y \hat{\bar z} \]
 	
+\begin{multicols}{2}
 	\begin{figure}[H]
 		\centering
-		\includegraphics[width=0.6\linewidth]{immagini/riferimento.jpeg}
+		\includegraphics[width=0.9\linewidth]{immagini/riferimento.jpeg}
 		\caption{cambio di sistema di riferimento $(\hat x, \hat y, \hat z) \ \ \rightarrow \ \ (\hat k, \hat y, \hat{\bar z})$}
 		\label{fig:sist di rif}
 	\end{figure}
+	
+	Per le trasformazioni fra vettori si usino le trasformazioni:
+	\[\begin{pmatrix}
+		k \\ y \\ \bar z
+	\end{pmatrix}\ =\ 
+	\begin{pmatrix}
+		\sin\theta & 0 &\cos\theta\\ 
+		0 & 1 & 0\\
+		-\cos\theta & 0 & \sin\theta
+	\end{pmatrix}
+	\ \begin{pmatrix}
+		x \\ y \\ z
+	\end{pmatrix}\]
+	
+	\[\begin{pmatrix}
+		x \\ y \\ z
+	\end{pmatrix}\ =\ 
+	\begin{pmatrix}
+		\sin\theta & 0 & - \cos\theta\\ 
+		0 & 1 & 0\\
+		\cos\theta & 0 & \sin\theta
+	\end{pmatrix}
+	\ \begin{pmatrix}
+		k \\ y \\ \bar z
+	\end{pmatrix}\]
+	
+	Ad esempio si vede come nel sistema (x,y,z) il vettore d'onda sia $(k, 0, 0 )_{k,y,\bar z}\, =\, (k\sin\theta, 0, k\cos\theta)_{x,y,z} \equiv (k_\perp, 0 , k_\parallel)_{x,y,z}$
+\end{multicols}
 
-
-\[  B_0\hat e_z\times (\vec k\times \vec b) \ =\ \begin{vmatrix} 
+\[  B_0\hat z\times (\vec k\times \vec b) \ =\ \begin{vmatrix} 
 	\hat x & \hat y & \hat z \\ 
 	0 & 0 & B_0\\
 	-k_{\parallel} b_y & - k b_{\bar z} & k_{\perp} b_y
@@ -347,7 +375,9 @@ Proseguiamo i calcoli in trasformata di Fourier:
 
 Ne deriva che la seconda equazione del sitema sia:  
 
-\[\omega \rho_0\vec u\ =\ c^2_S \vec k \rho_1\, +\, \frac{1}{4\pi}(kB_0 b_{\bar z} \hat x - k_\parallel b_y B_0 \hat y)\ \ .\] 
+\[\omega \rho_0\vec u\ =\ c^2_S \vec k \rho_1\, +\, \frac{1}{4\pi}(kB_0 \vec b_{\bar z} \hat x - k_\parallel \vec b_y B_0 \hat y)\ \ .\] 
+
+Si faccia attenzione al fatto che $\vec b_{\bar z} = -\cos\theta \vec b_x + \sin\theta \vec b_z$.
 
 Finito questo rimaneggiamento passiamo a fare lo stesso per la terza equazione:
 
@@ -360,10 +390,41 @@ Finito questo rimaneggiamento passiamo a fare lo stesso per la terza equazione:
 \[ \vec k\times (\vec u\times \vec B_0) \ =\ \begin{vmatrix} 
 	\hat k & \hat y & \hat{\bar z} \\ 
 	k & 0 & 0\\
-	-sin\theta B_0 u_y & cos\theta B_0 u_x & cos\theta B_0 u_y
+	sin\theta B_0 u_y & B_0 u_x & -cos\theta B_0 u_y
 \end{vmatrix} \ =\ -k_\parallel B_0 u_y \hat y + k B_0 u_x \hat z\]
 
-In questo modo abbiamo ridotto il sistema ad uno di :
+Il sistema di equazioni MHD, linearizzate ed in trasformata di Fourier, si riduce così a:
+
+\begin{equation}
+	\label{eq:onde MHD}
+	\begin{cases}
+		\omega\, \rho_0\,
+		\begin{pmatrix}
+			u_x \\ u_y \\ u_z
+		\end{pmatrix}  
+		\ =\ 
+		c^2_s\, \rho_1\,
+		\begin{pmatrix}
+			k_\perp\\ 0 \\ -k_\parallel
+		\end{pmatrix}   
+		\ +\ 
+		\frac{B_0}{4\pi}
+		\begin{pmatrix}
+			k (-\cos\theta b_x + \sin\theta b_z)\\ -k_\parallel b_y\\ 0
+		\end{pmatrix} 
+		\\
+		-\,\omega\,
+		\begin{pmatrix}
+			b_x \\ b_y \\ b_z
+		\end{pmatrix} 
+		\ =\ B_0\,
+		\begin{pmatrix}
+			k_\parallel u_x\\ k_\parallel u_y\\ -k_\perp u_x
+		\end{pmatrix}  
+	\end{cases}
+\end{equation} 
+
+Se ci limitiamo ad osservare la proiezione lungo $\hat y$ riduciamo il sistema a:
 \[\begin{cases}
 	\omega b_y\ =\ -k_\parallel B_0 u_y\\
 	\omega \rho_0 u_y\ =\ \frac{B_0}{4\pi}\, k_\parallel b_y
@@ -377,12 +438,12 @@ Otteniamo $\omega u_y = \omega^2 b_y / (k_\parallel B_0)$ e $\rho_0 \omega^2 b_y
 	\boxed{\ \omega^2\ =\ k^2_\parallel c^2_a\ =\ k^2\, cos^2\theta\, c^2_a\ }
 \end{equation}
 
-Notiamo che per $\theta = \pi/2$ non vi sono onde. Ricordiamo anche che si è usata la definizione di velocità di Alfvén $c_A \equiv B_0 / \sqrt{4\pi \rho_0}$ (notare la differenza dalla già definita velocità di Alfvén $v_A \equiv B_0 / \sqrt{4\pi \rho}$).
+Notiamo che per $\theta = \pi/2$ non vi sono onde. Ricordiamo anche che si è usata la definizione di velocità di Alfvén $\boxed{c_a^2 \equiv B^2_0 / 4\pi \rho_0}$ (notare la differenza dalla già definita velocità di Alfvén $v_A \equiv B_0 / \sqrt{4\pi \rho}$).
 
 L'energia si propaga lungo $\hat z$ mentre l'onda si propaga lungo $\hat k$
 
-\[ c_\phi\ =\ \frac{\omega}{k}\ =\ c_A\ cos\theta
-\quad \quad \quad \quad \tau_y\ =\ c_A\, \hat z\ =\ \frac{d\omega}{dk}\]
+\[ c_\phi\ =\ \frac{\omega}{k}\ =\ c_a\ cos\theta
+\quad \quad \quad \quad \tau_y\ =\ c_a\, \hat z\ =\ \frac{d\omega}{dk}\]
 
 
 %
@@ -393,6 +454,7 @@ Riprendiamo il sistema precedente, questa volta consideriamo la direzione perpen
 
 \[ \begin{cases}
 	\omega \rho_1\ =\ \rho_0\ \vec k\cdot \vec u\ =\ \rho_0\ (k_\perp u_x + k_\parallel u_z)\\
+	P_1\ =\ c^2_s\, \rho_1\ =\ \frac{\rho_0}{\omega}\ (k_\perp u_x + k_\parallel u_z)\\
 	\omega\, \rho_0\, \vec u\ =\ \bar c_s^2 \bar k \rho_1 + \frac{\bar B_0}{4\pi}\hat e_z\times (\vec k\times \vec b)\\
 	\omega\,\vec b\ =\ -\vec k\times (\vec u \times \vec B_0)
 \end{cases} \]
