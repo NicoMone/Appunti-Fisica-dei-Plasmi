@@ -364,14 +364,15 @@ Proseguiamo i calcoli in trasformata di Fourier:
 		k \\ y \\ \bar z
 	\end{pmatrix}\]
 	
-	Ad esempio si vede come nel sistema (x,y,z) il vettore d'onda sia $(k, 0, 0 )_{k,y,\bar z}\, =\, (k\sin\theta, 0, k\cos\theta)_{x,y,z} \equiv (k_\perp, 0 , k_\parallel)_{x,y,z}$
+	Ad esempio si vede come nel sistema (x,y,z) il vettore d'onda sia $(k, 0, 0 )_{k,y,\bar z}\, =\, (k\sin\theta, 0, k\cos\theta)_{x,y,z} \equiv (k_x
+	, 0 , k_z)_{x,y,z}$
 \end{multicols}
 
 \[  B_0\hat z\times (\vec k\times \vec b) \ =\ \begin{vmatrix} 
 	\hat x & \hat y & \hat z \\ 
 	0 & 0 & B_0\\
-	-k_{\parallel} b_y & - k b_{\bar z} & k_{\perp} b_y
-\end{vmatrix} \ =\ \hat x\,(k\,B_0\, b_{\bar z})\, -\, \hat y (k_{\parallel}\, b_y\, B_0) + \hat z(0)\]
+	-k_{z} b_y & - k b_{\bar z} & k_{x} b_y
+\end{vmatrix} \ =\ \hat x\,(k\,B_0\, b_{\bar z})\, -\, \hat y (k_{z}\, b_y\, B_0) + \hat z(0)\]
 
 Ne deriva che la seconda equazione del sitema sia:  
 
@@ -391,7 +392,7 @@ Finito questo rimaneggiamento passiamo a fare lo stesso per la terza equazione:
 	\hat k & \hat y & \hat{\bar z} \\ 
 	k & 0 & 0\\
 	sin\theta B_0 u_y & B_0 u_x & -cos\theta B_0 u_y
-\end{vmatrix} \ =\ -k_\parallel B_0 u_y \hat y + k B_0 u_x \hat z\]
+\end{vmatrix} \ =\ -k_z B_0 u_y \hat y + k B_0 u_x \hat z\]
 
 Il sistema di equazioni MHD, linearizzate ed in trasformata di Fourier, si riduce così a:
 
@@ -405,12 +406,12 @@ Il sistema di equazioni MHD, linearizzate ed in trasformata di Fourier, si riduc
 		\ =\ 
 		c^2_s\, \rho_1\,
 		\begin{pmatrix}
-			k_\perp\\ 0 \\ -k_\parallel
+			k_x\\ 0 \\ k_z
 		\end{pmatrix}   
 		\ +\ 
 		\frac{B_0}{4\pi}
 		\begin{pmatrix}
-			k (-\cos\theta b_x + \sin\theta b_z)\\ -k_\parallel b_y\\ 0
+			k (-\cos\theta b_x + \sin\theta b_z)\\ -k_z b_y\\ 0
 		\end{pmatrix} 
 		\\
 		-\,\omega\,
@@ -419,15 +420,15 @@ Il sistema di equazioni MHD, linearizzate ed in trasformata di Fourier, si riduc
 		\end{pmatrix} 
 		\ =\ B_0\,
 		\begin{pmatrix}
-			k_\parallel u_x\\ k_\parallel u_y\\ -k_\perp u_x
+			k_z u_x\\ k_z u_y\\ -k_x u_x
 		\end{pmatrix}  
 	\end{cases}
 \end{equation} 
 
-Se ci limitiamo ad osservare la proiezione lungo $\hat y$ riduciamo il sistema a:
+Se ci limitiamo ad osservare la \underline{proiezione lungo $\hat y$} riduciamo il sistema a:
 \[\begin{cases}
-	\omega b_y\ =\ -k_\parallel B_0 u_y\\
-	\omega \rho_0 u_y\ =\ \frac{B_0}{4\pi}\, k_\parallel b_y
+	\omega \rho_0 u_y\ =\ \displaystyle\frac{B_0}{4\pi}\, k_z b_y\\
+	\omega b_y\ =\ -k_z B_0 u_y
 \end{cases}\]
 
 Questo sistema si limite alla direzione y con incognite $u_y$ e $b_y$, mentre il esiste un secondo sitema con $u_z,\, u_x$ e $b_x,\, b_y$, che vedremo nel prossimo paragrafo. 
@@ -450,34 +451,40 @@ L'energia si propaga lungo $\hat z$ mentre l'onda si propaga lungo $\hat k$
 %
 \vspace{1cm}
 \subsection{Onde Magnetosoniche}
-Riprendiamo il sistema precedente, questa volta consideriamo la direzione perpendicolare a quella precedente, ignoriamo la direzione y e vediamo cosa succede nel piano $x-k$, stavolta troveremo le \textbf{onde magnetosoniche} che sono \underline{onde comprimibili}:
+Riprendiamo il sistema precedente, questa volta consideriamo la direzione perpendicolare a quella precedente, ignoriamo la direzione y e vediamo cosa succede nel piano $x-z$, stavolta troveremo le \textbf{onde magnetosoniche} che sono \underline{onde comprimibili}.
 
 \[ \begin{cases}
 	\omega \rho_1\ =\ \rho_0\ \vec k\cdot \vec u\ =\ \rho_0\ (k_\perp u_x + k_\parallel u_z)\\
 	P_1\ =\ c^2_s\, \rho_1\ =\ \frac{\rho_0}{\omega}\ (k_\perp u_x + k_\parallel u_z)\\
-	\omega\, \rho_0\, \vec u\ =\ \bar c_s^2 \bar k \rho_1 + \frac{\bar B_0}{4\pi}\hat e_z\times (\vec k\times \vec b)\\
+	\omega\, \rho_0\, \vec u\ =\  c_s^2\, \vec k \rho_1 + \frac{\bar B_0}{4\pi}\hat z\times (\vec k\times \vec b)\\
 	\omega\,\vec b\ =\ -\vec k\times (\vec u \times \vec B_0)
 \end{cases} \]
 
-\[\omega \rho_0 \vec u\ =\ c^2_s\, \frac{\rho_0}{\omega}\, (k_\perp u_x + k_\parallel u_z)\vec k\ +\ \frac{k\, B_0 b_{\bar z}}{4\pi}\, \hat x\ +\ \dots\, \hat y \]
+Da questo sistema siamo partiti per arrivare al sitema eq.\ref{eq:onde MHD}, se si va a guardare le proiezioni lungo x-z questa volta troveremmo un sistema di 4 equazioni (due dal moto e due dall'equazione di Faraday). La differenza principale con il caso precedente è che il termine di pressione non si annulla quindi dobbiamo usare la politropica ed insieme l'equazione di continuità da cui ricavare $\rho_1$.
 
-Dalla terza equazione del sistema prendiamo $\omega b_z = k B_0 u_x$, usiamo poi il fatto che $\displaystyle\frac{k^2 B_0^2}{4\pi \rho_0}\, u_x=k^2\, c^2_a u_x$ per ottenere:
+\[\begin{cases}
+	\rho_0\omega u_x\ =\ c^2_s \rho_1 k_x\, +\, \frac{B_0}{4\pi} (k_x b_z - k_z b_x)\ \ ,\\
+	\rho_0\omega u_x\ =\ c^2_s \rho_1 k_z\ \ ,\\
+	\omega b_x\ =\ -\, B_0 k_z u_x\ \ ,\\
+	\omega b_z\ =\ B_0 k_z u_x\ \ ,\\
+	\omega \rho_1\ =\ \rho_0\, (k_x u_x + k_z u_z)\ \ .
+\end{cases}\]
 
-\[ \begin{aligned}
-	\omega^2 u_x\ &=\ c^2_s\, (k_\perp u_x\, +\, k_\parallel u_z)\, k_\perp\, +\, k^2\,c^2_a\, u_x \\ 
-	&=\ \ (k_\perp\, c^2_s\, +\, k^2\, c_a^2)\, u_x\ +\ (c_s^2\, k_\parallel\, k_\perp)\, u_z
-\end{aligned} \]
+Se moltiplicassimo le prime due equazioni di questo sistema, provenienti dall'equazione del moto, per $\omega$ e al contempo dividessimo per $\rho_0$, vi riconosceremmo la velocità di Alfvén $c_a^2=B^2_0 /4\pi \rho_0$ e l'identità $k_x^2 + k_z^2 = k^2$:
 
-Prendendo $\omega \rho_0 u_z = c^2_s \rho_1 k_\parallel$ scriviamo poi $\omega^2 \rho_0 u_z = c_s^2 k_\parallel \rho_0 (k_\perp u_x + k_\parallel u_z)$ così da giungere al sistema:
+\[\begin{cases}
+	\omega^2 u_x\ =\ c^2_s k^2_x u_x\, +\, c^2_s k_x k_z u_z \, +\, c_a^2 k^2 u_x\ \ ,\\
+	\omega^2 u_z\, -\, c^2_s k^2_z u_z\ =\ c^2_s k_x k_z u_x
+\end{cases}\]
 
-\[ \begin{cases}
-	(\omega^2\, -\, c^2_s\, k^2_\perp\, -\, k^2\, c^2_a)\, u_x\ -\ k_\parallel\, k_\perp\, c^2_s\, u_z\ =\ 0\\
-	k_\parallel\, k_\perp\, c^2_s\, u_x\ -\ (\omega^2\, -\, c_s\, k^2_\parallel)\, u_z\ =\ 0
-\end{cases} \]
+A questo punto è necessario ricavare una forma di $u_z$ dall'equazione della componente $\hat z$ per inserirla nell'equazione della componente $\hat x$, così da avere un'equazione del quarto grado da risolvere:
 
-\[ (\omega^2\, -\, k^2_\perp\, c^2_s\ -\ k^2\, c^2_a)\,(\omega^2\, -\, k^2_\parallel\, c^2_s)\ +\ k^2_\parallel\, k^2_\perp\, c^4_s\ =\ 0 \]
+\[\omega^2 \cancel{u_x}\ =\ c^2_s k^2_x \cancel{u_x} \, +\, \frac{c^4_s k^2_x k^2_z }{\omega^2 - c^2_s k^2_z}\, \cancel{u_x}\, +\, c_a^2 k^2 \cancel{u_x}\]
 
-\[ \omega^4 \,-\, \omega^2\, k^2\, (c^2_a\, +\, c^2_s)\, +\, k^2_\parallel\, k^2\, c^2_a\, c^2_s\ =\ 0 \]
+
+\[ (\omega^2\, -\, k^2_x\, c^2_s\ -\ k^2\, c^2_a)\,(\omega^2\, -\, k^2_z\, c^2_s)\ +\ k^2_z\, k^2_x\, c^4_s\ =\ 0 \]
+
+\[ \omega^4 \,-\, \omega^2\, k^2\, (c^2_a\, +\, c^2_s)\, +\, k^4\, \cos^2\theta\, c^2_a\, c^2_s\ =\ 0 \]
 
 \begin{equation}\label{dispersione magnetosoniche}
 	\boxed{\ \left( \frac{\omega}{k} \right)^2\ =\ \frac{1}{2}\, \left[\, c^2_a\ +\ c^2_s\ \pm\ \sqrt{(c_a^2\, +\, c_s^2)^2\, -\, 4\, c^2_a\, c^2_s\, cos^2\theta\,}\, \right]\ }
