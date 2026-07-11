@@ -1,4 +1,4 @@
-This is LuaHBTeX, Version 1.22.0 (TeX Live 2025/Debian)  (format=lualatex 2026.5.22)  10 JUL 2026 22:29
+This is LuaHBTeX, Version 1.22.0 (TeX Live 2025/Debian)  (format=lualatex 2026.5.22)  11 JUL 2026 22:30
  restricted system commands enabled.
 **main_v2.tex
 (./main_v2.tex
@@ -1460,12 +1460,12 @@ Capitolo 3.
 [25
 
 ]
-Overfull \hbox (25.34091pt too wide) detected at line 67
+Overfull \hbox (25.34091pt too wide) detected at line 69
 []
  []
 
 
-Overfull \hbox (6.21783pt too wide) detected at line 86
+Overfull \hbox (6.21783pt too wide) detected at line 88
 [] [] \OMS/cmsy/m/n/10  []\OT1/cmr/m/n/10 ([]\OML/cmm/m/it/10 ; []\OT1/cmr/m/n
 /10 )\OML/cmm/m/it/10 F\OT1/cmr/m/n/10 ([]\OML/cmm/m/it/10 ; []\OT1/cmr/m/n/10 
 )\OML/cmm/m/it/10 dx[]dv[]  \OT1/cmr/m/n/10 +  [] [] \OMS/cmsy/m/n/10  [] [] \
@@ -1486,14 +1486,14 @@ Package hyperref Warning: Difference (2) between bookmark levels is greater
 (hyperref)                than one, level fixed on input line 9.
 
 [41] [42] [43] [44] [45]
-<immagini/dispersioneionacoustic.jpg, id=704, 1284.8pt x 1061.9675pt>
+<immagini/dispersioneionacoustic.jpg, id=705, 1284.8pt x 1061.9675pt>
 File: immagini/dispersioneionacoustic.jpg Graphic file (type jpg)
 <use immagini/dispersioneionacoustic.jpg>
 Package luatex.def Info: immagini/dispersioneionacoustic.jpg  used on input lin
 e 275.
 (luatex.def)             Requested size: 213.39566pt x 176.38377pt.
  [46<./immagini/dispersioneionacoustic.jpg>]
-<immagini/riferimento.jpeg, id=713, 1093.08376pt x 959.585pt>
+<immagini/riferimento.jpeg, id=715, 1093.08376pt x 959.585pt>
 File: immagini/riferimento.jpeg Graphic file (type jpg)
 <use immagini/riferimento.jpeg>
 Package luatex.def Info: immagini/riferimento.jpeg  used on input line 337.
@@ -1509,13 +1509,13 @@ Overfull \hbox (36.00543pt too wide) in paragraph at lines 510--511
 le al mo-do di Al-fvén ma com-pri-mi-bi-le, $[]$. 
  []
 
-<immagini/LD.png, id=728, 740.7675pt x 410.53375pt>
+<immagini/LD.png, id=729, 740.7675pt x 410.53375pt>
 File: immagini/LD.png Graphic file (type png)
 <use immagini/LD.png>
 Package luatex.def Info: immagini/LD.png  used on input line 553.
 (luatex.def)             Requested size: 170.71652pt x 94.6087pt.
 [49]
-<immagini/LDvisualized.png, id=735, 898.35625pt x 671.50874pt>
+<immagini/LDvisualized.png, id=736, 898.35625pt x 671.50874pt>
 File: immagini/LDvisualized.png Graphic file (type png)
 <use immagini/LDvisualized.png>
 Package luatex.def Info: immagini/LDvisualized.png  used on input line 597.
@@ -1528,7 +1528,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 755--756
 
 [53] [54] [55]) (./instabilità.tex [56]
 Capitolo 6.
-<immagini/flusso3.jpg, id=789, 1174.3875pt x 806.01125pt>
+<immagini/flusso3.jpg, id=790, 1174.3875pt x 806.01125pt>
 File: immagini/flusso3.jpg Graphic file (type jpg)
 <use immagini/flusso3.jpg>
 Package luatex.def Info: immagini/flusso3.jpg  used on input line 16.
@@ -1539,12 +1539,12 @@ Underfull \vbox (badness 5954) has occurred while \output is active []
  [57
 
 <./immagini/flusso3.jpg>]
-<immagini/flusso1.jpg, id=795, 1201.48875pt x 1003.75pt>
+<immagini/flusso1.jpg, id=796, 1201.48875pt x 1003.75pt>
 File: immagini/flusso1.jpg Graphic file (type jpg)
 <use immagini/flusso1.jpg>
 Package luatex.def Info: immagini/flusso1.jpg  used on input line 80.
 (luatex.def)             Requested size: 113.81102pt x 95.06624pt.
-<immagini/flusso2.jpg, id=796, 1077.02374pt x 1003.75pt>
+<immagini/flusso2.jpg, id=797, 1077.02374pt x 1003.75pt>
 File: immagini/flusso2.jpg Graphic file (type jpg)
 <use immagini/flusso2.jpg>
 Package luatex.def Info: immagini/flusso2.jpg  used on input line 85.
@@ -1553,7 +1553,7 @@ Package luatex.def Info: immagini/flusso2.jpg  used on input line 85.
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [58<./immagini/flusso1.jpg><./immagini/flusso2.jpg>]
-<immagini/KH.jpg, id=803, 1284.8pt x 767.86874pt>
+<immagini/KH.jpg, id=804, 1284.8pt x 767.86874pt>
 File: immagini/KH.jpg Graphic file (type jpg)
 <use immagini/KH.jpg>
 Package luatex.def Info: immagini/KH.jpg  used on input line 123.
@@ -1569,12 +1569,12 @@ Underfull \hbox (badness 10000) in paragraph at lines 292--293
  []
 
 [62] [63] [64] [65]
-<immagini/Mfield.png, id=842, 821.0675pt x 489.83pt>
+<immagini/Mfield.png, id=843, 821.0675pt x 489.83pt>
 File: immagini/Mfield.png Graphic file (type png)
 <use immagini/Mfield.png>
 Package luatex.def Info: immagini/Mfield.png  used on input line 524.
 (luatex.def)             Requested size: 199.16928pt x 118.81726pt.
-<immagini/psi.png, id=843, 1013.7875pt x 733.74126pt>
+<immagini/psi.png, id=844, 1013.7875pt x 733.74126pt>
 File: immagini/psi.png Graphic file (type png)
 <use immagini/psi.png>
 Package luatex.def Info: immagini/psi.png  used on input line 529.
@@ -1624,7 +1624,7 @@ Here is how much of LuaTeX's memory you used:
    32 hlist, 2 vlist, 14 rule, 2 glue, 4 kern, 12 sub_mlist, 1 glyph, 1196 attri
 bute, 75 glue_spec, 635 attribute_list, 2 write, 24 pdf_literal, 24 pdf_colorsta
 ck nodes
-   avail lists: 1:3,2:1711,3:824,4:328,5:1059,6:131,7:8813,8:111,9:2020,10:32,11
+   avail lists: 1:3,2:1711,3:824,4:328,5:1059,6:131,7:8813,8:111,9:2020,10:33,11
 :1231
  58774 multiletter control sequences out of 65536+600000
  93 fonts using 5923575 bytes
@@ -1652,10 +1652,10 @@ onts/type1/public/lm/lmr9.pfb></usr/share/texmf/fonts/type1/public/lm/lmri10.pfb
 /public/lm/lmro10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts
 /symbols/msbm10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/s
 ymbols/msbm7.pfb>
-Output written on main_v2.pdf (79 pages, 2424870 bytes).
+Output written on main_v2.pdf (79 pages, 2425011 bytes).
 
-PDF statistics: 1034 PDF objects out of 1200 (max. 8388607)
- 871 compressed objects within 9 object streams
+PDF statistics: 1035 PDF objects out of 1200 (max. 8388607)
+ 872 compressed objects within 9 object streams
  267 named destinations out of 1000 (max. 131072)
  784 words of extra memory for PDF output out of 10000 (max. 100000000)
 

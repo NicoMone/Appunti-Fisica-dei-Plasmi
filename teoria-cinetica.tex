@@ -33,7 +33,7 @@ Si può vedere sul Krall come, ipotizzando una distribuzione maxwelliana, il ris
 e quindi scala come la temperatura.
 
 \begin{teorema}{Teorema di Liouville}
-	 SSiccome sarà utile in seguito, richiamiamo il teorema di Liouville: data la nostra funzione di distribuzione F che descrive il plasma ad ogni tempo occupera un punto dello spazio delle fasi 2n-dimensionale, tracciando nel tempo una traiettoria di fase; secondo il teorema la derivata temporale totale della densità degli stati sarà nulla.
+	 SSiccome sarà utile in seguito, richiamiamo il teorema di Liouville: data la nostra funzione di distribuzione F che descrive il plasma ad ogni tempo, questa occuperà un punto dello spazio delle fasi 2n-dimensionale, tracciando nel tempo una traiettoria di fase; secondo il teorema la derivata temporale totale della densità degli stati sarà nulla.
 	
 	\[ \frac{d}{dt} F\ =\ 0\]
 	
@@ -42,7 +42,7 @@ e quindi scala come la temperatura.
 	O per esprimerla ancor più esplicitamente:
 	
 	\begin{equation}\label{Liouville}
-		\frac{d}{dt} F\ =\ \frac{\partial}{\partial t} F + \sum_i^N\vec v_i \cdot  \frac{\partial}{\partial \vec x_i}F + \sum_i^N\vec a_i \cdot  \frac{\partial}{\partial \vec v_i}F\ =\ 0
+		\frac{d}{dt} F\ \ =\ \ \frac{\partial}{\partial t} F\ +\ \sum_i^N\vec v_i \cdot  \frac{\partial}{\partial \vec x_i}F \ +\ \sum_i^N\vec a_i \cdot  \frac{\partial}{\partial \vec v_i}F\ \ =\ \ 0
 	\end{equation}
 	
 \end{teorema}
@@ -53,7 +53,9 @@ e quindi scala come la temperatura.
 \vspace{0.5cm}
 \section{L'equazione di Vlasov}
 
-Dal teorema di Liouville in eq.(\ref{Liouville}) si giunge all'equazioni più nota della fisica dei plasmi, l'equazione di Vlasov, integrando su tutte le particelle da 2 ad N vediamo che il primo termine di eq.(\ref{Liouville}) è legato alla $F^{(1)}$:
+Dal teorema di Liouville in eq.(\ref{Liouville}) si giunge ad una delle più importanti equazioni della fisica dei plasmi, l'equazione di Vlasov: integrando su tutte le particelle da 2 ad N vediamo che il primo termine di eq.(\ref{Liouville}) è legato alla $F^{(1)}$.
+
+Andiamo ad integrare separatamente i termini di eq.(\ref{Liouville}):
 
 \[ \int\ \frac{\partial F^{(n)}}{\partial t}\ dx_2 ...dx_n dv_2 ...dv_n\ =\ \frac{\partial}{\partial t }\ \left( \int F^{(n)}\ dx_2 ...dx_n dv_2 ...dv_n\right)\ =\ \frac{\partial F^{(1)}}{\partial t}\]
 
